@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Form</title>
+</head>
+
+<body>
+    <form id="form">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">College Name</label>
+            <input type="text" name="col_name" id="col_name">
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <select name="state" id="state">
+                <option value="up">Uttar Pradesh</option>
+                <option value="mp">Madhya Pradesh</option>
+                <option value="tn">Tamil Nadu</option>
+                <option value="j&k">Jammu & Kashmir</option>
+                <option value="rajas">Rajasthan</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Course</label>
+            <input type="text" id="course" name="course">
+        </div>
+        <div class="form-group">
+            <label>Year</label>
+            <select name="year" id="year"></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p id="result" style="display: none;font-size: 20px;color: red;">Form submitted Successfully... Redirecting...</p>
+    </form>
+    <script>
+        const currentYear = new Date().getFullYear();
+        const graduationYearSelect = document.getElementById('year');
+        for (let year = currentYear; year <= currentYear + 10; year++) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.text = year;
+            graduationYearSelect.appendChild(option);
+        }
+
+        document.getElementById('form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const col_name = document.getElementById('col_name').value;
+            const state = document.getElementById('state').value;
+            const course = document.getElementById('course').value;
+            const year = document.getElementById('year').value;
+            const result = document.getElementById('result');
+
+            const data = { name, email, col_name, state, course, year };
+            console.log("Submitting data:", data);
+
+            try {
+                const response = await fetch('http://localhost:3000/info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    console.log("Information saved");
+                    result.style.display = "inline-block";
+                    setTimeout(() => {
+                        window.location.href = 'main_page.html';
+                    }, 2000);
+                } else {
+                    console.log("Submission failed");
+                }
+            } catch (error) {
+                console.error("Error occurred", error);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

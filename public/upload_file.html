@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/uploadfile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Paper Upload</title>
+</head>
+
+<body>
+  <section>
+    <h2>Upload Research files</h2>
+    <div class="first-div">
+      <div class="form">
+        <form enctype="multipart/form-data" id="uploadForm">
+          <div class="form-group">
+            <p style="display: inline-block;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, repudiandae exercitationem inventore
+              veniam vel illum rerum laudantium itaque vero beatae dolor, quam illo commodi omnis quibusdam repellendus
+              expedita? Ab, mollitia!
+            </p>
+            <div id="status" style="display: none;margin: 0;padding: 0px;;font-size: 21px;">
+              <b style="color: rgb(242, 16, 16);">File Uploaded successfully</b>
+              <p style="color: red;font-size: 18px;">Please Refresh!</p>
+            </div>
+            <label for="exampleFormControlFile1">Upload Files:</label>
+            <input type="file" name="file" required>
+            <button type="button" onclick="uploadFile()">Upload</button>
+          </div>
+        </form>
+      </div>
+      <div class="img">
+        <img src="images/career_pic.jpg" alt="">
+      </div>
+    </div>
+  </section>
+  <button onclick="fetchUploadedFiles()">View</button>
+  <div id="uploadedFilesContainer">
+    <h2>Uploaded Research Files</h2>
+
+  </div>
+  <script>
+    async function uploadFile() {
+      const form = document.getElementById('uploadForm');
+      const status = document.getElementById('status');
+      const token = localStorage.getItem('accessToken');
+      console.log(token)
+      const headers = new Headers();
+      headers.append('Authorization', `Bearer ${token}`);
+      const formData = new FormData(form);
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData,
+          headers: headers, 
+        });
+
+        if (response.status === 200) {
+          status.style.display = 'block';
+        } else {
+          console.log("Failed to upload file");
+        }
+      } catch (error) {
+        console.error('Error during file upload:', error);
+        status.textContent = 'Error uploading file';
+      }
+    }
+
+
+    async function fetchUploadedFiles() {
+      try {
+        const response = await fetch('/uploaded_files', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        if (response.ok) {
+          const files = await response.json();
+          const uploadedFilesContainer = document.getElementById('uploadedFilesContainer');
+          const ul = document.createElement('ul');
+          files.forEach(file => {
+            const li = createFileElement(file);
+            ul.appendChild(li);
+          });
+          uploadedFilesContainer.innerHTML = '';
+          uploadedFilesContainer.appendChild(ul);
+        } else {
+          console.error('Failed to fetch uploaded files:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching uploaded files:', error);
+      }
+    }
+  </script>
+</body>
+
+</html>

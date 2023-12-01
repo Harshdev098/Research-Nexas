@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login_style.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div id="box2">
+        <p>Sorry! User not found</p>
+    </div>
+    <div id="box3">
+        <p>Error Occured! Please Try Again</p>
+    </div>
+    <h2>Login</h2>
+    <h4>(for Researchers)</h4>
+    <div class="login">
+        <div>
+            <p><b>Email:</b></p>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div>
+            <p><b>Password:</b></p>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div>
+            <a href="">Forgot Password</a>
+        </div>
+        <div>
+            <button type="button" onclick="login()">Login</button>
+        </div>
+        <div>
+            <p style="display: inline;">Haven't Register?&nbsp;&nbsp;</p><a href="signup.html">Register Now</a>
+        </div>
+    </div>
+    <div id="box1">
+        <p>Login Successfully ... Redirecting Please Wait...</p>
+    </div>
+
+    <script>
+        async function login() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const result1 = document.getElementById('box1')
+            const result2 = document.getElementById('box2')
+            const result3 = document.getElementById('box3')
+
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+
+                if (response.status === 200) {
+                    const result1 = document.getElementById('box1');
+                    console.log('Login successful');
+                    const result = await response.json();
+                    const token = result.accessToken;
+                    console.log(token)
+                    localStorage.setItem('accessToken', token);
+                    result1.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'main_page.html';
+                    }, 2000);
+                } else if (response.status === 404) {
+                    result2.style.display = 'block';
+                    console.log('User not found');
+                } else {
+                    const errorMessage = await response.text();
+                    console.log(`Login failed: ${errorMessage}`);
+                    result3.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>

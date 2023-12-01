@@ -1,0 +1,86 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/login_style.css">
+  <title>Registration</title>
+</head>
+<body>
+  <div id="box2">
+    <p>Please Try Again! Account Already Exists</p>
+  </div>
+  <div id="box3">
+    <p>Error Occuered! Please Try Again</p>
+  </div>
+  <h2>Registration</h2>
+  <h4>(for Researchers)</h4>
+  <div class="login"id="login">
+  <form id="registrationForm">
+    <div>
+      <p><b>Username</b></p>
+      <input type="text" id="name" name="name" placeholder="Enter the Username"  required>
+    </div>
+    <div>
+      <p><b>Email:</b></p>
+      <input type="email" id="email" name="email" placeholder="Enter the email" required>
+    </div>
+    <div>
+      <p><b>Password:</b></p>
+      <input type="password" id="password" name="password"placeholder="Enter the Password"  required>
+    </div>
+    <div style="text-align: center;">
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</div>
+<div id="box1">
+  <p>Successfully Registered... Redirecting Please Wait...</p>
+</div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const result1=document.getElementById('box1');
+      const result2=document.getElementById('box2');
+      const result3=document.getElementById('box3');
+      const login=document.getElementById('login');
+
+      try {
+        const response = await fetch('http://localhost:3000/create_user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, password }),
+        });
+
+        if (response.ok) {
+          login.style.opacity='0.2';
+          result1.style.opacity='1';
+          result1.style.display='block';
+          setTimeout(() => {
+          window.location.href = 'login.html'; 
+        }, 2000);
+        }
+        else if (response.status === 409) {
+          result2.style.display='block';
+          // alert('User already exists!');
+        } 
+        else {
+          result3.style.display='block'
+          // alert('Failed to register user.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+</html>
