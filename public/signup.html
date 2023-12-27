@@ -44,9 +44,9 @@
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
       const result1=document.getElementById('box1');
       const result2=document.getElementById('box2');
       const result3=document.getElementById('box3');
@@ -70,11 +70,20 @@
         }, 2000);
         }
         else if (response.status === 409) {
+          document.getElementById('email').value=''
+          document.getElementById('password').value=''
+          document.getElementById('name').value=''
           result2.style.display='block';
+          setTimeout(()=>{
+            result2.style.display='none';
+          },2000)
           // alert('User already exists!');
         } 
         else {
           result3.style.display='block'
+          setTimeout(()=>{
+            result3.style.display='none'
+          },2000)
           // alert('Failed to register user.');
         }
       } catch (error) {

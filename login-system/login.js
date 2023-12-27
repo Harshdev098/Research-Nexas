@@ -48,7 +48,7 @@ const signup=async (req, res) => {
                     connection.release();
                     if (err) throw (err)
                     console.log("Created a new User")
-                    notify(req, res, email);
+                    // notify(req, res, email);
                     res.sendStatus(201);
                 })
             }

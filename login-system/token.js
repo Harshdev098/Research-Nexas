@@ -15,7 +15,7 @@ function decodeAccessToken(authorizationHeader) {
     
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        console.log('decoded info: ',decoded)
+        // console.log('decoded info: ',decoded)
         return decoded;
     } catch (error) {
         console.error('Error decoding access token:', error);

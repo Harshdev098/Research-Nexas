@@ -52,6 +52,7 @@ section h2 {
 }
 .form-group button:hover{
     background-color: rgb(181, 181, 239);
+    color: black;
 }
 
 .img {
@@ -112,4 +113,33 @@ div h2{
 .uploaded-files button{
     padding: 7px 4px 7px 10px;
     font-size: 17px;
+}
+button{
+    padding: 12px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 20px auto;
+    color: white;
+    background-color: rgb(212, 57, 57);
+    border: none;
+    display: block;
+}
+#uploadedFilesContainer button:hover{
+    outline: 2px solid red;
+    outline-offset: 2px;
+    cursor: pointer;
+}
+#uploadedFilesContainer ul{
+    list-style: none;
+    margin: 6px;
+    margin: auto;
+    display: block;
+    padding: 0px;
+}
+#uploadedFilesContainer ul li{
+    margin: 8px;
+    padding: 20px;
+    background-color: rgb(164, 164, 232);
+    border-radius: 10px;
+    font-size: 18px;
 }

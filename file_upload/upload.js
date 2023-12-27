@@ -35,7 +35,7 @@ const save = async (req,res) => {
     const filepath = req.file.path;
     db.getConnection((err, connection) => {
         if (err) throw err;
-        const sql = "INSERT INTO upload_file_db VALUES(?,?,?)"
+        const sql = "INSERT INTO upload_file_db VALUES(?,?,?,0)"
         const query = mysql.format(sql, [userid, filename, filepath])
         connection.query(query, (err, result) => {
             connection.release();
@@ -55,14 +55,16 @@ const disp = (req, res) => {
             return res.status(401).send('Unauthorized');
         }
         const userid = decodedToken.user;
-        const sqlquery = "SELECT * FROM upload_file_db WHERE userid=?";
+        const sqlquery = "SELECT filename FROM upload_file_db WHERE userid=?";
         const query = mysql.format(sqlquery, [userid]);
-        db.query(query, (err, file) => {
+        db.query(query, (err, result) => {
             if (err) {
                 console.error('Error querying database:', err);
                 return res.status(500).send('Internal Server Error');
             }
-            res.json({ file });
+            const filenames=result.filename;
+            console.log(filenames);
+            res.json({ filenames });
         });
     } catch (error) {
         console.error('Error during disp:', error);

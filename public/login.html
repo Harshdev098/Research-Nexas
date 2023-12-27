@@ -42,8 +42,8 @@
 
     <script>
         async function login() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
             const result1 = document.getElementById('box1')
             const result2 = document.getElementById('box2')
             const result3 = document.getElementById('box3')
@@ -72,10 +72,20 @@
                 } else if (response.status === 404) {
                     result2.style.display = 'block';
                     console.log('User not found');
+                    document.getElementById('email').value=''
+                    document.getElementById('password').value=''
+                    setTimeout(()=>{
+                        result2.style.display = 'none';
+                    },2000)
                 } else {
                     const errorMessage = await response.text();
                     console.log(`Login failed: ${errorMessage}`);
                     result3.style.display = 'block';
+                    email=''
+                    password=''
+                    setTimeout(()=>{
+                        result3.style.display = 'none';
+                    },2000)
                 }
             } catch (error) {
                 console.error('Error during login:', error);

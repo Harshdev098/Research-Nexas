@@ -24,7 +24,6 @@
             </p>
             <div id="status" style="display: none;margin: 0;padding: 0px;;font-size: 21px;">
               <b style="color: rgb(242, 16, 16);">File Uploaded successfully</b>
-              <p style="color: red;font-size: 18px;">Please Refresh!</p>
             </div>
             <label for="exampleFormControlFile1">Upload Files:</label>
             <input type="file" name="file" required>
@@ -37,10 +36,9 @@
       </div>
     </div>
   </section>
-  <button onclick="fetchUploadedFiles()">View</button>
   <div id="uploadedFilesContainer">
     <h2>Uploaded Research Files</h2>
-
+    <button class="view" onclick="fetchUploadedFiles()">View</button>
   </div>
   <script>
     async function uploadFile() {
@@ -60,6 +58,9 @@
 
         if (response.status === 200) {
           status.style.display = 'block';
+          setTimeout(()=>{
+            status.style.display = 'none';
+          },2000)
         } else {
           console.log("Failed to upload file");
         }
@@ -71,6 +72,10 @@
 
 
     async function fetchUploadedFiles() {
+      const token = localStorage.getItem('accessToken');
+      console.log(token)
+      const headers = new Headers();
+      headers.append('Authorization', `Bearer ${token}`);
       try {
         const response = await fetch('/uploaded_files', {
           headers: {
@@ -78,15 +83,16 @@
           },
         });
         if (response.ok) {
-          const files = await response.json();
+          const result = await response.json();
           const uploadedFilesContainer = document.getElementById('uploadedFilesContainer');
           const ul = document.createElement('ul');
+          uploadedFilesContainer.appendChild(ul);
+          const files=result.filenames;
           files.forEach(file => {
-            const li = createFileElement(file);
+            const li = document.createElement('li');
+            li.textContent=file;
             ul.appendChild(li);
           });
-          uploadedFilesContainer.innerHTML = '';
-          uploadedFilesContainer.appendChild(ul);
         } else {
           console.error('Failed to fetch uploaded files:', response.statusText);
         }
