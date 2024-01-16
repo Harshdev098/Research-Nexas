@@ -74,7 +74,7 @@ Follow these steps to run the Research Nexas
   DB_PORT=3306 // databse port
   ACCESS_TOKEN_SECRET = 3a9af42de397cfc9387a06972c28c23a1ac7e9a60fb6dc1f05295bc6057baf500672d4a13db5d04ea84bbc4c5679164a7723f3d49f516bb73dc3df6e3b768c8e
   EMAIL='harshoxfordgkp@gmail.com'
-  MYPASS='yourpassword'
+  MYPASS='yourmailpassword'
   ```
 - Now run the following commands in your terminal
   ```
