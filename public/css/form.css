@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(158,133,87);
+    background: radial-gradient(circle, rgba(158,133,87,1) 15%, rgba(206,187,151,1) 100%);
+    height: 100vh;
+}
+#loader{
+    z-index: 2;
+    border: 2px solid black;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    left: 40%;
+    width: 30vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+.result{
+    font-size: 20px;
+    padding: 20px auto;
+    margin: 0;
+    background-color: green;
+}
+.result p{
+    margin: 0;
+}
+form{
+    padding: 20px;
+    background-color: white;
+    width: 40vw;
+    height: 80vh;
+    border-radius: 20px 0px 0px 20px;
+    margin: auto;
+    font-size: 18px;
+    overflow: auto;
+}
+form input{
+    display: block;
+    margin: 6px auto;
+    font-style: italic;
+    width: 90%;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+.btn{
+    margin: auto;
+    display: block;
+}
+.btn button{
+    font-size: 18px;
+    padding: 8px 18px;
+}
+form label{
+    font-weight: bold;
+    padding: 0 10px;
+}
+form::-webkit-scrollbar {
+    width: 9px;
+}
+
+form::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+form::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+

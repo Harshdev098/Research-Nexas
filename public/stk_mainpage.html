@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main_page_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/stk_mainstyling.css">
+    <title>Main Page</title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="logo"><img src="images/logo.png" alt="" width="160px"></div>
+        <div id="heading" style="font-size: 34px;color: white;">Research Nexas</div>
+        <div>
+            <a href="dashboard.html" title="View Profile"><i class="fa-solid fa-user"
+                    style="font-size: 30px;padding: 12px 13px;border:3px solid white;border-radius:50%;color:white"></i></a>
+        </div>
+    </div>
+    <main>
+        <div class="main">
+            <div>
+                <h2 style="margin: 4px;padding: 8px;">Approve Papers</h2>
+                <p>Approve Research Papers submitted by your students</p>
+                <a href="stk_papers">Go ahead <i class="fa-solid fa-arrow-right"
+                        style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
+            </div>
+            <div>
+                <h2 style="margin: 4px;padding: 8px;">Evaluation Criteria</h2>
+                <p>Set Evaluation Criteria for each Papers</p>
+                <a href="#criteria">Go ahead <i class="fa-solid fa-arrow-right"
+                        style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
+            </div>
+            <div>
+                <h2 style="margin: 4px;padding: 8px;">Allot Papers</h2>
+                <p>Allot Papers to the faculties</p>
+                <a href="">Go ahead <i class="fa-solid fa-arrow-right"
+                        style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
+            </div>
+            <div>
+                <h2 style="margin: 4px;padding: 8px;">Approve Topics</h2>
+                <p>Approve topics choosen by the students</p>
+                <a href="">Go ahead <i class="fa-solid fa-arrow-right"
+                        style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
+            </div>
+        </div>
+    </main>
+    <section>
+        <h2>Approval</h2>
+        <div class="approve">
+            <div class="app_box" id="app_box1">
+                <h3>Topics</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptas consequatur obcaecati alias
+                    perferendis nihil aliquam numquam voluptatem! Consequuntur, nulla aliquid. Rem molestias consequatur
+                    sit suscipit nam voluptates impedit praesentium.</p>
+            </div>
+            <div class="app_box" id="app_box2">
+                <h3>Papers</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt sapiente sequi beatae hic,
+                    nisi maxime ipsum alias quia libero obcaecati inventore tempora reprehenderit culpa ab vero eius eum
+                    ullam!</p>
+            </div>
+        </div>
+        <h2>Paper Allotment</h2>
+        <div class="allot">
+            <div class="allot-box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, sint. Voluptatibus fugit itaque
+                    molestias consectetur quidem beatae placeat error doloremque laboriosam mollitia quae accusamus
+                    architecto alias eligendi veritatis voluptas, facere praesentium, cupiditate rerum ipsum suscipit
+                    porro
+                    est. Debitis voluptates assumenda eos nesciunt, necessitatibus soluta totam earum minus dolore autem
+                    quaerat atque nobis? Nulla a vel repudiandae esse voluptate eius libero cupiditate veritatis error,
+                    nostrum excepturi, et aliquam quos?</p>
+            </div>
+            <div class="image">
+                <img src="images/career_pic.jpg" alt="">
+            </div>
+        </div>
+        <div id="criteria">
+            <h2>Set Evaluation Criteria</h2>
+            <p style="text-align: center;color: red;font-size: 18px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime accusantium delectus repellat, fugit
+                recusandae deserunt ab laborum omnis sequi quas placeat facere dignissimos quia hic eius dolorem
+                corrupti temporibus vitae, corporis autem fugiat nemo, quaerat reiciendis? Quasi, animi!</p>
+            <div class="form-container">
+                <p style="display: none;color: red;font-size: 18px;">Form has been submitted</p>
+                <div id="step1" class="form-step">
+                    <h4>Step1 : Methodology</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nemo exercitationem molestias
+                        repellendus autem sed. Eum reprehenderit fugiat quia iure repudiandae sunt nisi harum!</p>
+                    <form>
+                        <label><input type="radio" value="" name="step1">High Priority</label>
+                        <label><input type="radio" value="" name="step1">Midium</label>
+                        <label><input type="radio" value="" name="step1">Low Priority</label>
+                        <div class="btn">
+                            <button class="next-btn" onclick="nextStep()" type="button">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="step2" class="form-step">
+                    <h4>Step2 :Ideation or Clarity</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nemo exercitationem molestias
+                        repellendus autem sed. Eum reprehenderit fugiat quia iure repudiandae sunt nisi harum!</p>
+                    <form>
+                        <label><input type="radio" value="" name="step2">High Priority</label>
+                        <label><input type="radio" value="" name="step2">Midium</label>
+                        <label><input type="radio" value="" name="step2">Low Priority</label>
+                        <div class="btn">
+                            <button class="prev-btn" onclick="prevStep()" type="button">Back</button>
+                            <button class="next-btn" onclick="nextStep()" type="button">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="step3" class="form-step">
+                    <h4>Step3 : Data collection and technique</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nemo exercitationem molestias
+                        repellendus autem sed. Eum reprehenderit fugiat quia iure repudiandae sunt nisi harum!</p>
+                    <form>
+                        <label><input type="radio" value="" name="step3">High Priority</label>
+                        <label><input type="radio" value="" name="step3">Midium</label>
+                        <label><input type="radio" value="" name="step3">Low Priority</label>
+                        <div class="btn">
+                            <button class="prev-btn" onclick="prevStep()" type="button">Back</button>
+                            <button class="next-btn" onclick="nextStep()" type="button">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="step4" class="form-step">
+                    <h4>Step4 : Quality and Guidelines</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nemo exercitationem molestias
+                        repellendus autem sed. Eum reprehenderit fugiat quia iure repudiandae sunt nisi harum!</p>
+                    <form>
+                        <label><input type="radio" value="" name="step4">High Priority</label>
+                        <label><input type="radio" value="" name="step4">Midium</label>
+                        <label><input type="radio" value="" name="step4">Low Priority</label>
+                        <div class="btn">
+                            <button class="prev-btn" onclick="prevStep()" type="button">Back</button>
+                            <button class="next-btn" onclick="nextStep()" type="button">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="step5" class="form-step">
+                    <h4>Step4 : Other</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nemo exercitationem molestias
+                        repellendus autem sed. Eum reprehenderit fugiat quia iure repudiandae sunt nisi harum!</p>
+                    <form>
+                        <label>Name of Method:</label>
+                        <input type="text">
+                        <label>What the method is(less than 100 words):</label>
+                        <input type="text">
+                        <label><input type="radio" value="" name="step5">High Priority</label>
+                        <label><input type="radio" value="" name="step5">Midium</label>
+                        <label><input type="radio" value="" name="step5">Low Priority</label>
+                        <p style="display: none;font-size: 19px;color: green;" id="result">Successfully executed!</p>
+                        <p style="display: none;font-size: 19px;color: red;" id="result2">An error occured!</p>
+                        <div class="btn">
+                            <button class="prev-btn" onclick="prevStep()" type="button">Back</button>
+                            <button type="button" onclick="submit()" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+                        <li><a href="#">bag</a></li>
+                        <li><a href="#">shoes</a></li>
+                        <li><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script/stk_mainpage.js"></script>
+</body>
+
+</html>

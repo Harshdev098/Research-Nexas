@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <title>Document</title>
+   <style>
+      * {
+         box-sizing: border-box;
+      }
+
+      body {
+         margin: 0;
+         padding: 0;
+         background-color: #eeeded;
+      }
+
+      ul li {
+         list-style: none;
+         background-color: white;
+         margin: 4px;
+         border-radius: 12px;
+         display: flex;
+         flex-direction: column;
+         font-size: 17px;
+         text-align: center;
+      }
+
+      ul {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+         grid-column-gap: 2rem;
+         grid-row-gap: 2rem;
+         margin: 4px;
+      }
+
+      ul img {
+         width: 100%;
+         height: 100px;
+         border-radius: 12px 12px 0px 0px;
+      }
+
+      button {
+         padding: 9px 26px;
+         margin: 8px;
+         background-color: rgb(10 103 244);
+         color: white;
+         border-radius: 10px;
+         font-size: 18px;
+         border: none;
+         transition: all 0.7s ease-in-out;
+         cursor: pointer;
+      }
+
+      button:hover {
+         background-color: rgb(18, 102, 133);
+      }
+      .box {
+            background-color: white;
+            padding: 16px;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            border: 3px solid rgb(10, 159, 218);
+        }
+
+        .box p {
+            text-align: center;
+            display: inline;
+            padding: 8px 8px;
+            background-color: rgb(240, 237, 237);
+            border-radius: 10px;
+        }
+
+        #container {
+            position: absolute;
+            top: 10%;
+            z-index: 2;
+            left: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        #result1 {
+            margin: 0;
+            padding: 12px;
+            background-color: rgb(7, 184, 7);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+        #result3 {
+            margin: 0;
+            padding: 12px;
+            background-color: rgb(7, 184, 7);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+
+        #result2 {
+            margin: 0;
+            padding: 12px;
+            background-color: rgb(248, 8, 8);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+
+   </style>
+</head>
+<body>
+   <p id="result1"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Approved! Refreshing</p>
+   <p id="result3"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Approval Cancelled</p>
+   <p id="result2"><i class="fa-solid fa-xmark" style="padding: 0px 12px;font-size: 26px;"></i>An error occured during approval</p>
+   <!-- unverified research papers  -->
+   <div class="papers">
+      <div>
+         <h2 style="text-align: center;font-size: 34px;">Research Papers</h2>
+         <ul id="ul1">
+            
+         </ul>
+      </div>
+      <!-- verified research papers  -->
+      <h2 style="text-align: center;font-size: 34px;">Approved Research Papers</h2>
+      <div>
+         <ul id="ul2">
+            
+         </ul> 
+      </div>
+   </div>
+   <div id="container">
+      <div class="box">
+          <strong>PaperId:</strong>
+          <p id="paperid"></p>
+          <strong>View:</strong>
+          <p id="path"></p>
+          <strong>Name:</strong>
+          <p id="name"></p>
+          <strong>Email:</strong>
+          <p id="email"></p>
+          <strong>College Name:</strong>
+          <p id="col_name"></p>
+          <div>
+              <button id="cancel" style="background-color: rgb(201, 198, 198);color: black;">Cancel</button>
+              <button id="approve">Approve</button>
+              <button id="close" style="background-color: rgb(122, 120, 120);color: rgb(233, 231, 231)">Close</button>
+          </div>
+      </div>
+  </div>
+
+   <script src="script/approval.js"></script>
+</body>
+
+</html>

@@ -1,10 +1,11 @@
 require("dotenv").config()
-
+// generating the token for user
 const jwt = require("jsonwebtoken")
 function generateAccessToken (user) {
 return  jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "20m"})
 }
 
+// function for decoding the token 
 function decodeAccessToken(authorizationHeader) {
     if (!authorizationHeader) {
         console.log('authorization header is missing')

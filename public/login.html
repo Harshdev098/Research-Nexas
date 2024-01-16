@@ -9,35 +9,34 @@
 </head>
 
 <body>
-    <div id="box2">
-        <p>Sorry! User not found</p>
-    </div>
-    <div id="box3">
-        <p>Error Occured! Please Try Again</p>
-    </div>
-    <h2>Login</h2>
-    <h4>(for Researchers)</h4>
-    <div class="login">
-        <div>
-            <p><b>Email:</b></p>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div class="container">
+        <div class="image">
+            <img src="images/logo.png" alt="">
         </div>
-        <div>
-            <p><b>Password:</b></p>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <div id="box2">
+            <p>Sorry! User not found</p>
         </div>
-        <div>
-            <a href="">Forgot Password</a>
+        <div id="box3">
+            <p>Error Occured! Please Try Again</p>
         </div>
-        <div>
-            <button type="button" onclick="login()">Login</button>
+        <div class="form">
+            <form>
+                <h2 style="text-align: center; margin: 10px 0px 6px 0px;font-size: 32px;">Login</h2>
+                <h4 style="text-align: center; margin: 10px 0px 6px 0px;font-size: 22px;">(for Researchers)</h4>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <a href="">Forgot Password?</a>
+                <button type="button" onclick="login()">Login</button>
+                <div class="register">
+                    <p style="display: inline;">Haven't Register?&nbsp;</p><a href="signup.html">Register Now</a>
+                </div>
+            </form>
         </div>
-        <div>
-            <p style="display: inline;">Haven't Register?&nbsp;&nbsp;</p><a href="signup.html">Register Now</a>
+        <div id="box1">
+            <p>Login Successfully ... Redirecting Please Wait...</p>
         </div>
-    </div>
-    <div id="box1">
-        <p>Login Successfully ... Redirecting Please Wait...</p>
     </div>
 
     <script>
@@ -67,25 +66,25 @@
                     localStorage.setItem('accessToken', token);
                     result1.style.display = 'block';
                     setTimeout(() => {
-                        window.location.href = 'main_page.html';
+                        window.location.href = 'form_filling.html';
                     }, 2000);
                 } else if (response.status === 404) {
                     result2.style.display = 'block';
                     console.log('User not found');
-                    document.getElementById('email').value=''
-                    document.getElementById('password').value=''
-                    setTimeout(()=>{
+                    document.getElementById('email').value = ''
+                    document.getElementById('password').value = ''
+                    setTimeout(() => {
                         result2.style.display = 'none';
-                    },2000)
+                    }, 2000)
                 } else {
                     const errorMessage = await response.text();
                     console.log(`Login failed: ${errorMessage}`);
                     result3.style.display = 'block';
-                    email=''
-                    password=''
-                    setTimeout(()=>{
+                    email = ''
+                    password = ''
+                    setTimeout(() => {
                         result3.style.display = 'none';
-                    },2000)
+                    }, 2000)
                 }
             } catch (error) {
                 console.error('Error during login:', error);

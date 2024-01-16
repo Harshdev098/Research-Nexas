@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn (stakeholder)</title>
+    <link rel="stylesheet" href="css/login_style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div id="box2">
+            <p>Sorry! User not found</p>
+        </div>
+        <div id="box3">
+            <p>Error Occuered! Please Try Again</p>
+        </div>
+        <div class="form">
+            <form>
+                <h2 style="text-align: center;">Sign In</h2>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+                <button type="button" onclick="register()">Login</button>
+            </form>
+        </div>
+        <div id="box1">
+            <p>Successfully Logged in... Redirecting Please Wait...</p>
+        </div>
+    </div>
+    <script>
+        const register = async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const result1 = document.getElementById('box1')
+            const result2 = document.getElementById('box2')
+            const result3 = document.getElementById('box3')
+            const response = await fetch('http://localhost:3000/stk_holder_signin', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password }),
+            });
+            if (response.ok) {
+                const result1 = document.getElementById('box1');
+                console.log('Login successful');
+                const result = await response.json();
+                const token = result.accessToken;
+                localStorage.setItem('accessToken', token);
+                result1.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'stk_mainpage.html';
+                }, 2000);
+            }
+            else if (response.status == 409) {
+                result2.style.display = 'block';
+                console.log('User not found');
+                document.getElementById('email').value = ''
+                document.getElementById('password').value = ''
+                setTimeout(() => {
+                    result2.style.display = 'none';
+                }, 2000)
+            }
+            else {
+                const errorMessage = await response.text();
+                console.log(`Login failed: ${errorMessage}`);
+                result3.style.display = 'block';
+                document.getElementById('email').value = ''
+                document.getElementById('password').value = ''
+                setTimeout(() => {
+                    result3.style.display = 'none';
+                }, 2000)
+            }
+        }
+    </script>
+</body>
+
+</html>

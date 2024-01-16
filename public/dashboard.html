@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="darkmode" onclick="hide()">
+                <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
+                <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
+                <b><p id="mode" style="display: inline;font-size: 20px;">Light Mode</p></b>
+            </div>
+            <div class="profile">
+                <img src="" alt="profile">
+                <strong>Result Status:</strong>
+            </div>
+            <ul>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>lgsslfot</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>sdlkfsldt</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>ksdslddt</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>dsksdut</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>duiwert</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+            </ul>
+        </div>
+        <div class="largesection">
+            <div class="main">
+                <div>
+                    <img src="" alt="profile">
+                    <strong>
+                        <p id="username">sdisoilfds</p>
+                    </strong>
+                </div>
+                <div>
+                    <button><a href=""><i class="fa-regular fa-pen-to-square" style="padding: 0px 12px 0px 8px;"></i>Edit Profile</a></button>
+                </div>
+            </div>
+            <div id="detail">
+                <ul>
+                    <li>Name: <p id="name">skhksdfosdjdjsklf</p></li>
+                    <li>Email: <p id="email">skhksdfosdjdjsklf</p></li>
+                    <li>College Name: <p id="col_name">skhksdfosdjdjsklf</p></li>
+                    <li>State: <p id="state">skhksdfosdjdjsklf</p></li>
+                    <li>Year: <p id="year">skhksdfosdjdjsklf</p></li>
+                    <li>Course: <p id="course">skhksdfosdjdjsklf</p></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script>
+        async function fetchdata() {
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const username=document.getElementById('username');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const col_name = document.getElementById('col_name');
+            const state = document.getElementById('state');
+            const year = document.getElementById('year');
+            const course = document.getElementById('course');
+            const response = await fetch('http://localhost:3000/dashboard', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.status == 200) {
+                const data = await response.json();
+                console.log(data);
+                username.textContent=data.username;
+                name.textContent = data.name;
+                email.textContent = data.email;
+                col_name.textContent = data.col_name;
+                state.textContent = data.state;
+                year.textContent = data.year;
+                course.textContent = data.course;
+            }
+        }
+        fetchdata()
+
+        function hide(){
+            const regularicon=document.getElementById('regular')
+            const solidicon=document.getElementById('solid')
+            const mode=document.getElementById('mode')
+            if(regularicon.style.display=='inline'){
+                solidicon.style.display='inline';
+                regularicon.style.display='none';
+                mode.textContent="Dark Mode"
+            }
+            else{
+                solidicon.style.display='none';
+                regularicon.style.display='inline';
+                mode.textContent="Light Mode"
+            }
+        }
+    </script>
+</body>
+
+</html>

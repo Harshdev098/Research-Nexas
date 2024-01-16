@@ -1,6 +1,7 @@
 const mysql = require('mysql')
 const bcrypt = require('bcrypt')
 const {generateAccessToken}=require('./token');
+const notify = require('./notification');
 
 require("dotenv").config()
 const DB_HOST = process.env.DB_HOST
@@ -48,7 +49,9 @@ const signup=async (req, res) => {
                     connection.release();
                     if (err) throw (err)
                     console.log("Created a new User")
-                    // notify(req, res, email);
+                    const sub='Signup-Research Nexas '
+                    // const content=`Account created successfully with username ${result[0].username} in Research Nexas`
+                    // notify(req,res,result[0].email,sub,content);
                     res.sendStatus(201);
                 })
             }
@@ -77,6 +80,9 @@ const signin=(req, res) => {
                     const token = generateAccessToken({ user: result[0].userid });
                     console.log(token)
                     res.json({ accessToken: token })
+                    const sub='Log in-Research Nexas '
+                    // const content=`Login successfully to the account with username ${result[0].username}`
+                    // notify(req,res,result[0].email,sub,content);
                 }
                 else {
                     res.send("password incorrect")

@@ -19,7 +19,10 @@ section h2 {
     width: 40vw;
     font-size: 20px;
 }
-
+.img i{
+    font-size: 24vw;
+    color: #6a6a80;
+}
 .form p {
     padding: 18px 0px;
     word-wrap: break-word;

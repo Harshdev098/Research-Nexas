@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp (stakeholder)</title>
+    <link rel="stylesheet" href="css/login_style.css">
+</head>
+
+<body>
+    <div id="box2">
+        <p>Please Try Again! Account Already Exists</p>
+    </div>
+    <div id="box3">
+        <p>Error Occuered! Please Try Again</p>
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="form">
+            <form>
+                <h2 style="text-align: center;">Sign Up</h2>
+                <label for="collegeName">College Name</label>
+                <input type="text" id="colname" name="colname" placeholder="Enter your College Name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="button" onclick="register()">Sign Up</button>
+            </form>
+        </div>
+        <div id="box1">
+            <p>Successfully Registered... Redirecting Please Wait...</p>
+        </div>
+    </div>
+    <script>
+        const register = async () => {
+            const email = document.getElementById('email').value;
+            const colname = document.getElementById('colname').value;
+            const password = document.getElementById('password').value;
+            const result1=document.getElementById('box1')
+            const result2=document.getElementById('box2')
+            const result3=document.getElementById('box3')
+            const response = await fetch('http://localhost:3000/stk_holder_signup', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ colname, email, password }),
+            });
+            if (response.status == 201) {
+                result1.style.opacity = '1';
+                result1.style.display = 'block';
+                setTimeout(() => {
+                    result1.style.display = 'none';
+                    window.location.href = 'stk_login.html';
+                }, 2000);
+            }
+            else if (response.status == 409) {
+                document.getElementById('email').value = ''
+                document.getElementById('password').value = ''
+                document.getElementById('colname').value = ''
+                result2.style.display = 'block';
+                setTimeout(() => {
+                    result2.style.display = 'none';
+                }, 2000)
+            }
+            else {
+                result3.style.display = 'block'
+                document.getElementById('email').value = ''
+                document.getElementById('password').value = ''
+                document.getElementById('colname').value = ''
+                setTimeout(() => {
+                    result3.style.display = 'none'
+                }, 2000)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,31 +1,30 @@
-const express = require('express');
-const mailgun = require('mailgun-js');
+const nodemailer=require('nodemailer')
 
-const app = express();
-const PORT = 3000;
-app.use(express.json());
-
-const mg = mailgun({
-    apiKey: 'YOUR_MAILGUN_API_KEY',
-    domain: 'YOUR_MAILGUN_DOMAIN',
+require("dotenv").config()
+const MYEMAIL=process.env.EMAIL;
+const PASS=process.env.MYPASS
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: MYEMAIL,
+        pass: PASS,
+    },
 });
 
-const notify= (req, res,recipient) => {
-    const data = {
-        from: 'harshoxfordgkp@gmail.com',
-        to: recipient,
-        subject:'Research Nexas Signup',
-        text:'jskjkfsjkfjskdfskdlfkjdsnnjksdfkjdsnfkjsdkfjkdsjknsjskfdkndjfsdkkds'
+const notify=(req,res,email,sub,content)=>{
+    const mailOptions = {
+        from: MYEMAIL,
+        to: `${email}`,
+        subject: `${sub}`,
+        text: `${content}`,
     };
-
-    mg.messages().send(data, (error, body) => {
+    transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.error(error);
-            return res.status(500).send('Error during sending email');
+            console.error('Error sending notification email:', error);
+        } else {
+            console.log('Notification email sent:', info.response);
         }
-        console.log(body);
-        res.send('Email sent successfully');
     });
-};
+}
 
 module.exports=notify;

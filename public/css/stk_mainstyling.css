@@ -1,0 +1,334 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit,minmax(300px,6fr));
+    grid-column-gap: 3rem;
+    grid-row-gap: 2rem;
+    width: 50%;
+    margin: 30px;
+}
+@media (max-width:1296px){
+    .main{
+        width: 56vw;
+        grid-template-columns: repeat(auto-fit,minmax(240px,6fr));
+    }
+}
+@media (max-width:990px){
+    .main{
+        width: 70vw;
+        grid-template-columns: repeat(auto-fit,minmax(220px,8fr));
+    }
+}
+@media (max-width:695px){
+    .main{
+        width: 80vw;
+        grid-template-columns: repeat(auto-fit,minmax(180px,8fr));
+    }
+}
+@media (max-width:571px){
+    .main{
+        width: 80vw;
+        grid-template-columns: repeat(auto-fit,minmax(120px,8fr));
+    }
+}
+@media (max-width:435px){
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+.main div{
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+}
+.main div p{
+    color: white;
+}
+.main div a{
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    opacity: 0.6;
+    margin: 6px;
+    border-radius: 20px;
+    padding: 8px 14px;
+    color: black;
+    transition: all 0.7s ease-in-out;
+}
+.main div:nth-child(1){
+    background-color: #dbb46c;
+}
+.main div:nth-child(1) a:hover{
+    background-color: #e1d1b4;
+}
+.main div:nth-child(2){
+    background-color: #be9fa5;
+}
+.main div:nth-child(2) a:hover{
+    background-color: #d4bfc3;
+}
+.main div:nth-child(3){
+    background-color: #d56a6a;
+}
+.main div:nth-child(3) a:hover{
+    background-color: #d99999;
+}
+.main div:nth-child(4){
+    background-color: #8b8bc8;
+}
+.main div:nth-child(4) a:hover{
+    background-color: #b8b8e0;
+}
+.main h2{
+    font-size: 20px;
+}
+.main p{
+    font-size: 18px;
+}
+
+/* approval styling  */
+.approve{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.app_box h3{
+    color: black;
+    margin: 0;
+    padding: 8px;
+}
+.app_box{
+    padding: 16px;
+    border-radius: 20px;
+    background-color: #f4f2ed;
+    margin: 10px;
+    border: 2px solid red;
+    width: 30vw;
+    transition: all 0.8s ease-in-out;
+}
+#app_box1:hover{
+    transform: perspective(680px) rotateY(0deg);
+}
+#app_box1{
+    transform: perspective(680px) rotateY(20deg);
+}
+#app_box2{
+    transform: perspective(680px) rotateY(-20deg);
+}
+#app_box2:hover{
+    transform: perspective(680px) rotateY(0deg);
+}
+
+/* allotment styling  */
+.allot{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+.allot-box{
+    padding: 12px;
+    width: 50vw;
+    font-size: 18px;
+}
+.image{
+    width: 30vw;
+}
+.image img{
+    width: 30vw;
+    border-radius: 20px;
+}
+@media (max-width:880px){
+    .image{
+        width: 50vw;
+    }
+    .image img{
+        width: 50vw;
+    }
+}
+@media (max-width:450px){
+    .image{
+        width: 80vw;
+    }
+    .image img{
+        width: 80vw;
+    }
+}
+
+/* evaluation form  */
+#criteria{
+    background-color: rgb(224, 228, 233);
+    padding: 12px;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.form-container h4{
+    font-size: 30px;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-container form label{
+    padding: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.form-container input[type=text]{
+    padding: 6px;
+    margin: 8px;
+    font-size: 17px;
+    border-radius: 10px;
+}
+.btn{
+    display: inline;
+    margin: 8px;
+}
+.btn button{
+    padding: 9px 34px;
+    border-radius: 10px;
+    margin: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form-step p{
+    font-size: 18px;
+}
+.prev-btn{
+    background-color: rgb(212, 212, 212);
+    color: black;
+    border: none;
+}
+.next-btn{
+    background-color: black;
+    color: white;
+}
+.submit-btn{
+    background-color: black;
+    color: white;
+}
+
+/* footer styling */
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}

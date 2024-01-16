@@ -32,7 +32,7 @@
         </form>
       </div>
       <div class="img">
-        <img src="images/career_pic.jpg" alt="">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
       </div>
     </div>
   </section>
@@ -53,14 +53,14 @@
         const response = await fetch('/upload', {
           method: 'POST',
           body: formData,
-          headers: headers, 
+          headers: headers,
         });
 
         if (response.status === 200) {
           status.style.display = 'block';
-          setTimeout(()=>{
+          setTimeout(() => {
             status.style.display = 'none';
-          },2000)
+          }, 2000)
         } else {
           console.log("Failed to upload file");
         }
@@ -73,7 +73,6 @@
 
     async function fetchUploadedFiles() {
       const token = localStorage.getItem('accessToken');
-      console.log(token)
       const headers = new Headers();
       headers.append('Authorization', `Bearer ${token}`);
       try {
@@ -84,13 +83,18 @@
         });
         if (response.ok) {
           const result = await response.json();
+          // console.log(result)
           const uploadedFilesContainer = document.getElementById('uploadedFilesContainer');
           const ul = document.createElement('ul');
           uploadedFilesContainer.appendChild(ul);
-          const files=result.filenames;
-          files.forEach(file => {
+          const files = result.filenames;
+          const filepaths = result.filepaths;
+          files.forEach((file, index) => {
             const li = document.createElement('li');
-            li.textContent=file;
+            const link = document.createElement('a');
+            link.href = filepaths[index];
+            link.textContent = file;
+            li.appendChild(link);
             ul.appendChild(li);
           });
         } else {

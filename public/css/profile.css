@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+section{
+    display: flex;
+}
+
+/* container styling */
+.container{
+    background-color: aliceblue;
+    height: 100vh;
+}
+.container ul{
+    border-top: 2px solid white;
+    padding: 0;
+    margin: 0;
+}
+.container ul li{
+    list-style: none;
+    margin: 7px 26px 7px 16px;
+    padding: 8px 44px 8px 26px;
+    font-size: 20px;
+}
+.container ul li:hover{
+    background-color: rgb(221, 232, 241);
+    border-radius: 12px;
+    cursor: pointer;
+}
+.darkmode{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+    padding: 12px;
+    margin: 4px;
+    font-size: 30px;
+}
+.profile img{
+    margin: 12px;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 12px;
+    margin: 12px;
+}
+.profile strong{
+    padding: 14px;
+}
+
+/* main styling */
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.main img{
+    margin: 26px;
+    border-radius: 50%;
+}
+.main p{
+    font-size: 42px;
+    padding: 26px 26px;
+    margin: 0;
+}
+.main button a{
+    text-decoration: none;
+    font-size: 16px;
+    background-color: rgb(212, 42, 42);
+    color: white;
+}
+.main button{
+    padding: 10px;
+    margin: 0px 20px;
+    background-color: rgb(212, 42, 42);
+    border: none;
+    border-radius: 8px;
+}
+.largesection{
+    flex: 1;
+}
+
+/* detail styling  */
+#detail ul{
+    margin: 8px;
+}
+#detail ul li{
+    list-style: none;
+    font-size: 20px;
+    margin: 8px;
+    padding: 8px;
+}
+#detail ul li p{
+    background-color: rgb(231, 230, 230);
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Choose login page</title>
+        <link rel="stylesheet" href="css/choosefile.css">
+    </head>
+    <body>
+      <div class="container">
+        <p>Select Who You Are</p>
+    <div class="radio">
+        <label>
+            <input type="radio"name="pageoption"value="Student"onchange="redirect()">Student
+        </label><br>
+        <label>
+            <input type="radio"name="pageoption"value="Stakeholder"onchange="redirect()">Stakeholder
+        </label><br>
+    </div>
+  </div>
+        <script>
+            function redirect() {
+      var radioButtons = document.getElementsByName("pageoption");
+
+
+      for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+          var selectedValue = radioButtons[i].value;
+          if (selectedValue == "Student") {
+            window.location.href = "./login.html";
+          }
+           else if (selectedValue == "Stakeholder") {
+            window.location.href = "./stk_login.html";
+          }
+          break;
+        }
+    }
+  }
+        </script>
+    </body>
+</html>

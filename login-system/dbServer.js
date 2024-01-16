@@ -1,10 +1,11 @@
 const express = require('express')
-const mysql = require('mysql')
 const path = require('path')
-const bcrypt = require('bcrypt')
 const { upload, save, disp } = require(path.resolve(__dirname, '../file_upload/upload.js'));
-const info = require('../file_upload/form_db')
+const {stk_signup,stk_signin}=require('../stakeholder/login')
+const {info,check} = require('../file_upload/form_db')
 const { signup, signin } = require('./login');
+const { approve,uploadedpapers,displaydetail }= require('../stakeholder/stk_approval')
+const {display}=require('../backend/profile')
 const app = express()
 
 // serving pages 
@@ -25,11 +26,29 @@ app.get('/main_page.html', (req, res) => {
 app.get('/upload_file.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/upload_file.html'));
 })
-app.get('/form_filling.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/form_filling.html'));
+app.get('/stk_signup.html',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../public/stk_signup.html'));
+})
+app.get('/form_filling',async (req,res)=>{
+    await check(req,res)
+})
+app.get('/dashboard',async(req,res)=>{
+    await display(req,res);
 })
 
+
 app.use(express.json())
+app.use(express.static('../file_upload/uploads'))
+
+// serving ejs files
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine','ejs') 
+app.get('/stk_papers',async(req,res)=>{
+    res.render('stk_papers')
+})
+app.get('/api/stk_papers',uploadedpapers)
+app.get('/api/papers_detail',displaydetail)
+
 
 // uploading files 
 app.post('/upload', upload.single('file'), async (req, res) => {
@@ -55,9 +74,18 @@ app.get('/uploaded_files', disp)
 
 // creating user
 app.post("/create_user",signup)
+app.post("/stk_holder_signup",stk_signup)
 
 // login backend 
 app.post("/login",signin)
+app.post("/stk_holder_signin",stk_signin)
+
+// approval by stakeholder
+app.get('/approval',approve)
+
+// research paper view for stakeholders
+// app.get('/stk_papers',uploadedpapers)
+
 
 // starting the app on port 
 const port = process.env.PORT
