@@ -8,39 +8,61 @@ Follow these steps to run the Research Nexas
 
 - Clone this repository in your computer
 - Establishing the database in MySQL Workbench
-  - Open MySQL workbench and run these queries one by one
+  - Open MySQL workbench and run these queries
     
      ```
      CREATE SCHEMA user_db;
+     use user_db;
      ```
      ```
-     CREATE TABLE `user_db`.`user_table` (
-       `userid` int NOT NULL AUTO_INCREMENT,
-       `username` varchar(70) NOT NULL,
-       `email` varchar(120) NOT NULL,
-       `password` varchar(100) NOT NULL,
-       PRIMARY KEY (`userid`)
-    ) 
+     create table user_table(
+     userid INT auto_increment unique primary key,
+     username varchar(60) not null,
+     email varchar(80) not null unique,
+     password varchar(140) not null unique
+     );
      ```
      ```
-     CREATE TABLE `user_db`.`upload_file_db` (
-       `userid` int NOT NULL,
-       `filename` varchar(120) NOT NULL,
-       `filepath` varchar(250) NOT NULL,
-       PRIMARY KEY (`userid`)
-    )
+     create table upload_file_db(
+     sno int auto_increment unique primary key,
+     userid int not null,
+     filename varchar(160) not null unique,
+     filepath varchar(220) not null unique,
+     status boolean default false,
+     foreign key(userid) references info_table(id)
+     );
      ```
      ```
-     CREATE TABLE `user_db`.`info_table` (
-       `id` int NOT NULL,
-       `name` varchar(60) DEFAULT NULL,
-       `email` varchar(80) NOT NULL,
-       `col_name` varchar(160) NOT NULL,
-       `state` varchar(80) NOT NULL,
-       `year` int NOT NULL,
-       `course` varchar(100) NOT NULL,
-       PRIMARY KEY (`id`)
-    )
+     create table info_table(
+     id int unique not null primary key,
+     name varchar(70) not null,
+     email varchar(80) not null unique,
+     col_name varchar(180) not null,
+     state varchar(80) not null,
+     year int not null,
+     course varchar(100) not null,
+     foreign key(id) references user_table(userid) on delete cascade
+     );
+     ```
+     ```
+     create table stk_holder(
+     id int not null auto_increment primary key,
+     col_name varchar(180) not null,
+     email varchar(80) not null unique,
+     password varchar(80) not null unique
+     );
+     ```
+     ```
+     create table criteria(
+     stk_id int not null,
+     level1 varchar(40) not null,
+     level2 varchar(40) not null,
+     level3 varchar(40) not null,
+     level4 varchar(40) not null,
+     topic varchar(200) default null,
+     level5 varchar(40) default null,
+     foreign key(stk_id) references stk_holder(id) on delete cascade  
+     );
      ```
 - Now open code editor(eg. VS Code)
 - make a .env file and add the following data to this file
@@ -51,6 +73,8 @@ Follow these steps to run the Research Nexas
   DB_DATABASE=user_db
   DB_PORT=3306 // databse port
   ACCESS_TOKEN_SECRET = 3a9af42de397cfc9387a06972c28c23a1ac7e9a60fb6dc1f05295bc6057baf500672d4a13db5d04ea84bbc4c5679164a7723f3d49f516bb73dc3df6e3b768c8e
+  EMAIL='harshoxfordgkp@gmail.com'
+  MYPASS='yourpassword'
   ```
 - Now run the following commands in your terminal
   ```
