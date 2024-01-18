@@ -56,6 +56,9 @@
                 const token = result.accessToken;
                 localStorage.setItem('accessToken', token);
                 result1.style.display = 'block';
+                document.getElementById('email').value = ''
+                document.getElementById('password').value = ''
+                document.getElementById('colname').value = ''
                 setTimeout(() => {
                     window.location.href = 'stk_mainpage.html';
                 }, 2000);

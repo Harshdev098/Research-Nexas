@@ -5,7 +5,8 @@ const {stk_signup,stk_signin}=require('../stakeholder/login')
 const {info,check} = require('../file_upload/form_db')
 const { signup, signin } = require('./login');
 const { approve,uploadedpapers,displaydetail }= require('../stakeholder/stk_approval')
-const {display}=require('../backend/profile')
+const {display}=require('../backend/profile');
+const { setcriteria } = require('../stakeholder/evaluation');
 const app = express()
 
 // serving pages 
@@ -83,9 +84,8 @@ app.post("/stk_holder_signin",stk_signin)
 // approval by stakeholder
 app.get('/approval',approve)
 
-// research paper view for stakeholders
-// app.get('/stk_papers',uploadedpapers)
-
+// setting evaluation criteria 
+app.post('/evaluation',setcriteria)
 
 // starting the app on port 
 const port = process.env.PORT

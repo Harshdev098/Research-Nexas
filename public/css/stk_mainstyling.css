@@ -332,3 +332,7 @@ ul {
         width: 100%;
     }
 }
+#step5 p{
+    font-size: 20px;
+    color: red;
+}
