@@ -29,7 +29,9 @@ Follow these steps to run the Research Nexas
      filename varchar(160) not null unique,
      filepath varchar(220) not null unique,
      status boolean default false,
-     foreign key(userid) references info_table(id)
+     fac_mail varchar(80) default null,
+     foreign key(fac_mail) references faculty(email) on delete cascade,
+     foreign key(userid) references info_table(id) on delete cascade
      );
      ```
      ```
@@ -51,17 +53,32 @@ Follow these steps to run the Research Nexas
      email varchar(80) not null unique,
      password varchar(80) not null unique
      );
+
      ```
      ```
      create table criteria(
-     stk_id int not null,
-     level1 varchar(40) not null,
-     level2 varchar(40) not null,
-     level3 varchar(40) not null,
-     level4 varchar(40) not null,
+     stk_id int not null unique,
+     college varchar(100) not null,
+     level1 int not null,
+     level2 int not null,
+     level3 int not null,
+     level4 int not null,
      topic varchar(200) default null,
-     level5 varchar(40) default null,
+     level5 int default null,
      foreign key(stk_id) references stk_holder(id) on delete cascade  
+     );
+     ```
+     ```
+     create table result(
+     resultid int not null auto_increment primary key,
+     result float default null,
+     userid int not null,
+     topic1 int not null,
+     topic2 int not null,
+     topic3 int not null,
+     topic4 int not null,
+     topic5 int default null,
+     foreign key (userid) references user_table(userid) on delete cascade
      );
      ```
 - Now open code editor(eg. VS Code)
@@ -73,8 +90,8 @@ Follow these steps to run the Research Nexas
   DB_DATABASE=user_db
   DB_PORT=3306 // databse port
   ACCESS_TOKEN_SECRET = 3a9af42de397cfc9387a06972c28c23a1ac7e9a60fb6dc1f05295bc6057baf500672d4a13db5d04ea84bbc4c5679164a7723f3d49f516bb73dc3df6e3b768c8e
-  EMAIL='harshoxfordgkp@gmail.com'
-  MYPASS='yourmailpassword'
+  EMAIL='harsh@gmail.com'   // your email
+  MYPASS='yourmailpassword' 
   ```
 - Now run the following commands in your terminal
   ```
