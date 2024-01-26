@@ -6,10 +6,10 @@ const {info,check} = require('../file_upload/form_db')
 const { signup, signin } = require('./login');
 const { approve,uploadedpapers,displaydetail }= require('../stakeholder/stk_approval')
 const {display}=require('../backend/profile');
+const {stk_display}=require('../backend/stk_profile')
 const { setcriteria, evaluate } = require('../stakeholder/evaluation');
 const {allot,DisplayPapers} = require('../stakeholder/allotment');
-const {Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating}=require('../stakeholder/faculty');
-const { stk_display } = require('../backend/stk_profile');
+const {Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating}=require('../stakeholder/faculty')
 const app = express()
 
 // serving pages 
@@ -107,7 +107,7 @@ app.get('/fac_papers',Dis_fac_papers)
 app.post('/rating',giverating)
 app.get('/result',evaluate)
 
-app.get('/stk_profile_detail',stk_display)
+app.get('stk_profile_detail',stk_display)
 
 // starting the app on port 
 const port = process.env.PORT

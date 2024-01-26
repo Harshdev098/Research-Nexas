@@ -70,61 +70,78 @@ const evaluate = async (req, res) => {
     }
     const userid = decodedToken.user;
     await db.getConnection((err, connection) => {
-        if (err) throw err;
-        const stu_college = mysql.format('select * from info_table where id=?', [userid])
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        const stu_college = mysql.format('select * from info_table where id=?', [userid]);
         connection.query(stu_college, async (err, result) => {
-            if (err) throw err;
+            if (err) {
+                console.error(err);
+                connection.release();
+                return res.status(500).send('Internal Server Error');
+            }
             const stu_col_name = result[0].col_name;
-            const credit = mysql.format('select * from criteria where college=?', [stu_col_name])
+            const credit = mysql.format('select * from criteria where college=?', [stu_col_name]);
             await connection.query(credit, async (err, result) => {
-                if (err) throw err;
-                if (result.length != 0) {
-                    const credit1 = result.level1
-                    const credit2 = result.level2
-                    const credit3 = result.level3
-                    const credit4 = result.level4
-                    const credit5 = result.level5
-                    const total_credit = parseInt(credit1, 10) + parseInt(credit2, 10) + parseInt(credit3, 10) + parseInt(credit4, 10)
-                    // const total_credit=credit1+credit2+credit3+credit4
-                    const rating = mysql.format('select * from result where userid=?', [userid])
+                if (err) {
+                    console.error(err);
+                    connection.release();
+                    return res.status(500).send('Internal Server Error');
+                }
+                if (result.length !== 0) {
+                    const credit1 = result[0].level1;
+                    const credit2 = result[0].level2;
+                    const credit3 = result[0].level3;
+                    const credit4 = result[0].level4;
+                    console.log(credit1, credit2, credit3, credit4);
+                    const total_credit = parseInt(credit1, 10) + parseInt(credit2, 10) + parseInt(credit3, 10) + parseInt(credit4, 10);
+
+                    const rating = mysql.format('select * from result where userid=?', [userid]);
                     await connection.query(rating, (err, result) => {
-                        if (err) throw err;
-                        if (result.length != 0) {
-                            const rating1 = result.topic1;
-                            const rating2 = result.topic2;
-                            const rating3 = result.topic3;
-                            const rating4 = result.topic4;
-                            const rating5 = result.topic5;
-                            const stu_result = ((rating1 * credit1) + (rating2 * credit2) + (rating3 * credit3) + (rating4 * credit4) + (rating5 * credit5)) / total_credit
+                        if (err) {
+                            console.error(err);
+                            connection.release();
+                            return res.status(500).send('Internal Server Error');
+                        }
+                        if (result.length !== 0) {
+                            const rating1 = result[0].topic1;
+                            const rating2 = result[0].topic2;
+                            const rating3 = result[0].topic3;
+                            const rating4 = result[0].topic4;
+                            const stu_result = ((rating1 * credit1) + (rating2 * credit2) + (rating3 * credit3) + (rating4 * credit4)) / total_credit;
+                            console.log(stu_result);
                             const percent = stu_result * 100;
-                            let status = "Pass"
-                            const update=mysql.format('update result set result=? where userid=?',[percent,userid])
-                            connection.query(update,(err,result)=>{
-                                if(err) throw err;
+                            console.log(percent);
+                            let status = "Pass";
+                            const update = mysql.format('update result set result=? where userid=?', [percent, userid]);
+                            connection.query(update, (err, result) => {
+                                if (err) {
+                                    console.error(err);
+                                    connection.release();
+                                    return res.status(500).send('Internal Server Error');
+                                }
                                 if (percent >= 30) {
-                                    res.send(201).json({ percent, status })
-                                    connection.release()
+                                    res.status(201).json({ percent, status });
+                                } else {
+                                    status = "Fail";
+                                    res.status(201).json({ percent, status });
                                 }
-                                else {
-                                    status = "Fail"
-                                    res.send(201).json({ percent, status })
-                                    connection.release()
-                                }
-                            })
+                                connection.release();
+                            });
+                        } else {
+                            res.sendStatus(404);
+                            connection.release();
                         }
-                        else {
-                            res.sendStatus(404)
-                            connection.release()
-                        }
-                    })
+                    });
+                } else {
+                    res.sendStatus(404);
+                    connection.release();
                 }
-                else {
-                    res.sendStatus(404)
-                    connection.release()
-                }
-            })
-        })
-    })
-}
+            });
+        });
+    });
+};
+
 
 module.exports = { setcriteria, evaluate }

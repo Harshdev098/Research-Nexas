@@ -35,11 +35,11 @@ const save = async (req,res) => {
     const userid = decodedToken.user;
     const filename = req.file.filename;
     const filepath = req.file.path;
-    db.getConnection((err, connection) => {
+    db.getConnection(async(err, connection) => {
         if (err) throw err;
         const sql = "INSERT INTO upload_file_db VALUES(0,?,?,?,0,null)"
         const query = mysql.format(sql, [userid, filename, filepath])
-        connection.query(query, (err, result) => {
+        await connection.query(query,async (err, result) => {
             connection.release();
             if (err) {
                 console.error('Error inserting file into database:', err);

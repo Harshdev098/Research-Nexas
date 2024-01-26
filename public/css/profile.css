@@ -115,8 +115,9 @@ section{
 }
 #result p{
     padding: 10px;
-    font-size: 18px;
+    font-size: 21px;
     display: inline-block;
+    color: green;
 }
 .data p{
     margin: 16px;

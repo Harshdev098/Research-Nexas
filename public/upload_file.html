@@ -61,7 +61,12 @@
           setTimeout(() => {
             status.style.display = 'none';
           }, 2000)
-        } else {
+        } 
+        else if(response.status=401){ 
+          const status=document.getElementById('status')
+          status.innerHTML="You have already uploaded one Research Paper"
+        }
+        else {
           console.log("Failed to upload file");
         }
       } catch (error) {
@@ -93,6 +98,7 @@
             const li = document.createElement('li');
             const link = document.createElement('a');
             link.href = filepaths[index];
+            link.target="_blank"
             link.textContent = file;
             li.appendChild(link);
             ul.appendChild(li);
