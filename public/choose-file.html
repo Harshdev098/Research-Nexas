@@ -14,6 +14,9 @@
         <label>
             <input type="radio"name="pageoption"value="Stakeholder"onchange="redirect()">Stakeholder
         </label><br>
+        <label>
+            <input type="radio"name="pageoption"value="Faculty"onchange="redirect()">Faculty
+        </label><br>
     </div>
   </div>
         <script>
@@ -26,6 +29,9 @@
           var selectedValue = radioButtons[i].value;
           if (selectedValue == "Student") {
             window.location.href = "./login.html";
+          }
+          else if(selectedValue=="Faculty"){
+            window.location.href="./fac_login.html";
           }
            else if (selectedValue == "Stakeholder") {
             window.location.href = "./stk_login.html";

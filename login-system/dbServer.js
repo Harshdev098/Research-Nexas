@@ -6,7 +6,10 @@ const {info,check} = require('../file_upload/form_db')
 const { signup, signin } = require('./login');
 const { approve,uploadedpapers,displaydetail }= require('../stakeholder/stk_approval')
 const {display}=require('../backend/profile');
-const { setcriteria } = require('../stakeholder/evaluation');
+const { setcriteria, evaluate } = require('../stakeholder/evaluation');
+const {allot,DisplayPapers} = require('../stakeholder/allotment');
+const {Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating}=require('../stakeholder/faculty');
+const { stk_display } = require('../backend/stk_profile');
 const app = express()
 
 // serving pages 
@@ -47,9 +50,12 @@ app.set('view engine','ejs')
 app.get('/stk_papers',async(req,res)=>{
     res.render('stk_papers')
 })
-app.get('/api/stk_papers',uploadedpapers)
-app.get('/api/papers_detail',displaydetail)
-
+app.get('/api/stk_papers',uploadedpapers)    //displaying uploaded papers to the stakeholder during approval
+app.get('/api/papers_detail',displaydetail)   //displaying uploaded papers details to the stakeholder during approval
+app.get('/allotment',DisplayPapers)       //displaying papers 
+app.get('/fac_signup',(req,res)=>{
+    dis_mail(req,res)           //displaying the email of the faculty on signup page
+})  
 
 // uploading files 
 app.post('/upload', upload.single('file'), async (req, res) => {
@@ -70,22 +76,38 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 // uploading user information to database
 app.post('/info', info);
 
-// serving upload research papers 
+// serving uploaded research papers to the student
 app.get('/uploaded_files', disp)
 
-// creating user
+// creating users
 app.post("/create_user",signup)
 app.post("/stk_holder_signup",stk_signup)
+app.post('/fac_signup',fac_signup)  // registration of faculty 
+
 
 // login backend 
 app.post("/login",signin)
 app.post("/stk_holder_signin",stk_signin)
+app.post('/fac_login',fac_login)  //login for faculty
 
 // approval by stakeholder
 app.get('/approval',approve)
 
 // setting evaluation criteria 
 app.post('/evaluation',setcriteria)
+
+// alloting papers to the faculty
+app.post('/paper_allot',allot)
+
+// sending papers to the alloted faculty
+app.use('/uploads', express.static(path.join(__dirname, '../file_upload/uploads')));
+app.get('/fac_papers',Dis_fac_papers)
+
+// saving rating given by faculty 
+app.post('/rating',giverating)
+app.get('/result',evaluate)
+
+app.get('/stk_profile_detail',stk_display)
 
 // starting the app on port 
 const port = process.env.PORT

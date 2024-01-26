@@ -43,16 +43,57 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const set = async () => {
-  const level1 = document.querySelector('input[name="step1"]:checked')
-  const level2 = document.querySelector('input[name="step2"]:checked')
-  const level3 = document.querySelector('input[name="step3"]:checked')
-  const level4 = document.querySelector('input[name="step4"]:checked')
+  const level1 = document.querySelector('input[name="step1"]:checked').value
+  const level2 = document.querySelector('input[name="step2"]:checked').value
+  const level3 = document.querySelector('input[name="step3"]:checked').value
+  const level4 = document.querySelector('input[name="step4"]:checked').value
   const level5 = document.querySelector('input[name="step5"]:checked')
   const topic = document.querySelector('input[type="text"]')
-  const value1 = level1.value
-  const value2 = level2.value
-  const value3 = level3.value
-  const value4 = level4.value
+  let value1,value2,value3,value4
+  switch(level1){
+    case "high":
+      value1=4
+      break;
+    case "medium":
+      value1=3
+      break;
+    case "low":
+      value1=2
+      break;
+  }
+  switch(level2){
+    case "high":
+      value2=4
+      break;
+    case "medium":
+      value2=3
+      break;
+    case "low":
+      value2=2
+      break;
+  }
+  switch(level3){
+    case "high":
+      value3=4
+      break;
+    case "medium":
+      value3=3
+      break;
+    case "low":
+      value3=2
+      break;
+  }
+  switch(level4){
+    case "high":
+      value4=4
+      break;
+    case "medium":
+      value4=3
+      break;
+    case "low":
+      value4=2
+      break;
+  }
   const value5 = level5 ? level5.value : undefined;
   const topicval = topic ? topic.value : undefined;
   console.log(value1, value2, value3, value4, value5, topicval)

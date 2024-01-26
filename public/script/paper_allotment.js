@@ -1,8 +1,10 @@
+
+
 const fetchuploadfiles = async () => {
     const token = localStorage.getItem('accessToken');
     const headers = new Headers();
     headers.append('Authorization', `Bearer ${token}`);
-    const response = await fetch('http://localhost:3000/api/stk_papers', {
+    const response = await fetch('http://localhost:3000/allotment', {
         headers: {
             'Authorization': `Bearer ${token}`,
         },
@@ -40,14 +42,13 @@ const createListItem = (result, ul) => {
     const btn = document.createElement('button');
     btn.textContent = "View";
     btn.type = "button";
-    btn.onclick = () => {
-        if (result.status !== 0) {
-            btn.disabled = true;
-            alert('Paper already approved!')
-        }
-        else {
-            btn.disabled = false;
-            const container = document.getElementById('container')
+    if (result.status == 0) {
+        btn.disabled = true;
+        console.log("btn disable")
+    } else {
+        btn.disabled = false;
+        const container = document.getElementById('container')
+        btn.onclick = () => {
             container.style.display = 'block'
             display(result.id);
             const papers = document.querySelector('.papers')
@@ -59,15 +60,6 @@ const createListItem = (result, ul) => {
 };
 fetchuploadfiles();
 
-
-const close = document.getElementById('close')
-const papers = document.querySelector('.papers')
-const container = document.getElementById('container')
-close.onclick = () => {
-    container.style.display = 'none'
-    papers.style.opacity = '1'
-}
-const cancel = document.getElementById('cancel')
 cancel.onclick = () => {
     container.style.display = 'none'
     papers.style.opacity = '1'
@@ -76,6 +68,8 @@ cancel.onclick = () => {
     setTimeout(() => {
         result3.style.display = 'none'
     }, 2000)
+    const papers = document.querySelector('.papers')
+    papers.style.opacity = '0.6'
 }
 
 
@@ -106,30 +100,42 @@ const display = async (id) => {
         col_name.textContent = details.col_name
         const btn = document.getElementById('approve')
         btn.onclick = () => {
-            approval(details.sno)
+            fac_allotment(details.sno)
         }
     }
 }
 
-const approval = async (id) => {
-    const token = localStorage.getItem('accessToken');
-    const headers = new Headers();
-    headers.append('Authorization', `Bearer ${token}`);
-    const response = await fetch(`http://localhost:3000/approval?id=${id}`, {
+// allotment code for faculty 
+const fac_allotment = async (id) => {
+    const email = document.getElementById('fac_mail').value
+    console.log(email)
+    const response = fetch(`http://localhost:3000/paper_allot?id=${id}`, {
+        method: 'POST',
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ email })
     })
-    if (response.ok) {
-        const papers = document.querySelector('.papers')
+    if (response.status = 200) {
+        const result1 = document.getElementById('result1')
+        result1.style.display = 'block'
         const container = document.getElementById('container')
         container.style.display = 'none'
-        papers.style.opacity = '1'
-        result1 = document.getElementById('result1')
-        result1.style.display = 'block'
         setTimeout(() => {
             result1.style.display = 'none'
-            window.location.reload()
         }, 2000)
+        const papers = document.querySelector('.papers')
+        papers.style.opacity = '0.6'
+    }
+    else {
+        const result2 = document.getElementById('result2')
+        result2.style.display = 'block'
+        const container = document.getElementById('container')
+        container.style.display = 'none'
+        setTimeout(() => {
+            result2.style.display = 'none'
+        }, 2000)
+        const papers = document.querySelector('.papers')
+        papers.style.opacity = '0.6'
     }
 }

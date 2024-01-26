@@ -15,18 +15,18 @@
             <div class="darkmode" onclick="hide()">
                 <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
                 <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
-                <b><p id="mode" style="display: inline;font-size: 20px;">Light Mode</p></b>
+                <b>
+                    <p id="mode" style="display: inline;font-size: 20px;">Light Mode</p>
+                </b>
             </div>
             <div class="profile">
                 <img src="" alt="profile">
-                <strong>Result Status:</strong>
             </div>
             <ul>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>lgsslfot</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>sdlkfsldt</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>ksdslddt</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>dsksdut</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>duiwert</li>
+                <li onclick="view_profile()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Profile</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
+                <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
             </ul>
         </div>
@@ -39,18 +39,33 @@
                     </strong>
                 </div>
                 <div>
-                    <button><a href=""><i class="fa-regular fa-pen-to-square" style="padding: 0px 12px 0px 8px;"></i>Edit Profile</a></button>
+                    <button><a href=""><i class="fa-regular fa-pen-to-square"
+                                style="padding: 0px 12px 0px 8px;"></i>Edit Profile</a></button>
                 </div>
             </div>
             <div id="detail">
                 <ul>
-                    <li>Name: <p id="name">skhksdfosdjdjsklf</p></li>
-                    <li>Email: <p id="email">skhksdfosdjdjsklf</p></li>
-                    <li>College Name: <p id="col_name">skhksdfosdjdjsklf</p></li>
-                    <li>State: <p id="state">skhksdfosdjdjsklf</p></li>
-                    <li>Year: <p id="year">skhksdfosdjdjsklf</p></li>
-                    <li>Course: <p id="course">skhksdfosdjdjsklf</p></li>
+                    <li>Name: <p id="name"></p>
+                    </li>
+                    <li>Email: <p id="email"></p>
+                    </li>
+                    <li>College Name: <p id="col_name"></p>
+                    </li>
+                    <li>State: <p id="state"></p>
+                    </li>
+                    <li>Year: <p id="year"></p>
+                    </li>
+                    <li>Course: <p id="course"></p>
+                    </li>
                 </ul>
+            </div>
+            <div id="result">
+                <strong>Result Status: <p id="status"></p>
+                    <p id="marks"></p>
+                </strong>
+                <div class="data">
+                    <p>the rating given to your Research paper by the faculties are:-</p>
+                </div>
             </div>
         </div>
     </section>
@@ -59,7 +74,7 @@
             const token = localStorage.getItem('accessToken');
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${token}`);
-            const username=document.getElementById('username');
+            const username = document.getElementById('username');
             const name = document.getElementById('name');
             const email = document.getElementById('email');
             const col_name = document.getElementById('col_name');
@@ -74,7 +89,7 @@
             if (response.status == 200) {
                 const data = await response.json();
                 console.log(data);
-                username.textContent=data.username;
+                username.textContent = data.username;
                 name.textContent = data.name;
                 email.textContent = data.email;
                 col_name.textContent = data.col_name;
@@ -85,19 +100,62 @@
         }
         fetchdata()
 
-        function hide(){
-            const regularicon=document.getElementById('regular')
-            const solidicon=document.getElementById('solid')
-            const mode=document.getElementById('mode')
-            if(regularicon.style.display=='inline'){
-                solidicon.style.display='inline';
-                regularicon.style.display='none';
-                mode.textContent="Dark Mode"
+        function hide() {
+            const regularicon = document.getElementById('regular')
+            const solidicon = document.getElementById('solid')
+            const mode = document.getElementById('mode')
+            if (regularicon.style.display == 'inline') {
+                solidicon.style.display = 'inline';
+                regularicon.style.display = 'none';
+                mode.textContent = "Dark Mode"
             }
-            else{
-                solidicon.style.display='none';
-                regularicon.style.display='inline';
-                mode.textContent="Light Mode"
+            else {
+                solidicon.style.display = 'none';
+                regularicon.style.display = 'inline';
+                mode.textContent = "Light Mode"
+            }
+        }
+
+
+        const view_profile = () => {
+            const detail = document.getElementById('detail')
+            const result = document.getElementById('result')
+            detail.style.display = 'block'
+            result.style.display = 'none'
+        }
+
+
+        const view_result = async () => {
+            const detail = document.getElementById('detail')
+            const result = document.getElementById('result')
+            detail.style.display = 'none'
+            result.style.display = 'block'
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const response = await fetch('http://localhost:3000/result', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            })
+            if (response.status == 201) {
+                const data = await response.json()
+                const status = document.getElementById('status')
+                const marks = document.getElementById('marks')
+                status.textContent = data.status
+                marks.textContent = data.percent
+            }
+            else if (response.status == 404) {
+                console.log('Result not declared')
+                const result = document.getElementById('result')
+                result.innerHTML = "Result not declared yet!"
+                result.style.color = "red"
+                result.style.padding="16px"
+                result.style.fontSize="18px"
+            }
+            else {
+                console.log("an error occured")
             }
         }
     </script>

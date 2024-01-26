@@ -22,7 +22,7 @@
         <div class="form">
             <form>
                 <h2 style="text-align: center;">Sign In</h2>
-                <h4 style="text-align: center; margin: 0px 0px 10px 0px;font-size: 22px;">(for Stakeholder)</h4>
+                <h4 style="text-align: center; margin: 0px 0px 10px 0px;font-size: 22px;">(for Faculty)</h4>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
@@ -31,7 +31,7 @@
                 <a href="">Forgot Password?</a>
                 <button type="button" onclick="register()">Login</button>
                 <div class="register">
-                    <p style="display: inline;">Haven't Register?&nbsp;</p><a href="stk_signup.html">Register Now</a>
+                    <p style="display: inline;">Haven't Register?&nbsp;</p><a href="fac_signup">Register Now</a>
                 </div>
             </form>
         </div>
@@ -46,7 +46,7 @@
             const result1 = document.getElementById('box1')
             const result2 = document.getElementById('box2')
             const result3 = document.getElementById('box3')
-            const response = await fetch('http://localhost:3000/stk_holder_signin', {
+            const response = await fetch('http://localhost:3000/fac_login', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +62,7 @@
                 console.log(token)
                 result1.style.display = 'block';
                 setTimeout(() => {
-                    window.location.href = 'stk_mainpage.html';
+                    window.location.href = 'faculty.html';
                 }, 2000);
             }
             else if (response.status == 409) {

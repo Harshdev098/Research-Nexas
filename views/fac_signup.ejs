@@ -1,0 +1,93 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/login_style.css">
+  <title>Faculty Registration</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image">
+      <img src="images/logo.png" alt="">
+    </div>
+    <div id="box2">
+      <p>Please Try Again! Account Already Exists</p>
+    </div>
+    <div id="box3">
+      <p>Error Occuered! Please Try Again</p>
+    </div>
+    <div class="form" id="login">
+      <form id="registrationForm">
+        <h2 style="text-align: center; margin: 10px 0px 6px 0px;font-size: 32px;">Registration</h2>
+        <h4 style="text-align: center; margin: 6px 0px 10px 0px;font-size: 22px;">(for Faculty)</h4>
+        <label for="email">Email:</label>
+        <p id="email" style="background-color: rgb(237, 235, 235);padding: 10px;font-size: 18px;border-radius: 8px;">
+          <%= data %>
+        </p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter the Username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter the Password" required>
+        <button type="button" onclick="register()">Register</button>
+      </form>
+    </div>
+    <div id="box1">
+      <p>Successfully Registered... Redirecting Please Wait...</p>
+    </div>
+  </div>
+
+  <script>
+
+
+    const register = async () => {
+      const emailText = document.getElementById('email').textContent;
+      const email=emailText.trim()
+      const name = document.getElementById('name').value;
+      const password = document.getElementById('password').value;
+      console.log(email, name, password)
+      const result1 = document.getElementById('box1')
+      const result2 = document.getElementById('box2')
+      const result3 = document.getElementById('box3')
+      const response = await fetch('http://localhost:3000/fac_signup', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+      if (response.status == 201) {
+        result1.style.opacity = '1';
+        result1.style.display = 'block';
+        setTimeout(() => {
+          result1.style.display = 'none';
+          window.location.href = 'fac_login.html';
+        }, 2000);
+      }
+      else if (response.status == 409) {
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
+        document.getElementById('colname').value = ''
+        result2.style.display = 'block';
+        setTimeout(() => {
+          result2.style.display = 'none';
+        }, 2000)
+      }
+      else {
+        result3.style.display = 'block'
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
+        document.getElementById('colname').value = ''
+        setTimeout(() => {
+          result3.style.display = 'none'
+        }, 2000)
+      }
+    }
+  </script>
+</body>
+
+</html>

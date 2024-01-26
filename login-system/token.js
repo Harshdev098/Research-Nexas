@@ -1,6 +1,7 @@
 require("dotenv").config()
 // generating the token for user
 const jwt = require("jsonwebtoken")
+const crypto=require('crypto')
 function generateAccessToken (user) {
 return  jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "20m"})
 }
@@ -24,5 +25,9 @@ function decodeAccessToken(authorizationHeader) {
     }
 }
 
+// generating registration token for faculties 
+function registrationToken(email) {
+    return crypto.createHash('sha256').update(email).digest('hex');
+  }
 
-module.exports={ generateAccessToken, decodeAccessToken }
+module.exports={ generateAccessToken, decodeAccessToken ,registrationToken}

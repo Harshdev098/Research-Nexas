@@ -103,3 +103,22 @@ section{
     padding: 10px;
     border-radius: 10px;
 }
+
+#result{
+    display: block;
+}
+#result strong{
+    margin: 10px;
+    padding: 16px;
+    font-size: 24px;
+    display: inline;
+}
+#result p{
+    padding: 10px;
+    font-size: 18px;
+    display: inline-block;
+}
+.data p{
+    margin: 16px;
+    padding: 20px 0px;
+}

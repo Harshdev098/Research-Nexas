@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: rgb(238, 236, 236);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M0%2c591.296C117.874%2c591.765%2c257.587%2c613.974%2c341.145%2c530.832C425.824%2c446.575%2c380.116%2c302.332%2c407.312%2c186.013C427.899%2c97.963%2c482.986%2c21.191%2c481.444%2c-69.221C479.773%2c-167.239%2c461.379%2c-270.086%2c398.256%2c-345.091C334.804%2c-420.486%2c234.935%2c-450.5%2c139.595%2c-475.416C46.552%2c-499.732%2c-50.01%2c-511.581%2c-142.85%2c-486.502C-236.924%2c-461.09%2c-323.088%2c-408.859%2c-385.091%2c-333.683C-446.255%2c-259.524%2c-456.391%2c-161.254%2c-486.422%2c-69.937C-523.545%2c42.944%2c-610.647%2c150.524%2c-582.28%2c265.918C-553.252%2c384.001%2c-445.554%2c468.806%2c-339.404%2c528.123C-236.87%2c585.419%2c-117.456%2c590.828%2c0%2c591.296' fill='%230b2239'%3e%3c/path%3e%3cpath d='M1440 956.164C1513.776 974.562 1590.653 935.058 1654.68 894.048 1718.769 852.998 1771.123 794.865 1801.067 724.894 1830.596 655.895 1830.281 579.695 1821.087 505.20799999999997 1811.741 429.495 1796.173 352.281 1747.7939999999999 293.295 1698.7730000000001 233.527 1629.075 186.59199999999998 1552.311 177.50400000000002 1479.443 168.877 1414.632 215.683 1347.783 245.93900000000002 1290.126 272.035 1229.743 294.07 1188.571 342.135 1147.531 390.046 1127.035 451.27 1118.373 513.757 1109.742 576.017 1107.911 642.872 1139.334 697.309 1169.77 750.0360000000001 1238.488 762.045 1284.626 801.767 1341.102 850.389 1367.691 938.1320000000001 1440 956.164' fill='%23113255'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+            height: 74vh;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header p {
+            font-size: 32px;
+            color: white;
+        }
+
+        .image {
+            width: 20vw;
+            display: block;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 100%;
+            display: block;
+        }
+
+        section {
+            margin: 0vh 10vw;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            top: -90px;
+        }
+
+        section p {
+            font-size: 18px;
+            padding: 6px;
+        }
+
+        section strong {
+            color: rgb(193, 15, 15);
+        }
+
+        button {
+            padding: 5px 2px 5px;
+            background-color: rgb(12, 154, 236);
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="image">
+            <img src="" alt="">
+        </div>
+        <p>Hii...<strong id="email"></strong></p>
+    </header>
+    <section>
+        <p>Email: <strong id="emailid"></strong></p>
+        <p>College Name: <strong id="col_name"></strong></p>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Terms and Conditions
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        Some placeholder content for the first accordion panel. This panel is shown by default, thanks
+                        to the <code>.show</code> class.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Evaluation Criteria
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Some placeholder content for the second accordion panel. This panel is hidden by default.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Logout
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <button>Log Out<i class="fa-regular fa-right-from-bracket"
+                                style="padding: 5px 8px 5px 10px;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script>
+        const fetchDetail = async () => {
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const response = await fetch('/stk_profile_detail', {
+                method: 'GET', 
+                headers: headers, 
+            });
+            if (response.ok) {
+                const data = await response.json()
+                const email = document.getElementById('email')
+                const emailid = document.getElementById('emailid')
+                const col_name = document.getElementById('col_name')
+                email.textContent = data.email
+                emailid.textContent = data.email
+                col_name.textContent = data.col_name
+            }
+        }
+        fetchDetail()
+    </script>
+</body>
+
+</html>

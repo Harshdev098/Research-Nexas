@@ -7,58 +7,13 @@
     <title>Evaluation(faculty)</title>
     <link rel="stylesheet" href="css/main_page_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        .detail {
-            padding: 16px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 22px;
-            background-color: #eae5e5;
-        }
-
-        .detail p {
-            margin: 0;
-            padding: 8px;
-            word-wrap: break-word;
-        }
-        .containers{
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(200px,2fr));
-            grid-column-gap: 2rem;
-            grid-row-gap: 2rem;
-            color: black;
-            padding: 6px;
-        }
-        .boxes{
-            padding: 14px;
-            margin: 4px;
-            text-align: center;
-            font-size: 18px;
-            border-radius: 24px;
-        }
-        .boxes img{
-            width: 100px;
-            border-radius: 50%;
-        }
-        .boxes h4{
-            font-size: 28px;
-            margin: 0;
-            padding: 12px 5px 14px 5px;
-        }
-        #box1{
-            background-color: #caa156;
-        }
-        #box2{
-            background-color: #386838;
-        }
-        #box3{
-            background-color: #4c4c7b;
-        }
-    </style>
+    <link rel="stylesheet" href="css/faculty_styling.css">
 </head>
 
 <body>
+    <p id="result1"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Rating Saved
+    </p>
+    <p id="result2"><i class="fa-solid fa-xmark" style="padding: 0px 12px;font-size: 26px;"></i>An error occured</p>
     <header>
         <div class="head">
             <div class="logo"><img src="images/logo.png" alt="" width="160px"></div>
@@ -70,7 +25,7 @@
         </div>
         <nav>
     </header>
-    <main>
+    <main id="main">
         <div class="detail">
             <p id="name">dsjshkfhsd</p>
             <p id="email">sdkfsdiofdfsdjkdsjkshdsdlkzxs</p>
@@ -80,7 +35,8 @@
             <div class="boxes" id="box1">
                 <img src="images/badges.png" alt="">
                 <h4>Evaluation Criteria</h4>
-                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus dolorum quas delectus,
+                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus
+                    dolorum quas delectus,
                     placeat asperiores consequatur? Error consequatur voluptate ipsam deserunt quis voluptatem magni.
                     Repellat beatae rerum perspiciatis totam modi, quia, eum omnis ex eligendi repellendus minima
                     aspernatur magnam magni reprehenderit harum odio ut, temporibus voluptatem unde delectus doloribus.
@@ -89,7 +45,8 @@
             <div class="boxes" id="box2">
                 <img src="images/badges.png" alt="">
                 <h4>Evaluated Papers</h4>
-                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus dolorum quas delectus,
+                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus
+                    dolorum quas delectus,
                     placeat asperiores consequatur? Error consequatur voluptate ipsam deserunt quis voluptatem magni.
                     Repellat beatae rerum perspiciatis totam modi, quia, eum omnis ex eligendi repellendus minima
                     aspernatur magnam magni reprehenderit harum odio ut, temporibus voluptatem unde delectus doloribus.
@@ -98,20 +55,172 @@
             <div class="boxes" id="box3">
                 <img src="images/badges.png" alt="">
                 <h4>Your Profile</h4>
-                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus dolorum quas delectus,
+                <p style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repellendus
+                    dolorum quas delectus,
                     placeat asperiores consequatur? Error consequatur voluptate ipsam deserunt quis voluptatem magni.
                     Repellat beatae rerum perspiciatis totam modi, quia, eum omnis ex eligendi repellendus minima
                     aspernatur magnam magni reprehenderit harum odio ut, temporibus voluptatem unde delectus doloribus.
                     Culpa voluptatum enim assumenda nostrum!</p>
             </div>
         </div>
-        <div>
+        <div class="papers">
             <h2>Papers</h2>
-            <ul>
-                
+            <ul id="ul">
+                <!-- display research papers for Evaluation -->
             </ul>
         </div>
     </main>
+    <div class="container" id="container">
+        <h2>Evaluation Rating</h3>
+            <div class="first">
+                <h4>sdfoisflskjsdflsd</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam id alias rem libero officiis
+                    nostrum. Reiciendis sapiente magni ipsum quasi laboriosam esse dolore sequi tenetur debitis rerum.
+                    Autem, facilis ex.</p>
+                <label>Rating</label>
+                <input type="radio" value="5" name="rating1">5
+                <input type="radio" value="4" name="rating1">4
+                <input type="radio" value="3" name="rating1">3
+                <input type="radio" value="2" name="rating1">2
+                <input type="radio" value="1" name="rating1">1
+            </div>
+            <div class="second">
+                <h4>sdfoisflskjsdflsd</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam id alias rem libero officiis
+                    nostrum. Reiciendis sapiente magni ipsum quasi laboriosam esse dolore sequi tenetur debitis rerum.
+                    Autem, facilis ex.</p>
+                <label>Rating</label>
+                <input type="radio" value="5" name="rating2">5
+                <input type="radio" value="4" name="rating2">4
+                <input type="radio" value="3" name="rating2">3
+                <input type="radio" value="2" name="rating2">2
+                <input type="radio" value="1" name="rating2">1
+            </div>
+            <div class="third">
+                <h4>sdfoisflskjsdflsd</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam id alias rem libero officiis
+                    nostrum. Reiciendis sapiente magni ipsum quasi laboriosam esse dolore sequi tenetur debitis rerum.
+                    Autem, facilis ex.</p>
+                <label>Rating</label>
+                <input type="radio" value="5" name="rating3">5
+                <input type="radio" value="4" name="rating3">4
+                <input type="radio" value="3" name="rating3">3
+                <input type="radio" value="2" name="rating3">2
+                <input type="radio" value="1" name="rating3">1
+            </div>
+            <div class="fourth">
+                <h4>sdfoisflskjsdflsd</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam id alias rem libero officiis
+                    nostrum. Reiciendis sapiente magni ipsum quasi laboriosam esse dolore sequi tenetur debitis rerum.
+                    Autem, facilis ex.</p>
+                <label>Rating</label>
+                <input type="radio" value="5" name="rating4">5
+                <input type="radio" value="4" name="rating4">4
+                <input type="radio" value="3" name="rating4">3
+                <input type="radio" value="2" name="rating4">2
+                <input type="radio" value="1" name="rating4">1
+            </div>
+            <div class="buttons">
+                <button id="cancel">Cancel</button>
+                <button id="submit">Submit Rating</button>
+            </div>
+    </div>
+    <script>
+        const Dis_fac_papers = async () => {
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const response = await fetch('http://localhost:3000/fac_papers', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            })
+            if (response.ok) {
+                const result = await response.json();
+                const ul = document.getElementById('ul')
+                result.files.forEach(file => {
+                    const li = document.createElement('li')
+                    const h3 = document.createElement('h3')
+                    h3.textContent = `Filename: ${file.filename}`
+                    const h4 = document.createElement('h4')
+                    h4.textContent = `Paperid: ${file.id}`
+                    const path = document.createElement('a')
+                    path.textContent = "View File"
+                    path.href = `/uploads/${file.filename}`
+                    path.target = "_blank"
+                    const btn = document.createElement('button')
+                    btn.textContent = "Evaluate"
+                    li.append(h3, h4, path, btn)
+                    ul.appendChild(li)
+                    const submit = document.getElementById('submit')
+                    btn.onclick = () => {
+                        const container = document.getElementById('container')
+                        const main = document.getElementById('main')
+                        main.style.opacity = '0.8'
+                        container.style.display = 'block'
+                        // Display_details()
+                    }
+                    submit.onclick = () => {
+                        evaluation_rating(file.id)
+                    }
+                });
+            }
+        }
+        Dis_fac_papers()
+
+
+        const container = document.getElementById('container')
+        const cancel = document.getElementById('cancel')
+        cancel.onclick = () => {
+            container.style.display = 'none'
+            const main = document.getElementById('main')
+            main.style.opacity = '1'
+        }
+
+        const evaluation_rating = async (id) => {
+            const rating1 = document.querySelector('input[name="rating1"]:checked').value
+            const rating2 = document.querySelector('input[name="rating2"]:checked').value
+            const rating3 = document.querySelector('input[name="rating3"]:checked').value
+            const rating4 = document.querySelector('input[name="rating4"]:checked').value
+            const rating5 = document.querySelector('input[name="rating5"]:checked')
+            // const value5= rating5 ? rating5.value : undefined
+            console.log(rating1, rating2, rating3, rating4)
+            const data = { rating1, rating2, rating3, rating4 }
+            const response = await fetch(`http://localhost:3000/rating?id=${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            if (response.ok) {
+                console.log("Rating saved")
+                const result1 = document.getElementById('result1')
+                result1.style.display = 'block'
+                setTimeout(() => {
+                    result1.style.display = 'none'
+                }, 2000)
+                const container = document.getElementById('container')
+                const cancel = document.getElementById('cancel')
+                container.style.display = 'none'
+                const main = document.getElementById('main')
+                main.style.opacity = '1'
+            }
+            else {
+                console.log("an error occured")
+                const result2 = document.getElementById('result2')
+                result2.style.display = 'block'
+                setTimeout(() => {
+                    result2.style.display = 'none'
+                }, 2000)
+                const container = document.getElementById('container')
+                const cancel = document.getElementById('cancel')
+                container.style.display = 'none'
+                const main = document.getElementById('main')
+                main.style.opacity = '1'
+            }
+        }
+    </script>
 </body>
 
 </html>

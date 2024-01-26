@@ -37,7 +37,7 @@ const save = async (req,res) => {
     const filepath = req.file.path;
     db.getConnection((err, connection) => {
         if (err) throw err;
-        const sql = "INSERT INTO upload_file_db VALUES(0,?,?,?,0)"
+        const sql = "INSERT INTO upload_file_db VALUES(0,?,?,?,0,null)"
         const query = mysql.format(sql, [userid, filename, filepath])
         connection.query(query, (err, result) => {
             connection.release();
