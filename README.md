@@ -1,6 +1,16 @@
 # Research-Nexas
-A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students enter their academic details and preferences, gaining access to a rich repository of categorized research topics by department and difficulty level. Personalization takes center stage, as the platform uses user data to recommend topics perfectly aligned with individual aspirations. A comprehensive student progress tracking system keeps users informed about their research journey, while also granting access to previous years' research papers. Dissertation quality is ensured through predefined evaluation criteria, with a built-in plagiarism checker to maintain integrity. The platform facilitates seamless collaboration: students can search and upload research papers, engage with peers, faculty, and seniors, and clarify doubts through topic-specific chats. Stakeholders can review and approve research submissions while setting their evaluation criteria. Disapproved students' results are revealed post-approval. To further simplify the research process, AI-generated templates are provided, adhering to institute guidelines.
-<b>Develop an application enabling student signup, login, and paper uploads. Future features include progress tracking, stakeholder approval based on predefined criteria, and immediate or deferred result declaration for approved or unsuccessful papers.</b>
+A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result on the uploaded paper in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evauated on the basis of the evaluation criteria
+<h4>Upcoming Feature</h4>
+User can get a personalized recommendation on choosing topic on which he want to do research
+<strong>Note:</strong> Websie Content is not ready
+
+# Working
+- Student
+
+- Stakeholder
+
+- Faculty
+
 
 # Running the Application
 
