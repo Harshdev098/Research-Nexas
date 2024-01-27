@@ -56,7 +56,7 @@ const fac_signup = async (req, res) => {
 
 // faculty login 
 const fac_login = async (req, res) => {
-    const email = req.body.email
+    const email = req.body.email.trim().toLowerCase()
     const password = req.body.password
     await db.getConnection((err, connection) => {
         if (err) throw err;

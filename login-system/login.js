@@ -25,8 +25,8 @@ db.getConnection((err, connection) => {
 })
 
 const signup=async (req, res) => {
-    const username = req.body.name
-    const email = req.body.email
+    const username = req.body.name.trim()
+    const email = req.body.email.trim().toLowerCase()
     const hashpassword = await bcrypt.hash(req.body.password, 10);
 
     db.getConnection(async (err, connection) => {
@@ -61,8 +61,8 @@ const signup=async (req, res) => {
 
 // login backend 
 const signin=(req, res) => {
-    const email = req.body.email
-    const password = req.body.password;
+    const email = req.body.email.trim()
+    const password = req.body.password.trim();
     db.getConnection(async (err, connection) => {
         if (err) throw (err)
         const sqlSearch = "Select * from user_table where email=?"
@@ -85,7 +85,7 @@ const signin=(req, res) => {
                     // notify(req,res,result[0].email,sub,content);
                 }
                 else {
-                    res.send("password incorrect")
+                    res.status(401).send("password incorrect")
                 }
             }
             connection.release()

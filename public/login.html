@@ -19,6 +19,9 @@
         <div id="box3">
             <p>Error Occured! Please Try Again</p>
         </div>
+        <div id="box4">
+            <p>Incorrect Password</p>
+        </div>
         <div class="form">
             <form>
                 <h2 style="text-align: center; margin: 10px 0px 6px 0px;font-size: 32px;">Login</h2>
@@ -46,6 +49,7 @@
             const result1 = document.getElementById('box1')
             const result2 = document.getElementById('box2')
             const result3 = document.getElementById('box3')
+            const result4 = document.getElementById('box4')
 
             try {
                 const response = await fetch('http://localhost:3000/login', {
@@ -68,7 +72,16 @@
                     setTimeout(() => {
                         window.location.href = 'form_filling.html';
                     }, 2000);
-                } else if (response.status === 404) {
+                }
+                else if(response.status==401){
+                    result4.style.display = 'block';
+                    document.getElementById('email').value = ''
+                    document.getElementById('password').value = ''
+                    setTimeout(() => {
+                        result4.style.display = 'none';
+                    }, 2000)
+                } 
+                else if (response.status === 404) {
                     result2.style.display = 'block';
                     console.log('User not found');
                     document.getElementById('email').value = ''

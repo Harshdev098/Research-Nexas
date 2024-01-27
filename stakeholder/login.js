@@ -19,9 +19,9 @@ const db = mysql.createPool({
 })
 
 const stk_signup=async(req,res)=>{
-    const colname=req.body.colname;
-    const email=req.body.email;
-    const password=req.body.password;
+    const colname=req.body.colname.trim();
+    const email=req.body.email.trim().toLowerCase();
+    const password=req.body.password.trim();
     const hashpassword=await bcrypt.hash(password,10)
     db.getConnection(async(err,connection)=>{
         if(err) throw err;
@@ -49,8 +49,8 @@ const stk_signup=async(req,res)=>{
 }
 
 const stk_signin=((req,res)=>{
-    const email=req.body.email;
-    const password=req.body.password;
+    const email=req.body.email.trim();
+    const password=req.body.password.trim();
     db.getConnection(async(err,connection)=>{
         if(err){
             console.log("internal server error"+err);

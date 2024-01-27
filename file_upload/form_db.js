@@ -20,13 +20,13 @@ const info=(req,res)=>{
     }
     const userid=decodedtoken.user;
     console.log(userid)
-    const name=req.body.name;
-    const email=req.body.email;
-    const col_name=req.body.col_name;
+    const name=req.body.name.trim();
+    const email=req.body.email.trim();
+    const col_name=req.body.col_name.trim();
     const state=req.body.state;
-    const course=req.body.course;
+    const course=req.body.course.trim();
     const year=req.body.year;
-    const dept=req.body.dept;
+    const dept=req.body.dept.trim();
     db.getConnection(async(err,connection)=>{
         if(err) throw err;
         const sql="INSERT INTO info_table VALUES (?,?,?,?,?,?,?)"

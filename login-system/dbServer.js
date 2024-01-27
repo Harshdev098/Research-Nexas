@@ -107,7 +107,9 @@ app.get('/fac_papers',Dis_fac_papers)
 app.post('/rating',giverating)
 app.get('/result',evaluate)
 
-app.get('stk_profile_detail',stk_display)
+// displaying stk profile details 
+app.get('/stk_profile_detail',stk_display)
+// app.get('/dis_criteria',dis_evaluation_criteria)
 
 // starting the app on port 
 const port = process.env.PORT
