@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Choose login page</title>
-        <link rel="stylesheet" href="css/choosefile.css">
-    </head>
-    <body>
-      <div class="container">
-        <p>Select Who You Are</p>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose login page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ebe9e9;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .radio label {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 19px;
+    }
+
+    .radio input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 style="font-size: 30px;">Select Who You Are</h2>
     <div class="radio">
-        <label>
-            <input type="radio"name="pageoption"value="Student"onchange="redirect()">Student
-        </label><br>
-        <label>
-            <input type="radio"name="pageoption"value="Stakeholder"onchange="redirect()">Stakeholder
-        </label><br>
-        <label>
-            <input type="radio"name="pageoption"value="Faculty"onchange="redirect()">Faculty
-        </label><br>
+      <label>
+        <input type="radio" name="pageoption" value="Student" onchange="redirect()">Student
+      </label><br>
+      <label>
+        <input type="radio" name="pageoption" value="Stakeholder" onchange="redirect()">Stakeholder
+      </label><br>
+      <label>
+        <input type="radio" name="pageoption" value="Faculty" onchange="redirect()">Faculty
+      </label><br>
     </div>
   </div>
-        <script>
-            function redirect() {
+  <script>
+    function redirect() {
       var radioButtons = document.getElementsByName("pageoption");
 
 
@@ -30,16 +67,17 @@
           if (selectedValue == "Student") {
             window.location.href = "./login.html";
           }
-          else if(selectedValue=="Faculty"){
-            window.location.href="./fac_login.html";
+          else if (selectedValue == "Faculty") {
+            window.location.href = "./fac_login.html";
           }
-           else if (selectedValue == "Stakeholder") {
+          else if (selectedValue == "Stakeholder") {
             window.location.href = "./stk_login.html";
           }
           break;
         }
+      }
     }
-  }
-        </script>
-    </body>
+  </script>
+</body>
+
 </html>

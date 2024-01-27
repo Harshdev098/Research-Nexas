@@ -31,21 +31,24 @@
         <div class="form-group">
             <label>State</label>
             <select name="state" id="state">
-                <option value="up">Uttar Pradesh</option>
-                <option value="mp">Madhya Pradesh</option>
-                <option value="tn">Tamil Nadu</option>
-                <option value="j&k">Jammu & Kashmir</option>
-                <option value="rajas">Rajasthan</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Karnataka">Karnataka</option>
             </select>
         </div>
         <div class="form-group">
             <label>Department</label>
             <select name="dept" id="dept">
-                <option value="up">Uttar Pradesh</option>
-                <option value="mp">Madhya Pradesh</option>
-                <option value="tn">Tamil Nadu</option>
-                <option value="j&k">Jammu & Kashmir</option>
-                <option value="rajas">Rajasthan</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Science">Science</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Molecular Medicine">Molecular Medicine</option>
+                <option value="AI and Informatics">AI and Informatics</option>
             </select>
         </div>
         <div class="form-group">
@@ -84,7 +87,7 @@
             const col_name = document.getElementById('col_name').value;
             const state = document.getElementById('state').value;
             const dept = document.getElementById('dept').value;
-            const course = document.getElementById('course').value;
+            const course = document.getElementById('course').value.toUpperCase();
             const year = document.getElementById('year').value;
             const result = document.getElementById('result');
             const result2=document.getElementById('result2')

@@ -116,6 +116,7 @@ button:hover {
     border-radius: 20px;
     z-index: 2;
     position: absolute;
+    border: 2px solid black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -188,8 +189,10 @@ button:hover {
     font-size: 24px;
     text-align: center;
     display: none;
+    position: fixed;
  }
  #result2 {
+    position: fixed;
     margin: 0;
     padding: 12px;
     background-color: rgb(248, 8, 8);
