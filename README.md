@@ -7,11 +7,19 @@ User can get a personalized recommendation on choosing topic on which he want to
 # Working
 - Student
 
+  https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
+
 - Stakeholder
 
+  [https://github.com/Harshdev098/Research-Nexas/assets/118347330/08b585e6-653d-4bdc-92ba-b029432681c9](https://github.com/Harshdev098/Research-Nexas/assets/118347330/ac5a1278-7507-4e6a-b583-cbb1bb2c23ea)
+
 - Faculty
+
+  https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
   
 - Result
+
+  https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
 
 
 # Running the Application
