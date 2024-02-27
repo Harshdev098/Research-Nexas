@@ -11,7 +11,7 @@ User can get a personalized recommendation on choosing topic on which he want to
 
 - Stakeholder
 
-  [https://github.com/Harshdev098/Research-Nexas/assets/118347330/08b585e6-653d-4bdc-92ba-b029432681c9](https://github.com/Harshdev098/Research-Nexas/assets/118347330/ac5a1278-7507-4e6a-b583-cbb1bb2c23ea)
+  https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
 
 - Faculty
 
