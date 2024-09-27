@@ -138,4 +138,9 @@ Follow these steps to run the Research Nexas
 # Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that that we will help for it.
 
+# Code of Conduct
+This project follows [Code of Conduct](Code_of_Conduct.md)
+
+Star ⭐ the project if you like it,working and contributing with us ❤️.
+
 
