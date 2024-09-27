@@ -7,7 +7,7 @@ In brief,
 - Fork our [repository](https://github.com/Harshdev098/Research-Nexas) to your own account
 - Clone the repository to your system
   ```
-  git clone https://github.com/your-username/Research-Nexas.git
+  git clone https://github.com/Harshdev098/Research-Nexas.git
   ```
 - Setup the project to your localsystem, every step of setting up the project is given in [Readme.md](README.md#Running-the-Application)
 - Make changes that you want, to contribute to the project
