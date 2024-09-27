@@ -98,6 +98,14 @@ Follow these steps to run the Research Nexas
      foreign key (userid) references user_table(userid) on delete cascade
      );
      ```
+     ```
+     create table faculty(
+     email varchar(80) not null unique primary key,
+     name varchar(60),
+     password varchar(120) unique,
+     token varchar(130) not null unique
+     );
+     ```
 - Now open code editor(eg. VS Code)
 - make a .env file and add the following data to this file
   ```
@@ -110,6 +118,7 @@ Follow these steps to run the Research Nexas
   EMAIL='harsh@gmail.com'   // your email
   MYPASS='yourmailpassword' 
   ```
+- You can found `yourmailpassword` for low protected app(developer use) here- https://youtu.be/nuD6qNAurVM
 - Now run the following commands in your terminal
   ```
   npm install
@@ -126,5 +135,7 @@ Follow these steps to run the Research Nexas
   http://localhost:3000
   ```
 
+# Contribution
+Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that that we will help for it.
 
 
