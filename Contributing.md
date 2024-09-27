@@ -9,7 +9,7 @@ In brief,
   ```
   git clone https://github.com/your-username/Research-Nexas.git
   ```
-- Setup the project to your localsystem, every step of setting up the project is given in [Readme.md](Readme.md#Running-the-Application)
+- Setup the project to your localsystem, every step of setting up the project is given in [Readme.md](README.md#Running-the-Application)
 - Make changes that you want, to contribute to the project
 - Test your code before submitting the PR.
 - Commit the changes and make the commit messages adhere to the guidelines
@@ -41,4 +41,4 @@ In brief,
    - chore: Miscellaneous changes that do not match any of the above.
  
 
-Star ⭐ the project if you like it,working and contributing with us ❤️.
+Give a Star ⭐  if you like it,working and contributing with us ❤️.
