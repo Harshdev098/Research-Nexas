@@ -27,7 +27,8 @@ In brief,
     git checkout -b <branch_name> //it will create branch and change to it
   ```
 - If the pull request is created to close a request add the issue number in the PR title so that if PR is merged, the issue will be closed [reference](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
-- Use a clear and descriptive title for your PR. It should summarize what the PR does, not just the issue number.
+- Use a clear and descriptive title for your PR. It should summarize what the PR does.
+- Describe your changes before opening a PR.
 - Dont make spam PRs, be contributive and adhere to [Code of conduct](Code_of_Conduct.md)
 
 # Commit Messages 
@@ -40,5 +41,13 @@ In brief,
    - docs: Documentation changes or fixes, fixing a typo, etc..
    - chore: Miscellaneous changes that do not match any of the above.
  
+# Creating Issues
+
+- Use a clear and descriptive title that convey about your issue.
+- While reporting an issue give references(links,path to file,screenshots) where you have found that issue or what problem or bug you are talking about
+- If reporting a UI feature problem screenshots or video of same is necessary
+- Want to add a feature be descriptive about the feature and where you want to add that feature
+
+
 
 Give a Star ⭐  if you like it,working and contributing with us ❤️.
