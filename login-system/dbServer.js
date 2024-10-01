@@ -112,6 +112,6 @@ app.get('/stk_profile_detail',stk_display)
 // app.get('/dis_criteria',dis_evaluation_criteria)
 
 // starting the app on port 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 app.listen(port,
     () => console.log(`Server Started on port http://localhost:${port}`))

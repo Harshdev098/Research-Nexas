@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/contact-us.css">
+</head>
+
+
+<body>
+    <div class="maindiv">
+
+        <div class="imgdiv">
+            <img src="./images/logo.png" alt="" style="border-radius: 6px;">
+        </div>
+        <div class="formdiv">
+
+            <form action="" class="form">
+                <h2 style="text-align: center;">Contact Us</h2>
+                <div>
+                    <label for="">Name :</label>
+                    <input type="text" id="name" name="Name" placeholder="Enter Your Name">
+                </div>
+                <br>
+
+                <div>
+                    <label for="">Email :</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                </div>
+                <br>
+
+                <div>
+                    <label for="">Messsage :</label>
+                    <textarea name="message" id="message" rows="4" cols="57"
+                        placeholder="Enter Your Message Given to Organization......"></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="button" id="button">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        const submit = document.getElementById('button')
+        submit.addEventListener('click', () => {
+            event.preventDefault();
+            const form_name = document.querySelector('#name').value
+            const form_email = document.querySelector('#email').value
+            const form_message = document.querySelector('#message').value
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "festivesolomon@heywhatsoup.com",
+                Password: "A0510339835126B92F05DF7C2EB7E28279F8",
+                To: 'harshoxfordgkp@gmail.com',
+                From: `${form_email}`,
+                Subject: "Contact form submission",
+                Body: `Name:${form_name}\nEmail:${form_email}\nMessage: ${form_message}`
+            }).then(
+                message => {
+                    console.log('message sent')
+                    alert('Message sent')
+                }
+            ), (err) => {
+                console.log("error occured")
+                alert("Sorry, an error occured")
+            }
+        })
+    </script>
+</body>
+
+</html>
