@@ -1,124 +1,161 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+  color: #333;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 }
 
 .image {
-  background-color: black;
-  width: 50vw;
-  height: 100vh;
-  text-align: center;
+  /* width: 50%; */
+  background-color: #1c1f2b;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-}
-.register{
-  text-align: center;
-  margin: 15px;
-  font-size: 17px;
-}
-.register a{
-  color: blue;
-}
-a{
-  font-size: 16px;
-  margin: 0px 0px 12px 6px;
-  color: red;
-}
-.form {
-  flex: 1;
+  align-items: center;
+  height: 450px;
+  width: 500px;
+  margin-right: 5px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
+.image img {
+  max-width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form {
   width: 50%;
-  box-shadow: 6px 6px 6px rgb(113, 113, 113), -4px -4px 6px rgb(113, 113, 113);
-  padding: 20px;
-  font-size: 19px;
-  border-radius: 20px;
+  padding: 50px 30px;
+  background-color: #fff;
+}
+
+form h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+form h4 {
+  font-size: 18px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+form label {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+  display: block;
+  margin-bottom: 8px;
 }
 
 form input {
-  padding: 8px;
-  margin: 8px;
-  font-size: 17px;
-  border-radius: 4px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #8f94fb;
+  outline: none;
+  box-shadow: 0 0 8px rgba(142, 160, 240, 0.5);
+}
+
+a {
+  display: block;
+  text-align: right;
+  color: #4e54c8;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #8f94fb;
 }
 
 button {
-  background-color: #0a87ee;
-  font-size: 16px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #4e54c8, #8f94fb);
+  color: white;
+  font-size: 18px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  padding: 9px 0px;
-  color: white;
-}
-img{
-  width: 80%;
-}
-#box1{
-  width: 50vw;
-  padding: 24px 10px;
-  border: 2px solid black;
-  border-radius: 32px;
-  background-color: rgb(255 255 255);
-  text-align: center;
-  font-size: 25px;
-  display: none;
-  z-index: 2;
-  position: absolute;
-  top: 40%;
-  left: 25%;
-  margin: auto;
-}
-#box2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 6px;
-  text-align: center;
-  font-size: 20px;
-  display: none;
-  color: white;
-  background-color: rgb(240, 84, 84);
+  transition: background 0.4s;
 }
 
-#box3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 6px;
-  text-align: center;
-  font-size: 20px;
-  display: none;
-  color: white;
-  background-color: rgb(240, 84, 84);
+button:hover {
+  background: linear-gradient(45deg, #8f94fb, #4e54c8);
 }
-#box4 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 6px;
+
+.register {
   text-align: center;
-  font-size: 20px;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.register a {
+  color: #4e54c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
+
+#box1, #box2, #box3, #box4 {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#box1 {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
   display: none;
-  color: white;
-  background-color: rgb(240, 84, 84);
+}
+
+#box2, #box3, #box4 {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  display: none;
 }
