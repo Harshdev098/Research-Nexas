@@ -126,8 +126,21 @@ header h1 {
 .searchbar input {
     padding: 14px;
     width: 360px;
-    border: 2.7px solid black;
+    border: 2.7px solid #ccc; /* Light gray border for a softer look */
     font-size: 16px;
+    border-radius: 25px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.searchbar input:focus {
+    border-color: #ff7e5f; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(255, 126, 95, 0.5); /* Soft glow effect on focus */
+}
+
+.searchbar input::placeholder {
+    color: #888; /* Placeholder text color */
+    font-style: italic; /* Italicize placeholder text for distinction */
 }
 
 @media(max-width:300) {
@@ -143,10 +156,27 @@ header h1 {
 }
 
 .searchbar button {
-    padding: 0px 25px;
+    padding: 12px 25px; /* Added vertical padding for better appearance */
     cursor: pointer;
-    background-color: rgb(17, 15, 15);
+    margin-left: 5px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Reddish-orange gradient */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    color: white; /* Text color */
+    font-size: 16px; /* Consistent font size */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
 }
+
+.searchbar button:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.searchbar button:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
 
 /* float animation */
 
@@ -334,19 +364,24 @@ header h1 {
 
 /* about us styling */
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
 .about {
     margin: 16px 0px;
     padding: 30px 0px;
-    background-color: rgb(158, 174, 200);
+    background-color: #9eaec8;
     border-radius: 0% 0% 3000% 3000%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .show {
-    animation-name: move;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    z-index: 0;
-    overflow: hidden;
+    animation: move 2s ease-out;
 }
 
 @keyframes move {
@@ -362,22 +397,22 @@ header h1 {
 .about h2 {
     font-size: 50px;
     text-align: center;
-    color: rgb(44, 42, 42);
-    z-index: 1;
+    color: #2c2a2a;
 }
 
 .about_para {
     margin: auto;
     padding: 20px;
     text-align: center;
-    word-wrap: break-word;
-    /* width: 600px; */
+    max-width: 800px;
     font-size: 20px;
+    line-height: 1.6;
+    color: #555;
 }
 
 /* slider styling */
 .slider {
-    width: 1300px;
+    width: 100%;
     max-width: 100vw;
     height: 535px;
     margin: auto;
@@ -386,26 +421,27 @@ header h1 {
 }
 
 .slider .list {
-    position: absolute;
-    width: max-content;
-    height: 100%;
-    left: 0;
-    top: 25px;
     display: flex;
-    transition: 1s;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
 }
 
-.slider .list img {
-    width: 1300px;
-    border-radius: 22px;
-    max-width: 100vw;
+.slider .item {
+    flex: 0 0 100%; /* Each image takes full width */
+    height: 100%;
+}
+
+.slider .item img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .slider .buttons {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 5%;
     width: 90%;
     display: flex;
@@ -416,21 +452,24 @@ header h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff5;
-    color: #fff;
+    background-color: #ffffffaa;
+    color: #333;
     border: none;
-    font-family: monospace;
-    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider .buttons button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .slider .dots {
     position: absolute;
     bottom: 10px;
     left: 0;
-    color: #fff;
     width: 100%;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
 }
@@ -441,24 +480,55 @@ header h1 {
     height: 10px;
     background-color: #fff;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 50%;
     transition: 0.5s;
 }
 
 .slider .dots li.active {
     width: 30px;
+    background-color: #6a11cb;
 }
 
+/* Media Query for smaller screens */
 @media screen and (max-width: 768px) {
     .slider {
-        height: 400px;
+        height: 350px;
+    }
+
+    .slider .buttons button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slider {
+        height: 250px;
+    }
+
+    .slider .buttons button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .slider .dots li {
+        width: 8px;
+        height: 8px;
+        margin: 5px;
+    }
+
+    .slider .dots li.active {
+        width: 20px;
     }
 }
 
 /* second section styling  */
 main {
     background: rgb(44, 99, 115);
-    background: radial-gradient(circle, rgba(44, 99, 115, 1) 30%, rgba(28, 52, 57, 1) 100%);
+    /* background-color: #141e30; */
+    background: radial-gradient(circle, rgba(44, 99, 115, 1) 30%, #141e30 100%);
 }
 
 .section2 {
@@ -486,9 +556,12 @@ main {
     -webkit-background-clip: text;
     font-size: 32px;
     color: transparent;
+    padding: 0;
 }
-.stu_reg p{
-    padding: 8px;
+.stu_reg p {
+    padding: 6px;
+    line-height: 1.6;
+    font-size: 18px;
 }
 .stu_reg {
     display: flex;
@@ -499,6 +572,32 @@ main {
     align-items: center;
     font-size: 18px;
 }
+
+.stu_reg a {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #cd4726, #feb47b);/* Gradient from a lighter green to a darker green */
+    padding: 12px 30px;
+    margin: 8px 0px;
+    border-radius: 25px; /* Slightly more rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+    display: inline-block; /* Allow padding and margin to work properly */
+}
+
+/* Hover effect */
+.stu_reg a:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Darker gradient on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Active state */
+.stu_reg a:active {
+    transform: translateY(1px); /* Pressed effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow adjustment on active */
+}
+
 .fadein_text{
     animation: fadein 4s;
     -webkit-animation: fadeIn 4s;
@@ -506,6 +605,7 @@ main {
     -o-animation: fadeIn 4s;
     -ms-animation: fadeIn 4s;
 }
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -567,9 +667,12 @@ main {
     color: transparent;
     text-align: center;
     word-wrap: break-word;
+    padding: 0;
 }
-.tracker p{
-    word-wrap: break-word;
+
+.tracker p {
+    line-height: 1.5;
+    font-size: 20px;
 }
 
 .tracker {
@@ -675,7 +778,7 @@ main {
 
 h3 {
     text-align: center;
-    padding: 40px 0px;
+    /* padding: 40px 0px; */
     color: white;
     font-size: 40px;
 }
@@ -683,7 +786,13 @@ h3 {
 .box h3 {
     color: rgb(216, 40, 40);
     font-size: 26px;
-    padding: 10px 0px;
+    /* padding: 10px 0px; */
+}
+
+.box p{
+    font-size: 20px;
+    line-height: 1.5;
+    width: 440px;
 }
 
 /* second main styling */
@@ -711,6 +820,13 @@ h3 {
     position: relative;
     top: 48px;
     overflow: hidden;
+}
+
+.join_boxes p {
+    padding: 15px;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.3;
 }
 @media (max-width:1000px) {
     .join_boxes{
@@ -782,8 +898,10 @@ h3 {
 }
 .premium_head_box{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-around;
     position: relative;
+    padding: 10px;
 }
 .premium-boxes{
     width: 28vw;
@@ -792,7 +910,15 @@ h3 {
     border-radius: 14px;
     background-color: #dfcccc;
     text-align: center;
+    justify-content: center;
+    /* margin-bottom: 15px; */
 }
+
+.premium-boxes p{
+    line-height: 1.5;
+    font-size: 19px;
+}
+
 @media(max-width:740px){
     .premium-boxes{
         width: 40vw;
@@ -801,7 +927,7 @@ h3 {
 
 .premium-boxes:nth-child(2){
     position: absolute;
-    top: 40%;
+    /* top: 50%; */
     z-index: 1;
     overflow: hidden;
 }
@@ -851,7 +977,7 @@ h3 {
 
 /* section4 styling */
 .section4{
-    background-color: #eeeded;
+    background-color: #ededee;
 }
 .section4 h2{
     text-align: center;
@@ -980,10 +1106,13 @@ h3 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 60px;
 }
 .stu_para{
     width: 600px;
-    font-size: 19px;
+    font-size: 20px;
+    line-height: 1.5;
+
 }
 .stu_section button{
     padding: 14px 15px 14px 35px;
@@ -999,8 +1128,9 @@ h3 {
 }
 .stk_section p{
     width: 500px;
-    padding: 20px;
+    /* padding: 20px; */
     font-size: 20px;
+    line-height: 1.5;
     word-wrap: break-word;
 }
 @media (max-width:580px){
@@ -1082,34 +1212,43 @@ h3 {
 
 /* footer styling */
 
+/* Container styling */
 .container {
     max-width: 1170px;
     margin: auto;
 }
 
+/* Row for footer columns */
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+/* Footer styling */
 .footer {
-    background-color: #24262b;
-    padding: 70px 0;
+    background: linear-gradient(45deg, #141e30, #243b55);
+    padding: 80px 0;
+    color: #ffffff;
 }
 
 .footer-col {
-    width: 25%;
+    width: 22%;
     padding: 0 15px;
+    margin-bottom: 40px;
 }
 
+/* Footer headers */
 .footer-col h4 {
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin-bottom: 35px;
     font-weight: 500;
     position: relative;
@@ -1120,60 +1259,105 @@ ul {
     position: absolute;
     left: 0;
     bottom: -10px;
-    background-color: #e91e63;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
+    height: 3px;
+    width: 60px;
+    background: #e91e63;
+    border-radius: 10px;
 }
 
-.footer-col ul li:not(:last-child) {
-    margin-bottom: 10px;
+/* Footer links */
+.footer-col ul li {
+    margin-bottom: 12px;
 }
 
 .footer-col ul li a {
     font-size: 16px;
+    color: #d3d3d3;
     text-transform: capitalize;
-    color: #ffffff;
     text-decoration: none;
     font-weight: 300;
-    color: #bbbbbb;
     display: block;
     transition: all 0.3s ease;
 }
 
 .footer-col ul li a:hover {
     color: #ffffff;
-    padding-left: 8px;
+    padding-left: 10px;
+    transition: all 0.3s ease;
 }
 
+/* Social links styling */
 .footer-col .social-links a {
     display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
+    height: 45px;
+    width: 45px;
+    background-color: rgba(255, 255, 255, 0.15);
     margin: 0 10px 10px 0;
     text-align: center;
-    line-height: 40px;
+    line-height: 45px;
     border-radius: 50%;
     color: #ffffff;
-    transition: all 0.5s ease;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-col .social-links a:hover {
-    color: #24262b;
     background-color: #ffffff;
+    color: #141e30;
+    transform: scale(1.1);
 }
 
-/*responsive*/
-@media(max-width: 767px) {
+/* Footer responsiveness */
+@media (max-width: 767px) {
     .footer-col {
-        width: 50%;
-        margin-bottom: 30px;
+        width: 48%;
+        margin-bottom: 40px;
     }
 }
 
-@media(max-width: 574px) {
+@media (max-width: 574px) {
     .footer-col {
         width: 100%;
+        text-align: center;
     }
+
+    .footer-col .social-links {
+        text-align: center;
+    }
+}
+
+/* Additional styling for better visual appeal */
+.footer {
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-image: url('https://svgshare.com/i/ZTu.svg'); /* Adds a wave effect */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.footer p {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #bbbbbb;
+    text-align: center;
+}
+
+/* Small hover effect for links */
+.footer-col ul li a:hover::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    transition: all 0.3s ease;
+    opacity: 1;
 }
