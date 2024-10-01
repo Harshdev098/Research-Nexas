@@ -129,7 +129,7 @@ Follow these steps to run the Research Nexas
   npm install
   ```
   ```
-  cd dbSever.js
+  cd login-system
   ```
   ```
   nodemon dbServer.js
