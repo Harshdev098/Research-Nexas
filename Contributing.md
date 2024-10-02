@@ -1,4 +1,4 @@
-Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines.
+Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines and be adhere to the points.
 If you have any doubts about guidelines, please open an issue regarding that that we will help for it.
 
 # Opening a pull request
@@ -18,16 +18,17 @@ In brief,
 # Guidelines
 
 - Any low code, UI enhancement, implementing new feature, solving an issue, opening an issue is appreciable
+- Before making any changes make sure that your fork is synced and your clone is upto date with the main branch
 - You can open issues in issue section regarding a doubt,reporting a bug, setting up the project
 - Be polite and interactive with other developers.Don't be offensive.
 - Test your code before submitting the PR.
-- Add commit messages related to your changes/feature added,also use feat and fix like commit prefixes(described below)
-- Make the PR with different branches(change the branch for your multiple PRs)
+- Add commit messages related to your changes/feature added,also **use feat and fix like commit prefixes(described below)**
+- Make the PR with **different branches**(change the branch for your multiple PRs)
   ```
     git checkout -b <branch_name> //it will create branch and change to it
   ```
-- If the pull request is created to close a request add the issue number in the PR title so that if PR is merged, the issue will be closed [reference](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
-- Use a clear and descriptive title for your PR. It should summarize what the PR does.
+- If the pull request is created for an issue, **add the issue number in the PR title** so that if PR is merged, the issue will be closed [reference](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
+- Use a **clear and descriptive title for your PR**. It should summarize what the PR does.
 - Describe your changes before opening a PR.
 - Dont make spam PRs, be contributive and adhere to [Code of conduct](Code_of_Conduct.md)
 
