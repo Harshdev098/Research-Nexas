@@ -58,7 +58,7 @@
         }
 
         section strong {
-            color: rgb(193, 15, 15);
+            color: rgb(84, 44, 230);
             word-wrap: break-word;
         }
 
@@ -86,17 +86,52 @@
         .card-body h4 {
             padding: 8px 0px;
         }
+        body.dark-mode {
+        background-color: #121212; 
+        color: #ffffff; 
+    }
+
+        header.dark-mode {
+        background-color: #1f1f1f; 
+        }
+
+        section.dark-mode {
+        background-color: #2c2c2c; 
+        }
+
+        .card.dark-mode {
+        background-color: #3a3a3a; 
+        color: #ffffff; 
+        }
+
+        .card.dark-mode .btn-link {
+        color: #ffffff; 
+        }
+
+        .card-body.dark-mode strong {
+        color: rgb(193, 15, 15); 
+        }
+        body {
+            position: relative; 
+        }
+
     </style>
 </head>
 
 <body>
     <header>
+        <div class="dark-mode-toggle" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
+            <i id="darkModeIcon" class="fa-solid fa-moon" style="color: white; font-size: 26px;margin:3px;padding:6px;"></i>
+        </div>
+        
         <div class="image">
             <i class="fa-solid fa-user"
                 style="width: 100%;color: white;display: block;font-size: 14vw;padding: 20px;"></i>
-        </div>
-        <div>
+                
+            </div>
+            <div>
             <p>Hii...<strong id="email">harshoxfordgkp@gmail.com</strong></p>
+          
         </div>
     </header>
     <section>
@@ -174,6 +209,8 @@
             </div>
         </div>
     </section>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -181,6 +218,28 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script>
+        document.getElementById('darkModeIcon').onclick = function () {
+        document.body.classList.toggle('dark-mode');
+        const header = document.querySelector('header');
+        const section = document.querySelector('section');
+        const cards = document.querySelectorAll('.card');
+    
+        header.classList.toggle('dark-mode');
+        section.classList.toggle('dark-mode');
+        
+        cards.forEach(card => {
+            card.classList.toggle('dark-mode');
+        });
+    
+        // Change the icon based on the mode
+        if (document.body.classList.contains('dark-mode')) {
+            this.classList.remove('fa-moon');
+            this.classList.add('fa-sun');
+        } else {
+            this.classList.remove('fa-sun');
+            this.classList.add('fa-moon');
+        }
+    };
         const fetchDetail = async () => {
             const credit1 = document.getElementById('credit1')
             const credit2 = document.getElementById('credit2')
