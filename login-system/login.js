@@ -31,14 +31,13 @@ const signup=async (req, res) => {
 
     db.getConnection(async (err, connection) => {
         if (err) throw (err)
-        const sqlSearch = "SELECT * FROM user_table WHERE username=?"
+        const sqlSearch = "SELECT * FROM user_table WHERE email=?"
         const search_query = mysql.format(sqlSearch, [email])
         const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?)"
         const insert_query = mysql.format(sqlinsert, [username, email, hashpassword])
         await connection.query(search_query, async (err, result) => {
             if (err) throw (err)
-            console.log("search results")
-            console.log(result.length)
+            console.log("search results",result.length)
             if (result.length != 0) {
                 connection.release()
                 console.log("user already exists")
