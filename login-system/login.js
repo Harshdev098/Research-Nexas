@@ -31,8 +31,8 @@ const signup=async (req, res) => {
 
     db.getConnection(async (err, connection) => {
         if (err) throw (err)
-        const sqlSearch = "SELECT * FROM user_table WHERE email=?"
-        const search_query = mysql.format(sqlSearch, [email])
+        const sqlSearch = "SELECT * FROM user_table WHERE email= OR username?"
+        const search_query = mysql.format(sqlSearch, [email,username])
         const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?)"
         const insert_query = mysql.format(sqlinsert, [username, email, hashpassword])
         await connection.query(search_query, async (err, result) => {
@@ -40,8 +40,18 @@ const signup=async (req, res) => {
             console.log("search results",result.length)
             if (result.length != 0) {
                 connection.release()
-                console.log("user already exists")
-                res.sendStatus(409);
+
+                if(result[0].email === email){
+                    console.log("A User with Entered Email already exists")
+                    res.status(404).send(
+                        "Email Already in Use"
+                    )
+                }else if(result[0].username === username){
+                    console.log("A User with Entered Username already exists")
+                    res.status(404).send(
+                        "Username Already in Use"
+                    )
+                }
             }
             else {
                 await connection.query(insert_query, async (err, result) => {
