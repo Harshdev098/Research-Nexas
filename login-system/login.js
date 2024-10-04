@@ -33,6 +33,7 @@ const signup=async (req, res) => {
         if (err) throw (err)
             const sqlSearch = "SELECT * FROM user_table WHERE email=? OR username=?";
         const search_query = mysql.format(sqlSearch, [email,username])
+        
         const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?)"
         const insert_query = mysql.format(sqlinsert, [username, email, hashpassword])
         await connection.query(search_query, async (err, result) => {
