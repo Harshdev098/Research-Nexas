@@ -1,83 +1,175 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    margin: 0;
-    padding: 0;
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(158,133,87);
-    background: radial-gradient(circle, rgba(158,133,87,1) 15%, rgba(206,187,151,1) 100%);
-    height: 100vh;
+    background:#dfdfe7;
+    /* background: linear-gradient(90deg, rgba(27,198,176,0.8688725490196079) 0%, rgba(11,92,81,1) 45%, rgba(0,212,255,1) 100%); */
+    font-family: "Poppins", sans-serif;
 }
-#loader{
-    z-index: 2;
-    border: 2px solid black;
-    padding: 10px;
+
+
+/*  float box  */
+.circles {
     position: absolute;
-    top: 50%;
-    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: #F5F5F7;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
     left: 40%;
-    width: 30vw;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
 }
-main{
-    display: flex;
-    flex-direction: column;
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
 }
-.result{
-    font-size: 20px;
-    padding: 20px auto;
-    margin: 0;
-    background-color: green;
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
 }
-.result p{
-    margin: 0;
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
 }
-form{
-    padding: 20px;
-    background-color: white;
-    width: 40vw;
-    height: 80vh;
-    border-radius: 20px 0px 0px 20px;
-    margin: auto;
-    font-size: 18px;
-    overflow: auto;
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
 }
-form input{
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+
+/*  */
+
+
+
+
+
+.container {
+    max-width: 600px;
+    /* background: #EDDFE0; */
+    border-radius: 10px;
+    margin: 14px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+}
+
+form input, form select {
     display: block;
     margin: 6px auto;
-    font-style: italic;
-    width: 90%;
-    border-radius: 10px;
-    padding: 2px 6px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
 }
-.btn{
-    margin: auto;
-    display: block;
-}
-.btn button{
-    font-size: 18px;
-    padding: 8px 18px;
-}
-form label{
+
+form label {
     font-weight: bold;
-    padding: 0 10px;
-}
-form::-webkit-scrollbar {
-    width: 9px;
+    padding-left: 10px;
+    margin-bottom: 5px;
 }
 
-form::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
+form .btn-primary {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-form::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+form .btn-primary:hover {
+    background-color: rgb(100, 80, 200);
 }
 
+form h2 {
+    color: rgb(130, 106, 251);
+}
+
+.text-center {
+    text-align: center;
+}
