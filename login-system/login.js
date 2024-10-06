@@ -2,8 +2,9 @@ const mysql = require('mysql')
 const bcrypt = require('bcrypt')
 const {generateAccessToken}=require('./token');
 const notify = require('./notification');
-
+const rateLimit = require('express-rate-limit')
 require("dotenv").config()
+
 const DB_HOST = process.env.DB_HOST
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
@@ -24,9 +25,34 @@ db.getConnection((err, connection) => {
     console.log("Database Connected Successfully")
 })
 
+const validatePassword = (password) => {
+    const RegexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/;
+    return RegexPassword.test(password)
+}
+
+const signupRateLimiter = rateLimit({
+    windowMs : 60*60*1000, // 1 hr
+    max : 10,  // max 10 attempts 
+    message : "Too many signup attempts , please try again after an hour."
+})
+
+const signinRateLimiter = rateLimit({
+    windowMs : 60*60*1000,
+    max : 15, // max 15 attempts 
+    message : "Too many login attempts, please try again after an hour."
+})
+
 const signup=async (req, res) => {
     const username = req.body.name.trim()
     const email = req.body.email.trim().toLowerCase()
+    const password = req.body.password.trim()
+
+    if(!validatePassword(password)){
+        return res.status(400).json({
+            error : "Password Invalid ... Password must be atleast 7 character long and must contain atleast 1 uppercase & lowercase character , 1 number and 1 special character"
+        })
+    }
+
     const hashpassword = await bcrypt.hash(req.body.password, 10);
 
     db.getConnection(async (err, connection) => {
@@ -93,4 +119,7 @@ const signin=(req, res) => {
 }
 
 // exporting signup,signin funtion
-module.exports={ signup, signin }
+module.exports={ 
+    signup : [signupRateLimiter,signup], 
+    signin : [signinRateLimiter,signin]
+}
