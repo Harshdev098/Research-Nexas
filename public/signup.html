@@ -78,6 +78,13 @@
           }, 2000)
           // alert('User already exists!');
         }
+        else if(response.status==400){
+          document.getElementById('password').value = ''
+          const message=await response.json()
+          console.log('error',message.error)
+          result2.innerHTML=message.error;
+          result2.style.display = 'block';
+        }
         else {
           result3.style.display = 'block'
           setTimeout(() => {

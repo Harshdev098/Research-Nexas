@@ -26,10 +26,11 @@
                 <nav>
                     <ul id="navbar">
                         <li title="Login"><a href="choose-file.html">Login</a></li>
+                        <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="./signup.html">Register</a></li>
                         <li title="Contact Us"><a href="./contact-us.html">Contact Us</a></li>
-                        <li title="Our Services"><a href="">Services</a></li>
-                        <li title="About Us"><a href="">About</a></li>
-                        <li title="Main Page"><a href="">Home</a></li>
+                        <li title="Our Services"><a href="#services">Services</a></li>
+                        <li title="About Us"><a href="#about_show">About</a></li>
+                        <li title="Main Page"><a href="#">Home</a></li>
                     </ul>
                 </nav>
             </div>
@@ -86,7 +87,7 @@
     </header>
 
     <!-- about us section  -->
-    <section>
+    <section id="about_show">
         <div class="about show">
             <h2>About Us</h2>
         </div>
@@ -137,7 +138,7 @@
     </section>
 
     <main>
-        <section class="section2">
+        <section id="register" class="section2">
             <h2>Register</h2>
             <div class="registration">
                 <div class="stu_reg">
@@ -152,13 +153,13 @@
                         to generate personalized research topic recommendations based on your academic interests,
                         department, and preferred difficulty level. This ensures that every step of your research
                         journey is curated to meet your specific needs and goals.</p>
-                    <a href="">Register<i class="fa-solid fa-right-to-bracket"
+                    <a href="./signup.html">Register<i class="fa-solid fa-right-to-bracket"
                             style="padding: 0px 0px 0px 12px;font-size:20px"></i></a>
                 </div>
                 <div class="stu_reg">
                     <i class="fa-sharp fa-solid fa-building-columns" style="font-size:80px"></i>
                     <h3>Stakeholders</h3>
-                    <p class="fadein_text">Welcome to Research Nexas, where stakeholders play a pivotal role in
+                    <p class="fadein_text shift">Welcome to Research Nexas, where stakeholders play a pivotal role in
                         shaping academic excellence. As a stakeholder, your registration on our platform is the key to
                         fostering transparency, collaboration, and the highest standards of education. By providing
                         essential details during the registration process, you are taking a significant step towards
@@ -166,7 +167,7 @@
                         as a stakeholder and become an integral part of the academic ecosystem. Register now to
                         contribute to the development of future researchers, uphold academic standards, and promote
                         collaboration within our dynamic community</p>
-                    <a href="">Register<i class="fa-solid fa-right-to-bracket"
+                    <a href="./stk_signup.html">Register<i class="fa-solid fa-right-to-bracket"
                             style="padding: 0px 0px 0px 12px;font-size:20px"></i></a>
                 </div>
             </div>
@@ -229,6 +230,7 @@
             </div>
         </section>
         <!-- boxes section  -->
+         <section id="services">
         <h3>Top Services</h3>
         <div class="all-boxes">
             <div class="box show hidden">
@@ -283,6 +285,7 @@
                     vel in!</p>
             </div>
         </div>
+    </section>
     </main>
 
     <main>

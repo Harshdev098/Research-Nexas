@@ -629,7 +629,7 @@ main {
   text-align: center;
   color: white;
   font-size: 40px;
-  margin: 10px 0px;
+  margin: 24px 0 64px 0;
 }
 
 .registration {
@@ -647,6 +647,12 @@ main {
   color: transparent;
   padding: 0;
 }
+
+/* increasing margin of stakeholder p for aligning register buttons */
+.shift {
+  margin-bottom: 45px;
+}
+
 .stu_reg p {
   padding: 6px;
   line-height: 1.6;
@@ -657,9 +663,9 @@ main {
   color: white;
   width: 500px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-size: 18px;
+  height: 680px;
 }
 
 .stu_reg a {
@@ -676,6 +682,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
   transition: all 0.3s ease; /* Smooth transition */
   display: inline-block; /* Allow padding and margin to work properly */
+  border:none;
 }
 
 /* Hover effect */
@@ -761,7 +768,7 @@ main {
 .stu_reg a:hover {
   transform: scale(1.05);
   box-shadow: none;
-  border: 2px solid black;
+  border: none;
 }
 
 /* Progress tracking */
