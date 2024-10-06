@@ -20,6 +20,78 @@ body {
   justify-content: space-between;
 }
 
+/* changes */
+
+#check{
+  display : none;
+}
+span{
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.776);
+  margin: 5px 0px 0px 5px;
+  font-size: 20px;
+}
+span:hover{
+  color: white;
+  font-size: 25px;
+}
+.sidebar_menu{
+  display: inline-block;
+  background-color: rgba(18, 16, 28, 0.7);
+  position: absolute;
+  width: 150px;
+  height: 50vh;
+  left: -300px;
+  top: 30px;
+  transition: all 0.3s linear;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.536);
+}
+
+#check:checked ~.sidebar_menu{
+      left:0px;
+}
+
+.nav_bar{
+  margin-top: 7px;
+  margin-left: 5px;
+}
+.nav_bar li{
+  height:20px;
+  width: 150px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.nav_bar li a{
+ color: whitesmoke;
+ text-decoration: none;
+ margin-left: 8px;
+ font-size: 18px;
+ font-family: Arial, Helvetica, sans-serif;
+}
+.nav_bar li :hover{
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.536);
+ 
+}
+.min{
+  left: -300px;
+}
+
+@media(min-width : 650px){
+  .min{
+    display: none;
+  }
+  #hamburg span{
+    display: none;
+  }
+}
+ 
+@media(max-width :650px){
+  .navbar{
+    display: none;
+  }
+}
+
 nav ul {
   overflow: auto;
 }
@@ -37,6 +109,7 @@ nav ul li a {
   text-decoration: none;
   color: white;
 }
+
 
 nav ul li:hover {
   border-bottom: 1.7px solid white;
