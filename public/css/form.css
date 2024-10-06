@@ -3,13 +3,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:#dfdfe7;
-    /* background: linear-gradient(90deg, rgba(27,198,176,0.8688725490196079) 0%, rgba(11,92,81,1) 45%, rgba(0,212,255,1) 100%); */
+    background: #dfdfe7;
     font-family: "Poppins", sans-serif;
 }
 
-
-/*  float box  */
+/* Floating Circles Animation */
 .circles {
     position: absolute;
     top: 0;
@@ -107,34 +105,26 @@ body {
 }
 
 @keyframes animate {
-
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
         border-radius: 0;
     }
-
     100% {
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
         border-radius: 50%;
     }
-
 }
 
-
-/*  */
-
-
-
-
-
+/* Form Container */
 .container {
     max-width: 600px;
-    /* background: #EDDFE0; */
     border-radius: 10px;
     margin: 14px;
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }
 
 form input, form select {
@@ -144,13 +134,19 @@ form input, form select {
     border-radius: 5px;
     padding: 8px;
     font-size: 1rem;
-    border: none;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form select:focus {
+    border-color: #4e54c8;
 }
 
 form label {
     font-weight: bold;
     padding-left: 10px;
     margin-bottom: 5px;
+    display: block;
 }
 
 form .btn-primary {
@@ -160,14 +156,17 @@ form .btn-primary {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.4s, transform 0.3s;
 }
 
 form .btn-primary:hover {
     background-color: rgb(100, 80, 200);
+    transform: translateY(-3px);
 }
 
 form h2 {
     color: rgb(130, 106, 251);
+    text-align: center;
 }
 
 .text-center {

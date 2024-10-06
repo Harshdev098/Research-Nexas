@@ -1,3 +1,22 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4e54c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
 .detail {
     padding: 16px;
     display: flex;
@@ -28,6 +47,12 @@
     text-align: center;
     font-size: 18px;
     border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boxes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .boxes img {
@@ -72,20 +97,22 @@ h4 {
     margin: 0;
     padding: 10px 6px 16px 6px;
 }
-.papers a{
+
+.papers {
+    text-align: center;
+}
+
+.papers a {
     margin: 10px;
     font-weight: bold;
     display: block;
-}
-.papers {
-    text-align: center;
 }
 
 .papers button {
     width: 100%;
     padding: 9px 26px;
     margin: 8px;
-    background-color: rgb(10 103 244);
+    background-color: rgb(10, 103, 244);
     color: white;
     border-radius: 10px;
     font-size: 18px;
@@ -94,7 +121,7 @@ h4 {
     cursor: pointer;
 }
 
-button:hover {
+.papers button:hover {
     background-color: rgb(18, 102, 133);
 }
 
@@ -109,8 +136,9 @@ button:hover {
     padding: 8px;
     border-top: 1.6px solid black;
 }
-.container{
-    background-color: white;
+
+.container {
+    background-color: rgb(242, 239, 239);
     height: 80vh;
     overflow: auto;
     border-radius: 20px;
@@ -121,26 +149,30 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    background-color: rgb(242, 239, 239);
     display: none;
 }
-.container p{
+
+.container p {
     font-size: 18px;
     padding: 8px 8px 16px 14px;
     margin: 0;
 }
-.container h4{
+
+.container h4 {
     font-size: 22px;
     padding: 26px 8px 14px 12px;
 }
-.container input{
+
+.container input {
     font-size: 17px;
 }
-.container label{
+
+.container label {
     font-weight: bold;
     padding: 40px;
     font-size: 18px;
 }
+
 .container::-webkit-scrollbar {
     width: 9px;
 }
@@ -153,51 +185,55 @@ button:hover {
 .container::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
-.buttons{
+
+.buttons {
     margin: 10px;
     float: right;
 }
-.buttons button{
+
+.buttons button {
     padding: 9px 14px;
     margin: 6px;
     font-size: 17px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.8s ease-in-out;
 }
-#submit{
+
+#submit {
     background-color: rgb(11, 129, 219);
     color: white;
     border: none;
-    transition: all 0.8s ease-in-out;
 }
-#cancel{
+
+#cancel {
     background-color: rgb(225, 221, 221);
     border: none;
-    transition: all 0.8s ease-in-out;
 }
-#submit:hover{
+
+#submit:hover {
     background-color: rgb(17, 99, 162);
 }
-#cancel:hover{
+
+#cancel:hover {
     background-color: rgb(173, 172, 172);
 }
+
+#result1, #result2 {
+    margin: 0;
+    padding: 12px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    display: none;
+    position: fixed;
+    width: 100%;
+}
+
 #result1 {
-    margin: 0;
-    padding: 12px;
     background-color: rgb(7, 184, 7);
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    display: none;
-    position: fixed;
- }
- #result2 {
-    position: fixed;
-    margin: 0;
-    padding: 12px;
+}
+
+#result2 {
     background-color: rgb(248, 8, 8);
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    display: none;
- }
+}
