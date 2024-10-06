@@ -556,7 +556,7 @@ main {
   text-align: center;
   color: white;
   font-size: 40px;
-  margin: 10px 0px;
+  margin: 24px 0 64px 0;
 }
 
 .registration {
@@ -584,12 +584,18 @@ main {
   color: white;
   width: 500px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-size: 18px;
+  height: 680px;
+}
+
+/* increasing margin of stakeholder p for aligning register buttons */
+.shift {
+  margin-bottom: 45px;
 }
 
 .stu_reg a {
+  border: none;
   text-decoration: none;
   color: white;
   background: linear-gradient(
@@ -688,7 +694,7 @@ main {
 .stu_reg a:hover {
   transform: scale(1.05);
   box-shadow: none;
-  border: 2px solid black;
+  border: none;
 }
 
 /* Progress tracking */
