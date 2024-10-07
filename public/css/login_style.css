@@ -14,14 +14,22 @@ body {
   color: #333;
 }
 
-:root{
-  --primary-color: #fff;
-  --secondary-color: #666;
-}
-
 #icon{
   width: 30px;
   cursor: pointer;
+  position: absolute;
+  top: 30px; 
+  right: 30px;
+}
+
+:root{
+  --primary-color: #fff;
+  --secondary-color: #0e0e0e;
+}
+
+.dark-theme{
+  --primary-color: #0e0e0e;
+  --secondary-color: #fff;
 }
 
 .container {
@@ -38,7 +46,7 @@ body {
 
 .image {
   /* width: 50%; */
-  background-color: #1c1f2b;
+  background-color: #666;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,14 +77,14 @@ form h2 {
 form h4 {
   font-size: 18px;
   text-align: center;
-  color: var(--secondary-color);
+  color: #666;
   margin-bottom: 25px;
 }
 
 form label {
   margin-top: 10px;
   font-size: 16px;
-  color: var(--secondary-color);
+  color: #666;
   display: block;
   margin-bottom: 8px;
 }
