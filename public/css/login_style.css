@@ -14,6 +14,11 @@ body {
   color: #333;
 }
 
+:root{
+  --primary-color: #fff;
+  --secondary-color: #666;
+}
+
 #icon{
   width: 30px;
   cursor: pointer;
@@ -25,7 +30,7 @@ body {
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  background-color: white;
+  background-color: var(--primary-color);
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -51,27 +56,27 @@ body {
 .form {
   width: 50%;
   padding: 50px 30px;
-  background-color: #fff;
+  background-color: var(--primary-color);
 }
 
 form h2 {
   font-size: 32px;
   margin-bottom: 15px;
   text-align: center;
-  color: #333;
+  color: var(--secondary-color);
 }
 
 form h4 {
   font-size: 18px;
   text-align: center;
-  color: #666;
+  color: var(--secondary-color);
   margin-bottom: 25px;
 }
 
 form label {
   margin-top: 10px;
   font-size: 16px;
-  color: #666;
+  color: var(--secondary-color);
   display: block;
   margin-bottom: 8px;
 }
