@@ -5,6 +5,7 @@ const destination = path.resolve(__dirname, 'uploads/');
 const {decodeAccessToken}=require('../login-system/token')
 const mysql = require('mysql')
 
+<<<<<<< Updated upstream
 const db = mysql.createPool({
     host: '127.0.0.1',
     user: 'user',
@@ -12,6 +13,24 @@ const db = mysql.createPool({
     database: 'user_DB',
     port: '3306'
  })
+=======
+const  db  = require('../config/mysql_connection')
+
+// const DB_HOST = process.env.DB_HOST
+// const DB_USER = process.env.DB_USER
+// const DB_PASSWORD = process.env.DB_PASSWORD
+// const DB_DATABASE = process.env.DB_DATABASE
+// const DB_PORT = process.env.DB_PORT
+
+// const db = mysql.createPool({
+//     connectionLimit: 100,
+//     host: DB_HOST,
+//     user: DB_USER,
+//     password: DB_PASSWORD,
+//     database: DB_DATABASE,
+//     port: DB_PORT
+// })
+>>>>>>> Stashed changes
 
 // uploading file 
 
