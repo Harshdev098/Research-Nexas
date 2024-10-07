@@ -817,7 +817,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(400px, 6fr));
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
-  justify-content: center;
+  /* justify-content: center; */
+  text-align: justify;
   align-items: center;
 }
 @media (max-width: 380px) {
