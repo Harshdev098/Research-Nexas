@@ -1,33 +1,70 @@
-body{
-    margin:0px;
-    background:url('/loginimage.jpg') no-repeat center center/cover;
-    width:100%;
-	height:100vh;
+body {
+    margin: 0;
+    background: url('/loginimage.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Arial, sans-serif;
 }
-.radio{
+
+.radio {
     padding: 30px;
     background-color: white;
     border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.radio input[type="radio"]{
+
+.radio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.radio input[type="radio"] {
     font-size: 28px;
     margin: 20px;
+    cursor: pointer;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     background-color: rgb(62, 59, 59);
     padding: 60px;
     border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.container p{
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container p {
     font-weight: bold;
     font-size: 24px;
     color: white;
+    margin: 0 0 20px 0;
 }
 
-/* stakeholder signup styling */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
 
+    .radio {
+        padding: 20px;
+    }
+
+    .container p {
+        font-size: 20px;
+    }
+
+    .radio input[type="radio"] {
+        font-size: 24px;
+        margin: 10px;
+    }
+}
