@@ -16,6 +16,23 @@
     overflow: hidden;
     margin: 5px;
 }
+#icon{
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 30px; 
+    right: 30px;
+  }
+
+  :root{
+    --primary-color: #fff;
+    --secondary-color: #0e0e0e;
+  }
+  
+  .dark-theme{
+    --primary-color: #0e0e0e;
+    --secondary-color: #fff;
+  }
 
 body {
     font-family: Arial, sans-serif;
@@ -30,7 +47,7 @@ body {
 
 .maindiv {
     display: flex;
-    background-color: white;
+    background-color: var(--primary-color);
     height: 80%;
     max-width: 1200px;
     width: 100%;
@@ -46,6 +63,10 @@ body {
     width: 50%;
     background-color: black;
     padding: 20px;
+}
+
+.formdiv{
+    background-color: var(--primary-color);
 }
 
 form input {
@@ -122,3 +143,4 @@ form label {
         font-size: 16px;
     }
 }
+
