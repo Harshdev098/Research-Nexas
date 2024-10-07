@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <img src="images/moon.png" id="icon">
   <div class="container">
     <div class="image">
       <img src="images/logo.png" alt="">
@@ -40,6 +41,16 @@
   </div>
 
   <script>
+    var icon =document.getElementById("icon");
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src="images/sun.png";
+            }
+            else{
+                icon.src="images/moon.png";
+            }
+        }
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
