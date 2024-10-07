@@ -18,6 +18,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: fixed; /* Make navbar fixed to the top */
+  top: 0; /* Position at the top of the viewport */
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 2000; /* Ensures it stays on top of other content */
+  background-color: #66B2FF;
 }
 
 nav ul {
@@ -30,16 +35,28 @@ nav ul li {
   margin: 10px 16px;
   padding: 6px;
   font-size: 22px;
-  color: white;
+  /* color: white; */
   cursor: pointer;
-}
-nav ul li a {
-  text-decoration: none;
-  color: white;
+  color: #000000; /* Black text color */
+  transition: color 0.3s, background-color 0.3s; 
 }
 
+/* nav ul li a {
+  color: #333333;
+  text-decoration: none;
+} */
+
 nav ul li:hover {
-  border-bottom: 1.7px solid white;
+  color: #f9f9f9; /* Change text color to white on hover */
+  background-color: black;
+   /* Change background to dark blue on hover */
+  border-radius: 8px;
+  /* border-bottom: 1.7px solid white; */
+}
+
+nav ul li a {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Inherit color from parent */
 }
 
 nav ul li:first-child {
@@ -430,7 +447,7 @@ body {
 .slider {
   width: 100%;
   max-width: 100vw;
-  height: 535px;
+  height:100%;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -584,6 +601,7 @@ main {
   padding: 6px;
   line-height: 1.6;
   font-size: 18px;
+  text-align: justify;
 }
 .stu_reg {
   display: flex;
