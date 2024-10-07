@@ -1,7 +1,6 @@
 const express = require('express')
 const mysql = require('mysql')
 const  db  = require('../config/mysql_connection')
-
 const {decodeAccessToken}=require('../login-system/token')
 const app = express();
 app.use(express.json());
