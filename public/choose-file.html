@@ -31,15 +31,17 @@
 
 :root{
   --primary-color: #fff;
-  
+  --secondary-color: #0e0e0e;
 }
 
 .dark-theme{
   --primary-color: #0e0e0e;
+  --secondary-color: #fff;
 }
 
     .container {
       background-color: var(--primary-color);
+      color: var(--secondary-color);
       border-radius: 16px;
       padding: 40px 30px;
       max-width: 400px;
@@ -51,7 +53,7 @@
     h2 {
       font-size: 28px;
       margin-bottom: 30px;
-      color: #333;
+      color: var(--secondary-color);
     }
 
     .radio label {
