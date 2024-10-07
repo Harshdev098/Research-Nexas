@@ -69,11 +69,15 @@ body {
     background-color: var(--primary-color);
 }
 
+form h2{
+    color: var(--secondary-color);
+}
+
 form input {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--secondary-color);
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s;
@@ -81,12 +85,12 @@ form input {
 
 form label {
     font-size: 16px;
-    color: #666;
+    color: var(--secondary-color);
     display: block;
 }
 
 #message {
-    border: 1px solid #ddd;
+    border: 1px solid var(--secondary-color);
     border-radius: 8px;
 }
 
