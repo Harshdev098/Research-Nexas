@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="images/moon.png" id="icon">
     <div id="box2">
         <p>Please Try Again! Account Already Exists</p>
     </div>
@@ -39,6 +40,16 @@
         </div>
     </div>
     <script>
+        var icon =document.getElementById("icon");
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src="images/sun.png";
+            }
+            else{
+                icon.src="images/moon.png";
+            }
+        }
         const register = async () => {
             const email = document.getElementById('email').value;
             const colname = document.getElementById('colname').value;
