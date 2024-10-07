@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #eeeded;
+    background-color: var(--primary-color);
 }
 
 /* header styling  */
@@ -18,6 +18,24 @@ body {
     padding: 12px;
     background-color: rgb(43 43 43);
 }
+
+
+
+#icon{
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 30px; 
+    right: 90px;
+  }
+  
+  :root{
+    --primary-color: #eeeded;
+  }
+  
+  .dark-theme{
+    --primary-color: #0e0e0e;
+  }
 
 .head div:last-child {
     padding: 0px 40px 0px 0px;
