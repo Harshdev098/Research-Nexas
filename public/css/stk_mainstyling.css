@@ -184,6 +184,7 @@ body{
     width: 50%;
     margin: auto;
     background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     padding: 10px;
     border-radius: 20px;
