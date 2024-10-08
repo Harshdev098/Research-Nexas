@@ -419,14 +419,79 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <h4 id="custom-follow-heading">Follow Us</h4>
+                    
+                    <div class="custom-social-links1">
+                    <div class="custom-social-links">
+                        <a href="#" id="custom-facebook-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="custom-twitter-icon"><i class="fab fa-twitter"></i></a>
+                    </div>  <div class="custom-social-links"><a href="#" id="custom-instagram-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="custom-linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                </div>
+<style>
+    .custom-social-links {
+    display: flex; /* Center the icons */
+    gap: 33.5px; /* Space between icons */
+}
+.custom-social-links1 {
+    display: flex; /* Center the icons */
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.custom-social-links a {
+    font-size: 30px;
+    color: white; /* Initially white */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+/* Hover Effects for Original Colors */
+#custom-facebook-icon:hover i {
+    color: #1877F2; /* Facebook blue on hover */
+}
+
+#custom-twitter-icon:hover i {
+    color: #1DA1F2; /* Twitter blue on hover */
+}
+
+#custom-instagram-icon:hover i {
+    color: #E1306C; /* Instagram pink on hover */
+}
+
+#custom-linkedin-icon:hover i {
+    color: #0A66C2; /* LinkedIn blue on hover */
+}
+
+/* Click Effects to Maintain Color */
+.custom-social-links a:active i {
+    color: inherit; /* Maintain the color after clicking */
+}
+
+</style>     
+<script>// Facebook click event
+    document.getElementById("custom-facebook-icon").addEventListener("click", function () {
+        this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
+    });
+    
+    // Twitter click event
+    document.getElementById("custom-twitter-icon").addEventListener("click", function () {
+        this.querySelector("i").style.color = "#1DA1F2"; // Twitter blue after click
+    });
+    
+    // Instagram click event
+    document.getElementById("custom-instagram-icon").addEventListener("click", function () {
+        this.querySelector("i").style.color = "#E1306C"; // Instagram brand color after click
+    });
+    
+    // LinkedIn click event
+    document.getElementById("custom-linkedin-icon").addEventListener("click", function () {
+        this.querySelector("i").style.color = "#0A66C2"; // LinkedIn blue after click
+    });
+    
+    </script>           
             </div>
         </div>
     </footer>
