@@ -77,14 +77,14 @@ form h2 {
 form h4 {
   font-size: 18px;
   text-align: center;
-  color: #666;
+  color: var(--secondary-color);
   margin-bottom: 25px;
 }
 
 form label {
   margin-top: 10px;
   font-size: 16px;
-  color: #666;
+  color: var(--secondary-color);
   display: block;
   margin-bottom: 8px;
 }
@@ -139,6 +139,10 @@ button:hover {
   text-align: center;
   margin-top: 20px;
   font-size: 15px;
+}
+
+.register p{
+  color: var(--secondary-color);
 }
 
 .register a {
