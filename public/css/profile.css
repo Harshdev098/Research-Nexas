@@ -4,18 +4,33 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 section{
     display: flex;
 }
 
+:root{
+    --primary-color: #fff;
+    --secondary-color: #0e0e0e;
+    --ternary-color: #f0f8ff;
+  }
+  
+  .dark-theme{
+    --primary-color: #0e0e0e;
+    --secondary-color: #fff;
+    --ternary-color: #0e0e0e;
+  }
+
 /* container styling */
 .container{
-    background-color: aliceblue;
+    background-color: var(--ternary-color);
     height: 100vh;
+    color: var(--secondary-color);
 }
 .container ul{
-    border-top: 2px solid white;
+    border-top: 2px solid var(--secondary-color);
     padding: 0;
     margin: 0;
 }
@@ -26,12 +41,12 @@ section{
     font-size: 20px;
 }
 .container ul li:hover{
-    background-color: rgb(221, 232, 241);
+    background-color: var(--primary-color);
     border-radius: 12px;
     cursor: pointer;
 }
 .darkmode{
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--secondary-color);
     cursor: pointer;
     padding: 12px;
     margin: 4px;
@@ -74,7 +89,7 @@ section{
     text-decoration: none;
     font-size: 16px;
     background-color: rgb(212, 42, 42);
-    color: white;
+    color: var(--secondary-color);
 }
 .main button{
     padding: 10px;
@@ -98,7 +113,7 @@ section{
     padding: 8px;
 }
 #detail ul li p{
-    background-color: rgb(231, 230, 230);
+    background-color:aliceblue;
     margin: 5px 0px;
     padding: 10px;
     border-radius: 10px;
