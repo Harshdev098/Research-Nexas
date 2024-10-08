@@ -28,14 +28,24 @@ body {
     top: 30px; 
     right: 90px;
   }
-  
+
+  body h2{
+    color: var(--secondary-color);
+  }
+
+  .text{
+    color: var(--secondary-color);
+  }
   :root{
     --primary-color: #eeeded;
+    --secondary-color: #0e0e0e;
   }
   
   .dark-theme{
     --primary-color: #0e0e0e;
+    --secondary-color: #fff;
   }
+
 
 .head div:last-child {
     padding: 0px 40px 0px 0px;
@@ -450,7 +460,6 @@ main h2 {
     background-color: rgb(242, 233, 233);
     border-radius: 8px;
 }
-
 /* footer styling */
 
 .container {
