@@ -15,12 +15,15 @@ section{
     --primary-color: #fff;
     --secondary-color: #0e0e0e;
     --ternary-color: #f0f8ff;
+    --forth-color: #f0f8ff;
+
   }
   
   .dark-theme{
     --primary-color: #0e0e0e;
     --secondary-color: #fff;
     --ternary-color: #0e0e0e;
+    --forth-color: green;
   }
 
 /* container styling */
@@ -113,7 +116,8 @@ section{
     padding: 8px;
 }
 #detail ul li p{
-    background-color:aliceblue;
+    background-color: var(--forth-color);
+    color: var(--secondary-color);
     margin: 5px 0px;
     padding: 10px;
     border-radius: 10px;
