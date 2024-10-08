@@ -9,7 +9,6 @@ body {
 }
 
 /* header styling  */
-
 .head {
     display: flex;
     justify-content: space-between;
@@ -23,7 +22,47 @@ body {
     padding: 0px 40px 0px 0px;
 }
 
-@media (max-width:310px) {
+/* Notification badge styling */
+.badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+}
+
+/* Notification dropdown styling */
+.notification-dropdown {
+    position: absolute;
+    background-color: white;
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* To ensure it appears on top */
+}
+
+.notification-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-dropdown li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: black;
+}
+
+.notification-dropdown li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 310px) {
     .head {
         flex-direction: column;
     }
@@ -42,6 +81,7 @@ nav {
     background-color: rgb(195, 195, 210);
     align-items: center;
     flex-wrap: wrap;
+    position: relative; /* Required for notification dropdown positioning */
 }
 
 .navbar {
@@ -54,6 +94,7 @@ nav {
 .nav-items {
     padding: 0px 26px;
     font-size: 20px;
+    position: relative;
 }
 
 .nav-items a {
@@ -76,6 +117,11 @@ nav {
 
 .nav-items:nth-child(2):hover {
     background-color: rgb(121, 121, 163);
+}
+
+/* Hover effect for notifications */
+.nav-items:hover .notification-dropdown {
+    display: block; /* Show dropdown on hover */
 }
 
 @media (max-width:860px) {
@@ -127,7 +173,15 @@ nav {
     .logo img {
         width: 40vw;
     }
+
+    /* Notification dropdown on small screens */
+    .notification-dropdown {
+        width: 100%;
+        position: static;
+        box-shadow: none;
+    }
 }
+
 
 /* upload section styling */
 
