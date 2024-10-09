@@ -146,6 +146,15 @@ Welcome to Research Nexas build for researchers, before contributing to the proj
 # Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
 
+
+
+
 Star ⭐ the project if you like it,working and contributing with us ❤️.
 
+
+# Big thanks to all the contributors!
+
+<a href="https://github.com/Harshdev098/Research-Nexas/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Harshdev098/Research-Nexas" />
+</a>
 

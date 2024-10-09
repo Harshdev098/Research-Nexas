@@ -16,6 +16,23 @@
     overflow: hidden;
     margin: 5px;
 }
+#icon{
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 30px; 
+    right: 30px;
+  }
+
+  :root{
+    --primary-color: #fff;
+    --secondary-color: #0e0e0e;
+  }
+  
+  .dark-theme{
+    --primary-color: #0e0e0e;
+    --secondary-color: #fff;
+  }
 
 body {
     font-family: Arial, sans-serif;
@@ -30,7 +47,7 @@ body {
 
 .maindiv {
     display: flex;
-    background-color: white;
+    background-color: var(--primary-color);
     height: 80%;
     max-width: 1200px;
     width: 100%;
@@ -48,11 +65,19 @@ body {
     padding: 20px;
 }
 
+.formdiv{
+    background-color: var(--primary-color);
+}
+
+form h2{
+    color: var(--secondary-color);
+}
+
 form input {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--secondary-color);
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s;
@@ -60,12 +85,12 @@ form input {
 
 form label {
     font-size: 16px;
-    color: #666;
+    color: var(--secondary-color);
     display: block;
 }
 
 #message {
-    border: 1px solid #ddd;
+    border: 1px solid var(--secondary-color);
     border-radius: 8px;
 }
 
@@ -122,3 +147,4 @@ form label {
         font-size: 16px;
     }
 }
+

@@ -4,16 +4,8 @@ const notify=require('../login-system/notification')
 const destination = path.resolve(__dirname, 'uploads/');
 const {decodeAccessToken}=require('../login-system/token')
 const mysql = require('mysql')
+const  db  = require('../config/mysql_connection')
 
-const db = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'user',
-    password: 'Ha@96168737',
-    database: 'user_DB',
-    port: '3306'
- })
-
-// uploading file 
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {

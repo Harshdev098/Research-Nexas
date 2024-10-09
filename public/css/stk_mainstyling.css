@@ -173,7 +173,7 @@ body{
 
 /* evaluation form  */
 #criteria{
-    background-color: rgb(224, 228, 233);
+    background-color: var(--primary-color);
     padding: 12px;
 }
 .form-container{
@@ -183,7 +183,8 @@ body{
     align-items: center;
     width: 50%;
     margin: auto;
-    background-color: white;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     padding: 10px;
     border-radius: 20px;

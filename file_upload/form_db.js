@@ -1,17 +1,10 @@
 const express = require('express')
 const mysql = require('mysql')
+const  db  = require('../config/mysql_connection')
 const {decodeAccessToken}=require('../login-system/token')
 const app = express();
 app.use(express.json());
 
-const db = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'user',
-    password: 'Ha@96168737',
-    database: 'user_DB',
-    port: '3306'
- })
- 
 const info=(req,res)=>{
     const decodedtoken = decodeAccessToken(req.headers.authorization);
     if (!decodedtoken || !decodedtoken.user) {

@@ -18,6 +18,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: fixed; /* Make navbar fixed to the top */
+  top: 0; /* Position at the top of the viewport */
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 2000; /* Ensures it stays on top of other content */
+  /* background-color: #66B2FF; */
 }
 
 /* changes */
@@ -102,17 +107,25 @@ nav ul li {
   margin: 10px 16px;
   padding: 6px;
   font-size: 22px;
-  color: white;
+  /* color: white; */
   cursor: pointer;
+  color: white; /* Black text color */
+  transition: color 0.3s, background-color 0.3s; 
 }
-nav ul li a {
+
+/* nav ul li a {
+  color: #333333;
   text-decoration: none;
-  color: white;
-}
+} */
 
 
 nav ul li:hover {
   border-bottom: 1.7px solid white;
+}
+
+nav ul li a {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Inherit color from parent */
 }
 
 nav ul li:first-child {
@@ -492,7 +505,7 @@ body {
 .about_para {
   margin: auto;
   padding: 20px;
-  text-align: center;
+  text-align: justify;
   max-width: 800px;
   font-size: 20px;
   line-height: 1.6;
@@ -503,7 +516,7 @@ body {
 .slider {
   width: 100%;
   max-width: 100vw;
-  height: 535px;
+  height:535px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -657,6 +670,7 @@ main {
   padding: 6px;
   line-height: 1.6;
   font-size: 18px;
+  text-align: justify;
 }
 .stu_reg {
   display: flex;
@@ -797,6 +811,7 @@ main {
 .tracker p {
   line-height: 1.5;
   font-size: 20px;
+  text-align: justify;
 }
 
 .tracker {
@@ -872,7 +887,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(400px, 6fr));
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
-  justify-content: center;
+  /* justify-content: center; */
+  text-align: justify;
   align-items: center;
 }
 @media (max-width: 380px) {
@@ -1041,6 +1057,7 @@ h3 {
 .premium-boxes p {
   line-height: 1.5;
   font-size: 19px;
+  text-align: justify;
 }
 
 @media (max-width: 740px) {
@@ -1247,6 +1264,7 @@ h3 {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  text-align: justify;
 }
 .stk_section p {
   width: 500px;
@@ -1501,4 +1519,42 @@ ul {
 
 #scrollToTop:hover {
   background-color: darkorange;
+}
+.custom-social-links {
+  display: flex; /* Center the icons */
+  gap: 33.5px; /* Space between icons */
+}
+.custom-social-links1 {
+  display: flex; /* Center the icons */
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+.custom-social-links a {
+  font-size: 30px;
+  color: white; /* Initially white */
+  transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+/* Hover Effects for Original Colors */
+#custom-facebook-icon:hover i {
+  color: #1877F2; /* Facebook blue on hover */
+}
+
+#custom-twitter-icon:hover i {
+  color: #1DA1F2; /* Twitter blue on hover */
+}
+
+#custom-instagram-icon:hover i {
+  color: #E1306C; /* Instagram pink on hover */
+}
+
+#custom-linkedin-icon:hover i {
+  color: #0A66C2; /* LinkedIn blue on hover */
+}
+
+/* Click Effects to Maintain Color */
+.custom-social-links a:active i {
+  color: inherit; /* Maintain the color after clicking */
 }

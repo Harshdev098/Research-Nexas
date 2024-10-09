@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="images/moon.png" id="icon">
     <div class="container">
         <div class="image">
             <img src="images/logo.png" alt="">
@@ -45,6 +46,16 @@
 
     <!-- Updated register function starts here -->
     <script>
+        var icon =document.getElementById("icon");
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src="images/sun.png";
+            }
+            else{
+                icon.src="images/moon.png";
+            }
+        }
         const register = async () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
