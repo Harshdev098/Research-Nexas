@@ -42,7 +42,6 @@ const createListItem = (result, ul) => {
   btn.type = "button";
   if (result.status == 0) {
     btn.disabled = true;
-    console.log("btn disable");
   } else {
     btn.disabled = false;
     const container = document.getElementById("container");
@@ -106,7 +105,6 @@ const display = async (id) => {
 // allotment code for faculty
 const fac_allotment = async (id) => {
   const email = document.getElementById("fac_mail").value;
-  console.log(email);
   const response = fetch(`http://localhost:3000/paper_allot?id=${id}`, {
     method: "POST",
     headers: {
