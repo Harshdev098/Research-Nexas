@@ -10,7 +10,6 @@ const fetchuploadfiles = async () => {
 
   const results = await response.json();
   const ul = document.getElementById("ul1");
-  console.log(results, "results");
   if (Array.isArray(results)) {
     results.forEach((result) => {
       createListItem(result, ul);
