@@ -62,7 +62,6 @@ const disp = (req, res) => {
       }
       const filenames = result.map((row) => row.filename);
       const filepaths = result.map((row) => row.filename);
-      // console.log(filenames,filepaths);
       res.json({ filenames, filepaths });
     });
   } catch (error) {
