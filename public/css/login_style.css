@@ -181,3 +181,24 @@ button:hover {
   border: 1px solid #f5c6cb;
   display: none;
 }
+
+/* Styles for password toggle */
+.password-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#toggle-password {
+  position: absolute;
+  top: 0%;
+  right: 10px;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+
+#toggle-password img {
+  width: 20px;
+  height: 20px;
+}
+
