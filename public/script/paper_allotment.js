@@ -86,11 +86,15 @@ const display = async (id) => {
   });
   if (response.ok) {
     const details = await response.json();
-    const a = document.createElement("a");
+    let a = path.querySelector("a");
+    if (!a) {
+      a = document.createElement("a");
+      a.target = "_blank";
+      path.appendChild(a);
+    }
     a.href = details.filepath;
     a.textContent = "View the file";
-    a.target = "_blank";
-    path.appendChild(a);
+
     name.textContent = details.name;
     email.textContent = details.email;
     sno.textContent = details.sno;
