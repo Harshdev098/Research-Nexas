@@ -37,7 +37,7 @@ nav ul li {
   font-size: 22px;
   /* color: white; */
   cursor: pointer;
-  color: white; /* Black text color */
+  color: rgb(247, 246, 240); /* Black text color */
   transition: color 0.3s, background-color 0.3s; 
 }
 
@@ -47,7 +47,7 @@ nav ul li {
 } */
 
 nav ul li:hover {
-  border-bottom: 1.7px solid white;
+  border-bottom: 1.7px solid  rgb(25, 24, 25);
 }
 
 nav ul li a {
@@ -68,10 +68,10 @@ nav ul li:first-child:hover {
   border-radius: 12px;
   border-image: linear-gradient(
     -225deg,
-    #231557 0%,
-    #44107a 29%,
+    #231557 5%,
+    #44107a 36%,
     #ff1361 67%,
-    #fff800 100%
+    #fef850 100%
   );
   border-image-slice: 1;
 }
@@ -81,13 +81,17 @@ header {
   position: relative;
   width: 100%;
   height: 100vh;
+<<<<<<< HEAD
   background: #639ef7;
+=======
+  background: #0f5ccf;
+>>>>>>> 3674aecc1d3eb525f482bbdae4d5cd60dcc2321e
 }
 
 header p {
   font-size: 25px;
   text-align: center;
-  color: white;
+  color: rgb(238, 228, 228);
   word-wrap: break-word;
 }
 
@@ -114,7 +118,7 @@ header h1 {
   text-align: center;
   background-image: linear-gradient(
     -225deg,
-    #231557 0%,
+    #231557 3%,
     #44107a 29%,
     #ff1361 67%,
     #fff800 100%
@@ -151,7 +155,7 @@ header h1 {
 .searchbar input {
   padding: 14px;
   width: 360px;
-  border: 2.7px solid #ccc; /* Light gray border for a softer look */
+  border: 2.7px solid #8d8989; /* Light gray border for a softer look */
   font-size: 16px;
   border-radius: 25px; /* Rounded corners */
   outline: none; /* Remove default outline */
@@ -159,12 +163,12 @@ header h1 {
 }
 
 .searchbar input:focus {
-  border-color: #ff7e5f; /* Change border color on focus */
+  border-color: #d53109; /* Change border color on focus */
   box-shadow: 0 0 5px rgba(255, 126, 95, 0.5); /* Soft glow effect on focus */
 }
 
 .searchbar input::placeholder {
-  color: #888; /* Placeholder text color */
+  color: #dbd7d7; /* Placeholder text color */
   font-style: italic; /* Italicize placeholder text for distinction */
 }
 
@@ -227,7 +231,7 @@ header h1 {
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(56, 54, 54, 0.2);
   animation: animate 25s linear infinite;
   bottom: -150px;
 }
@@ -404,7 +408,7 @@ body {
 .about {
   margin: 16px 0px;
   padding: 30px 0px;
-  background-color: #9eaec8;
+  background-color: #b9c1cc;
   border-radius: 0% 0% 3000% 3000%;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
@@ -436,7 +440,7 @@ body {
   max-width: 800px;
   font-size: 20px;
   line-height: 1.6;
-  color: #555;
+  color: #161515;
 }
 
 /* slider styling */
@@ -1319,6 +1323,9 @@ ul {
   margin-bottom: 35px;
   font-weight: 500;
   position: relative;
+}
+.footer-col h4:hover{
+color:#ed8309;
 }
 
 .footer-col h4::before {

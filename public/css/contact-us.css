@@ -36,7 +36,11 @@
 
 body {
     font-family: Arial, sans-serif;
+<<<<<<< HEAD
     background-color: #4d56f7;
+=======
+    background-color: #5c63f3;
+>>>>>>> 3674aecc1d3eb525f482bbdae4d5cd60dcc2321e
     display: flex;
     justify-content: center;
     align-items: center;

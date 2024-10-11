@@ -72,7 +72,7 @@ body {
     left: 75%;
     width: 110px;
     height: 110px;
-    animation-delay: 3s;
+    animation-delay: 4s;
 }
 
 .circles li:nth-child(7) {
@@ -163,7 +163,11 @@ form .btn-primary {
 }
 
 form .btn-primary:hover {
+<<<<<<< HEAD
     background-color: rgb(48, 23, 176);
+=======
+    background-color: rgb(116, 93, 232);
+>>>>>>> 3674aecc1d3eb525f482bbdae4d5cd60dcc2321e
 }
 
 form h2 {
