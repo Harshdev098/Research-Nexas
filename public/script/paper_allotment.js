@@ -92,7 +92,7 @@ const display = async (id) => {
       a.target = "_blank";
       path.appendChild(a);
     }
-    a.href = details.filepath;
+    a.href = `/uploads/${details.filename}`;
     a.textContent = "View the file";
 
     name.textContent = details.name;
