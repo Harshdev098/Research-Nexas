@@ -67,7 +67,7 @@ nav {
     justify-content: space-between;
     padding: 8px 10px;
     font-size: 18px;
-    background-color: rgb(195, 195, 210);
+    background-color: rgb(206, 206, 233);
     align-items: center;
     flex-wrap: wrap;
 }
@@ -103,7 +103,7 @@ nav {
 }
 
 .nav-items:nth-child(2):hover {
-    background-color: rgb(121, 121, 163);
+    background-color: rgb(133, 133, 186);
 }
 
 @media (max-width:860px) {
@@ -194,7 +194,7 @@ nav {
 }
 
 #view_papers {
-    background-color: rgb(213, 213, 250);
+    background-color: rgb(220, 220, 250);
     color: black;
     transition: background-color 0.5s ease-in-out;
 }

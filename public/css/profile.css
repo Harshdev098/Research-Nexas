@@ -81,7 +81,7 @@ section{
 }
 .main img{
     margin: 26px;
-    border-radius: 50%;
+    border-radius: 75%;
 }
 .main p{
     font-size: 42px;
@@ -136,7 +136,7 @@ section{
     padding: 10px;
     font-size: 21px;
     display: inline-block;
-    color: green;
+    color: rgb(6, 241, 6);
 }
 .data p{
     margin: 16px;
