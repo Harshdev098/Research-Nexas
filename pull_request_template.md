@@ -14,11 +14,11 @@
 
 Before submitting the PR, please make sure you have completed the following:
 
+- [ ] I have followed all the guidlines mentioned in CONTRIBUTING.md.
 - [ ] My code follows the style guidelines of this project.
 - [ ] I have performed a self-review of my own code.
 - [ ] I have commented my code, particularly in hard-to-understand areas.
 - [ ] I have made corresponding changes to the documentation (if applicable).
-- [ ] My changes generate no new warnings.
 - [ ] I have tested it locally and it works fine.
 - [ ] Any dependent changes have been merged and published in downstream modules.
 
@@ -30,10 +30,6 @@ What type of changes does your code introduce? (Check all that apply)
 - [ ] New feature (non-breaking change which adds functionality) ✨
 - [ ] UI enhancement (non-breaking change which enhances UI) 🎨
 - [ ] Documentation update 📚
-
-## 🤝 Related Issues
-
-<!-- List any issues related to this PR. Link them using "Fixes #issue-number" to automatically close them when the PR is merged. -->
 
 - Fixes #
 
