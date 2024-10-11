@@ -1485,3 +1485,237 @@ ul {
 .custom-social-links a:active i {
   color: inherit; /* Maintain the color after clicking */
 }
+
+/* Section Styles */
+.section4 {
+  background-color: #eef2f3; /* Light background color */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+  text-transform: uppercase; /* Uppercase titles */
+}
+
+.img_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px; /* Add spacing below image container */
+}
+
+.image_boxes {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.image_boxes img {
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Transition for image scaling */
+}
+
+.image_boxes:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 15px; /* Match overlay with image corners */
+}
+
+.image_boxes:hover .overlay {
+  opacity: 1;
+}
+
+.stu_section {
+  margin-top: 40px;
+}
+
+.stu_para {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #555; /* Soft text color */
+  line-height: 1.5; /* Improved line spacing for readability */
+}
+
+.explore-btn {
+  background-color: #007BFF; /* Bootstrap primary color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Button transitions */
+}
+
+.explore-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.stk_section {
+  margin-top: 40px;
+}
+
+.stk_section_para {
+  margin-bottom: 20px;
+}
+
+.last_img {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px; /* Added spacing above last images */
+}
+
+.last_img_boxes img {
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Transition for image scaling */
+}
+
+.last_img_boxes img:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.img_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.image_boxes {
+  position: relative;
+  width: 100%;
+  max-width: 325px; /* Adjust as necessary */
+  margin: 10px;
+  background-color: #f0f4f8; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s; /* Smooth scaling on hover */
+}
+
+.image_boxes:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.details {
+  padding: 15px; /* More padding for comfort */
+  background-color: #e0f7fa; /* Light cyan background */
+  border-top: 2px solid #00838f; /* Teal border at the top */
+  color: #333; /* Dark text for contrast */
+  text-align: left; /* Left align text */
+}
+
+.details h3 {
+  margin: 0 0 10px 0; /* Margin below the heading */
+  color: #00796b; /* Dark teal heading */
+}
+
+.details p {
+  margin: 5px 0; /* Spacing between paragraphs */
+}
+
+/* Styles for the overlay (optional) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white; /* White text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Smooth transition */
+}
+
+.image_boxes:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.img_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.image_boxes {
+  position: relative;
+  width: 100%;
+  max-width: 325px; /* Adjust as necessary */
+  margin: 10px;
+  background-color: #e0f7fa; /* Light cyan background to fill entire box */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.image_boxes img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove bottom space below image */
+  border-radius: 8px 8px 0 0; /* Rounded top corners for the image */
+}
+
+.details {
+  padding: 15px; /* More padding for comfort */
+  background-color: #e0f7fa; /* Light cyan background to fill the entire area */
+  color: #333; /* Dark text for contrast */
+  text-align: left; /* Left align text */
+}
+
+.details h3 {
+  margin: 0 0 10px 0; /* Margin below the heading */
+  color: #00796b; /* Dark teal heading */
+}
+
+.details p {
+  margin: 5px 0; /* Spacing between paragraphs */
+}
+
+/* Overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white; /* White text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Smooth transition */
+  z-index: 1; /* Ensure overlay is on top */
+}
+
+.image_boxes:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
