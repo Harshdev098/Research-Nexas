@@ -74,7 +74,7 @@ const displaydetail = async (req, res) => {
                             const email = result[0].email
                             const col_name = result[0].col_name
                             const sno = result[0].sno;
-                            res.json({ filepath, name, email, col_name, sno })
+                            res.json({ filepath, filename, name, email, col_name, sno })
                         }
                     })
                 });
