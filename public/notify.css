@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4edda; /* Light green background color */
+    margin: 0;
+    padding: 20px;
+}
+
+.notification-container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff; /* White background for notification box */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.notification {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.notification:last-child {
+    border-bottom: none;
+}
+
+.notification p {
+    margin: 0;
+}
+
+.notification-time {
+    font-size: 0.8em;
+    color: #999;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
