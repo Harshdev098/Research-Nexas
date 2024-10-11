@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="darkmode" onclick="hide()">
+                <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
+                <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
+                <b>
+                    <p id="mode" style="display: inline;font-size: 20px;">Light Mode</p>
+                </b>
+            </div>
+            <div class="profile">
+                <img src="" alt="profile">
+            </div>
+            <ul>
+                <li onclick="view_profile()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Profile</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
+                <li onclick="view_about()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
+                <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
+                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+            </ul>
+        </div>
+        <div class="largesection">
+            <div class="main">
+                <div>
+                    <img src="" alt="profile">
+                    <strong>
+                        <p id="username">sdisoilfds</p>
+                    </strong>
+                </div>
+                <div>
+                    <button><a href=""><i class="fa-regular fa-pen-to-square"
+                                style="padding: 0px 12px 0px 8px;"></i>Edit Profile</a></button>
+                </div>
+            </div>
+            <div id="detail">
+                <ul>
+                    <li>Name: <p id="name"></p>
+                    </li>
+                    <li>Email: <p id="email"></p>
+                    </li>
+                    <li>College Name: <p id="col_name"></p>
+                    </li>
+                    <li>State: <p id="state"></p>
+                    </li>
+                    <li>Year: <p id="year"></p>
+                    </li>
+                    <li>Course: <p id="course"></p>
+                    </li>
+                </ul>
+            </div>
+            <div id="result">
+                <strong>Result Status: <p id="status"></p>
+                    <p id="marks"></p>
+                </strong>
+                <div class="data">
+                    <p>the rating given to your Research paper by the faculties are:-</p>
+                </div>
+            </div>
+            <div id="about">
+                <strong>About Us:</strong>
+                <div class="data">
+                    <p>This is the information about the organisation</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        async function fetchdata() {
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const username = document.getElementById('username');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const col_name = document.getElementById('col_name');
+            const state = document.getElementById('state');
+            const year = document.getElementById('year');
+            const course = document.getElementById('course');
+            const response = await fetch('http://localhost:3000/dashboard', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.status == 200) {
+                const data = await response.json();
+                console.log(data);
+                username.textContent = data.username;
+                name.textContent = data.name;
+                email.textContent = data.email;
+                col_name.textContent = data.col_name;
+                state.textContent = data.state;
+                year.textContent = data.year;
+                course.textContent = data.course;
+            }
+        }
+        fetchdata()
+
+        function hide() {
+            document.body.classList.toggle("dark-theme");
+            const regularicon = document.getElementById('regular')
+            const solidicon = document.getElementById('solid')
+            const mode = document.getElementById('mode')
+            if (regularicon.style.display == 'inline') {
+                solidicon.style.display = 'inline';
+                regularicon.style.display = 'none';
+                mode.textContent = "Dark Mode"
+            }
+            else {
+                solidicon.style.display = 'none';
+                regularicon.style.display = 'inline';
+                mode.textContent = "Light Mode"
+            }
+        }
+
+
+        const view_profile = () => {
+            const detail = document.getElementById('detail')
+            const result = document.getElementById('result')
+            detail.style.display = 'block'
+            result.style.display = 'none'
+        }
+
+
+        const view_result = async () => {
+            const detail = document.getElementById('detail')
+            const result = document.getElementById('result')
+            detail.style.display = 'none'
+            result.style.display = 'block'
+            const token = localStorage.getItem('accessToken');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token}`);
+            const response = await fetch('http://localhost:3000/result', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            })
+            if (response.status == 201) {
+                const data = await response.json()
+                const status = document.getElementById('status')
+                const marks = document.getElementById('marks')
+                status.textContent = data.status
+                marks.textContent = data.percent
+            }
+            else if (response.status == 404) {
+                console.log('Result not declared')
+                const result = document.getElementById('result')
+                result.innerHTML = "Result not declared yet!"
+                result.style.color = "red"
+                result.style.padding="16px"
+                result.style.fontSize="18px"
+            }
+            else {
+                console.log("an error occured")
+            }
+        }
+        const view_about = async () => {
+            const about = document.getElementById('about')
+            detail.style.display = 'none'
+            about.style.display = 'block'
+            const token2 = localStorage.getItem('accessToken2');
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${token2}`);
+            const response = await fetch('http://localhost:3000/about', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token2}`,
+                }
+            })
+            if (response.status == 201) {
+                const data = await response.json()
+               
+            }
+            else if (response.status == 404) {
+                console.log('About Us not available')
+                const about = document.getElementById('about')
+                about.innerHTML = "About us not available yet!"
+                about.style.color = "red"
+                about.style.padding="16px"
+                about.style.fontSize="18px"
+            }
+            else {
+                console.log("an error occured")
+            }
+        }
+    </script>
+</body>
+
+</html>
