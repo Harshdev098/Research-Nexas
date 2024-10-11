@@ -69,6 +69,7 @@ const displaydetail = async (req, res) => {
                         }
                         if (result != 0) {
                             const filepath = result[0].filepath
+                            const filename = result[0].filename
                             const name = result[0].name
                             const email = result[0].email
                             const col_name = result[0].col_name
