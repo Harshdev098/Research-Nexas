@@ -46,7 +46,7 @@
 }
 
 #box2 {
-    background-color: #386838;
+    background-color: #2e602e;
 }
 
 #box3 {
@@ -85,7 +85,7 @@ h4 {
     width: 100%;
     padding: 9px 26px;
     margin: 8px;
-    background-color: rgb(10 103 244);
+    background-color: rgb(6, 104, 252);
     color: white;
     border-radius: 10px;
     font-size: 18px;
@@ -95,7 +95,7 @@ h4 {
 }
 
 button:hover {
-    background-color: rgb(18, 102, 133);
+    background-color: rgb(25, 121, 156);
 }
 
 .papers ul li {
@@ -142,11 +142,11 @@ button:hover {
     font-size: 18px;
 }
 .container::-webkit-scrollbar {
-    width: 9px;
+    width: 10px;
 }
 
 .container::-webkit-scrollbar-thumb {
-    background-color: #888;
+    background-color: #a7a4a4;
     border-radius: 10px;
 }
 
@@ -165,7 +165,7 @@ button:hover {
     cursor: pointer;
 }
 #submit{
-    background-color: rgb(11, 129, 219);
+    background-color: rgb(9, 142, 244);
     color: white;
     border: none;
     transition: all 0.8s ease-in-out;

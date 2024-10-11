@@ -100,7 +100,7 @@ form input {
 }
 
 form input:focus {
-  border-color: #8f94fb;
+  border-color: #8389fe;
   outline: none;
   box-shadow: 0 0 8px rgba(142, 160, 240, 0.5);
 }
@@ -128,11 +128,11 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.4s;
+  transition:  0.4s;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #8f94fb, #4e54c8);
+  background: linear-gradient(45deg, #7c82f3, #4e54c8);
 }
 
 .register {
@@ -153,6 +153,7 @@ button:hover {
 
 .register a:hover {
   text-decoration: underline;
+  color: #721c24;
 }
 
 #box1, #box2, #box3, #box4 {

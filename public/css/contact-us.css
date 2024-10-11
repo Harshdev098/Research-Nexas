@@ -36,7 +36,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #4e54c8;
+    background-color: #4d56f7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +80,7 @@ form input {
     border: 1px solid var(--secondary-color);
     border-radius: 8px;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.4s;
 }
 
 form label {
@@ -98,13 +98,13 @@ form label {
     margin-top: 15px;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    background: linear-gradient(45deg, #4e54c8, #787de0);
     color: white;
     font-size: 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.4s;
+    transition:  0.4s ease;
 }
 
 /* Media Query for Smaller Screens */

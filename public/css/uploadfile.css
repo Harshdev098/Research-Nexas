@@ -21,7 +21,7 @@ section h2 {
 }
 .img i{
     font-size: 24vw;
-    color: #6a6a80;
+    color: #6b6b73;
 }
 .form p {
     padding: 18px 0px;
@@ -142,7 +142,7 @@ button{
 #uploadedFilesContainer ul li{
     margin: 8px;
     padding: 20px;
-    background-color: rgb(164, 164, 232);
+    background-color: rgb(173, 173, 252);
     border-radius: 10px;
     font-size: 18px;
 }

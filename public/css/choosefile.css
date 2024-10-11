@@ -19,7 +19,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    background-color: rgb(62, 59, 59);
+    background-color: rgb(30, 29, 29);
     padding: 60px;
     border-radius: 12px;
 }

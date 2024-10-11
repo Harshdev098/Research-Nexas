@@ -133,7 +133,7 @@ body {
     max-width: 600px;
     /* background: #EDDFE0; */
     border-radius: 10px;
-    margin: 14px;
+    margin: 15px;
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
 }
 
@@ -163,7 +163,7 @@ form .btn-primary {
 }
 
 form .btn-primary:hover {
-    background-color: rgb(100, 80, 200);
+    background-color: rgb(48, 23, 176);
 }
 
 form h2 {
