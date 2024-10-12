@@ -1,5 +1,5 @@
 # Research-Nexas
-A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evauated on the basis of the evaluation criteria 
+A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evaluated on the basis of the evaluation criteria 
 
 # Working
 - Student
@@ -123,7 +123,7 @@ Follow these steps to run the Research Nexas
   EMAIL='harsh@gmail.com'   // your email
   MYPASS='yourmailpassword' 
   ```
-- You can found `yourmailpassword` for low protected app(developer use) here- https://youtu.be/nuD6qNAurVM
+- You can find `yourmailpassword` for low protected app(developer use) here- https://youtu.be/nuD6qNAurVM
 - Now run the following commands in your terminal
   ```
   npm install
@@ -141,7 +141,7 @@ Follow these steps to run the Research Nexas
   ```
 
 # Contribution
-Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that that we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
+Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
 # Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
