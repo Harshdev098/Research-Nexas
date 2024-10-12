@@ -81,7 +81,7 @@ body{
     background-color: #d4bfc3;
 }
 .main div:nth-child(3){
-    background-color: #d56a6a;
+    background-color: #d56a6a;;
 }
 .main div:nth-child(3) a:hover{
     background-color: #d99999;
@@ -234,6 +234,11 @@ body{
 .submit-btn{
     background-color: black;
     color: white;
+}
+.submit-btn:hover{
+    font-weight: 600;
+    transition: 0.3s ease;
+    color: blue;
 }
 
 /* footer styling */

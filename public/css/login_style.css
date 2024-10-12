@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+  background: linear-gradient(to bottom right,#4e54c8, #8f94fb);
   color: #333;
 }
 
@@ -20,6 +20,9 @@ body {
   position: absolute;
   top: 30px; 
   right: 30px;
+}
+#icon:hover{
+  font-weight: 800;
 }
 
 :root{
@@ -46,7 +49,7 @@ body {
 
 .image {
   /* width: 50%; */
-  background-color: #666;
+  background-color: #433c3c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +103,7 @@ form input {
 }
 
 form input:focus {
-  border-color: #8f94fb;
+  border-color: #bb73f3;
   outline: none;
   box-shadow: 0 0 8px rgba(142, 160, 240, 0.5);
 }
@@ -116,7 +119,7 @@ a {
 }
 
 a:hover {
-  color: #8f94fb;
+  color: #7076e8;
 }
 
 button {
@@ -128,11 +131,11 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.4s;
+  transition:  0.4s ease-in;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #8f94fb, #4e54c8);
+  background: linear-gradient(45deg, #8f94fb, #666cdc);
 }
 
 .register {
@@ -153,6 +156,7 @@ button:hover {
 
 .register a:hover {
   text-decoration: underline;
+  color:blue;
 }
 
 #box1, #box2, #box3, #box4 {

@@ -96,14 +96,14 @@ nav {
 }
 
 .nav-items:nth-child(2) {
-    background-color: rgb(159, 159, 180);
+    background-color: rgb(121, 121, 163);
     padding: 10px;
     border-radius: 10px;
     transition: all 0.8s ease-in-out;
 }
 
 .nav-items:nth-child(2):hover {
-    background-color: rgb(121, 121, 163);
+    background-color: rgb(133, 133, 186);
 }
 
 @media (max-width:860px) {

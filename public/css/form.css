@@ -148,7 +148,7 @@ form input, form select {
 }
 
 form label {
-    font-weight: bold;
+    font-weight: 800;
     padding-left: 10px;
     margin-bottom: 5px;
 }
@@ -163,7 +163,7 @@ form .btn-primary {
 }
 
 form .btn-primary:hover {
-    background-color: rgb(100, 80, 200);
+    background-color: rgb(67, 41, 201);
 }
 
 form h2 {
