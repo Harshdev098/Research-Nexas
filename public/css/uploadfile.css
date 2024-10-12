@@ -128,7 +128,7 @@ button{
     display: block;
 }
 #uploadedFilesContainer button:hover{
-    outline: 2px solid red;
+    outline: 2px solid rgb(68, 255, 0);
     outline-offset: 2px;
     cursor: pointer;
 }

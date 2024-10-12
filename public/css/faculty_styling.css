@@ -95,7 +95,7 @@ h4 {
 }
 
 button:hover {
-    background-color: rgb(18, 120, 158);
+    background-color: rgb(30, 177, 230);
 }
 
 .papers ul li {
@@ -135,6 +135,7 @@ button:hover {
 }
 .container input{
     font-size: 17px;
+    font-weight: 400;
 }
 .container label{
     font-weight: bold;
@@ -176,10 +177,10 @@ button:hover {
     transition: all 0.8s ease-in-out;
 }
 #submit:hover{
-    background-color: rgb(12, 119, 201);
+    background-color: rgb(9, 137, 235);
 }
 #cancel:hover{
-    background-color: rgb(207, 200, 200);
+    background-color: rgb(150, 145, 145);
 }
 #result1 {
     margin: 0;

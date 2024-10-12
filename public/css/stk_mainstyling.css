@@ -235,6 +235,11 @@ body{
     background-color: black;
     color: white;
 }
+.submit-btn:hover{
+    font-weight: 600;
+    transition: 0.3s ease;
+    color: blue;
+}
 
 /* footer styling */
 

@@ -104,7 +104,7 @@ form label {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.4s;
+    transition:  0.4s;
 }
 
 /* Media Query for Smaller Screens */

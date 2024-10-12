@@ -11,6 +11,7 @@ body{
     padding: 30px;
     background-color: white;
     border-radius: 20px;
+    font-size: large;
 }
 .radio input[type="radio"]{
     font-size: 26px;

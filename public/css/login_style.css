@@ -21,6 +21,9 @@ body {
   top: 30px; 
   right: 30px;
 }
+#icon:hover{
+  font-weight: 800;
+}
 
 :root{
   --primary-color: #fff;
@@ -116,7 +119,7 @@ a {
 }
 
 a:hover {
-  color: #8288f6;
+  color: #7076e8;
 }
 
 button {
@@ -128,11 +131,11 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.4s;
+  transition:  0.4s ease-in;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #8f94fb, #4e54c8);
+  background: linear-gradient(45deg, #8f94fb, #666cdc);
 }
 
 .register {
