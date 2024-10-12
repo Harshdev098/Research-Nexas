@@ -47,7 +47,7 @@ nav ul li {
 } */
 
 nav ul li:hover {
-  border-bottom: 1.7px solid  rgb(25, 24, 25);
+  border-bottom: 1.7px solid  white;
 }
 
 nav ul li a {
@@ -68,9 +68,9 @@ nav ul li:first-child:hover {
   border-radius: 12px;
   border-image: linear-gradient(
     -225deg,
-    #231557 5%,
-    #44107a 36%,
-    #ff1361 67%,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 100%,
     #fef850 100%
   );
   border-image-slice: 1;
@@ -81,7 +81,7 @@ header {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #0f5ccf;
+  background: #5090ef;
 }
 
 header p {
@@ -114,7 +114,7 @@ header h1 {
   text-align: center;
   background-image: linear-gradient(
     -225deg,
-    #231557 3%,
+    #231557 0%,
     #44107a 29%,
     #ff1361 67%,
     #fff800 100%

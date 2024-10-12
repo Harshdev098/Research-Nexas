@@ -75,16 +75,16 @@ body{
     background-color: #e1d1b4;
 }
 .main div:nth-child(2){
-    background-color: #dbb5bd;
+    background-color: #be9fa5;
 }
 .main div:nth-child(2) a:hover{
-    background-color: #eea2b0;
+    background-color: #d4bfc3;
 }
 .main div:nth-child(3){
-    background-color: #b54d4d;
+    background-color: #d56a6a;;
 }
 .main div:nth-child(3) a:hover{
-    background-color: #d34747;
+    background-color: #d99999;
 }
 .main div:nth-child(4){
     background-color: #8b8bc8;
