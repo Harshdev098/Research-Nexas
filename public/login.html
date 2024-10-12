@@ -30,7 +30,12 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="toggle-password">
+                        <img src="images/eye-closed.png" id="eye-icon" alt="Show/Hide Password" style="cursor: pointer;">
+                    </span>
+                </div>
                 <a href="">Forgot Password?</a>
                 <button type="button" onclick="login()">Login</button>
                 <div class="register">
@@ -54,6 +59,21 @@
                 icon.src="images/moon.png";
             }
         }
+
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eye-icon');
+
+        togglePassword.onclick = function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.src = 'images/eye-open.png';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.src = 'images/eye-closed.png'; 
+            }
+        }
+
         async function login() {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
