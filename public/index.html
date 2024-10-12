@@ -494,10 +494,10 @@
         window.onscroll = function() {
             var navbar = document.querySelector(".navbar");
             if (window.scrollY > 50) {
-                navbar.style.backgroundColor = "none"; // Dark background on scroll
+                navbar.style.backgroundColor = "rgba(0, 0, 0, 0.8)"; // Dark background on scroll
                 navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Change link color
             } else {
-                navbar.style.backgroundColor = "none"; // Revert back to light background
+                navbar.style.backgroundColor = "transparent"; // Revert back to transparent background
                 navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Revert link color
             }
         };
