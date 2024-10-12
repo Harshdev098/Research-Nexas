@@ -54,13 +54,27 @@
                 icon.src="images/moon.png";
             }
         }
+
+        function isValidEmail(email) {
+            // List of allowed domains
+            const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+            const domain = email.split('@')[1];
+            return allowedDomains.includes(domain);
+        }
+
         async function login() {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
-            const result1 = document.getElementById('box1')
-            const result2 = document.getElementById('box2')
-            const result3 = document.getElementById('box3')
-            const result4 = document.getElementById('box4')
+            const result1 = document.getElementById('box1');
+            const result2 = document.getElementById('box2');
+            const result3 = document.getElementById('box3');
+            const result4 = document.getElementById('box4');
+
+            // Validate email domain
+            if (!isValidEmail(email)) {
+                alert('Please use a valid email from Gmail, Outlook, or other reputable providers.');
+                return;
+            }
 
             try {
                 const response = await fetch('http://localhost:3000/login', {
@@ -71,44 +85,41 @@
                     body: JSON.stringify({ email, password }),
                 });
 
-
                 if (response.status === 200) {
-                    const result1 = document.getElementById('box1');
                     console.log('Login successful');
                     const result = await response.json();
                     const token = result.accessToken;
-                    console.log(token)
                     localStorage.setItem('accessToken', token);
                     result1.style.display = 'block';
                     setTimeout(() => {
                         window.location.href = 'form_filling.html';
                     }, 2000);
                 }
-                else if(response.status==401){
+                else if (response.status == 401) {
                     result4.style.display = 'block';
-                    document.getElementById('email').value = ''
-                    document.getElementById('password').value = ''
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
                     setTimeout(() => {
                         result4.style.display = 'none';
-                    }, 2000)
+                    }, 2000);
                 } 
                 else if (response.status === 404) {
                     result2.style.display = 'block';
                     console.log('User not found');
-                    document.getElementById('email').value = ''
-                    document.getElementById('password').value = ''
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
                     setTimeout(() => {
                         result2.style.display = 'none';
-                    }, 2000)
+                    }, 2000);
                 } else {
                     const errorMessage = await response.text();
                     console.log(`Login failed: ${errorMessage}`);
                     result3.style.display = 'block';
-                    email = ''
-                    password = ''
+                    email = '';
+                    password = '';
                     setTimeout(() => {
                         result3.style.display = 'none';
-                    }, 2000)
+                    }, 2000);
                 }
             } catch (error) {
                 console.error('Error during login:', error);
