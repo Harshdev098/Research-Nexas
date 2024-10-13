@@ -1,62 +1,49 @@
 require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const crypto=require('crypto');
-const { error } = require("console");
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN_SECRET
 
-// Middleware to validate environment variables and pass it in req.Key 
-function checkKey(req,res,next){
-    const Key = process.env.ACCESS_TOKEN_SECRET
-    if(!Key){
-        return res.status(500).json({Error : 'Missing ACCESS_TOKEN_SECRET in environment variables.'}); 
-    }else{
-        req.Key = Key;
-        next();
-    }
+// check for valid access token 
+if(!ACCESS_TOKEN){
+    throw new Error("Missing ACCESS_TOKEN_SECRET in environment variables.");
 }
-
-// function for generating access token with req and res
-function generateAccessToken(req,res,user,expireTime = "20m") {
-    const Key = req.Key
+// function for generating access token
+function generateAccessToken(user,expireTime = "20m") {
    try{
-        const token = jwt.sign(user,Key,{
-            expiresIn : expireTime
-        })
-        if(!token){
-            return res.status(500).json({ message: "Token generation failed" });
-        }
-        return res.status(200).json({token})
+    const token = jwt.sign(user,ACCESS_TOKEN,{expiresIn : expireTime});
+    return token;
    }catch(err){
-        return res.status(500).json(
-            {
-                Message : "Server Error During Token Generation" ,
-                Error : err.message
-            }
-        );
+        console.log({
+            Message : "Error While Generating The Token",
+            Error : err.message
+        })
+        return null;
    }
 }
 
-// function for decoding the token with req and res
-function decodeAccessToken(req,res){
-    const Key = req.Key
-    const AuthHeader = req.headers.authorization
-    try{
+// function for decoding the token 
+function decodeAccessToken(AuthHeader){
         if(!AuthHeader){
-            return res.status(401).json({ message: "Authorization header is missing" });
+            console.log("Authorization header is missing");
+            return null;
         }
 
         const token = AuthHeader.split(" ")[1];
-
-        const decodedToken = jwt.verify(token,Key)
-        if(!decodedToken){
-            return res.status(400).json({message : "Unable to decode token"})
+        if(!token){
+            console.log("Token is missing");
+            return null;
         }
-        return res.status(200).json({decodedToken})
+    try{
+
+        const decodedToken = jwt.verify(token,ACCESS_TOKEN)
+        return decodedToken;
         
      }catch(err){
-        res.status(500).json({
-            message : "Invalid or Expired token",
-            error : err.message
+        console.log({
+           Message : "Error decoding access token:",
+           Error : err.message
         })
+        return null
     }
 }
 
