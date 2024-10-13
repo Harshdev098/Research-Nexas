@@ -3,7 +3,7 @@ const path = require('path')
 const { upload, save, disp } = require(path.resolve(__dirname, '../file_upload/upload.js'));
 const {stk_signup,stk_signin}=require('../stakeholder/login')
 const {info,check} = require('../file_upload/form_db')
-const { signup, signin } = require('./login');
+const { signup, signin, refreshAccessToken} = require('./login');
 const rateLimiter=require('express-rate-limit')
 const { approve,uploadedpapers,displaydetail }= require('../stakeholder/stk_approval')
 const {display}=require('../backend/profile');
@@ -98,6 +98,9 @@ app.post('/fac_signup',fac_signup)  // registration of faculty
 app.post("/login",signin)
 app.post("/stk_holder_signin",stk_signin)
 app.post('/fac_login',fac_login)  //login for faculty
+
+// refresh token
+app.post("/refresh",refreshAccessToken)
 
 // approval by stakeholder
 app.get('/approval',approve)
