@@ -20,7 +20,7 @@
       <p>Please Try Again!! Account Already Exists</p>
     </div>
     <div id="box3">
-      <p>Error Occuered! Please Try Again</p>
+      <p>Error Occurred! Please Try Again</p>
     </div>
     <div class="form" id="login">
       <form id="registrationForm">
@@ -41,16 +41,16 @@
   </div>
 
   <script>
-    var icon =document.getElementById("icon");
-        icon.onclick = function(){
-            document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/sun.png";
-            }
-            else{
-                icon.src="images/moon.png";
-            }
-        }
+    var icon = document.getElementById("icon");
+    icon.onclick = function () {
+      document.body.classList.toggle("dark-theme");
+      if (document.body.classList.contains("dark-theme")) {
+        icon.src = "images/sun.png";
+      } else {
+        icon.src = "images/moon.png";
+      }
+    }
+
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
@@ -61,6 +61,20 @@
       const result2 = document.getElementById('box2');
       const result3 = document.getElementById('box3');
       const login = document.getElementById('login');
+
+      // Allowed email domains
+      const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+      const emailDomain = email.split("@").pop();
+
+      // Check if the email domain is allowed
+      if (!allowedDomains.includes(emailDomain)) {
+        result2.innerHTML = "Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota. ";
+        result2.style.display = 'block';
+        setTimeout(() => {
+          result2.style.display = 'none';
+        }, 2000);
+        return; // Stop form submission
+      }
 
       try {
         const response = await fetch('http://localhost:3000/create_user', {
@@ -78,30 +92,25 @@
           setTimeout(() => {
             window.location.href = 'login.html';
           }, 2000);
-        }
-        else if (response.status === 409) {
-          document.getElementById('email').value = ''
-          document.getElementById('password').value = ''
-          document.getElementById('name').value = ''
+        } else if (response.status === 409) {
+          document.getElementById('email').value = '';
+          document.getElementById('password').value = '';
+          document.getElementById('name').value = '';
           result2.style.display = 'block';
           setTimeout(() => {
             result2.style.display = 'none';
-          }, 2000)
-          // alert('User already exists!');
-        }
-        else if(response.status==400){
-          document.getElementById('password').value = ''
-          const message=await response.json()
-          console.log('error',message.error)
-          result2.innerHTML=message.error;
+          }, 2000);
+        } else if (response.status == 400) {
+          document.getElementById('password').value = '';
+          const message = await response.json();
+          console.log('error', message.error);
+          result2.innerHTML = message.error;
           result2.style.display = 'block';
-        }
-        else {
-          result3.style.display = 'block'
+        } else {
+          result3.style.display = 'block';
           setTimeout(() => {
-            result3.style.display = 'none'
-          }, 2000)
-          // alert('Failed to register user.');
+            result3.style.display = 'none';
+          }, 2000);
         }
       } catch (error) {
         console.error('Error:', error);
