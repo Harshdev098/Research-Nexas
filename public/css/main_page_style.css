@@ -200,7 +200,7 @@ nav {
 }
 
 #view_papers:hover {
-    background-color: rgb(173, 173, 250);
+    background-color: rgb(150, 150, 249);
 }
 
 #upload {
@@ -209,6 +209,7 @@ nav {
 
 #upload:hover {
     transform: scale(1.04);
+    color: rgb(12, 117, 236);
 }
 
 /* ai generating section styling  */

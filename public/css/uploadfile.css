@@ -27,6 +27,7 @@ section h2 {
     padding: 18px 0px;
     word-wrap: break-word;
     margin: 8px 0px;
+    font-weight: 300;
 }
 
 .form label {
@@ -68,7 +69,7 @@ section h2 {
 }
 
 section {
-    background-color: rgb(204 204 244);
+    background-color: rgb(202, 202, 253);
 }
 
 input[type="file"]::file-selector-button {
@@ -87,7 +88,7 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-    background-color: #f0f3fb;
+    background-color: #d9e2fa;
 }
 
 input[type="file"]::file-selector-button:active {
@@ -142,7 +143,7 @@ button{
 #uploadedFilesContainer ul li{
     margin: 8px;
     padding: 20px;
-    background-color: rgb(164, 164, 232);
+    background-color: rgb(163, 163, 246);
     border-radius: 10px;
     font-size: 18px;
 }

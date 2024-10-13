@@ -27,7 +27,7 @@ body{
 .container p{
     font-weight: bold;
     font-size: 24px;
-    color: white;
+    color: rgb(244, 237, 237);
 }
 
 /* stakeholder signup styling */
