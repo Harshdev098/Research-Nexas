@@ -188,6 +188,7 @@ body{
     text-align: center;
     padding: 10px;
     border-radius: 20px;
+    box-shadow: 0 10px 10px rgba(0.1, 0.1, 0.5, 0.1);
 }
 .form-container h4{
     font-size: 30px;
@@ -211,6 +212,7 @@ body{
 .btn{
     display: inline;
     margin: 8px;
+    justify-content: space-between;
 }
 .btn button{
     padding: 9px 34px;
@@ -330,6 +332,14 @@ ul {
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
+        
+    }
+    .btn button{
+        font-size: 0px;
+        
+    }
+    .btn button i{
+        font-size: 16px;
     }
 }
 
