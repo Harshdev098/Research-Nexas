@@ -120,7 +120,7 @@
                 headers.append('Authorization', `Bearer ${token}`);
 
                 try {
-                    const response = await fetch('http://localhost:3000/info', {
+                    const response = await fetch('/info', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -128,8 +128,6 @@
                         },
                         body: JSON.stringify(data),
                     });
-
-                    console.log(response.status);
 
                     if (response.status == 200) {
                         console.log("Information saved");
@@ -157,7 +155,7 @@
                 const token = localStorage.getItem('accessToken');
                 const headers = new Headers();
                 headers.append('Authorization', `Bearer ${token}`);
-                const response = await fetch('http://localhost:3000/form_filling', {
+                const response = await fetch('/form_filling', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },

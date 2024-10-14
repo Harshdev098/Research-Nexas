@@ -46,14 +46,14 @@
 
     <!-- Updated register function starts here -->
     <script>
-        var icon =document.getElementById("icon");
-        icon.onclick = function(){
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
             document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/sun.png";
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "images/sun.png";
             }
-            else{
-                icon.src="images/moon.png";
+            else {
+                icon.src = "images/moon.png";
             }
         }
 
@@ -67,13 +67,13 @@
         const register = async () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             // Check if both fields are filled
             if (!email || !password) {
                 alert('Please fill in both the email and password fields.');
                 return; // Stop execution if fields are not filled
             }
-            
+
             const result1 = document.getElementById('box1');
             const result2 = document.getElementById('box2');
             const result3 = document.getElementById('box3');
@@ -84,16 +84,16 @@
                 alert('Please use a valid email from Gmail, Outlook, or other reputable providers.');
                 return;
             }
-            
+
             try {
-                const response = await fetch('http://localhost:3000/stk_holder_signin', {
+                const response = await fetch('/stk_holder_signin', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ email, password }),
                 });
-                
+
                 if (response.ok) {
                     const result = await response.json();
                     const token = result.accessToken;

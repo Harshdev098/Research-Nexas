@@ -44,14 +44,14 @@
     </div>
 
     <script>
-        var icon =document.getElementById("icon");
-        icon.onclick = function(){
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
             document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/sun.png";
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "images/sun.png";
             }
-            else{
-                icon.src="images/moon.png";
+            else {
+                icon.src = "images/moon.png";
             }
         }
 
@@ -77,7 +77,7 @@
             }
 
             try {
-                const response = await fetch('http://localhost:3000/login', {
+                const response = await fetch('/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@
                     setTimeout(() => {
                         result4.style.display = 'none';
                     }, 2000);
-                } 
+                }
                 else if (response.status === 404) {
                     result2.style.display = 'block';
                     console.log('User not found');

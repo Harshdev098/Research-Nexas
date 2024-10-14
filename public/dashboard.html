@@ -81,7 +81,7 @@
             const state = document.getElementById('state');
             const year = document.getElementById('year');
             const course = document.getElementById('course');
-            const response = await fetch('http://localhost:3000/dashboard', {
+            const response = await fetch('/dashboard', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -134,7 +134,7 @@
             const token = localStorage.getItem('accessToken');
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('http://localhost:3000/result', {
+            const response = await fetch('/result', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
@@ -152,8 +152,8 @@
                 const result = document.getElementById('result')
                 result.innerHTML = "Result not declared yet!"
                 result.style.color = "red"
-                result.style.padding="16px"
-                result.style.fontSize="18px"
+                result.style.padding = "16px"
+                result.style.fontSize = "18px"
             }
             else {
                 console.log("an error occured")
