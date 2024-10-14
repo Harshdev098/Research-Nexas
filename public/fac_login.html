@@ -54,6 +54,14 @@
                 icon.src="images/moon.png";
             }
         }
+
+        function isValidEmail(email) {
+            // List of allowed domains
+            const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+            const domain = email.split('@')[1];
+            return allowedDomains.includes(domain);
+        }
+
         const register = async () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -61,6 +69,13 @@
             const result2 = document.getElementById('box2')
             const result3 = document.getElementById('box3')
             const result4 = document.getElementById('box4')
+
+            // Validate email domain
+            if (!isValidEmail(email)) {
+                alert('Please use a valid email from Gmail, Outlook, or other reputable providers.');
+                return;
+            }
+            
             const response = await fetch('http://localhost:3000/fac_login', {
                 method: "POST",
                 headers: {
