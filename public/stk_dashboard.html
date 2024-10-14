@@ -204,7 +204,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
-                        <button>Log Out<i class="fa-regular fa-right-from-bracket"
+                        <button id="logoutBtn">Log Out<i class="fa-regular fa-right-from-bracket"
                                 style="padding: 5px 8px 5px 10px;"></i></button>
                     </div>
                 </div>
@@ -220,6 +220,27 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script>
+        const handleLogout = async () => {
+            try {
+                const token = localStorage.getItem('token'); // Retrieve the token from storage
+                const response = await fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // Send the token if needed
+                    },
+                });
+
+                if (response.ok) {
+                    localStorage.removeItem('token'); // Remove the token from storage
+                    window.location.href = '/';
+                } else {
+                    console.error("Logout failed:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Logout error:", error);
+            }
+        };
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
         document.getElementById('darkModeIcon').onclick = function () {
             document.body.classList.toggle('dark-mode');
             const header = document.querySelector('header');
