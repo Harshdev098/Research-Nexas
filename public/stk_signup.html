@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp (stakeholder)</title>
     <link rel="stylesheet" href="css/login_style.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none; /* Initially hidden */
+        }
+    </style>
 </head>
 
 <body>
@@ -14,14 +21,14 @@
         <p>Please Try Again! Account Already Exists</p>
     </div>
     <div id="box3">
-        <p>Error Occuered! Please Try Again</p>
+        <p>Error Occurred! Please Try Again</p>
     </div>
     <div class="container">
         <div class="image">
             <img src="images/logo.png" alt="">
         </div>
         <div class="form">
-            <form>
+            <form onsubmit="return validateForm()">
                 <h2 style="text-align: center;">Sign Up</h2>
                 <label for="collegeName">College Name</label>
                 <input type="text" id="colname" name="colname" placeholder="Enter your College Name" required>
@@ -31,6 +38,16 @@
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div id="passwordRequirements" class="error">
+                    <p>Password must meet the following requirements:</p>
+                    <ul>
+                        <li>At least 8 characters long</li>
+                        <li>At least 1 uppercase letter (A-Z)</li>
+                        <li>At least 1 lowercase letter (a-z)</li>
+                        <li>At least 1 number (0-9)</li>
+                        <li>At least 1 special character (e.g., !@#$%^&*())</li>
+                    </ul>
+                </div>
 
                 <button type="button" onclick="register()">Sign Up</button>
             </form>
@@ -40,23 +57,39 @@
         </div>
     </div>
     <script>
-        var icon =document.getElementById("icon");
-        icon.onclick = function(){
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
             document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/sun.png";
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "images/sun.png";
             }
-            else{
-                icon.src="images/moon.png";
+            else {
+                icon.src = "images/moon.png";
             }
         }
+
+        const validateForm = () => {
+            const password = document.getElementById('password').value;
+            const requirementsDiv = document.getElementById('passwordRequirements');
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/;
+
+            if (!regex.test(password)) {
+                requirementsDiv.style.display = 'block'; // Show requirements
+                return false; // Prevent form submission
+            }
+            requirementsDiv.style.display = 'none'; // Hide requirements if valid
+            return true; // Allow form submission
+        }
+
         const register = async () => {
+            if (!validateForm()) return; // Validate password before proceeding
+
             const email = document.getElementById('email').value;
             const colname = document.getElementById('colname').value;
             const password = document.getElementById('password').value;
-            const result1=document.getElementById('box1')
-            const result2=document.getElementById('box2')
-            const result3=document.getElementById('box3')
+            const result1 = document.getElementById('box1');
+            const result2 = document.getElementById('box2');
+            const result3 = document.getElementById('box3');
             const response = await fetch('http://localhost:3000/stk_holder_signup', {
                 method: "POST",
                 headers: {
@@ -64,6 +97,7 @@
                 },
                 body: JSON.stringify({ colname, email, password }),
             });
+
             if (response.status == 201) {
                 result1.style.opacity = '1';
                 result1.style.display = 'block';
@@ -73,22 +107,22 @@
                 }, 2000);
             }
             else if (response.status == 409) {
-                document.getElementById('email').value = ''
-                document.getElementById('password').value = ''
-                document.getElementById('colname').value = ''
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('colname').value = '';
                 result2.style.display = 'block';
                 setTimeout(() => {
                     result2.style.display = 'none';
-                }, 2000)
+                }, 2000);
             }
             else {
-                result3.style.display = 'block'
-                document.getElementById('email').value = ''
-                document.getElementById('password').value = ''
-                document.getElementById('colname').value = ''
+                result3.style.display = 'block';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('colname').value = '';
                 setTimeout(() => {
-                    result3.style.display = 'none'
-                }, 2000)
+                    result3.style.display = 'none';
+                }, 2000);
             }
         }
     </script>
