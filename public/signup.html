@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/login_style.css">
   <title>Registration</title>
+  <style>
+    .error {
+      color: red;
+      display: none; /* Initially hide error messages */
+    }
+  </style>
+  <script>
+    function validatePassword() {
+      const password = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>\/?]).{8,}$/;
+
+      if (!passwordPattern.test(password)) {
+        errorMessage.style.display = "block"; // Show error message
+        return false; // Prevent form submission
+      } else {
+        errorMessage.style.display = "none"; // Hide error message
+        return true; // Allow form submission
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -23,15 +42,20 @@
       <p>Error Occurred! Please Try Again</p>
     </div>
     <div class="form" id="login">
-      <form id="registrationForm">
-        <h2 style="text-align: center; margin: 10px 0px 6px 0px;font-size: 32px;">Registration</h2>
-        <h4 style="text-align: center; margin: 6px 0px 10px 0px;font-size: 22px;">(for Researchers)</h4>
+      <form id="registrationForm" onsubmit="return validatePassword();">
+        <h2 style="text-align: center; margin: 10px 0px 6px 0px; font-size: 32px;">Registration</h2>
+        <h4 style="text-align: center; margin: 6px 0px 10px 0px; font-size: 22px;">(for Researchers)</h4>
+        
         <label for="name">Username:</label>
         <input type="text" id="name" name="name" placeholder="Enter the Username" required>
+
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter the email" required>
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter the Password" required>
+        <span id="error-message" class="error">Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, one number, and one special character.</span><br>
+
         <button type="submit">Register</button>
       </form>
     </div>
@@ -52,6 +76,11 @@
     }
 
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
+      // Validate password before submission
+      if (!validatePassword()) {
+        return; // Prevent form submission if validation fails
+      }
+      
       event.preventDefault();
 
       let name = document.getElementById('name').value;
@@ -68,7 +97,7 @@
 
       // Check if the email domain is allowed
       if (!allowedDomains.includes(emailDomain)) {
-        result2.innerHTML = "Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota. ";
+        result2.innerHTML = "Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota.";
         result2.style.display = 'block';
         setTimeout(() => {
           result2.style.display = 'none';
