@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="./css/contact-us.css">
+    <style>
+        /* Style for the message area */
+        #messageArea {
+            color: red; /* You can change the color based on your preference */
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
 </head>
-
 
 <body>
     <img src="images/moon.png" id="icon">
     <div class="maindiv">
-
         <div class="imgdiv">
             <img src="./images/logo.png" alt="" style="border-radius: 6px;">
         </div>
         <div class="formdiv">
-
             <form action="" class="form">
                 <h2 style="text-align: center;">Contact Us</h2>
                 <div>
@@ -25,25 +30,24 @@
                     <input type="text" required id="name" name="Name" placeholder="Enter Your Name">
                 </div>
                 <br>
-
                 <div>
                     <label for="">Email :</label>
                     <input type="email" required name="email" id="email" placeholder="Enter Your Email">
                 </div>
                 <br>
-
                 <div>
-                    <label for="">Messsage :</label>
+                    <label for="">Message :</label>
                     <textarea required name="message" id="message" rows="4" cols="57"
                         placeholder="Enter Your Message Given to Organization......"></textarea>
                 </div>
                 <div style="text-align: center;">
                     <button type="submit" class="button" id="button">Submit</button>
                 </div>
+                <div id="messageArea"></div> <!-- Area for displaying messages -->
             </form>
         </div>
-
     </div>
+
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         var icon = document.getElementById("icon");
@@ -51,14 +55,18 @@
             document.body.classList.toggle("dark-theme");
             if (document.body.classList.contains("dark-theme")) {
                 icon.src = "images/sun.png";
-            }
-            else {
+            } else {
                 icon.src = "images/moon.png";
             }
         }
+
         const submit = document.getElementById('button');
         submit.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent form submission
+
+            // Clear previous messages
+            const messageArea = document.getElementById('messageArea');
+            messageArea.textContent = '';
 
             // Get form values
             const form_name = document.querySelector('#name').value;
@@ -67,15 +75,24 @@
 
             // Check if any of the inputs are empty
             if (!form_name || !form_email || !form_message) {
-                alert("Please fill in all fields."); // Alert user to fill in all fields
+                messageArea.textContent = "Please fill in all fields."; // Display message on the page
                 return; // Stop execution if any field is empty
             }
 
             // Validate email format using a regular expression
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic regex for email validation
             if (!emailPattern.test(form_email)) {
-                alert("Please enter a valid email address."); // Alert user if email is invalid
+                messageArea.textContent = "Please enter a valid email address."; // Display message on the page
                 return; // Stop execution if email is invalid
+            }
+
+            // Validate email domain
+            const trustedDomains = ["gmail.com", "outlook.com", "yahoo.com", "hotmail.com" , "protonmail.com" , "icloud.com" , "tutanota.com"]; // Add more trusted domains as needed
+            const emailDomain = form_email.split('@')[1];
+
+            if (!trustedDomains.includes(emailDomain)) {
+                messageArea.textContent = 'Please use an email address from a trusted provider (e.g., Gmail, Outlook, Yahoo).'; // Display message on the page
+                return; // Prevent form submission if the domain is not trusted
             }
 
             // Proceed to send the email if all fields are valid
@@ -90,7 +107,8 @@
             }).then(
                 message => {
                     console.log('Message sent');
-                    alert('Message sent');
+                    messageArea.style.color = "green"; // Change message color to green for success
+                    messageArea.textContent = 'Message sent successfully!';
 
                     // Clear input fields after sending
                     document.querySelector('#name').value = '';
@@ -99,10 +117,9 @@
                 }
             ).catch(err => {
                 console.log("Error occurred:", err);
-                alert("Sorry, an error occurred");
+                messageArea.textContent = "Sorry, an error occurred."; // Display error message on the page
             });
         });
-
     </script>
 </body>
 
