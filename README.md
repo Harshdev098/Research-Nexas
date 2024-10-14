@@ -1,4 +1,4 @@
-# Research-Nexas
+# Research-Nexas aditya
 A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evaluated on the basis of the evaluation criteria 
 
 # Working
