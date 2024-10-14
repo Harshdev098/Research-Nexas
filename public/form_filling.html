@@ -48,11 +48,15 @@
             <div class="form-group">
                 <label>State</label>
                 <select name="state" id="state">
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                     <option value="Assam">Assam</option>
                     <option value="Bihar">Bihar</option>
+                    <option value="Chandigarh">Chandigarh</option>
                     <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                    <option value="Delhi">Delhi</option>
                     <option value="Goa">Goa</option>
                     <option value="Gujarat">Gujarat</option>
                     <option value="Haryana">Haryana</option>
@@ -60,6 +64,8 @@
                     <option value="Jharkhand">Jharkhand</option>
                     <option value="Karnataka">Karnataka</option>
                     <option value="Kerala">Kerala</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
                     <option value="Madhya Pradesh">Madhya Pradesh</option>
                     <option value="Maharashtra">Maharashtra</option>
                     <option value="Manipur">Manipur</option>
@@ -68,6 +74,7 @@
                     <option value="Nagaland">Nagaland</option>
                     <option value="Odisha">Odisha</option>
                     <option value="Punjab">Punjab</option>
+                    <option value="Puducherry">Puducherry</option>
                     <option value="Rajasthan">Rajasthan</option>
                     <option value="Sikkim">Sikkim</option>
                     <option value="Tamil Nadu">Tamil Nadu</option>
@@ -76,15 +83,7 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu
-                    </option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Ladakh">Ladakh</option>
-                    <option value="Puducherry">Puducherry</option>
-                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+
                 </select>
             </div>
             <div class="form-group">
@@ -110,6 +109,9 @@
                 Successfully... Redirecting...
             </p>
             <p id="result2" style="display: none; font-size: 20px;color: red;font-weight: bold;">An error occurred
+            </p>
+            <p id="result3" style="display: none; font-size: 20px;color: red;font-weight: bold;">The email address you
+                entered is already associated with an account. Please enter a different email to proceed
             </p>
             <div class="btn">
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -138,7 +140,8 @@
                 const course = document.getElementById('course').value.toUpperCase();
                 const year = document.getElementById('year').value;
                 const result = document.getElementById('result');
-                const result2 = document.getElementById('result2')
+                const result3 = document.getElementById('result3')
+                const result2 = document.getElementById('result2');
 
                 const data = { name, email, col_name, state, course, year, dept };
                 const token = localStorage.getItem('accessToken');
@@ -154,6 +157,8 @@
                         },
                         body: JSON.stringify(data),
                     });
+                  
+                    console.log(response.status);
 
                     if (response.status == 200) {
                         console.log("Information saved");
@@ -161,6 +166,9 @@
                         setTimeout(() => {
                             window.location.href = 'main_page.html';
                         }, 2000);
+                    }
+                    else if (response.status == 400) {
+                        result3.style.display = "inline-block";
                     }
                     else {
                         console.log("Submission failed");
@@ -172,7 +180,7 @@
                 } catch (error) {
                     console.error("Error occurred", error);
                 }
-            });
+            })
 
             async function usercheck() {
                 const token = localStorage.getItem('accessToken');
