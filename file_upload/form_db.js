@@ -44,15 +44,7 @@ const info = (req, res) => {
 
       // Proceed to insert the data if the email does not exist
       const sql = "INSERT INTO info_table VALUES (?,?,?,?,?,?,?)";
-      const sqlInsert = mysql.format(sql, [
-        userid,
-        name,
-        email,
-        col_name,
-        state,
-        year,
-        course,
-      ]);
+      const sqlInsert = mysql.format(sql, [userid,name,email,col_name,state,year,course]);
 
       await connection.query(sqlInsert, async (err, result) => {
         if (err) {
