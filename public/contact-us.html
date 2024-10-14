@@ -22,19 +22,19 @@
                 <h2 style="text-align: center;">Contact Us</h2>
                 <div>
                     <label for="">Name :</label>
-                    <input type="text" id="name" name="Name" placeholder="Enter Your Name">
+                    <input type="text" required id="name" name="Name" placeholder="Enter Your Name">
                 </div>
                 <br>
 
                 <div>
                     <label for="">Email :</label>
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                    <input type="email" required name="email" id="email" placeholder="Enter Your Email">
                 </div>
                 <br>
 
                 <div>
                     <label for="">Messsage :</label>
-                    <textarea name="message" id="message" rows="4" cols="57"
+                    <textarea required name="message" id="message" rows="4" cols="57"
                         placeholder="Enter Your Message Given to Organization......"></textarea>
                 </div>
                 <div style="text-align: center;">
@@ -46,22 +46,39 @@
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        var icon =document.getElementById("icon");
-        icon.onclick = function(){
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
             document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/sun.png";
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "images/sun.png";
             }
-            else{
-                icon.src="images/moon.png";
+            else {
+                icon.src = "images/moon.png";
             }
         }
-        const submit = document.getElementById('button')
-        submit.addEventListener('click', () => {
-            event.preventDefault();
-            const form_name = document.querySelector('#name').value
-            const form_email = document.querySelector('#email').value
-            const form_message = document.querySelector('#message').value
+        const submit = document.getElementById('button');
+        submit.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const form_name = document.querySelector('#name').value;
+            const form_email = document.querySelector('#email').value;
+            const form_message = document.querySelector('#message').value;
+
+            // Check if any of the inputs are empty
+            if (!form_name || !form_email || !form_message) {
+                alert("Please fill in all fields."); // Alert user to fill in all fields
+                return; // Stop execution if any field is empty
+            }
+
+            // Validate email format using a regular expression
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic regex for email validation
+            if (!emailPattern.test(form_email)) {
+                alert("Please enter a valid email address."); // Alert user if email is invalid
+                return; // Stop execution if email is invalid
+            }
+
+            // Proceed to send the email if all fields are valid
             Email.send({
                 Host: "smtp.elasticemail.com",
                 Username: "festivesolomon@heywhatsoup.com",
@@ -69,17 +86,23 @@
                 To: 'harshoxfordgkp@gmail.com',
                 From: `${form_email}`,
                 Subject: "Contact form submission",
-                Body: `Name:${form_name}\nEmail:${form_email}\nMessage: ${form_message}`
+                Body: `Name: ${form_name}\nEmail: ${form_email}\nMessage: ${form_message}`
             }).then(
                 message => {
-                    console.log('message sent')
-                    alert('Message sent')
+                    console.log('Message sent');
+                    alert('Message sent');
+
+                    // Clear input fields after sending
+                    document.querySelector('#name').value = '';
+                    document.querySelector('#email').value = '';
+                    document.querySelector('#message').value = '';
                 }
-            ), (err) => {
-                console.log("error occured")
-                alert("Sorry, an error occured")
-            }
-        })
+            ).catch(err => {
+                console.log("Error occurred:", err);
+                alert("Sorry, an error occurred");
+            });
+        });
+
     </script>
 </body>
 
