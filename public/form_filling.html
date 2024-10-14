@@ -28,136 +28,148 @@
         <li></li>
     </ul>
 
-    <section class ="container">
-    <form id="form" >
-        <h2 style="display: block; color: #3e0d13;   text-shadow: 2px 2px 5px rgba(60, 39, 83, 0.5);             font-size: 54px; text-align: center; padding: 10px 0px 20px 0px; ">User Form</h2>
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" id="name">
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" id="email">
-        </div>
-        <div class="form-group"> 
-            <label for="exampleInputPassword1">College Name</label>
-            <input type="text" name="col_name" id="col_name">
-        </div>
-        <div class="form-group">
-            <label>State</label>
-            <select name="state" id="state">
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Karnataka">Karnataka</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Department</label>
-            <select name="dept" id="dept">
-                <option value="Computer Science">Computer Science</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Science">Science</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Molecular Medicine">Molecular Medicine</option>
-                <option value="AI and Informatics">AI and Informatics</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Course</label>
-            <input type="text" id="course" name="course">
-        </div>
-        <div class="form-group">
-            <label>Year</label>
-            <select name="year" id="year"></select>
-        </div>
-        <p id="result" style="display: none; font-size: 20px;color: green;font-weight: bold;">Form submitted Successfully... Redirecting...
-        </p>
-        <p id="result2" style="display: none; font-size: 20px;color: red;font-weight: bold;">An error occurred
-        </p>
-        <div class="btn">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-    <!-- <div id="loader">
+    <section class="container">
+        <form id="form">
+            <h2
+                style="display: block; color: #3e0d13;   text-shadow: 2px 2px 5px rgba(60, 39, 83, 0.5);             font-size: 54px; text-align: center; padding: 10px 0px 20px 0px; ">
+                User Form</h2>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">College Name</label>
+                <input type="text" name="col_name" id="col_name">
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <select name="state" id="state">
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Karnataka">Karnataka</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Department</label>
+                <select name="dept" id="dept">
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Science">Science</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Molecular Medicine">Molecular Medicine</option>
+                    <option value="AI and Informatics">AI and Informatics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Course</label>
+                <input type="text" id="course" name="course">
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <select name="year" id="year"></select>
+            </div>
+            <p id="result" style="display: none; font-size: 20px;color: green;font-weight: bold;">Form submitted
+                Successfully... Redirecting...
+            </p>
+            <p id="result2" style="display: none; font-size: 20px;color: red;font-weight: bold;">An error occurred
+            </p>
+            <p id="result3" style="display: none; font-size: 20px;color: red;font-weight: bold;">The email address you
+                entered is already associated with an account. Please enter a different email to proceed
+            </p>
+            <div class="btn">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        <!-- <div id="loader">
         <p>Checking info...Redirecting...</p>
     </div> -->
-    <script>
-        const currentYear = new Date().getFullYear();
-        const graduationYearSelect = document.getElementById('year');
-        for (let year = currentYear; year <= currentYear + 10; year++) {
-            const option = document.createElement('option');
-            option.value = year;
-            option.text = year;
-            graduationYearSelect.appendChild(option);
-        }
+        <script>
+            const currentYear = new Date().getFullYear();
+            const graduationYearSelect = document.getElementById('year');
+            for (let year = currentYear; year <= currentYear + 10; year++) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.text = year;
+                graduationYearSelect.appendChild(option);
+            }
 
-        document.getElementById('form').addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const col_name = document.getElementById('col_name').value;
-            const state = document.getElementById('state').value;
-            const dept = document.getElementById('dept').value;
-            const course = document.getElementById('course').value.toUpperCase();
-            const year = document.getElementById('year').value;
-            const result = document.getElementById('result');
-            const result2=document.getElementById('result2')
+            document.getElementById('form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const col_name = document.getElementById('col_name').value;
+                const state = document.getElementById('state').value;
+                const dept = document.getElementById('dept').value;
+                const course = document.getElementById('course').value.toUpperCase();
+                const year = document.getElementById('year').value;
+                const result = document.getElementById('result');
+                const result2 = document.getElementById('result2');
+                const result3 = document.getElementById('result3')
 
-            const data = { name, email, col_name, state, course, year,dept };
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
+                const data = { name, email, col_name, state, course, year, dept };
+                const token = localStorage.getItem('accessToken');
+                const headers = new Headers();
+                headers.append('Authorization', `Bearer ${token}`);
 
-            try {
-                const response = await fetch('http://localhost:3000/info', {
-                    method: 'POST',
+                try {
+                    const response = await fetch('http://localhost:3000/info', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    console.log(response.status);
+
+                    if (response.status == 200) {
+                        console.log("Information saved");
+                        result.style.display = "inline-block";
+                        setTimeout(() => {
+                            window.location.href = 'main_page.html';
+                        }, 2000);
+                    }
+                    else if (response.status == 400) {
+                        result3.style.display = "inline-block";
+                    }
+                    else {
+                        console.log("Submission failed");
+                        result2.style.display = "block";
+                        setTimeout(() => {
+                            result2.style.display = "none";
+                        }, 2000);
+                    }
+                } catch (error) {
+                    console.error("Error occurred", error);
+                }
+            });
+
+            async function usercheck() {
+                const token = localStorage.getItem('accessToken');
+                const headers = new Headers();
+                headers.append('Authorization', `Bearer ${token}`);
+                const response = await fetch('http://localhost:3000/form_filling', {
                     headers: {
-                        'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`,
                     },
-                    body: JSON.stringify(data),
                 });
-
-                if (response.status == 200) {
-                    console.log("Information saved");
-                    result.style.display = "inline-block";
-                    setTimeout(() => {
-                        window.location.href = 'main_page.html';
-                    }, 2000);
+                if (response.status == 201) {
+                    window.location.href = 'main_page.html'
                 }
-                else {
-                    console.log("Submission failed");
-                    result2.style.display = "block";
-                    setTimeout(() => {
-                        result2.style.display = "none";
-                    }, 2000);
-                }
-            } catch (error) {
-                console.error("Error occurred", error);
             }
-        });
-        
-        async function  usercheck(){
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('http://localhost:3000/form_filling', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
-            if(response.status==201){
-                window.location.href='main_page.html'
-            }
-        }
-        usercheck();
+            usercheck();
 
-    </script>
-</section>
+        </script>
+    </section>
 </body>
 
 </html
