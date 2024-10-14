@@ -2,7 +2,7 @@ const fetchuploadfiles = async () => {
   const token = localStorage.getItem("accessToken");
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${token}`);
-  const response = await fetch("http://localhost:3000/allotment", {
+  const response = await fetch("/allotment", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -109,7 +109,7 @@ const display = async (id) => {
 // allotment code for faculty
 const fac_allotment = async (id) => {
   const email = document.getElementById("fac_mail").value;
-  const response = fetch(`http://localhost:3000/paper_allot?id=${id}`, {
+  const response = fetch(`/paper_allot?id=${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

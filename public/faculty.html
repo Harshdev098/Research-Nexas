@@ -141,7 +141,7 @@
             const token = localStorage.getItem('accessToken');
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('http://localhost:3000/fac_papers', {
+            const response = await fetch('/fac_papers', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -197,7 +197,7 @@
             // const value5= rating5 ? rating5.value : undefined
             console.log(rating1, rating2, rating3, rating4)
             const data = { rating1, rating2, rating3, rating4 }
-            const response = await fetch(`http://localhost:3000/rating?id=${id}`, {
+            const response = await fetch(`/rating?id=${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
