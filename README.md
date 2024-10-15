@@ -141,17 +141,16 @@ Follow these steps to run the Research Nexas
   ```
 ## 🛣️ Future Enhancements / Roadmap
 
-| **Timeline**  | **Milestone**                                | **Description**                                                                                                      |
-|---------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Q4 2024**   | **User Dashboard Improvements**              | Enhance user dashboards with more detailed research analytics, including version control for uploaded research papers.|
-| **Q1 2025**   | **Enhanced Faculty-Student Interaction**     | Implement real-time chat and discussion boards for faculty-student collaboration on research topics.                  |
-| **Q2 2025**   | **Research Evaluation System Enhancements**  | Introduce AI-based evaluation assistance for grading research papers based on predefined criteria.                    |
-| **Q3 2025**   | **Mobile App Development**                   | Develop and release a mobile version of the Research Nexas platform for both iOS and Android.                        |
-| **Q4 2025**   | **Internationalization and Localization**    | Enable multi-language support to expand the platform’s reach to a global audience.                                    |
-| **Q1 2026**   | **Publication and Citation Tracking**        | Integrate publication tracking to help users manage where their papers are published and track citations in real-time.|
+| **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
+|-----------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Q4 2024**     | **📊 User Dashboard Improvements**          | Enhance user dashboards with detailed research analytics, including version control for uploaded research papers.    |
+| **Q1 2025**     | **💬 Enhanced Faculty-Student Interaction** | Implement real-time chat and discussion boards for faculty-student collaboration on research topics.                 |
+| **Q2 2025**     | **🤖 Research Evaluation System Enhancements** | Introduce AI-based evaluation assistance for grading research papers based on predefined criteria.                   |
+| **Q3 2025**     | **📱 Mobile App Development**               | Develop and release a mobile version of the Research Nexas platform for both iOS and Android.                       |
+| **Q4 2025**     | **🌍 Internationalization and Localization** | Enable multi-language support to expand the platform’s reach to a global audience.                                   |
+| **Q1 2026**     | **📚 Publication and Citation Tracking**    | Integrate publication tracking to help users manage where their papers are published and track citations in real-time.|
 
-Stay tuned for more updates and features 🚀!
-
+🚀 **Stay tuned for more updates and exciting features!**
 
 # Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
