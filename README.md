@@ -185,15 +185,15 @@ Follow these steps to run the Research Nexas
   ```
   flush privileges;
   ```
-- To know more about this error and the solution check stackoverflow here- https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
-- Re-run the following command
-  ```
-  nodemon dbServer.js
-  ```
-- Click the link shown in terminal or open your browser and search for-
-  ```
-  http://localhost:3000
-  ``` 
+  - To know more about this error check stackoverflow here- https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+  - Re-run the following command
+    ```
+    nodemon dbServer.js
+    ```
+  - Click the link shown in terminal or open your browser and search for-
+    ```
+    http://localhost:3000
+    ``` 
 
 ## 🛣️ Future Enhancements / Roadmap
 
@@ -202,7 +202,6 @@ Follow these steps to run the Research Nexas
 | **Q4 2024**     | **📊 User Dashboard Improvements**          | Enhance user dashboards with detailed research analytics, including version control for uploaded research papers.    |
 | **Q1 2025**     | **💬 Enhanced Faculty-Student Interaction** | Implement real-time chat and discussion boards for faculty-student collaboration on research topics.                 |
 | **Q2 2025**     | **🤖 Research Evaluation System Enhancements** | Introduce AI-based evaluation assistance for grading research papers based on predefined criteria.                   |
-| **Q3 2025**     | **📱 Mobile App Development**               | Develop and release a mobile version of the Research Nexas platform for both iOS and Android.                       |
 | **Q4 2025**     | **🌍 Internationalization and Localization** | Enable multi-language support to expand the platform’s reach to a global audience.                                   |
 | **Q1 2026**     | **📚 Publication and Citation Tracking**    | Integrate publication tracking to help users manage where their papers are published and track citations in real-time.|
 
