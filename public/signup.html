@@ -8,6 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/login_style.css">
   <title>Registration</title>
+  <style>
+    .error {
+      color: red;
+      display: none;
+    }
+    .valid {
+      border-color: green;
+    }
+    .invalid {
+      border-color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,6 +42,7 @@
         <input type="text" id="name" name="name" placeholder="Enter the Username" required>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter the email" required>
+        <span id="error-message" class="error">Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota.</span>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter the Password" required>
         <button type="submit">Register</button>
@@ -51,6 +64,36 @@
       }
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+      const emailInput = document.getElementById('email');
+      const errorMessage = document.getElementById('error-message');
+
+      const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+
+      // Validate the email in real-time as the user types
+      emailInput.addEventListener('input', function () {
+        const emailValue = emailInput.value;
+        const emailDomain = emailValue.split('@')[1];
+
+        // Check if email has a valid domain
+        if (emailDomain && allowedDomains.includes(emailDomain.toLowerCase())) {
+          emailInput.classList.remove('invalid');
+          emailInput.classList.add('valid');
+          errorMessage.style.display = 'none';
+        } else {
+          emailInput.classList.remove('valid');
+          emailInput.classList.add('invalid');
+          errorMessage.style.display = 'inline';
+        }
+
+        // Remove the error when the user deletes/backspaces
+        if (emailValue === '') {
+          emailInput.classList.remove('valid', 'invalid');
+          errorMessage.style.display = 'none';
+        }
+      });
+    });
+
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
@@ -68,7 +111,7 @@
 
       // Check if the email domain is allowed
       if (!allowedDomains.includes(emailDomain)) {
-        result2.innerHTML = "Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota. ";
+        result2.innerHTML = "Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota.";
         result2.style.display = 'block';
         setTimeout(() => {
           result2.style.display = 'none';
