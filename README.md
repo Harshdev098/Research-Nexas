@@ -1,7 +1,46 @@
 # Research-Nexas
 A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evaluated on the basis of the evaluation criteria 
 
-# Working
+## 📚 Table of Contents
+
+- [Research-Nexas](#research-nexas)
+- [Table of Contents](#table-of-contents)
+- [Technical Stack](#technical-stack)
+- [Changelog](#changelog)
+- [Working](#working)
+  - [Student](#student)
+  - [Stakeholder](#stakeholder)
+  - [Faculty](#faculty)
+  - [Result](#result)
+- [Prerequisite](#prerequisite)
+- [Running the Application](#running-the-application)
+- [Future Enhancements / Roadmap](#future-enhancements--roadmap)
+- [API Documentation](#api-documentation)
+- [License](#license)
+- [Contribution](#contribution)
+- [Code of Conduct](#code-of-conduct)
+
+## 🛠️ Technical Stack
+
+| **Technology** | **Description**                                           |
+|----------------|-----------------------------------------------------------|
+| **Frontend**   | HTML, CSS, JavaScript (framework/library not specified)   |
+| **Backend**    | Node.js, Express                                          |
+| **Database**   | MySQL                                                    |
+| **Version Control** | Git                                                  |
+| **Package Manager** | npm                                                 |
+| **Environment** | Development with VS Code                                |
+
+## 📅 Changelog
+
+### [1.0.0] - 2024-10-15
+- Initial release of Research-Nexas.
+- User registration and login functionality.
+- File upload feature for students.
+- Evaluation and rating system for faculty.
+- Stakeholder management and evaluation criteria setting.
+    
+## Working
 - Student
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
@@ -19,12 +58,12 @@ A web application that seamlessly connects students and researchers with stakeho
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
 
 
-# Prerequisite
+## Prerequisite
 - MySQL
 - NPM & Nodejs
 
 
-# Running the Application
+### Running the Application
 
 Follow these steps to run the Research Nexas
 
@@ -153,7 +192,7 @@ Follow these steps to run the Research Nexas
 
 🚀 **Stay tuned for more updates and exciting features!**
 
-# API Documentation 📚
+## API Documentation 📚
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
 
@@ -169,13 +208,13 @@ The Research Nexas application communicates with a backend API to manage various
 | GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
 
 
-# License 📝
+## License 📝
 This project is licensed under the **[MIT License](LICENSE)**. 
 
-# Contribution
+## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
-# Code of Conduct
+## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
 
 
