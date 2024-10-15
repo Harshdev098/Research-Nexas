@@ -112,7 +112,14 @@ Follow these steps to run the Research Nexas
      );
      ```
 - Now open code editor(eg. VS Code)
-- make a .env file and add the following data to this file
+- Now run the following commands in your terminal
+  ```
+  npm install
+  ```
+  ```
+  cd login-system
+  ```
+- make a `.env` file in `login-system` folder and add the following data to this file
   ```
   DB_HOST=127.0.0.1 //your default host
   DB_USER=root // your user name(by default root)
@@ -124,17 +131,27 @@ Follow these steps to run the Research Nexas
   MYPASS='yourmailpassword' 
   ```
 - You can find `yourmailpassword` for low protected app(developer use) here- https://youtu.be/nuD6qNAurVM
-- Now run the following commands in your terminal
-  ```
-  npm install
-  ```
-  ```
-  cd login-system
-  ```
+- Run the following command
   ```
   nodemon dbServer.js
   ```
-
+- Click the link shown in terminal or open your browser and search for-
+  ```
+  http://localhost:3000
+  ``` 
+- If you encounter an error `Client does not support authentication protocol requested by server; consider upgrading MySQL client`, then open MySQL workbench and run these queries for resetting your mysql root password
+  
+  ```
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+  ```
+  ```
+  flush privileges;
+  ```
+- To know more about this error and the solution check stackoverflow here- https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+- Re-run the following command
+  ```
+  nodemon dbServer.js
+  ```
 - Click the link shown in terminal or open your browser and search for-
   ```
   http://localhost:3000
