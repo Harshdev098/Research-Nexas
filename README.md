@@ -138,7 +138,8 @@ Follow these steps to run the Research Nexas
 - Click the link shown in terminal or open your browser and search for-
   ```
   http://localhost:3000
-  ```
+  ``` 
+
 ## 🛣️ Future Enhancements / Roadmap
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
@@ -151,6 +152,25 @@ Follow these steps to run the Research Nexas
 | **Q1 2026**     | **📚 Publication and Citation Tracking**    | Integrate publication tracking to help users manage where their papers are published and track citations in real-time.|
 
 🚀 **Stay tuned for more updates and exciting features!**
+
+# API Documentation 📚
+
+The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
+
+| HTTP Method | Endpoint                    | Description                                             |
+|-------------|-----------------------------|---------------------------------------------------------|
+| POST        | `/api/register`             | ✍️ Registers a new student or stakeholder.                 |
+| POST        | `/api/login`                | 🔐 Logs in a user (student, faculty, or stakeholder).     |
+| POST        | `/api/upload`               | 📤 Allows students to upload their research papers.        |
+| GET         | `/api/uploads/:userId`      | 📄 Fetches all uploads for a specific user.                |
+| POST        | `/api/evaluate`             | ⭐ Submits evaluations and ratings from faculty.           |
+| GET         | `/api/criteria/:stkId`      | 📊 Fetches evaluation criteria set by the stakeholder.     |
+| POST        | `/api/criteria`             | 🏷️ Sets evaluation criteria by the stakeholder.            |
+| GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
+
+
+# License 📝
+This project is licensed under the **[MIT License](LICENSE)**. 
 
 # Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
