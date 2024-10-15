@@ -170,7 +170,7 @@ The Research Nexas application communicates with a backend API to manage various
 
 
 # License 📝
-This project is licensed under the MIT License. 
+This project is licensed under the **[MIT License](LICENSE)**. 
 
 # Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
