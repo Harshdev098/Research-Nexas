@@ -232,8 +232,6 @@ body{
 .btn button{
     padding: 9px 34px;
     border-radius: 10px;
-    margin-inline:70px;
-    margin: 4px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -246,9 +244,10 @@ body{
     border: none;
 }
 .next-btn{
+    align-self:flex-end;
     background-color: black;
     color: white;
-    
+    margin-left: auto;
 }
 .submit-btn{
     background-color:green;
