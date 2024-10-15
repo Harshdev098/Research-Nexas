@@ -3,8 +3,6 @@ A web application that seamlessly connects students and researchers with stakeho
 
 ## 📚 Table of Contents
 
-- [Research-Nexas](#research-nexas)
-- [Table of Contents](#table-of-contents)
 - [Technical Stack](#technical-stack)
 - [Changelog](#changelog)
 - [Working](#working)
@@ -22,14 +20,15 @@ A web application that seamlessly connects students and researchers with stakeho
 
 ## 🛠️ Technical Stack
 
-| **Technology** | **Description**                                           |
-|----------------|-----------------------------------------------------------|
-| **Frontend**   | HTML, CSS, JavaScript (framework/library not specified)   |
-| **Backend**    | Node.js, Express                                          |
-| **Database**   | MySQL                                                    |
-| **Version Control** | Git                                                  |
-| **Package Manager** | npm                                                 |
-| **Environment** | Development with VS Code                                |
+| **Technology**      | **Description**                                           |
+|---------------------|-----------------------------------------------------------|
+| **🌐 Frontend**     | HTML, CSS, JavaScript (framework/library not specified)   |
+| **🔙 Backend**      | Node.js, Express                                          |
+| **💾 Database**     | MySQL                                                    |
+| **🧪 Version Control** | Git                                                  |
+| **📦 Package Manager** | npm                                                 |
+| **💻 Environment**  | Development with VS Code                                |
+
 
 ## 📅 Changelog
 
