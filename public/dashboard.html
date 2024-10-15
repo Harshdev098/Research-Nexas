@@ -27,7 +27,7 @@
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
                 <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+                <li id="logoutBtn"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
             </ul>
         </div>
         <div class="largesection">
@@ -81,7 +81,7 @@
             const state = document.getElementById('state');
             const year = document.getElementById('year');
             const course = document.getElementById('course');
-            const response = await fetch('http://localhost:3000/dashboard', {
+            const response = await fetch('/dashboard', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -99,7 +99,27 @@
             }
         }
         fetchdata()
+        const handleLogout = async () => {
+            try {
+                const token = localStorage.getItem('token'); // Retrieve the token from storage
+                const response = await fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // Send the token if needed
+                    },
+                });
 
+                if (response.ok) {
+                    localStorage.removeItem('token'); // Remove the token from storage
+                    window.location.href = '/';
+                } else {
+                    console.error("Logout failed:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Logout error:", error);
+            }
+        };
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
         function hide() {
             document.body.classList.toggle("dark-theme");
             const regularicon = document.getElementById('regular')
@@ -134,7 +154,7 @@
             const token = localStorage.getItem('accessToken');
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('http://localhost:3000/result', {
+            const response = await fetch('/result', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
@@ -152,8 +172,8 @@
                 const result = document.getElementById('result')
                 result.innerHTML = "Result not declared yet!"
                 result.style.color = "red"
-                result.style.padding="16px"
-                result.style.fontSize="18px"
+                result.style.padding = "16px"
+                result.style.fontSize = "18px"
             }
             else {
                 console.log("an error occured")

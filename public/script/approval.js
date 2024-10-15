@@ -2,7 +2,7 @@ const fetchuploadfiles = async () => {
   const token = localStorage.getItem("accessToken");
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${token}`);
-  const response = await fetch("http://localhost:3000/api/stk_papers", {
+  const response = await fetch("/api/stk_papers", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -116,7 +116,7 @@ const approval = async (id) => {
   const token = localStorage.getItem("accessToken");
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${token}`);
-  const response = await fetch(`http://localhost:3000/approval?id=${id}`, {
+  const response = await fetch(`/approval?id=${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
