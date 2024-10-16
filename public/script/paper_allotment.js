@@ -50,6 +50,7 @@ const createListItem = (result, ul) => {
       display(result.id);
       const papers = document.querySelector(".papers");
       papers.style.opacity = "0.6";
+      window.scrollTo(0, 0);
     };
   }
   li.appendChild(btn);
