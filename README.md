@@ -4,7 +4,6 @@ A web application that seamlessly connects students and researchers with stakeho
 ## 📚 Table of Contents
 
 - [Technical Stack](#technical-stack)
-- [Changelog](#changelog)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -30,15 +29,7 @@ A web application that seamlessly connects students and researchers with stakeho
 | **💻 Environment**  | Development with VS Code                                |
 
 
-## 📅 Changelog
 
-### [1.0.0] - 2024-10-15
-- Initial release of Research-Nexas.
-- User registration and login functionality.
-- File upload feature for students.
-- Evaluation and rating system for faculty.
-- Stakeholder management and evaluation criteria setting.
-    
 ## Working
 - Student
 
