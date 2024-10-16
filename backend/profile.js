@@ -1,33 +1,63 @@
-const {decodeAccessToken}=require('../login-system/token')
-const  db  = require('../config/mysql_connection')
-const mysql=require('mysql')
+const util = require('util'); // Import util module at the top
+// Other imports...
 
-const display=async(req,res)=>{
-    const decodedtoken = decodeAccessToken(req.headers.authorization);
-    if (!decodedtoken || !decodedtoken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
-    }
-    const userid=decodedtoken.user;
-    await db.getConnection(async(err,connection)=>{
-        if(err) throw err;
-        const sqlquery="SELECT user.*,info.* FROM user_table as user inner join info_table as info where id=?"
-        const query=mysql.format(sqlquery,[userid])
-        await connection.query(query,(err,result)=>{
-            if(err) throw err;
-            // console.log("result",result)
-            const username=result[0].username
-            const name=result[0].name;
-            const email=result[0].email;
-            const col_name=result[0].col_name;
-            const state=result[0].state;
-            const year=result[0].year;
-            const course=result[0].course;
-            // console.log(name,email,col_name,state,year,course)
-            res.status(200).json({username,name,email,col_name,state,year,course});
+const display = async (req, res) => {
+    try {
+        const token = decodeAccessToken(req.headers.authorization);
+
+        // Validate the token and user information
+        if (!token || !token.user) {
+            console.error('Invalid or missing user information in the token');
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const userId = token.user;
+
+        // Use a connection pool and promise-based query execution
+        const connection = await db.getConnection();
+        try {
+            const sqlQuery = `
+                SELECT user.*, info.*
+                FROM user_table AS user
+                INNER JOIN info_table AS info ON user.id = info.user_id
+                WHERE user.id = ?
+            `;
+            const query = mysql.format(sqlQuery, [userId]);
+
+            // Promisify the query method
+            const queryAsync = util.promisify(connection.query).bind(connection);
+            const results = await queryAsync(query);
+
+            // Check if the result is not empty
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'User not found' });
+            }
+
+            // Extract the required fields from the result
+            const { username, name, email, col_name, state, year, course } = results[0];
+
+            // Send the response in a structured way
+            res.status(200).json({ 
+                user: {
+                    username,
+                    name,
+                    email,
+                    col_name,
+                    state,
+                    year,
+                    course,
+                }
+            });
+        } catch (queryError) {
+            console.error('Database query error:', queryError);
+            res.status(500).json({ error: 'Query server error' });
+        } finally {
             connection.release();
-        })
-    })
-}
+        }
+    } catch (error) {
+        console.error('Error processing request:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
 
-module.exports={display}
+module.exports = { display };
