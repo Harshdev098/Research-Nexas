@@ -3,7 +3,7 @@ A web application that seamlessly connects students and researchers with stakeho
 
 ## 📚 Table of Contents
 
-- [Technical Stack](#technical-stack)
+- [Technical Stack](#-technical-stack)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -11,7 +11,7 @@ A web application that seamlessly connects students and researchers with stakeho
   - [Result](#result)
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
-- [Future Enhancements / Roadmap](#future-enhancements--roadmap)
+- [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
 - [API Documentation](#api-documentation)
 - [License](#license)
 - [Contribution](#contribution)
@@ -31,18 +31,22 @@ A web application that seamlessly connects students and researchers with stakeho
 
 
 ## Working
+<a name="student"></a>
 - Student
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
 
+<a name="stakeholder"></a>
 - Stakeholder
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
 
+<a name="faculty"></a>
 - Faculty
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
   
+<a name="result"></a>
 - Result
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
@@ -187,6 +191,7 @@ Follow these steps to run the Research Nexas
     ``` 
 
 ## 🛣️ Future Enhancements / Roadmap
+<a name="featureEnhancementsRoadMap"></a>
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
 |-----------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -199,6 +204,7 @@ Follow these steps to run the Research Nexas
 🚀 **Stay tuned for more updates and exciting features!**
 
 ## API Documentation 📚
+<a name="ApiDocumentation"></a>
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
 
@@ -215,6 +221,7 @@ The Research Nexas application communicates with a backend API to manage various
 
 
 ## License 📝
+<a name="License"></a>
 This project is licensed under the **[MIT License](LICENSE)**. 
 
 ## Contribution
