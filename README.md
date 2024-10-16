@@ -190,8 +190,8 @@ Follow these steps to run the Research Nexas
     http://localhost:3000
     ``` 
 
-## 🛣️ Future Enhancements / Roadmap
 <a name="featureEnhancementsRoadMap"></a>
+## 🛣️ Future Enhancements / Roadmap
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
 |-----------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -203,8 +203,8 @@ Follow these steps to run the Research Nexas
 
 🚀 **Stay tuned for more updates and exciting features!**
 
-## API Documentation 📚
 <a name="ApiDocumentation"></a>
+## API Documentation 📚
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
 
@@ -221,7 +221,7 @@ The Research Nexas application communicates with a backend API to manage various
 
 
 ## License 📝
-<a name="License"></a>
+<a name="license"></a>
 This project is licensed under the **[MIT License](LICENSE)**. 
 
 ## Contribution
