@@ -40,6 +40,7 @@
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" id="email">
+                <p id="emailError" style="font-size: 18px; color: red; font-weight: bold; display: none;"></p>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">College Name</label>
@@ -83,7 +84,6 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-
                 </select>
             </div>
             <div class="form-group">
@@ -117,9 +117,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
-        <!-- <div id="loader">
-        <p>Checking info...Redirecting...</p>
-    </div> -->
         <script>
             const currentYear = new Date().getFullYear();
             const graduationYearSelect = document.getElementById('year');
@@ -130,6 +127,27 @@
                 graduationYearSelect.appendChild(option);
             }
 
+            // Real-time email validation and error display
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+
+            emailInput.addEventListener('input', function () {
+                const emailValue = emailInput.value;
+                const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
+
+                if (emailValue) {
+                    const emailDomain = emailValue.split('@')[1]; // Get the domain part of the email
+                    if (!allowedDomains.includes(emailDomain)) {
+                        emailError.textContent = "Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)";
+                        emailError.style.display = 'block';
+                    } else {
+                        emailError.style.display = 'none'; // Hide error if domain is valid
+                    }
+                } else {
+                    emailError.style.display = 'none'; // Hide error if input is empty
+                }
+            });
+
             document.getElementById('form').addEventListener('submit', async function (event) {
                 event.preventDefault();
                 const name = document.getElementById('name').value;
@@ -139,9 +157,22 @@
                 const dept = document.getElementById('dept').value;
                 const course = document.getElementById('course').value.toUpperCase();
                 const year = document.getElementById('year').value;
+
                 const result = document.getElementById('result');
-                const result3 = document.getElementById('result3')
                 const result2 = document.getElementById('result2');
+                const result3 = document.getElementById('result3');
+
+                // Validate email domain again before submission
+                const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
+                const emailDomain = email.split('@')[1]; // Get the domain part of the email
+                if (!allowedDomains.includes(emailDomain)) {
+                    result2.innerText = "Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)";
+                    result2.style.display = "block";
+                    setTimeout(() => {
+                        result2.style.display = "none";
+                    }, 3000);
+                    return; // Stop form submission
+                }
 
                 const data = { name, email, col_name, state, course, year, dept };
                 const token = localStorage.getItem('accessToken');
@@ -180,7 +211,7 @@
                 } catch (error) {
                     console.error("Error occurred", error);
                 }
-            })
+            });
 
             async function usercheck() {
                 const token = localStorage.getItem('accessToken');
@@ -196,9 +227,8 @@
                 }
             }
             usercheck();
-
         </script>
     </section>
 </body>
 
-</html
+</html>
