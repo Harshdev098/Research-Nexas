@@ -8,6 +8,9 @@ This application creates a **dynamic, feedback-driven environment** where studen
 
 With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
+</p>
 
 ## 📚 Table of Contents
 
