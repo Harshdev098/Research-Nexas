@@ -3,7 +3,7 @@ A web application that seamlessly connects students and researchers with stakeho
 
 ## 📚 Table of Contents
 
-- [Technical Stack](#-technical-stack)
+- [Technical Stack](#teachnicalStack)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -12,12 +12,14 @@ A web application that seamlessly connects students and researchers with stakeho
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
 - [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
-- [API Documentation](#api-documentation)
-- [License](#license)
+- [API Documentation](#ApiDocumentation)
+- [License](#licenseR)
 - [Contribution](#contribution)
 - [Code of Conduct](#code-of-conduct)
 
+<a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
+
 
 | **Technology**      | **Description**                                           |
 |---------------------|-----------------------------------------------------------|
@@ -220,8 +222,8 @@ The Research Nexas application communicates with a backend API to manage various
 | GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
 
 
+<a name="licenseR"></a>
 ## License 📝
-<a name="license"></a>
 This project is licensed under the **[MIT License](LICENSE)**. 
 
 ## Contribution
