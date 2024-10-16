@@ -164,7 +164,7 @@
                         console.log("Information saved");
                         result.style.display = "inline-block";
                         setTimeout(() => {
-                            window.location.href = 'main_page.html';
+                            window.location.replace("main_page.html")
                         }, 2000);
                     }
                     else if (response.status == 400) {

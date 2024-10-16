@@ -119,11 +119,11 @@
         if (radioButtons[i].checked) {
           var selectedValue = radioButtons[i].value;
           if (selectedValue == "Student") {
-            window.location.href = "./login.html";
+            window.location.replace("./login.html")
           } else if (selectedValue == "Faculty") {
-            window.location.href = "./fac_login.html";
+            window.location.replace("./fac_login.html")
           } else if (selectedValue == "Stakeholder") {
-            window.location.href = "./stk_login.html";
+            window.location.replace("./stk_login.html")
           }
           break;
         }
