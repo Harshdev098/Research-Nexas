@@ -6,8 +6,9 @@ on:
 
 jobs:
   validate-pr-description:
+    runs-on: ubuntu-latest
     steps:
-      - name: Check if PR description exists
+      - name: Validate PR Description
         id: check_description
         run: |
           if [ -z "${{ github.event.pull_request.body }}" ]; then
