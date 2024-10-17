@@ -14,6 +14,13 @@ body{
     width: 50%;
     margin: 30px;
 }
+.gtranslate_wrapper{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(241, 181, 241);
+    font-size: x-large;
+    color: black;
+ }
 @media (max-width:1296px){
     .main{
         width: 56vw;

@@ -24,7 +24,29 @@
   .search-bar {
     display: flex;
     align-items: center;
+
+    flex-wrap: wrap;
+    padding: 12px;
+    background-color: rgb(43 43 43);
+}
+
+.gtranslate_wrapper{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(241, 181, 241);
+    font-size: x-large;
+    color: black;
+ }
+
+#icon{
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 30px; 
+    right: 90px;
+
     margin-top: 5px;
+
   }
   
   .search-bar input {
