@@ -28,7 +28,7 @@ const allot = async (req, res) => {
         const token = registrationToken(email);
         console.log(token);
         const insert = mysql.format(
-          "insert into faculty values(null,?,null,?)",
+          "insert into faculty values(?,null,null,?)",
           [email, token]
         );
         await connection.query(insert, async (err, result) => {
