@@ -2,7 +2,7 @@ name: PR Description Check
 
 on:
   pull_request:
-    types: [opened,edited,synchronize]
+    types: [opened, synchronize]  # Trigger on PR creation and when new commits are added
 
 jobs:
   validate-pr-description:
@@ -11,9 +11,12 @@ jobs:
       - name: Validate PR Description
         id: check_description
         run: |
-          if [ -z "${{ github.event.pull_request.body }}" ]; then
-            echo "::error::Description is missing!"
+          description="${{ github.event.pull_request.body }}"
+          if [ -z "$description" ]; then
+            echo "::error::PR description is missing!"
             exit 1
+          else
+            echo "PR Description is present."
           fi
 
       - name: Check for issue number or 'Fixes #NEW'
@@ -23,4 +26,6 @@ jobs:
           if [[ ! "$description" =~ (Fixes #[0-9]+|Fixes #NEW) ]]; then
             echo "::error::PR description must contain an issue number or 'Fixes #NEW'"
             exit 1
+          else
+            echo "PR description contains an issue number or 'Fixes #NEW'."
           fi
