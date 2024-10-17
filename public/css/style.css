@@ -1434,15 +1434,15 @@ color:#ed8309;
 
 #scrollToTop {
   position: fixed;
-  bottom: 20px;
+  bottom: 10%;
   right: 20px;
   z-index: 99;
   background-color: orange;
   color: white;
   border: none;
-  padding: 20px;
+  padding: 14px 20px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 19px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
