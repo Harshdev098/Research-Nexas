@@ -13,6 +13,13 @@ body {
   background: linear-gradient(to bottom right,#4e54c8, #8f94fb);
   color: #333;
 }
+.gtranslate_wrapper{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(241, 181, 241);
+  font-size: x-large;
+  color: black;
+}
 
 #icon{
   width: 30px;

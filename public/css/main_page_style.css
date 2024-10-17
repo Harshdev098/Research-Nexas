@@ -19,7 +19,13 @@ body {
     background-color: rgb(43 43 43);
 }
 
-
+.gtranslate_wrapper{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(241, 181, 241);
+    font-size: x-large;
+    color: black;
+ }
 
 #icon{
     width: 30px;

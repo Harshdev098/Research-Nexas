@@ -11,6 +11,13 @@ body {
   padding: 0;
   background-color: rgb(241 241 244);
 }
+.gtranslate_wrapper{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(241, 181, 241);
+  font-size: x-large;
+  color: black;
+}
 
 /* navbar styling */
 
