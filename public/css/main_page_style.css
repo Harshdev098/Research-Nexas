@@ -1,52 +1,98 @@
-*{
+
+  * {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
   }
-  /* header styling  */
   
-  .banner{
-     width: 100%;
-     height: 100vh;
-     background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('/public/images/calm.jpg');
-     background-size: cover;
-     background-position: center;
+  /* header styling */
+  .banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(8, 23, 82, 0.75), rgba(30, 2, 30, 0.75)), url('public/images/calm.jpg');
+    background-size: cover;
+    background-position: center;
   }
-  .logo{
-    width: 200px;
+  
+  .logo {
+    width: 270px;
+    cursor: pointer;
+    margin-left: 5px; /* Reduced margin */
+    margin-right: 5px; /* Reduced margin */
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
+    color: white; /* Text color */
+  }
+  
+  .search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Placeholder text color */
+  }
+  .search-bar input:hover{
+    border: 1.5px solid #009688;
+  }
+  
+  .search-bar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 25px;
+    background: transparent;
+    border: 1.5px solid #009688;
+    
+    color: white;
     cursor: pointer;
   }
 
-
+  .search-bar button:hover {
+    background-color: #009688; /* Slightly darker on hover */
+  }
+  
+  
   /* navbar styling */
-  .nav{
-     width: 85%;
-     margin: auto;
-     padding: 35px 0;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
+  .nav {
+    width: 95%; /* Increased width to minimize side margins */
+    margin: auto;
+    padding: 10px 0; /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  .h2{
-     cursor: pointer;
-     color: white;
+  .h2 {
+    cursor: pointer;
+    color: white;
   }
+
+
   
-  .nav ul li{
+  .nav ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 20px;
+    margin: 5px 10px; /* Reduced margin */
     position: relative;
   }
   
-  .nav ul li a{
-     text-decoration: none;
-     color: #ffff;
-     text-transform: uppercase;
+  .nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
   }
   
-  .nav ul li::after{
+  .nav ul li::after {
     content: '';
     height: 3px;
     width: 0;
@@ -57,9 +103,10 @@
     transition: 0.5s;
   }
   
-  .nav ul li:hover::after{
-     width: 100%;
+  .nav ul li:hover::after {
+    width: 100%;
   }
+  
   
   .content{
     width: 100%;
