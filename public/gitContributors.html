@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research-Nexas Contributors</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            /* Space for fixed navbar */
+        }
+
+        /* Fixed Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            /* Ensure it stays above other elements */
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .navbar-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #3498db;
+        }
+
+        .contributors-container {
+            max-width: 100%;
+            margin: 0px auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .text-center {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .contributor-subContainer {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .contributor-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+            color: black;
+        }
+
+        .contributor-card:hover {
+            border: 2px solid white;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contributor-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .contributor-info h2 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .contribution {
+            color: darkgreen;
+            font-weight: bold;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Navbar -->
+    <div class="navbar">
+        <div class="navbar-logo">Research Nexas</div>
+        <div class="navbar-links">
+            <a href="./index.html">Home</a>
+            <a href="https://github.com/Harshdev098/Research-Nexas" target="_blank">GitHub</a>
+            <a href="./index.html">...</a>
+        </div>
+    </div>
+
+    <div class="contributors-container">
+        <h1 class="text-center">🤝 GitHub Contributors</h1>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Contributor List -->
+        <div id="contributors" class="contributor-subContainer" style="display: none;"></div>
+    </div>
+
+    <script>
+        const contributorsContainer = document.getElementById('contributors');
+        const loader = document.getElementById('loader');
+
+        async function fetchContributors() {
+            try {
+                const response = await fetch('https://api.github.com/repos/shubhagarwal1/Research-Nexas/contributors');
+                const contributors = await response.json();
+
+                // Hide loader and show contributors container
+                loader.style.display = 'none';
+                contributorsContainer.style.display = 'block';
+
+                // Display each contributor
+                contributors.forEach(contributor => {
+                    const card = document.createElement('div');
+                    card.className = 'contributor-card';
+                    card.onclick = () => window.open(contributor.html_url, '_blank');
+
+                    const avatar = document.createElement('img');
+                    avatar.src = contributor.avatar_url;
+                    avatar.alt = `${contributor.login} avatar`;
+                    avatar.className = 'contributor-avatar';
+
+                    const info = document.createElement('div');
+                    info.className = 'contributor-info';
+
+                    const name = document.createElement('h2');
+                    name.textContent = contributor.login;
+
+                    const contributions = document.createElement('p');
+                    contributions.className = 'contribution';
+                    contributions.textContent = `${contributor.contributions} contributions`;
+
+                    info.appendChild(name);
+                    card.appendChild(avatar);
+                    card.appendChild(info);
+                    card.appendChild(contributions);
+                    contributorsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error fetching contributors:', error);
+                loader.textContent = 'Failed to load contributors.';
+            }
+        }
+
+        // Fetch contributors on page load
+        fetchContributors();
+    </script>
+</body>
+
+</html>
