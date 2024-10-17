@@ -9,7 +9,7 @@
   .banner {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(8, 23, 82, 0.75), rgba(30, 2, 30, 0.75)), url('public/images/calm.jpg');
+    background-image: linear-gradient(rgba(8, 23, 82, 0.75), rgba(30, 2, 30, 0.75)), url('../images/calm.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -28,6 +28,7 @@
   }
   
   .search-bar input {
+    width: 22vw;
     padding: 5px;
     font-size: 16px;
     border: none;
@@ -65,7 +66,7 @@
   .nav {
     width: 95%; /* Increased width to minimize side margins */
     margin: auto;
-    padding: 10px 0; /* Reduced padding */
+    padding: 5px 0; /* Reduced padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,7 +82,7 @@
   .nav ul li {
     list-style: none;
     display: inline-block;
-    margin: 5px 10px; /* Reduced margin */
+    margin: 5px 8px; /* Reduced margin */
     position: relative;
   }
   
