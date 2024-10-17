@@ -8,7 +8,21 @@
     <title>Login</title>
 </head>
 
-<body>
+<body> 
+    
+    <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        detect_browser_language: true,
+        wrapper_selector: ".gtranslate_wrapper",
+        flag_size: 16,
+      };
+    </script>
+    <script
+    src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+    defer
+  ></script>
+  
     <img src="images/moon.webp" id="icon">
     <div class="container">
         <div class="image">
@@ -35,6 +49,7 @@
                 <button type="button" onclick="login()">Login</button>
                 <div class="register">
                     <p style="display: inline;">Haven't Register?&nbsp;</p><a href="signup.html">Register Now</a>
+                    <div class="gtranslate_wrapper"></div>
                 </div>
             </form>
         </div>
