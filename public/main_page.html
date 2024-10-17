@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <div style="position: absolute; bottom:30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
        window.gtranslateSettings = {
@@ -24,12 +25,15 @@
      defer
    ></script>
     <header>
+
+    <!-- <header>
+
         <div class="head">
             <div class="logo"><img src="images/logo.webp" alt="" width="160px"></div>
             <div id="heading" style="font-size: 34px;color: white;">Research Nexas</div>
             <div>
                 <a href="dashboard.html" title="View Profile"><i class="fa-solid fa-user"
-                        style="font-size: 30px;padding: 12px 13px;border:3px solid white;border-radius:50%;color:white"></i></a>
+                        style="font-size: 30px;padding: 8px 8px;border:3px solid white;border-radius:50%;color:white"></i></a>
             </div>
         </div>
         <nav>
@@ -47,8 +51,9 @@
                             class="fa-solid fa-bell" style="padding: 0px 8px;display:none;"></i></a></div>
             </div>
         </nav>
-    </header>
-    <main class="first_main">
+    </header> -->
+
+    <!-- <main class="first_main">
         <section class="upload_sec" style="margin: 0px 0px 2px 0px;">
             <i class="fa-solid fa-cloud-arrow-up"
                 style="text-align:center;font-size:26vw;opacity: 0.3;display: inline;color: rgb(161, 161, 196);"></i>
@@ -76,7 +81,52 @@
                 <a id="templates" href="">Explore<i class="fa-solid fa-arrow-right" style="padding: 0px 14px;"></i></a>
             </div>
         </section>
-    </main>
+    </main> -->
+
+    <div class="banner">
+       
+        <div class="nav">
+          <img class="logo" src="images/logo.png" alt="">
+          <form class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          <ul>
+             <li><a href="">Home</a></li>
+             <li><a href="">About</a></li>
+             <li><a href="">Add Topic</a></li>
+             <li onmouseover="show()" onmouseout="hide()"><a href=""
+                 title="View Notifications"><i id="firsticon" class="fa-sharp fa-regular fa-bell"
+                     style="padding: 0px 8px;display: inline-block;"></i><i id="secondicon"
+                     class="fa-solid fa-bell" style="padding: 0px 8px;display:none;"></i></a></li>
+             <li><a href="dashboard.html" title="View Profile"><i class="fa-solid fa-user" style="border: 1px solid #ffff; border-radius: 50%; padding: 6px 6px;"></i></a></li>
+          </ul>
+        </div>
+ 
+        <div class="content">
+         <h1>Upload Papers</h1>
+         <p> Recusandae reiciendis qui dicta nostrum iure
+             deleniti labore, repudiandae a? <br>Ut non earum magni neque deleniti! Veniam non ipsam culpa mollitia
+             quidem.</p>
+         <div class="button">
+             <a class="btn" id="view_papers" href=""> View Papers</a>
+             <a class="btn" id="upload" href="upload_file.html">Upload Papers</a>
+         </div>
+        </div>
+        <div class="content2">
+         <h1>Explore Research Papers</h1>
+         <p> Recusandae reiciendis qui dicta nostrum iure
+             deleniti labore, repudiandae a? <br>Ut non earum magni neque deleniti! Veniam non ipsam culpa mollitia
+             quidem.</p>
+ 
+             <div class="button">
+                 <a class="btn" id="templates" href="">Explore <i class="fa-solid fa-arrow-right" style="padding: 0px 14px;"></i></a>
+                 
+             </div>
+        </div>
+ 
+     </div>
+     
     <h2>Generate Research templates</h2>
     <section class="generate_sec">
         <div class="generate_sec_para">
