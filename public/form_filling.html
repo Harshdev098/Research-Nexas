@@ -55,8 +55,9 @@
                 <p id="emailError" style="font-size: 18px; color: red; font-weight: bold; display: none;"></p>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">College Name</label>
-                <input type="text" name="col_name" id="col_name">
+                <label for="college">College Name</label>
+                <input type="text" name="col_name" id="col_name" class="form-control" placeholder="Start typing your college name...">
+                <ul id="collegeList" style="list-style-type: none; padding: 0;"></ul>
             </div>
             <div class="form-group">
                 <label>State</label>
@@ -129,6 +130,67 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+        <!-- <div id="loader">
+        <p>Checking info...Redirecting...</p> 
+    </div> -->
+   <!--auto completing colleges Name--> 
+
+   <script>
+    document.getElementById('col_name').addEventListener('input', async function () {
+        const query = this.value;
+        if (query.length > 2) {  // Start searching after 3 characters
+            const response = await fetch(`/search_colleges?q=${query}`);
+            const colleges = await response.json();
+            
+            // Display the suggestions
+            const collegeList = document.getElementById('collegeList');
+            collegeList.innerHTML = '';  // Clear previous results
+            colleges.forEach(college => {
+                const li = document.createElement('li');
+                
+                li.style.backgroundColor = 'white';
+            li.style.cursor = 'pointer';
+            li.style.padding = '10px 15px';   // Padding for spacing inside the item
+            li.style.borderBottom = '1px solid #ddd';  // Light border for better separation
+            li.style.margin = '0';  // No margins between list items
+            li.style.listStyle = 'none';  // Remove default bullet points
+            li.style.color = '#333';  // Text color
+            li.style.fontFamily = 'Arial, sans-serif';  // Font style
+            li.style.transition = 'background-color 0.2s ease';  // Smooth hover transition
+
+            // Add hover effect
+            li.addEventListener('mouseover', () => {
+                li.style.backgroundColor = '#f0f0f0';  // Change background on hover
+            });
+            li.addEventListener('mouseout', () => {
+                li.style.backgroundColor = 'white';  // Reset background when not hovering
+            });
+
+            // On click, fill the input and clear the list
+            li.addEventListener('click', () => {
+                document.getElementById('col_name').value = college.name;
+                collegeList.innerHTML = '';  // Clear the dropdown after selection
+            });
+
+
+
+                li.textContent = college.name;
+                li.addEventListener('click', () => {
+                    document.getElementById('col_name').value = college.name;  // Select college
+                    collegeList.innerHTML = '';  // Clear the list
+                });
+                collegeList.appendChild(li);
+            });
+        }
+    });
+</script>
+
+
+
+
+
+
+
         <script>
             const currentYear = new Date().getFullYear();
             const graduationYearSelect = document.getElementById('year');
