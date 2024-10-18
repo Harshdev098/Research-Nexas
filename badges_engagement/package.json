@@ -1,0 +1,25 @@
+{
+    "name": "research-nexas",
+    "version": "1.0.0",
+    "description": "Profile Badges and Achievements system for Research-Nexas",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "mysql": "^2.18.1",
+      "dotenv": "^16.0.0",
+      "body-parser": "^1.19.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.20",
+      "eslint": "^8.0.0",
+      "jest": "^29.0.0",
+      "prettier": "^2.5.0"
+    },
+    "author": "Your Name",
+    "license": "MIT"
+  }
+  
