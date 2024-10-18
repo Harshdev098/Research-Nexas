@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -110,11 +113,14 @@ header {
   background: #5090ef;
 }
 
-header p {
+header .para p {
   font-size: 25px;
   text-align: center;
-  color: rgb(238, 228, 228);
+  color: rgb(255, 255, 255);
   word-wrap: break-word;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 header h1 {
@@ -163,8 +169,23 @@ header h1 {
 }
 
 .para {
+  display: flex;
+  align-items: center;
+  gap:5px;
+  flex-direction: column;
   position: relative;
   top: 10%;
+}
+
+
+.para .sub{
+  text-align: center;
+  width: 70vw;
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:500;
+  font-style: normal;
+  text-shadow: 1px 2px 1px #000000;
 }
 
 .searchbar {
@@ -347,6 +368,15 @@ header h1 {
   }
 }
 
+.join_box p{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.premium p{
+  font-family: "Space Grotesk", sans-serif;;
+  font-size: small;
+  font-weight: 500;
+}
 /* water animmation */
 
 .air {
@@ -455,6 +485,10 @@ body {
   color: #2c2a2a;
 }
 
+.about h2:hover{
+  text-decoration: 1px underline rgb(17, 17, 116);
+}
+
 .about_para {
   margin: auto;
   padding: 20px;
@@ -463,6 +497,14 @@ body {
   font-size: 20px;
   line-height: 1.6;
   color: #161515;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.about_para p span{
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007BFF;
+  text-shadow: 1px 1px 1px black;
 }
 
 /* slider styling */
@@ -1233,16 +1275,17 @@ h3 {
 .section-title {
   font-size: 2.8rem;
   font-family: cursive;
-  color: #333;
+  color: #220909;
   margin-bottom: 10px;
   letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
 }
 
 .section-description {
   font-size: 1.1rem;
   color: #777;
   margin-bottom: 40px;
-  font-family: 'Roboto', sans-serif;
+  font-family: cursive;
 }
 
 .stakeholder-grid {
