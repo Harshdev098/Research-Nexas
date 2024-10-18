@@ -26,6 +26,14 @@ body {
   /* background-color: #66B2FF; */
 }
 
+#language{
+  position: fixed;
+  bottom: 4vh;
+  background-color: rgba(0, 0, 255, 0.718);
+  height: 45px;
+  left: 1vw;
+}
+
 nav ul {
   overflow: auto;
 }
