@@ -12,13 +12,6 @@
     padding: 8px;
     word-wrap: break-word;
 }
-.gtranslate_wrapper{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(241, 181, 241);
-    font-size: x-large;
-    color: black;
- }
 
 .containers {
     display: grid;
