@@ -218,3 +218,33 @@ scrollToTopButton.addEventListener("click", function () {
     behavior: "smooth",
   });
 });
+
+
+//logic for the students section  explore button-------
+// Initially hide all the additional image boxes
+document.addEventListener("DOMContentLoaded", function () {
+  const imageBoxes = document.querySelectorAll(".image_boxes");
+  for (let i = 3; i < imageBoxes.length; i++) {
+      imageBoxes[i].style.display = "none";  // Hide boxes after the first 3
+  }
+
+  // Add event listener to the "Explore" button
+  const exploreButton = document.querySelector(".explore-btn");  // Ensure this class is set to your Explore button
+  exploreButton.addEventListener("click", function () {
+      let hiddenCount = 0;
+
+      // Show the next 3 hidden image boxes
+      for (let i = 3; i < imageBoxes.length; i++) {
+          if (imageBoxes[i].style.display === "none" && hiddenCount < 4) {
+              imageBoxes[i].style.display = "block";
+              hiddenCount++;
+          }
+      }
+
+      // Optionally, hide the explore button if all boxes are visible
+      const remainingHidden = Array.from(imageBoxes).filter(box => box.style.display === "none").length;
+      if (remainingHidden === 0) {
+          exploreButton.style.display = "none";  // Hide the button if no more boxes are hidden
+      }
+  });
+});
