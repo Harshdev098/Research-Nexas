@@ -20,6 +20,7 @@ body {
     pointer-events: none;
 }
 
+
 .circles li {
     position: absolute;
     display: block;
