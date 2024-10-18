@@ -33,7 +33,7 @@ body {
   height: 45px;
   left: 1vw;
 }
-
+ 
 nav ul {
   overflow: auto;
 }
@@ -834,7 +834,11 @@ main {
 }
 
 .box {
-  color: white;
+  
+  width: 22vw;
+    height: 41vh;
+    background: white;
+    color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -849,7 +853,8 @@ main {
 }
 
 .box:hover {
-  border-bottom: 3px solid rgb(65, 65, 195);
+  
+  background-color: rgb(252, 210, 210)   ;
 }
 
 h3 {
