@@ -2,10 +2,7 @@ const express = require("express");
 const path = require("path");
 const { upload, save, disp } = require(path.resolve(__dirname,"../file_upload/upload.js"));
 const  db  = require('../config/mysql_connection')
-const { upload, save, disp } = require(path.resolve(
-  __dirname,
-  "../file_upload/upload.js"
-));
+
 const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
