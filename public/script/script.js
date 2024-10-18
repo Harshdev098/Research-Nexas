@@ -248,3 +248,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   });
 });
+
+
+// Optional: You can add an event listener to dynamically load additional details when clicking the "Learn More" button.
+const learnMoreButtons = document.querySelectorAll('.learn-more');
+
+learnMoreButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        alert('More details about this stakeholder will be revealed soon!');
+    });
+});
