@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const { upload, save, disp } = require(path.resolve(__dirname,"../file_upload/upload.js"));
 const  db  = require('../config/mysql_connection')
 const { upload, save, disp } = require(path.resolve(
   __dirname,
@@ -9,23 +10,13 @@ const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
 const rateLimiter = require("express-rate-limit");
-const {
-  approve,
-  uploadedpapers,
-  displaydetail,
-} = require("../stakeholder/stk_approval");
+const { approve, uploadedpapers, displaydetail } = require("../stakeholder/stk_approval");
 const { display } = require("../backend/profile");
 const { stk_display } = require("../backend/stk_profile");
 const { logout } = require("./logout");
 const { setcriteria, evaluate } = require("../stakeholder/evaluation");
 const { allot, DisplayPapers } = require("../stakeholder/allotment");
-const {
-  Dis_fac_papers,
-  fac_signup,
-  fac_login,
-  dis_mail,
-  giverating,
-} = require("../stakeholder/faculty");
+const { Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating } = require("../stakeholder/faculty");
 const app = express();
 
 const globalLimit = rateLimiter({

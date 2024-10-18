@@ -12,9 +12,26 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
   <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
 </p>
 
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
+<br>
+
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+
 ## 📚 Table of Contents
 
-- [Technical Stack](#technical-stack)
+- [Technical Stack](#teachnicalStack)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -22,13 +39,15 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
   - [Result](#result)
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
-- [Future Enhancements / Roadmap](#future-enhancements--roadmap)
-- [API Documentation](#api-documentation)
-- [License](#license)
+- [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
+- [API Documentation](#ApiDocumentation)
+- [License](#licenseR)
 - [Contribution](#contribution)
 - [Code of Conduct](#code-of-conduct)
 
+<a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
+
 
 | **Technology**      | **Description**                                           |
 |---------------------|-----------------------------------------------------------|
@@ -42,18 +61,22 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 
 
 ## Working
+<a name="student"></a>
 - Student
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
 
+<a name="stakeholder"></a>
 - Stakeholder
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
 
+<a name="faculty"></a>
 - Faculty
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
   
+<a name="result"></a>
 - Result
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
@@ -197,6 +220,7 @@ Follow these steps to run the Research Nexas
     http://localhost:3000
     ``` 
 
+<a name="featureEnhancementsRoadMap"></a>
 ## 🛣️ Future Enhancements / Roadmap
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
@@ -209,6 +233,7 @@ Follow these steps to run the Research Nexas
 
 🚀 **Stay tuned for more updates and exciting features!**
 
+<a name="ApiDocumentation"></a>
 ## API Documentation 📚
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
@@ -225,6 +250,7 @@ The Research Nexas application communicates with a backend API to manage various
 | GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
 
 
+<a name="licenseR"></a>
 ## License 📝
 This project is licensed under the **[MIT License](LICENSE)**. 
 
