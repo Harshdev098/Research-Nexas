@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/faq_style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Research Nexas</title>
 </head>
- 
+
 <body>
     <header>
         <!-- navbar section  -->
@@ -24,22 +25,19 @@
                         <li title="Our Services"><a href="#services">Services</a></li>
                         <li title="About Us"><a href="#about_show">About</a></li>
                         <li title="Main Page"><a href="#">Home</a></li>
-                        
+
                         <li id="language">
                             <div class="gtranslate_wrapper"></div>
                             <script>
-                              window.gtranslateSettings = {
-                                default_language: "en",
-                                detect_browser_language: true,
-                                wrapper_selector: ".gtranslate_wrapper",
-                                font_size: 100,
-                              };
+                                window.gtranslateSettings = {
+                                    default_language: "en",
+                                    detect_browser_language: true,
+                                    wrapper_selector: ".gtranslate_wrapper",
+                                    font_size: 100,
+                                };
                             </script>
-                            <script
-                            src="https://cdn.gtranslate.net/widgets/latest/popup.js"
-                            defer
-                          ></script>
-                          </li>
+                            <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -436,6 +434,71 @@
                 </div>
             </div>
         </div>
+        <section id="faq_sec">
+            <div class="wrapper">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+
+                <div class="faq">
+                    <button class="accordion">
+                        What is Research-Nexas?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Research-Nexas is a cutting-edge web application designed to create a seamless connection
+                            between students, researchers, and stakeholders within a collaborative research ecosystem.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <button class="accordion">
+                        How does it work?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            The platform empowers students to log in, upload their research papers, view their uploads,
+                            and
+                            track their evaluations.
+                            Stakeholders act as research supervisors who can approve student submissions and assign
+                            papers
+                            to the appropriate faculty members for evaluation.
+                            Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate
+                            results
+                            based on predefined criteria.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <button class="accordion">
+                        Want to know more about the project?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Click on this link: <a href="https://github.com/Harshdev098/Research-Nexas" rel="noopener"
+                                alt="Github" target="_blank">Research-Nexas</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <button class="accordion">
+                        Want to contribute to the project?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Read our guidelines for contribution: <a
+                                href="https://github.com/Harshdev098/Research-Nexas/blob/main/Contributing.md"
+                                rel="noopener" alt="Github" target="_blank">Contributing Guidelines</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
 
@@ -458,7 +521,7 @@
                 <div class="footer-col">
                     <h4>get help</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#faq_sec">FAQ</a></li>
                         <li><a href="#">shipping</a></li>
                         <li><a href="#">returns</a></li>
                         <li><a href="#">order status</a></li>
@@ -532,6 +595,25 @@
                 navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Revert link color
             }
         };
+    </script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                this.parentElement.classList.toggle("active");
+
+                var pannel = this.nextElementSibling;
+
+                if (pannel.style.display === "block") {
+                    pannel.style.display = "none";
+                } else {
+                    pannel.style.display = "block";
+                }
+            });
+        }
     </script>
     <script>
         window.embeddedChatbotConfig = {
