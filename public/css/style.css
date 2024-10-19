@@ -12,6 +12,7 @@ body {
   background-color: rgb(241 241 244);
 }
 
+
 /* navbar styling */
 
 .navbar {
@@ -23,6 +24,14 @@ body {
   width: 100%; /* Ensure it spans the full width */
   z-index: 2000; /* Ensures it stays on top of other content */
   /* background-color: #66B2FF; */
+}
+
+#language{
+  position: fixed;
+  bottom: 4vh;
+  background-color: rgba(0, 0, 255, 0.718);
+  height: 45px;
+  left: 1vw;
 }
 
 nav ul {
@@ -1434,15 +1443,15 @@ color:#ed8309;
 
 #scrollToTop {
   position: fixed;
-  bottom: 20px;
+  bottom: 10%;
   right: 20px;
   z-index: 99;
   background-color: orange;
   color: white;
   border: none;
-  padding: 20px;
+  padding: 14px 20px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 19px;
   cursor: pointer;
   transition: all 0.3s ease;
 }

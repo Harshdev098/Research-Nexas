@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choose Login Page</title>
+  <title>Choose Signup Page</title>
   <style>
     * {
       box-sizing: border-box;
@@ -86,19 +86,6 @@
 </head>
 
 <body>
-  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
-  <script>
-     window.gtranslateSettings = {
-       default_language: "en",
-       detect_browser_language: true,
-       wrapper_selector: ".gtranslate_wrapper",
-       font_size: 100,
-     };
-   </script>
-   <script
-   src="https://cdn.gtranslate.net/widgets/latest/popup.js"
-   defer
- ></script>
   <img src="images/moon.webp" id="icon">
 
   <div class="container">
@@ -109,9 +96,6 @@
       </label>
       <label>
         <input type="radio" name="pageoption" value="Stakeholder" onchange="redirect()">Stakeholder
-      </label>
-      <label>
-        <input type="radio" name="pageoption" value="Faculty" onchange="redirect()">Faculty
       </label>
     </div>
   </div>
@@ -133,11 +117,9 @@
         if (radioButtons[i].checked) {
           var selectedValue = radioButtons[i].value;
           if (selectedValue == "Student") {
-            window.location.replace("./login.html")
-          } else if (selectedValue == "Faculty") {
-            window.location.replace("./fac_login.html")
+            window.location.replace("./signup.html")
           } else if (selectedValue == "Stakeholder") {
-            window.location.replace("./stk_login.html")
+            window.location.replace("./stk_signup.html")
           }
           break;
         }

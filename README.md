@@ -1,9 +1,37 @@
-# Research-Nexas
-A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evaluated on the basis of the evaluation criteria 
+# Research-Nexas 🌟🔬📚
+
+**Research-Nexas** is a cutting-edge web application designed to create a seamless connection between **students**, **researchers**, and **stakeholders** within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 They can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder.
+
+Stakeholders act as research supervisors who can **approve** student submissions and assign papers to the appropriate **faculty members** for evaluation. 👩‍🏫📑 Stakeholders also set evaluation criteria, which they can view on their profile. Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate results based on predefined criteria.
+
+This application creates a **dynamic, feedback-driven environment** where students can improve their research based on faculty evaluations, and stakeholders can ensure quality through customizable criteria. 🌱✨
+
+With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
+</p>
+
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
+<br>
+
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 
 ## 📚 Table of Contents
 
-- [Technical Stack](#technical-stack)
+- [Technical Stack](#teachnicalStack)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -11,13 +39,15 @@ A web application that seamlessly connects students and researchers with stakeho
   - [Result](#result)
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
-- [Future Enhancements / Roadmap](#future-enhancements--roadmap)
-- [API Documentation](#api-documentation)
-- [License](#license)
+- [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
+- [API Documentation](#ApiDocumentation)
+- [License](#licenseR)
 - [Contribution](#contribution)
 - [Code of Conduct](#code-of-conduct)
 
+<a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
+
 
 | **Technology**      | **Description**                                           |
 |---------------------|-----------------------------------------------------------|
@@ -31,18 +61,22 @@ A web application that seamlessly connects students and researchers with stakeho
 
 
 ## Working
+<a name="student"></a>
 - Student
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
 
+<a name="stakeholder"></a>
 - Stakeholder
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
 
+<a name="faculty"></a>
 - Faculty
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
   
+<a name="result"></a>
 - Result
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
@@ -186,6 +220,7 @@ Follow these steps to run the Research Nexas
     http://localhost:3000
     ``` 
 
+<a name="featureEnhancementsRoadMap"></a>
 ## 🛣️ Future Enhancements / Roadmap
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
@@ -198,6 +233,7 @@ Follow these steps to run the Research Nexas
 
 🚀 **Stay tuned for more updates and exciting features!**
 
+<a name="ApiDocumentation"></a>
 ## API Documentation 📚
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
@@ -214,6 +250,7 @@ The Research Nexas application communicates with a backend API to manage various
 | GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
 
 
+<a name="licenseR"></a>
 ## License 📝
 This project is licensed under the **[MIT License](LICENSE)**. 
 

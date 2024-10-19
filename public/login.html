@@ -8,11 +8,25 @@
     <title>Login</title>
 </head>
 
-<body>
-    <img src="images/moon.png" id="icon">
+<body> 
+    
+    <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        detect_browser_language: true,
+        wrapper_selector: ".gtranslate_wrapper",
+        font_size: 100,
+      };
+    </script>
+    <script
+    src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+    defer
+  ></script>
+  
+    <img src="images/moon.webp" id="icon">
     <div class="container">
         <div class="image">
-            <img src="images/logo.png" alt="">
+            <img src="images/logo.webp" alt="">
         </div>
         <div id="box2">
             <p>Sorry! User not found</p>
@@ -31,10 +45,11 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                <a href="">Forgot Password?</a>
+                <a href="password_reset.html">Forgot Password?</a>
                 <button type="button" onclick="login()">Login</button>
                 <div class="register">
                     <p style="display: inline;">Haven't Register?&nbsp;</p><a href="signup.html">Register Now</a>
+                    <div class="gtranslate_wrapper"></div>
                 </div>
             </form>
         </div>
@@ -126,6 +141,8 @@
             }
         }
     </script>
+
+
 </body>
 
 </html>
