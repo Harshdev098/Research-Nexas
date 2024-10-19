@@ -2,6 +2,8 @@ const {decodeAccessToken}=require('../login-system/token')
 const  db  = require('../config/mysql_connection')
 const mysql=require('mysql')
 
+let UserProfileID="";
+
 const display=async(req,res)=>{
     const decodedtoken = decodeAccessToken(req.headers.authorization);
     if (!decodedtoken || !decodedtoken.user) {
@@ -15,7 +17,7 @@ const display=async(req,res)=>{
         const query=mysql.format(sqlquery,[userid])
         await connection.query(query,(err,result)=>{
             if(err) throw err;
-            // console.log("result",result)
+            UserProfileID = result[0].id;
             const username=result[0].username
             const name=result[0].name;
             const email=result[0].email;
@@ -30,4 +32,33 @@ const display=async(req,res)=>{
     })
 }
 
-module.exports={display}
+const updateProfile = async (req, res) => {
+    const { col_name, state, year, course } = req.body;
+
+    if (!UserProfileID) {
+        return res.status(400).json({ error: 'User ID is required.' });
+    }
+
+    // Query to update the 'info_table'
+    const infoQuery = `
+      UPDATE info_table 
+      SET col_name = ?, state = ?, year = ?, course = ? 
+      WHERE id = ?
+    `;
+    const infoValues = [col_name, state, year, course, UserProfileID];
+
+    db.query(infoQuery, infoValues, (err, infoResult) => {
+        if (err) {
+            console.error('Error updating info table:', err);
+            return res.status(500).json({ error: 'Database error in info table update.' });
+        }
+
+        if (infoResult.affectedRows === 0) {
+            return res.status(404).json({ error: 'User not found in info table.' });
+        }
+        
+        res.status(200).json({ message: 'User info updated successfully!' });
+    });
+  };
+
+module.exports={display,updateProfile}
