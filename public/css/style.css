@@ -19,11 +19,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  position: fixed; /* Make navbar fixed to the top */
-  top: 0; /* Position at the top of the viewport */
-  width: 100%; /* Ensure it spans the full width */
-  z-index: 2000; /* Ensures it stays on top of other content */
-  /* background-color: #66B2FF; */
+  align-items: center; /* Centers items vertically */
+  position: fixed;
+  top: 0;
+  color:  #ffffff;
+  font-weight: 200;
+  width: 100%;
+  height: 75px;
+  z-index: 2000;
+  padding: 5px; /* Add padding for spacing */
+ /* Light gray background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
 #language{
@@ -41,12 +47,13 @@ nav ul {
 nav ul li {
   list-style: none;
   float: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 10px 16px;
   padding: 6px;
   font-size: 22px;
   /* color: white; */
   cursor: pointer;
-  color: rgb(247, 246, 240); /* Black text color */
+  color: rgb(255, 255, 255); /* Black text color */
   transition: color 0.3s, background-color 0.3s; 
 }
 
@@ -65,25 +72,14 @@ nav ul li a {
 }
 
 nav ul li:first-child {
+ 
   margin: 10px 28px 10px 10px;
-  border: 2px solid white;
+  border: 0.1px solid white;
   padding: 6px 22px;
   border-radius: 12px;
+  background-color: #FFD700;
 }
 
-nav ul li:first-child:hover {
-  border: 2px solid transparent;
-  background-clip: content-box;
-  border-radius: 12px;
-  border-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 100%,
-    #fef850 100%
-  );
-  border-image-slice: 1;
-}
 
 /* header styling */
 header {
@@ -117,6 +113,14 @@ header h1 {
 .heading {
   display: flex;
   justify-content: center;
+}
+.para{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 70%);
+
+
 }
 
 .animate-charcter {
@@ -154,15 +158,16 @@ header h1 {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 12%;
+  top: 28%;
 }
 
 .searchbar input {
   padding: 14px;
-  width: 360px;
+  transform: translate(5%, 0%);
+  width: 560px;
   border: 2.7px solid #8d8989; /* Light gray border for a softer look */
   font-size: 16px;
-  border-radius: 25px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
 }
@@ -193,13 +198,14 @@ header h1 {
   padding: 12px 25px; /* Added vertical padding for better appearance */
   cursor: pointer;
   margin-left: 5px;
+  transform: translate(5%, 0%);
   background: linear-gradient(
     90deg,
     #ff7e5f,
     #feb47b
   ); /* Reddish-orange gradient */
   border: none; /* Remove default border */
-  border-radius: 25px; /* Rounded corners */
+  border-radius : 25px; /* Rounded corners */
   color: white; /* Text color */
   font-size: 16px; /* Consistent font size */
   transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
