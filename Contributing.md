@@ -19,7 +19,7 @@ Research Nexas aims to streamline the workflow for researchers by offering tools
 ---
 
 # 🛠️ **How to Get Started**
-Follow these steps to get started with contributing to **BuddyTrail**:
+Follow these steps to get started with contributing to **Research Nexas**:
 
 1. **Fork this Repository** 🍴:  
    Click the fork button at the top of the repository page to create a copy in your GitHub account.
@@ -69,7 +69,7 @@ We’re looking forward to your contributions, big or small!
 ---
 
 # 📜 **Contribution Guidelines**
-To ensure the quality of contributions to **BuddyTrail**, please adhere to the following guidelines:
+To ensure the quality of contributions to **Research Nexas**, please adhere to the following guidelines:
 
 1. **Code Style**:
    - Maintain consistent code formatting and style as seen in the project.
