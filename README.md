@@ -46,7 +46,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [Contribution](#contribution)
 - [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
-- 📞[Contact Information](contact-information)
+- 📞 [Contact Information](#contact-information)
 
 ## 🛠️ Technical Stack
 
