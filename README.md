@@ -46,6 +46,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [Contribution](#contribution)
 - [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
+- [Contact Information](contact-information)
 
 ## 🛠️ Technical Stack
 
@@ -279,7 +280,9 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
 </tr>
 </table>
 
-Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Utsav Singhal**, at:  
+#### Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Harsh Dev**, at:  
 📧 **harshoxfordgkp@gmail.com**
+
 ---
+
 
