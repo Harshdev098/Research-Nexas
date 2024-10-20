@@ -934,10 +934,16 @@ h3 {
 
 .join h2 {
   text-align: center;
-  font-size: 42px;
+  font-size: 45px;
   color: white;
   margin: 0px;
   padding: 60px 0px;
+ font-family:"Space Grotesk", sans-serif; 
+}
+
+.join h2:hover{
+  text-shadow: 2px 2px 2px rgb(255, 0, 0);
+  text-decoration: underline;
 }
 
 .join_box {
@@ -955,6 +961,13 @@ h3 {
   position: relative;
   top: 48px;
   overflow: hidden;
+}
+
+.join_boxes:hover{
+  border:2px solid black;
+  box-shadow: 2px 2px 2px rgb(200, 255, 0);
+  scale:1.09;
+  border-radius: 18px;
 }
 
 .join_boxes p {
