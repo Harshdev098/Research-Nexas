@@ -26,6 +26,14 @@ body {
   /* background-color: #66B2FF; */
 }
 
+#language{
+  position: fixed;
+  bottom: 4vh;
+  background-color: rgba(0, 0, 255, 0.718);
+  height: 45px;
+  left: 1vw;
+}
+ 
 nav ul {
   overflow: auto;
 }
@@ -826,7 +834,11 @@ main {
 }
 
 .box {
-  color: white;
+  
+  width: 22vw;
+    height: 41vh;
+    background: white;
+    color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -841,7 +853,8 @@ main {
 }
 
 .box:hover {
-  border-bottom: 3px solid rgb(65, 65, 195);
+  
+  background-color: rgb(252, 210, 210)   ;
 }
 
 h3 {

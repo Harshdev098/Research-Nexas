@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const { upload, save, disp } = require(path.resolve(__dirname,"../file_upload/upload.js"));
+const  db  = require('../config/mysql_connection')
+
 const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
@@ -67,6 +69,28 @@ app.get("/allotment", DisplayPapers); //displaying papers
 app.get("/fac_signup", (req, res) => {
   dis_mail(req, res); //displaying the email of the faculty on signup page
 });
+
+//fetch colleges
+app.get('/search_colleges', (req, res) => {
+  const query = req.query.q.toLowerCase();
+
+  // Query to search for colleges in the `col_name` column
+  const sql = `SELECT DISTINCT col_name AS name FROM info_table WHERE LOWER(col_name) LIKE ?`;
+  
+  // Use '%' to match any substring
+  const searchTerm = `%${query}%`;
+
+  db.query(sql, [searchTerm], (err, results) => {
+      if (err) {
+          console.error('Error fetching colleges:', err);
+          return res.status(500).json({ error: 'Database query error' });
+      }
+
+      // Send the results as a JSON response
+      res.json(results);
+  });
+});
+
 
 // uploading files
 app.post("/upload", upload.single("file"), async (req, res) => {
