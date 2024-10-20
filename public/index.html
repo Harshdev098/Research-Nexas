@@ -431,72 +431,230 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col">
-                    <h4>company</h4>
+                    <h4 class="animate-heading">Company</h4>
                     <ul>
-                        <li><a href="#about_show">about us</a></li>
-                        <li><a href="#services">our services</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
+                        <li><a href="#about_show" class="underline-hover">About Us</a></li>
+                        <li><a href="#services" class="underline-hover">Our Services</a></li>
+                        <li><a href="#" class="underline-hover">Privacy Policy</a></li>
+                        <li><a href="#" class="underline-hover">Affiliate Program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>get help</h4>
+                    <h4 class="animate-heading">Get Help</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
+                        <li><a href="#" class="underline-hover">FAQ</a></li>
+                        <li><a href="#" class="underline-hover">Shipping</a></li>
+                        <li><a href="#" class="underline-hover">Returns</a></li>
+                        <li><a href="#" class="underline-hover">Order Status</a></li>
+                        <li><a href="#" class="underline-hover">Payment Options</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>online shop</h4>
+                    <h4 class="animate-heading">Online Shop</h4>
                     <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
+                        <li><a href="#" class="underline-hover">Watch</a></li>
+                        <li><a href="#" class="underline-hover">Bag</a></li>
+                        <li><a href="#" class="underline-hover">Shoes</a></li>
+                        <li><a href="#" class="underline-hover">Dress</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 id="custom-follow-heading">Follow Us</h4>
-
+                    <h4 class="animate-heading">Newsletter</h4>
+                    <div class="newsletter">
+                        <form action="#">
+                            <input type="email" placeholder="Enter your email" required class="input-animate glow-on-focus">
+                            <button type="submit" class="btn-animate"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
                     <div class="custom-social-links1">
                         <div class="custom-social-links">
                             <a href="#" id="custom-facebook-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" id="custom-twitter-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <div class="custom-social-links"><a href="#" id="custom-instagram-icon"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a href="#" id="custom-x-icon"><i class="fab fa-x-twitter"></i></a> <!-- Updated X (Twitter) icon -->
+                            <a href="#" id="custom-instagram-icon"><i class="fab fa-instagram"></i></a>
                             <a href="#" id="custom-linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <script>// Facebook click event
-                    document.getElementById("custom-facebook-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
-                    });
-
-                    // Twitter click event
-                    document.getElementById("custom-twitter-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#1DA1F2"; // Twitter blue after click
-                    });
-
-                    // Instagram click event
-                    document.getElementById("custom-instagram-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#E1306C"; // Instagram brand color after click
-                    });
-
-                    // LinkedIn click event
-                    document.getElementById("custom-linkedin-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#0A66C2"; // LinkedIn blue after click
-                    });
-
-                </script>
             </div>
         </div>
+    
+        <script>
+            // Facebook click event
+            document.getElementById("custom-facebook-icon").addEventListener("click", function () {
+                this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
+            });
+    
+            // X (Twitter) click event
+            document.getElementById("custom-x-icon").addEventListener("click", function () {
+                this.querySelector("i").style.color = "#000"; // X black color after click
+            });
+    
+            // Instagram click event
+            document.getElementById("custom-instagram-icon").addEventListener("click", function () {
+                this.querySelector("i").style.color = "#E1306C"; // Instagram brand color after click
+            });
+    
+            // LinkedIn click event
+            document.getElementById("custom-linkedin-icon").addEventListener("click", function () {
+                this.querySelector("i").style.color = "#0A66C2"; // LinkedIn blue after click
+            });
+        </script>
     </footer>
+    
+    <style>
+        /* General Footer Styling */
+        .footer {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            padding: 40px 0;
+            color: #fff;
+            position: relative;
+            font-family: 'Poppins', sans-serif; /* Better font */
+        }
+    
+        .footer h4 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif; /* Font for headers */
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+    
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+    
+        .footer-col ul li a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 3px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+    
+        /* Underline animation */
+        .underline-hover::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #00bcd4;
+            transition: width 0.3s ease-in-out;
+        }
+    
+        .underline-hover:hover::after {
+            width: 100%;
+        }
+    
+        /* Animation for headings */
+        .animate-heading {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            padding-bottom: 5px;
+        }
+    
+        .animate-heading::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #00bcd4;
+            transition: all 0.3s ease;
+        }
+    
+        .animate-heading:hover::after {
+            width: 100%;
+        }
+    
+        /* Newsletter Styling */
+        .newsletter form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #fff;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    
+        .newsletter input {
+            border: none;
+            background: none;
+            color: #fff;
+            padding: 10px;
+            width: 80%;
+            outline: none;
+            transition: width 0.3s ease;
+        }
+    
+        .newsletter input:hover {
+            width: 90%;
+        }
+    
+        /* Animated input focus with glow effect */
+        .glow-on-focus:focus {
+            box-shadow: 0 0 10px 3px rgba(0, 188, 212, 0.7), inset 0 0 5px rgba(0, 188, 212, 0.5);
+            transition: all 0.3s ease;
+        }
+    
+        /* Animated send button */
+        .btn-animate {
+            background-color: #00bcd4;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+    
+        .btn-animate:hover {
+            transform: scale(1.1);
+            background-color: #00a0b2;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+        }
+    
+        .btn-animate:active {
+            transform: scale(0.9);
+        }
+    
+        /* Social Media Icon Styling */
+        .custom-social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+    
+        .custom-social-links a:hover {
+            transform: scale(1.2);
+        }
+    
+        .custom-social-links a:active {
+            transform: scale(0.9);
+        }
+    
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+    
     <button id="scrollToTop" title="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
