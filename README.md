@@ -241,9 +241,11 @@ This project is licensed under the **[MIT License](LICENSE)**.
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
-## Code of Conduct
-This project follows [Code of Conduct](Code_of_Conduct.md)
-Star ⭐ the project if you like it,working and contributing with us ❤️.
+## Contributors 🌟
+
+We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
+
+<div align="center">
 
 | Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      |
 |--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -256,6 +258,11 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
 | <img src="https://github.com/archanasingh11.png" alt="Archana Singh" width="80"/> <br> <p align="center">[Archana Singh](https://github.com/archanasingh11) 👩‍💻</p> | <img src="https://github.com/tanya-soni-git.png" alt="Tanya Soni" width="80"/> <br> <p align="center">[Tanya Soni](https://github.com/tanya-soni-git) 👩‍💻</p> | <img src="https://github.com/jvkousthub.png" alt="Kousthub" width="80"/> <br> <p align="center">[Kousthub](https://github.com/jvkousthub) 👨‍💻</p> | <img src="https://github.com/Dinkar850.png" alt="Dinkar" width="80"/> <br> <p align="center">[Dinkar](https://github.com/Dinkar850) 👨‍💻</p> |
 | <img src="https://github.com/Sarthak1970.png" alt="Sarthak" width="80"/> <br> <p align="center">[Sarthak](https://github.com/Sarthak1970) 👨‍💻</p> | <img src="https://github.com/Pks0110.png" alt="Pks" width="80"/> <br> <p align="center">[Pks](https://github.com/Pks0110) 👨‍💻</p> | <img src="https://github.com/ADeshmukh80.png" alt="ADeshmukh" width="80"/> <br> <p align="center">[ADeshmukh](https://github.com/ADeshmukh80) 👨‍💻</p> | <img src="https://github.com/ash-k121.png" alt="Ash" width="80"/> <br> <p align="center">[Ash](https://github.com/ash-k121) 👨‍💻</p> |
 
+</div>
 
+
+## Code of Conduct
+This project follows [Code of Conduct](Code_of_Conduct.md)
+Star ⭐ the project if you like it,working and contributing with us ❤️.
 # Big thanks to all the contributors!
 
