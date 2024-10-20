@@ -46,7 +46,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [Contribution](#contribution)
 - [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
-- [Contact Information](contact-information)
+- 📞[Contact Information](contact-information)
 
 ## 🛠️ Technical Stack
 
@@ -243,7 +243,7 @@ This project is licensed under the **[MIT License](LICENSE)**.
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
-## Contributors 🌟
+## Contributors
 
 We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
 
@@ -262,11 +262,9 @@ We are grateful to all the contributors who have collaborated on this project. T
 
 </div>
 
-
 ## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
 Star ⭐ the project if you like it,working and contributing with us ❤️.
-# Big thanks to all the contributors!
 
 ## 📞 **Contact Information**
 
@@ -285,4 +283,4 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
 
 ---
 
-
+# Big thanks to all the contributors!
