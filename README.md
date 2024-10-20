@@ -44,6 +44,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [API Documentation](#api-documentation)
 - [License](#license)
 - [Contribution](#contribution)
+- [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
 
 ## 🛠️ Technical Stack
@@ -265,4 +266,20 @@ We are grateful to all the contributors who have collaborated on this project. T
 This project follows [Code of Conduct](Code_of_Conduct.md)
 Star ⭐ the project if you like it,working and contributing with us ❤️.
 # Big thanks to all the contributors!
+
+## 📞 **Contact Information**
+
+### Project Admin⚡
+
+<table>
+<tr>
+<td align="center"><a href="https://github.com/Harshdev098/"><img src="https://avatars.githubusercontent.com/u/118347330?v=4" width=150px height=150px /></a></br> <h4 style="color:red;">HARSH DEV PATHAK</h4>
+<a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/"><img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img></a>
+</td>
+</tr>
+</table>
+
+Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Utsav Singhal**, at:  
+📧 **harshoxfordgkp@gmail.com**
+---
 
