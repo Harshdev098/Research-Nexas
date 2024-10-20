@@ -147,10 +147,25 @@
       .btn button {
          margin: 5px;
       }
+
    </style>
 </head>
 
 <body>
+   <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+   <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        detect_browser_language: true,
+        wrapper_selector: ".gtranslate_wrapper",
+        font_size: 100,
+      };
+    </script>
+    <script
+    src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+    defer
+  ></script>
+
    <p id="result1"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Paper Alloted! Refreshing
    </p>
    <p id="result2"><i class="fa-solid fa-xmark" style="padding: 0px 12px;font-size: 26px;"></i>An error occured during

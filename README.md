@@ -257,18 +257,28 @@ This project is licensed under the **[MIT License](LICENSE)**.
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
+## Contributors 🌟
+
+We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
+
+<div align="center">
+
+| Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      |
+|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/Harshdev098.png" alt="Harshdev098" width="80"/> <br> <p align="center">[Harshdev098](https://github.com/Harshdev098) 👨‍💻</p> | <img src="https://github.com/ygowthamr.png" alt="Ygowthamr" width="80"/> <br> <p align="center">[Ygowthamr](https://github.com/ygowthamr) 👨‍💻</p> | <img src="https://github.com/Ankitha2130.png" alt="Ankitha2130" width="80"/> <br> <p align="center">[Ankitha2130](https://github.com/Ankitha2130) 👩‍💻</p> | <img src="https://github.com/alo7lika.png" alt="Alolika" width="80"/> <br> <p align="center">[Alolika](https://github.com/alo7lika) 👩‍💻</p> |
+| <img src="https://github.com/T-Rahul-prabhu-38.png" alt="T Rahul Prabhu" width="80"/> <br> <p align="center">[T Rahul Prabhu](https://github.com/T-Rahul-prabhu-38) 👨‍💻</p> | <img src="https://github.com/trinetra110.png" alt="Trinetra" width="80"/> <br> <p align="center">[Trinetra](https://github.com/trinetra110) 👩‍💻</p> | <img src="https://github.com/RishiVT2004.png" alt="Rishi" width="80"/> <br> <p align="center">[Rishi](https://github.com/RishiVT2004) 👨‍💻</p> | <img src="https://github.com/smog-root.png" alt="Smog Root" width="80"/> <br> <p align="center">[Smog Root](https://github.com/smog-root) 👨‍💻</p> |
+| <img src="https://github.com/harish08102004.png" alt="Harish" width="80"/> <br> <p align="center">[Harish](https://github.com/harish08102004) 👨‍💻</p> | <img src="https://github.com/ragini-gp.png" alt="Ragini" width="80"/> <br> <p align="center">[Ragini](https://github.com/ragini-gp) 👩‍💻</p> | <img src="https://github.com/KapuluruBhuvaneswariVspdbct.png" alt="Bhuvaneswari" width="80"/> <br> <p align="center">[Bhuvaneswari](https://github.com/KapuluruBhuvaneswariVspdbct) 👩‍💻</p> | <img src="https://github.com/Shweta-1902.png" alt="Shweta" width="80"/> <br> <p align="center">[Shweta](https://github.com/Shweta-1902) 👩‍💻</p> |
+| <img src="https://github.com/SoumyaU25.png" alt="Soumya" width="80"/> <br> <p align="center">[Soumya](https://github.com/SoumyaU25) 👩‍💻</p> | <img src="https://github.com/shubhagarwal1.png" alt="Shubham Agarwal" width="80"/> <br> <p align="center">[Shubham Agarwal](https://github.com/shubhagarwal1) 👨‍💻</p> | <img src="https://github.com/MrunalKashid02.png" alt="Mrunal Kashid" width="80"/> <br> <p align="center">[Mrunal Kashid](https://github.com/MrunalKashid02) 👩‍💻</p> | <img src="https://github.com/siri-chandana-macha.png" alt="Siri Chandana" width="80"/> <br> <p align="center">[Siri Chandana](https://github.com/siri-chandana-macha) 👩‍💻</p> |
+| <img src="https://github.com/MitulSonagara.png" alt="Mitul Sonagara" width="80"/> <br> <p align="center">[Mitul Sonagara](https://github.com/MitulSonagara) 👨‍💻</p> | <img src="https://github.com/Dipanita45.png" alt="Dipanita" width="80"/> <br> <p align="center">[Dipanita](https://github.com/Dipanita45) 👩‍💻</p> | <img src="https://github.com/Gauravtb2253.png" alt="Gaurav" width="80"/> <br> <p align="center">[Gaurav](https://github.com/Gauravtb2253) 👨‍💻</p> | <img src="https://github.com/Anu27n.png" alt="Anu" width="80"/> <br> <p align="center">[Anu](https://github.com/Anu27n) 👩‍💻</p> |
+| <img src="https://github.com/ishita-1305.png" alt="Ishita" width="80"/> <br> <p align="center">[Ishita](https://github.com/ishita-1305) 👩‍💻</p> | <img src="https://github.com/Sudhanshu248.png" alt="Sudhanshu" width="80"/> <br> <p align="center">[Sudhanshu](https://github.com/Sudhanshu248) 👨‍💻</p> | <img src="https://github.com/Hamza1821.png" alt="Hamza" width="80"/> <br> <p align="center">[Hamza](https://github.com/Hamza1821) 👨‍💻</p> | <img src="https://github.com/Ajay-singh1.png" alt="Ajay Singh" width="80"/> <br> <p align="center">[Ajay Singh](https://github.com/Ajay-singh1) 👨‍💻</p> |
+| <img src="https://github.com/archanasingh11.png" alt="Archana Singh" width="80"/> <br> <p align="center">[Archana Singh](https://github.com/archanasingh11) 👩‍💻</p> | <img src="https://github.com/tanya-soni-git.png" alt="Tanya Soni" width="80"/> <br> <p align="center">[Tanya Soni](https://github.com/tanya-soni-git) 👩‍💻</p> | <img src="https://github.com/jvkousthub.png" alt="Kousthub" width="80"/> <br> <p align="center">[Kousthub](https://github.com/jvkousthub) 👨‍💻</p> | <img src="https://github.com/Dinkar850.png" alt="Dinkar" width="80"/> <br> <p align="center">[Dinkar](https://github.com/Dinkar850) 👨‍💻</p> |
+| <img src="https://github.com/Sarthak1970.png" alt="Sarthak" width="80"/> <br> <p align="center">[Sarthak](https://github.com/Sarthak1970) 👨‍💻</p> | <img src="https://github.com/Pks0110.png" alt="Pks" width="80"/> <br> <p align="center">[Pks](https://github.com/Pks0110) 👨‍💻</p> | <img src="https://github.com/ADeshmukh80.png" alt="ADeshmukh" width="80"/> <br> <p align="center">[ADeshmukh](https://github.com/ADeshmukh80) 👨‍💻</p> | <img src="https://github.com/ash-k121.png" alt="Ash" width="80"/> <br> <p align="center">[Ash](https://github.com/ash-k121) 👨‍💻</p> |
+
+</div>
+
+
 ## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
-
-
-
-
 Star ⭐ the project if you like it,working and contributing with us ❤️.
-
-
 # Big thanks to all the contributors!
-
-<a href="https://github.com/Harshdev098/Research-Nexas/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Harshdev098/Research-Nexas" />
-</a>
 
