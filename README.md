@@ -127,6 +127,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 │   ├── stk_signup.html
 │   └── upload_file.html
 ├── pull_request_template.md
+├── repo_structure.txt
 ├── stakeholder/
 │   ├── allotment.js
 │   ├── evaluation.js
