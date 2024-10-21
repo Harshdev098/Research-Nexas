@@ -8,7 +8,7 @@ const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
 const rateLimiter = require("express-rate-limit");
 const { approve, uploadedpapers, displaydetail } = require("../stakeholder/stk_approval");
-const { display } = require("../backend/profile");
+const { display,updateProfile } = require("../backend/profile");
 const { stk_display } = require("../backend/stk_profile");
 const { logout } = require("./logout");
 const { setcriteria, evaluate } = require("../stakeholder/evaluation");
@@ -110,6 +110,9 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 
 // uploading user information to database
 app.post("/info", info);
+
+// Updating profile in student dashboard
+app.put("/updateProfile", updateProfile);
 
 // serving uploaded research papers to the student
 app.get("/uploaded_files", disp);
