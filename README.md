@@ -272,11 +272,22 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
 
 <table>
 <tr>
-<td align="center"><a href="https://github.com/Harshdev098/"><img src="https://avatars.githubusercontent.com/u/118347330?v=4" width=150px height=150px /></a></br> <h4 style="color:red;">HARSH DEV PATHAK</h4>
-<a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/"><img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img></a>
-</td>
+  <td align="center">
+    <a href="https://github.com/Harshdev098/">
+      <img src="https://avatars.githubusercontent.com/u/118347330?v=4" width="150px" height="150px" />
+    </a>
+    <br />
+    <h4 style="color:red;">HARSH DEV PATHAK</h4>
+    <a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/">
+      <img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img>
+    </a>
+    <a href="https://x.com/Harsh_dev098?t=EyUvr1QvMSpco9QB6k72iw&s=09">
+      <img src="https://img.icons8.com/fluency/2x/twitter.png" width="32px" height="32px"></img>
+    </a>
+  </td>
 </tr>
 </table>
+
 
 #### Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Harsh Dev**, at:  
 📧 **harshoxfordgkp@gmail.com**
