@@ -82,10 +82,32 @@
       font-weight: bold;
       margin-bottom: 20px;
     }
+
+    .gtranslate_wrapper{
+    background-color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    height: 47px;
+    /* width: 40px;; */
+    margin: auto;
+    padding: 10px;;
+    }
   </style>
 </head>
 
 <body>
+  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+       window.gtranslateSettings = {
+         default_language: "en",
+         detect_browser_language: true,
+         wrapper_selector: ".gtranslate_wrapper",
+         font_size: 100,
+       };
+     </script>
+     <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer ></script>
+     
   <img src="images/moon.webp" id="icon">
 
   <div class="container">

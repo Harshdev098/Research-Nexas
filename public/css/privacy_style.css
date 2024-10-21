@@ -32,7 +32,10 @@ html {
   position: fixed;
   bottom: 4vh;
   background-color: rgba(0, 0, 255, 0.718);
-  height: 45px;
+  
+
+  height: 50px;
+  padding: 10px;
   left: 1vw;
 }
  
