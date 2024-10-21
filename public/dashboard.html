@@ -11,6 +11,7 @@
 
 <body>
     <section>
+        
         <div class="container">
             <div class="darkmode" onclick="hide()">
                 <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
@@ -27,7 +28,7 @@
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
                 <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+                <li onclick="handleLogout()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
             </ul>
         </div>
         <div class="largesection">
@@ -43,6 +44,7 @@
                                 style="padding: 0px 12px 0px 8px;"></i>Edit Profile</a></button>
                 </div>
             </div>
+            
             <div id="detail">
                 <ul>
                     <li>Name: <p id="name"></p>
@@ -67,6 +69,9 @@
                     <p>the rating given to your Research paper by the faculties are:-</p>
                 </div>
             </div>
+        </div>
+        <div id="box1">
+            <p>Logout Successfully...</p>
         </div>
     </section>
     <script>
@@ -117,7 +122,15 @@
             }
         }
 
-
+        const handleLogout=()=>{
+            const result1 = document.getElementById('box1');
+            result1.style.display = 'block';
+            localStorage.clear();
+            console.log("logout");
+            setTimeout(() => {
+                        window.location.href = 'index.html';
+            }, 2000);
+        }
         const view_profile = () => {
             const detail = document.getElementById('detail')
             const result = document.getElementById('result')

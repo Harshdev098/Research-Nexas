@@ -41,7 +41,24 @@
             width: 20vw;
             display: block;
         }
-
+        #box1 {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #box1 {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
         section {
             margin: 0vh 10vw;
             background-color: white;
@@ -50,6 +67,7 @@
             position: relative;
             top: -90px;
         }
+        
 
         section p {
             font-size: 18px;
@@ -86,6 +104,7 @@
         .card-body h4 {
             padding: 8px 0px;
         }
+        
         body.dark-mode {
         background-color: #121212; 
         color: #ffffff; 
@@ -129,12 +148,18 @@
                 style="width: 100%;color: white;display: block;font-size: 14vw;padding: 20px;"></i>
                 
             </div>
+            
             <div>
-            <p>Hii...<strong id="email">harshoxfordgkp@gmail.com</strong></p>
+            <p>Hii...<strong id="email"></strong></p>
           
         </div>
+        
     </header>
+    
     <section>
+        <div id="box1">
+            <p>Logout Successfully...</p>
+        </div>
         <p>Email: <strong id="emailid"></strong></p>
         <p>College Name: <strong id="col_name"></strong></p>
         <div class="accordion" id="accordionExample">
@@ -202,12 +227,13 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
-                        <button>Log Out<i class="fa-regular fa-right-from-bracket"
+                        <button onclick="handleLogout()">Log Out<i class="fa-solid fa-right-from-bracket"
                                 style="padding: 5px 8px 5px 10px;"></i></button>
                     </div>
                 </div>
             </div>
         </div>
+       
     </section>
     
     
@@ -272,7 +298,17 @@
         }
         fetchDetail()
 
-
+        const handleLogout = () => {
+            const result1 = document.getElementById('box1');
+            result1.style.display = 'block';
+            localStorage.clear();
+            console.log("logout");
+            setTimeout(() => {
+                        window.location.href = 'index.html';
+            }, 2000)
+            
+        }
+       
         // const Evaluation=async()=>{
         //     const token = localStorage.getItem('accessToken');
         //     const headers = new Headers();
