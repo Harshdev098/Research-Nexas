@@ -6,9 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp (stakeholder)</title>
     <link rel="stylesheet" href="css/login_style.css">
+    <style>
+       
+        /* General reset and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* navbar styling */
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.808);;
+  position: fixed; /* Make navbar fixed to the top */
+  top: 0; /* Position at the top of the viewport */
+  
+
+ 
+
+  width: 100vw;
+  z-index: 2000; /* Ensures it stays on top of other content */
+  margin-bottom: 20px;
+
+}
+
+#language{
+  position: fixed;
+  bottom: 4vh;
+  background-color: rgba(0, 0, 255, 0.718);
+  
+
+  height: 50px;
+  padding: 10px;
+  left: 1vw;
+}
+ 
+nav ul {
+  overflow: auto;
+}
+
+nav ul li {
+  list-style: none;
+  float: right;
+  margin: 10px 16px;
+  padding: 6px;
+  font-size: 22px;
+  cursor: pointer;
+  color: rgb(247, 246, 240); /* Black text color */
+  transition: color 0.3s, background-color 0.3s; 
+}
+
+nav ul li:hover {
+  border-bottom: 1.7px solid  white;
+}
+
+nav ul li a {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Inherit color from parent */
+    font-size: 22px;
+}
+
+nav ul li:first-child {
+  margin: 10px 28px 10px 10px;
+  border: 2px solid white;
+  padding: 6px 22px;
+  border-radius: 12px;
+}
+
+nav ul li:first-child:hover {
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 12px;
+  border-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 100%,
+    #fef850 100%
+  );
+  border-image-slice: 1;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #02d0de;
+  color: black;
+  
+ 
+}
+
+.blank{
+  height: 100px;
+}
+    </style>
+   
 </head>
 
 <body>
+    <div class="navbar">
+        <div class="logo"></div>
+        <div>
+            <nav>
+                <ul id="navbar">
+                    <li title="Login"><a href="choose-file.html">Login</a></li>
+                    <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a
+                            href="choose-signup-file.html">Register</a></li>
+                    <li title="Contact Us"><a href="./contact-us.html">Contact Us</a></li>
+                    <li title="Our Services"><a href="index.html">Services</a></li>
+                    <li title="About Us"><a href="index.html">About</a></li>
+                    <li title="Main Page"><a href="index.html">Home</a></li>
+    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div> 
     <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
        window.gtranslateSettings = {
