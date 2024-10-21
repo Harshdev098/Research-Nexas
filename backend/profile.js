@@ -36,7 +36,7 @@ const updateProfile = async (req, res) => {
     }
     const userid=decodedtoken.user;
 
-    const { col_name, state, year, course } = req.body;
+    const { name,email,col_name, state, year, course } = req.body;
 
     if (!userid) {
         return res.status(400).json({ error: 'User ID is required.' });
@@ -45,10 +45,10 @@ const updateProfile = async (req, res) => {
     // Query to update the 'info_table'
     const infoQuery = `
       UPDATE info_table 
-      SET col_name = ?, state = ?, year = ?, course = ? 
+      SET name = ?,email = ?,col_name = ?, state = ?, year = ?, course = ? 
       WHERE id = ?
     `;
-    const infoValues = [col_name, state, year, course, userid];
+    const infoValues = [name,email,col_name, state, year, course, userid];
 
     db.query(infoQuery, infoValues, (err, infoResult) => {
         if (err) {
