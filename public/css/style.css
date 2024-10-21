@@ -1191,10 +1191,7 @@ h3 {
   transition: all 0.3s ease-in-out;
 }
 
-.image_boxes:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-}
+
 
 .image_boxes img {
   width: 100%;
@@ -1216,9 +1213,9 @@ h3 {
   transition: opacity 0.3s ease-in-out;
 }
 
-.image_boxes:hover .overlay {
-  opacity: .5;
-}
+
+
+
 
 .overlay .text {
   color: #dfd9d9;
@@ -1233,6 +1230,7 @@ h3 {
 .details {
   padding: 20px;
   text-align: left;
+  pointer-events: all;
 }
 
 .details h3 {
@@ -1241,13 +1239,10 @@ h3 {
   font-size: 24px;
   color: #333;
   margin-bottom: 10px;
+  border-bottom: 2px soild green;
 }
 
-.details p {
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 16px;
-  color: #555;
-}
+
 
 .stu_section {
   text-align: center;
@@ -1682,9 +1677,7 @@ color:#ed8309;
   transition: transform 0.3s ease; /* Transition for image scaling */
 }
 
-.image_boxes:hover {
-  transform: scale(1.05); /* Slight scaling on hover */
-}
+
 
 .overlay {
   position: absolute;
@@ -1702,9 +1695,7 @@ color:#ed8309;
   border-radius: 15px; /* Match overlay with image corners */
 }
 
-.image_boxes:hover .overlay {
-  opacity: 1;
-}
+
 
 .stu_section {
   margin-top: 40px;
@@ -1755,9 +1746,7 @@ color:#ed8309;
   transition: transform 0.3s ease; /* Transition for image scaling */
 }
 
-.last_img_boxes img:hover {
-  transform: scale(1.05); /* Slight scaling on hover */
-}
+
 
 .img_container {
   display: flex;
@@ -1773,30 +1762,22 @@ color:#ed8309;
   background-color: #f0f4f8; /* Light background color */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  overflow: hidden; /* Prevent overflow */
-  transition: transform 0.3s; /* Smooth scaling on hover */
+  
 }
 
-.image_boxes:hover {
-  transform: scale(1.05); /* Scale up on hover */
-}
+
 
 .details {
   padding: 15px; /* More padding for comfort */
   background-color: #e0f7fa; /* Light cyan background */
-  border-top: 2px solid #00838f; /* Teal border at the top */
+  
   color: #333; /* Dark text for contrast */
   text-align: left; /* Left align text */
 }
 
-.details h3 {
-  margin: 0 0 10px 0; /* Margin below the heading */
-  color: #00796b; /* Dark teal heading */
-}
 
-.details p {
-  margin: 5px 0; /* Spacing between paragraphs */
-}
+
+
 
 /* Styles for the overlay (optional) */
 .overlay {
@@ -1810,13 +1791,10 @@ color:#ed8309;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s; /* Smooth transition */
+ 
 }
 
-.image_boxes:hover .overlay {
-  opacity: 1; /* Show overlay on hover */
-}
+
 
 .img_container {
   display: flex;
@@ -1832,7 +1810,7 @@ color:#ed8309;
   background-color: #e0f7fa; /* Light cyan background to fill entire box */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  overflow: hidden; /* Prevent overflow */
+  
 }
 
 .image_boxes img {
@@ -1852,11 +1830,12 @@ color:#ed8309;
 .details h3 {
   margin: 0 0 10px 0; /* Margin below the heading */
   color: #00796b; /* Dark teal heading */
+  border-bottom: 2px solid green;
+  padding: 12px;
+  font-size: 30px;
 }
 
-.details p {
-  margin: 5px 0; /* Spacing between paragraphs */
-}
+
 
 /* Overlay styles */
 .overlay {
@@ -1865,16 +1844,39 @@ color:#ed8309;
   left: 0;
   right: 0;
   bottom: 0;
+  margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
   color: white; /* White text for contrast */
   display: flex;
-  justify-content: center;
+  
+  justify-content: space-around;
   align-items: center;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s; /* Smooth transition */
+  
   z-index: 1; /* Ensure overlay is on top */
 }
 
-.image_boxes:hover .overlay {
-  opacity: 1; /* Show overlay on hover */
+.para1{
+  font-size: 15px;
+  padding: 13px;
+  font-weight: 500;
+  text-align: start;
 }
+
+.para2{
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.image_boxes:hover{
+  box-shadow: 5px 5px 12px rgb(44, 102, 93);
+  color: white;
+  background-color: rgb(95,212,196);
+  transform: scale(1);
+}
+
+.image_boxes:hover .details {
+  /* box-shadow: 3px 3px 12px rgb(223, 207, 207); */
+      background-color: rgb(95,212,196);
+      color: white;
+  }
