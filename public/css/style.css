@@ -1288,7 +1288,7 @@ h3 {
 
 /* Professional Stakeholder Section Styles */
 .stakeholder-section {
-  padding: 70px 0;
+  
   background-color: #f9f9f9;
   text-align: center;
 }
@@ -1296,6 +1296,11 @@ h3 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.paper-info{
+  width: 20vw;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .section-title {
@@ -1328,15 +1333,78 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.block {
+  background-color: white;
+    max-width: 100vw;
+    margin: auto;
+    height: 55vh;
+    padding: 15px;
+    box-shadow: 2px 2px 12px #eae6df;
+    margin-bottom: 30px;
+}
+
+.research-paper-card:hover{
+  /* background-color: rgb(223,204,204); */
+  box-shadow: 15px 15px  2px 1px rgb(187, 186, 186);
+  border-radius: 15px;
+}
+
+.paper-info{
+  width: 20vw;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    /* padding: 30px; */
+    /* background-color: rgba(229, 229, 229, 0.5); */
+    border-radius: 15px ;
+}
+
+.paper-info h3{
+  background-color: #e0f7fa;
+  height: 92px;
+  padding: 10px;
+  color: rgb(4, 33, 95);
+  text-shadow: white;
+  font-size: 30px;
+  gap: 0.6;
+  /* text-align: start; */
+  border-radius: 15px 15px 0 0;
+  border-bottom: #008080;
+
+}
+
+.paper-info h6{
+  text-align: start;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.paper-info p{
+  color: rgb(106, 105, 105);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2px 20px 20px;
+}
+
+.research-paper-card:hover{
+  /* background-color: rgb(223,204,204); */
+  box-shadow: 15px 15px  2px 1px rgb(187, 186, 186);
+  border-radius: 15px;
+}
+
+.stakeholder-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
 .stakeholder-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-.paper-info h3{
-  color: rgba(0, 0, 0, 0.907);
-  font-size: 1.5rem;
-}
+
+
+
+
 
 .read-more {
   background-color: #3498db;
@@ -1347,12 +1415,12 @@ h3 {
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
+  padding: 15px ;
+  margin: 15px;
   transition: background-color 0.3s ease;
 }
 
-.read-more:hover {
-  background-color: #2980b9;
-}
+
 
 
 
@@ -1580,11 +1648,15 @@ color:#ed8309;
   text-align: center;
 }
 
+
+
 .section-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 40px;
-  text-transform: uppercase; /* Uppercase titles */
+  font-family: 'Londrina Sketch', cursive;
+    text-shadow: 3px 3px 3px #0A66C2;
+    position: relative;
+    display: inline-block;
+    font-size: 45px;
+    font-weight: 700;
 }
 
 .img_container {
