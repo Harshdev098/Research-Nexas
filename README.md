@@ -1,4 +1,6 @@
-# Research-Nexas 🌟🔬📚
+# <p>**Research-Nexas 🌟🔬📚**
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Research-Nexas"/>
+</p>
 
 **Research-Nexas** is a cutting-edge web application designed to create a seamless connection between **students**, **researchers**, and **stakeholders** within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 They can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder.
 
@@ -8,6 +10,28 @@ This application creates a **dynamic, feedback-driven environment** where studen
 
 With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
 
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+      <tr>
+          <td><img alt="Stars" src="https://img.shields.io/github/stars/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Forks" src="https://img.shields.io/github/forks/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Issues" src="https://img.shields.io/github/issues/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Harshdev098/Research-Nexas?style=flat&color=critical&logo=github"/></td>
+      </tr>
+    </tbody>
+</table>
+<hr/>
+<br/>
 <p align="center">
   <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
 </p>
