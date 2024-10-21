@@ -1896,3 +1896,16 @@ color:#ed8309;
 .image_boxes:hover .overlay {
   opacity: 1; /* Show overlay on hover */
 }
+
+
+/*cursor*/
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  position: fixed;
+  background-color: black;  /* Default color of circles */
+  pointer-events: none;     /* Prevent interaction with circles */
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+  }
