@@ -1,0 +1,142 @@
+/* General reset and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.homeBtn {
+  position: absolute;
+  z-index: 1000;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #f04e31;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #f04e31;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* How It Works section */
+.how-it-works {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step i {
+  font-size: 3rem;
+  color: #f04e31;
+  margin-bottom: 10px;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: rgb(27, 213, 164);
+}
+
+/* Benefits section */
+.benefits {
+  padding: 50px 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.benefits h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.benefit-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.benefit {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #444;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit i {
+  font-size: 3rem;
+  color: #f04e31;
+  margin-bottom: 10px;
+}
+
+.benefit:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: rgb(1, 51, 87);
+}
+
+.signup {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .steps,
+  .benefit-list {
+    flex-direction: column;
+  }
+
+  .step,
+  .benefit {
+    max-width: 100%;
+  }
+}
