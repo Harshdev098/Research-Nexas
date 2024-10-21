@@ -57,106 +57,137 @@
       button:hover {
          background-color: rgb(18, 102, 133);
       }
+
       .box {
-            background-color: white;
-            padding: 16px;
-            font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            border-radius: 20px;
-            border: 3px solid rgb(10, 159, 218);
-        }
+         background-color: white;
+         padding: 16px;
+         font-size: 18px;
+         display: flex;
+         flex-direction: column;
+         border-radius: 20px;
+         border: 3px solid rgb(10, 159, 218);
+      }
 
-        .box p {
-            text-align: center;
-            display: inline;
-            padding: 8px 8px;
-            background-color: rgb(240, 237, 237);
-            border-radius: 10px;
-        }
+      .box p {
+         text-align: center;
+         display: inline;
+         padding: 8px 8px;
+         background-color: rgb(240, 237, 237);
+         border-radius: 10px;
+      }
 
-        #container {
-            position: absolute;
-            top: 10%;
+      #container {
+         position: fixed;
+         top: 10%;
+         z-index: 2;
+         left: 35%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         display: none;
+      }
+
+      #result1 {
+         margin: 0;
+         padding: 12px;
+         background-color: rgb(7, 184, 7);
+         color: white;
+         font-size: 24px;
+         text-align: center;
+         display: none;
+      }
+
+      #result3 {
+         margin: 0;
+         padding: 12px;
+         background-color: rgb(7, 184, 7);
+         color: white;
+         font-size: 24px;
+         text-align: center;
+         display: none;
+      }
+
+      #result2 {
+         margin: 0;
+         padding: 12px;
+         background-color: rgb(248, 8, 8);
+         color: white;
+         font-size: 24px;
+         text-align: center;
+         display: none;
+      }
+
+      @media screen and (max-width: 480px) {
+         #container {
+            position: fixed;
+            top: 2%;
             z-index: 2;
-            left: 40%;
+            left: 2%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             display: none;
-        }
+         }
+      }
 
-        #result1 {
-            margin: 0;
-            padding: 12px;
-            background-color: rgb(7, 184, 7);
-            color: white;
-            font-size: 24px;
-            text-align: center;
+      @media screen and (max-width: 1100px) {
+         #container {
+            position: fixed;
+            top: 10%;
+            z-index: 2;
+            left: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             display: none;
-        }
-        #result3 {
-            margin: 0;
-            padding: 12px;
-            background-color: rgb(7, 184, 7);
-            color: white;
-            font-size: 24px;
-            text-align: center;
-            display: none;
-        }
-
-        #result2 {
-            margin: 0;
-            padding: 12px;
-            background-color: rgb(248, 8, 8);
-            color: white;
-            font-size: 24px;
-            text-align: center;
-            display: none;
-        }
-
+         }
+      }
    </style>
 </head>
+
 <body>
    <p id="result1"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Approved! Refreshing</p>
    <p id="result3"><i class="fa-solid fa-check" style="padding: 0px 12px;font-size: 26px;"></i>Approval Cancelled</p>
-   <p id="result2"><i class="fa-solid fa-xmark" style="padding: 0px 12px;font-size: 26px;"></i>An error occured during approval</p>
+   <p id="result2"><i class="fa-solid fa-xmark" style="padding: 0px 12px;font-size: 26px;"></i>An error occured during
+      approval</p>
    <!-- unverified research papers  -->
    <div class="papers">
       <div>
          <h2 style="text-align: center;font-size: 34px;">Research Papers</h2>
          <ul id="ul1">
-            
+
          </ul>
       </div>
       <!-- verified research papers  -->
       <h2 style="text-align: center;font-size: 34px;">Approved Research Papers</h2>
       <div>
          <ul id="ul2">
-            
-         </ul> 
+
+         </ul>
       </div>
    </div>
    <div id="container">
       <div class="box">
-          <strong>PaperId:</strong>
-          <p id="paperid"></p>
-          <strong>View:</strong>
-          <p id="path"></p>
-          <strong>Name:</strong>
-          <p id="name"></p>
-          <strong>Email:</strong>
-          <p id="email"></p>
-          <strong>College Name:</strong>
-          <p id="col_name"></p>
-          <div>
-              <button id="cancel" style="background-color: rgb(201, 198, 198);color: black;">Cancel</button>
-              <button id="approve">Approve</button>
-              <button id="close" style="background-color: rgb(122, 120, 120);color: rgb(233, 231, 231)">Close</button>
-          </div>
+         <strong>PaperId:</strong>
+         <p id="paperid"></p>
+         <strong>View:</strong>
+         <p id="path"></p>
+         <strong>Name:</strong>
+         <p id="name"></p>
+         <strong>Email:</strong>
+         <p id="email"></p>
+         <strong>College Name:</strong>
+         <p id="col_name"></p>
+         <div>
+            <button id="cancel" style="background-color: rgb(201, 198, 198);color: black;">Cancel</button>
+            <button id="approve">Approve</button>
+            <button id="close" style="background-color: rgb(122, 120, 120);color: rgb(233, 231, 231)">Close</button>
+         </div>
       </div>
-  </div>
+   </div>
 
    <script src="script/approval.js"></script>
 </body>

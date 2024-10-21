@@ -86,7 +86,21 @@
 </head>
 
 <body>
-  <img src="images/moon.png" id="icon">
+  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+  <script>
+     window.gtranslateSettings = {
+       default_language: "en",
+       detect_browser_language: true,
+       wrapper_selector: ".gtranslate_wrapper",
+       font_size: 100,
+     };
+   </script>
+   <script
+   src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+   defer
+ ></script>
+  <img src="images/moon.webp" id="icon">
+
   <div class="container">
     <h2>Select Who You Are</h2>
     <div class="radio">
@@ -119,17 +133,29 @@
         if (radioButtons[i].checked) {
           var selectedValue = radioButtons[i].value;
           if (selectedValue == "Student") {
-            window.location.href = "./login.html";
+            window.location.replace("./login.html")
           } else if (selectedValue == "Faculty") {
-            window.location.href = "./fac_login.html";
+            window.location.replace("./fac_login.html")
           } else if (selectedValue == "Stakeholder") {
-            window.location.href = "./stk_login.html";
+            window.location.replace("./stk_login.html")
           }
           break;
         }
       }
     }
   </script>
+  <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "iSwsMwg5TfWCzADbpz05-",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="iSwsMwg5TfWCzADbpz05-"
+    domain="www.chatbase.co"
+    defer>
+    </script>
 </body>
 
 </html>

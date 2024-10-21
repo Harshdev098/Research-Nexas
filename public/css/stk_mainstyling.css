@@ -5,6 +5,26 @@ body{
     margin: 0;
     padding: 0;
 }
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 2rem;
+}
+.logo i{
+    color: white;
+    font-size: 2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px 12px;
+}
 .main{
     display: grid;
     justify-content: center;
@@ -14,6 +34,7 @@ body{
     width: 50%;
     margin: 30px;
 }
+
 @media (max-width:1296px){
     .main{
         width: 56vw;
@@ -188,7 +209,8 @@ body{
     text-align: center;
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 0 10px 10px rgba(0.1, 0.1, 0.5, 0.1);
+    box-shadow: 0 10px 10px rgba(0.1, 0.1, 0.7, 0.1);
+        
 }
 .form-container h4{
     font-size: 30px;
@@ -196,7 +218,19 @@ body{
 .form-container form {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+  
+}
+.form-container .group{
+    display: flex;
     align-items: center;
+    flex-direction: column;
+}
+.radio-group{
+   align-items: start;
+   display: flex;
+   flex-direction: column;
+
 }
 .form-container form label{
     padding: 8px;
@@ -210,14 +244,15 @@ body{
     border-radius: 10px;
 }
 .btn{
-    display: inline;
-    margin: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
     justify-content: space-between;
+
 }
 .btn button{
     padding: 9px 34px;
     border-radius: 10px;
-    margin: 4px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -230,17 +265,26 @@ body{
     border: none;
 }
 .next-btn{
+    align-self:flex-end;
     background-color: black;
     color: white;
+    margin-left: auto;
 }
 .submit-btn{
-    background-color: black;
+    background-color:green;
     color: white;
+    border: none;
 }
 .submit-btn:hover{
-    font-weight: 600;
+    /* font-weight: 600;
     transition: 0.3s ease;
-    color: blue;
+    color: black;
+    background-color: white; */
+    opacity: 80%;
+    background-color: rgb(109, 169, 109);
+    color: white;
+    transition: 1s ;
+  
 }
 
 /* footer styling */
@@ -334,6 +378,12 @@ ul {
         margin-bottom: 30px;
         
     }
+    .form-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width:auto;
+    }
     .btn button{
         font-size: 0px;
         
@@ -341,12 +391,25 @@ ul {
     .btn button i{
         font-size: 16px;
     }
+    .btn .submit-btn{
+        font-size: 16px;
+       
+    }
+    
 }
 
 @media(max-width: 574px) {
     .footer-col {
         width: 100%;
     }
+    .btn button{
+        font-size: 0px;
+        
+    }
+    .btn button i{
+        font-size: 16px;
+    }
+    
 }
 #step5 p{
     font-size: 20px;

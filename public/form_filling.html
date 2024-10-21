@@ -14,7 +14,19 @@
 </head>
 
 <body>
-
+    <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+       window.gtranslateSettings = {
+         default_language: "en",
+         detect_browser_language: true,
+         wrapper_selector: ".gtranslate_wrapper",
+         font_size: 100,
+       };
+     </script>
+     <script
+     src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+     defer
+   ></script>
     <ul class="circles">
         <li></li>
         <li></li>
@@ -40,10 +52,12 @@
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" id="email">
+                <p id="emailError" style="font-size: 18px; color: red; font-weight: bold; display: none;"></p>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">College Name</label>
-                <input type="text" name="col_name" id="col_name">
+                <label for="college">College Name</label>
+                <input type="text" name="col_name" id="col_name" class="form-control" placeholder="Start typing your college name...">
+                <ul id="collegeList" style="list-style-type: none; padding: 0;"></ul>
             </div>
             <div class="form-group">
                 <label>State</label>
@@ -83,7 +97,6 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-
                 </select>
             </div>
             <div class="form-group">
@@ -118,8 +131,66 @@
             </div>
         </form>
         <!-- <div id="loader">
-        <p>Checking info...Redirecting...</p>
+        <p>Checking info...Redirecting...</p> 
     </div> -->
+   <!--auto completing colleges Name--> 
+
+   <script>
+    document.getElementById('col_name').addEventListener('input', async function () {
+        const query = this.value;
+        if (query.length > 2) {  // Start searching after 3 characters
+            const response = await fetch(`/search_colleges?q=${query}`);
+            const colleges = await response.json();
+            
+            // Display the suggestions
+            const collegeList = document.getElementById('collegeList');
+            collegeList.innerHTML = '';  // Clear previous results
+            colleges.forEach(college => {
+                const li = document.createElement('li');
+                
+                li.style.backgroundColor = 'white';
+            li.style.cursor = 'pointer';
+            li.style.padding = '10px 15px';   // Padding for spacing inside the item
+            li.style.borderBottom = '1px solid #ddd';  // Light border for better separation
+            li.style.margin = '0';  // No margins between list items
+            li.style.listStyle = 'none';  // Remove default bullet points
+            li.style.color = '#333';  // Text color
+            li.style.fontFamily = 'Arial, sans-serif';  // Font style
+            li.style.transition = 'background-color 0.2s ease';  // Smooth hover transition
+
+            // Add hover effect
+            li.addEventListener('mouseover', () => {
+                li.style.backgroundColor = '#f0f0f0';  // Change background on hover
+            });
+            li.addEventListener('mouseout', () => {
+                li.style.backgroundColor = 'white';  // Reset background when not hovering
+            });
+
+            // On click, fill the input and clear the list
+            li.addEventListener('click', () => {
+                document.getElementById('col_name').value = college.name;
+                collegeList.innerHTML = '';  // Clear the dropdown after selection
+            });
+
+
+
+                li.textContent = college.name;
+                li.addEventListener('click', () => {
+                    document.getElementById('col_name').value = college.name;  // Select college
+                    collegeList.innerHTML = '';  // Clear the list
+                });
+                collegeList.appendChild(li);
+            });
+        }
+    });
+</script>
+
+
+
+
+
+
+
         <script>
             const currentYear = new Date().getFullYear();
             const graduationYearSelect = document.getElementById('year');
@@ -130,6 +201,27 @@
                 graduationYearSelect.appendChild(option);
             }
 
+            // Real-time email validation and error display
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+
+            emailInput.addEventListener('input', function () {
+                const emailValue = emailInput.value;
+                const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
+
+                if (emailValue) {
+                    const emailDomain = emailValue.split('@')[1]; // Get the domain part of the email
+                    if (!allowedDomains.includes(emailDomain)) {
+                        emailError.textContent = "Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)";
+                        emailError.style.display = 'block';
+                    } else {
+                        emailError.style.display = 'none'; // Hide error if domain is valid
+                    }
+                } else {
+                    emailError.style.display = 'none'; // Hide error if input is empty
+                }
+            });
+
             document.getElementById('form').addEventListener('submit', async function (event) {
                 event.preventDefault();
                 const name = document.getElementById('name').value;
@@ -139,9 +231,22 @@
                 const dept = document.getElementById('dept').value;
                 const course = document.getElementById('course').value.toUpperCase();
                 const year = document.getElementById('year').value;
+
                 const result = document.getElementById('result');
-                const result3 = document.getElementById('result3')
                 const result2 = document.getElementById('result2');
+                const result3 = document.getElementById('result3');
+
+                // Validate email domain again before submission
+                const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
+                const emailDomain = email.split('@')[1]; // Get the domain part of the email
+                if (!allowedDomains.includes(emailDomain)) {
+                    result2.innerText = "Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)";
+                    result2.style.display = "block";
+                    setTimeout(() => {
+                        result2.style.display = "none";
+                    }, 3000);
+                    return; // Stop form submission
+                }
 
                 const data = { name, email, col_name, state, course, year, dept };
                 const token = localStorage.getItem('accessToken');
@@ -164,7 +269,7 @@
                         console.log("Information saved");
                         result.style.display = "inline-block";
                         setTimeout(() => {
-                            window.location.href = 'main_page.html';
+                            window.location.replace("main_page.html")
                         }, 2000);
                     }
                     else if (response.status == 400) {
@@ -180,7 +285,7 @@
                 } catch (error) {
                     console.error("Error occurred", error);
                 }
-            })
+            });
 
             async function usercheck() {
                 const token = localStorage.getItem('accessToken');
@@ -196,9 +301,8 @@
                 }
             }
             usercheck();
-
         </script>
     </section>
 </body>
 
-</html
+</html>
