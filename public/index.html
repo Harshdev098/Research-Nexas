@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/faq_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="./script/navbar.js" defer></script>
     <title>Research Nexas</title>
 </head>
 
@@ -91,33 +93,45 @@ animateCircles();
     <header>
         <!-- navbar section  -->
         <div class="navbar">
-            <div class="logo"></div>
-            <div class="main">
-                <nav>
-                    <ul id="navbar">
-                        <li title="Login"><a href="choose-file.html"><i class='bx bxs-user-circle' ></i>Login</a></li>
-                        <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="choose-signup-file.html"><i class='bx bx-log-in-circle' ></i>Register</a></li>
-                        <li title="Contact Us"><a href="./contact-us.html"><i class='bx bxs-contact' ></i>Contact Us</a></li>
-                        <li title="Our Services"><a href="#services"><i class='bx bx-bar-chart-square'></i>Services</a></li>
-                        <li title="About Us"><a href="#about_show"><i class='bx bx-vertical-bottom'></i>About</a></li>
-                        <li title="Main Page"><a href="#"><i class='bx bx-home' ></i>Home</a></li>
-
-                        <li id="language">
-                            <div class="gtranslate_wrapper"></div>
-                            <script>
-                                window.gtranslateSettings = {
-                                    default_language: "en",
-                                    detect_browser_language: true,
-                                    wrapper_selector: ".gtranslate_wrapper",
-                                    font_size: 100,
-                                };
-                            </script>
-                            <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
-                        </li>
-                    </ul>
-                </nav>
+            <div class="logo">
+                <!-- Add logo image if needed -->
+                <a href="#">Research Nexas</a>
             </div>
+            <nav>
+                <ul class="desktop-menu">
+                    <li title="Main Page"><a href="#">Home</a></li>
+                    <li title="About Us"><a href="#about_show">About</a></li>
+                    <li title="Our Services"><a href="#services">Services</a></li>
+                    <li title="Contact Us"><a href="./contact-us.html">Contact Us</a></li>
+                    <li title="Login"><a href="choose-file.html">Login</a></li>
+                    <li title="Register" class="highlighted" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="choose-signup-file.html">Register</a></li>
+                    <li id="language">
+                        <div class="gtranslate_wrapper"></div>
+                        <script>
+                            window.gtranslateSettings = {
+                                default_language: "en",
+                                detect_browser_language: true,
+                                wrapper_selector: ".gtranslate_wrapper",
+                                font_size: 100,
+                            };
+                        </script>
+                        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+                    </li>
+                </ul>
+                <div class="mobile-menu__trigger" onclick="toggleMobileMenu()">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul id="navbar" class="mobile-menu">
+                    <li title="Main Page"><a href="#">Home</a></li>
+                    <li title="About Us"><a href="#about_show">About</a></li>
+                    <li title="Our Services"><a href="#services">Services</a></li>
+                    <li title="Contact Us"><a href="./contact-us.html">Contact Us</a></li>
+                    <li title="Login"><a href="choose-file.html">Login</a></li>
+                    <li title="Register" class="highlighted"><a href="choose-signup-file.html">Register</a></li>
+                </ul>
+            </nav>
         </div>
+        <div class="overlay" onclick="toggleMobileMenu()"></div>
         <ul class="circles">
             <li></li>
             <li></li>
