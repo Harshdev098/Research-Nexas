@@ -1,0 +1,124 @@
+/* Basic Navbar Styling */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+/* Scrolled Navbar Styling */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+}
+
+/* Logo Styling */
+.logo a {
+    font-size: 26px; /* Increased font size */
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Desktop Menu */
+.desktop-menu {
+    display: flex;
+    gap: 20px; /* Increased gap */
+}
+
+.desktop-menu li {
+    list-style: none;
+}
+
+.desktop-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px; /* Increased font size */
+    padding: 8px 12px; /* Increased padding */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+}
+
+.desktop-menu li a:hover {
+    border-radius: 4px;
+}
+
+/* Highlighted Register Link */
+.highlighted a {
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mobile-menu__trigger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 300px;
+    background-color: #333;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding-top: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu_open {
+    left: 0;
+}
+
+.mobile-menu li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.mobile-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; 
+    padding: 12px 30px; 
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    z-index: 999;
+    opacity: 0;
+    border-radius: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay_visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu__trigger {
+        display: block;
+    }
+}
