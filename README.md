@@ -67,7 +67,9 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [API Documentation](#ApiDocumentation)
 - [License](#licenseR)
 - [Contribution](#contribution)
+- [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
+- 📞 [Contact Information](#contact-information)
 
 <a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
@@ -281,7 +283,7 @@ This project is licensed under the **[MIT License](LICENSE)**.
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
-## Contributors 🌟
+## Contributors
 
 We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
 
@@ -300,9 +302,36 @@ We are grateful to all the contributors who have collaborated on this project. T
 
 </div>
 
-
 ## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
 Star ⭐ the project if you like it,working and contributing with us ❤️.
-# Big thanks to all the contributors!
 
+## 📞 **Contact Information**
+
+### Project Admin⚡
+
+<table>
+<tr>
+  <td align="center">
+    <a href="https://github.com/Harshdev098/">
+      <img src="https://avatars.githubusercontent.com/u/118347330?v=4" width="150px" height="150px" />
+    </a>
+    <br />
+    <h4 style="color:red;">HARSH DEV PATHAK</h4>
+    <a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/">
+      <img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img>
+    </a>
+    <a href="https://x.com/Harsh_dev098?t=EyUvr1QvMSpco9QB6k72iw&s=09">
+      <img src="https://img.icons8.com/fluency/2x/twitter.png" width="32px" height="32px"></img>
+    </a>
+  </td>
+</tr>
+</table>
+
+
+#### Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Harsh Dev**, at:  
+📧 **harshoxfordgkp@gmail.com**
+
+---
+
+# Big thanks to all the contributors!
