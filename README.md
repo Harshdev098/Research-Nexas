@@ -321,7 +321,7 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
     <a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/">
       <img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img>
     </a>
-    <a href="https://x.com/Harsh_dev098?t=EyUvr1QvMSpco9QB6k72iw&s=09">
+    <a href="https://x.com/Harsh_dev098">
       <img src="https://img.icons8.com/fluency/2x/twitter.png" width="32px" height="32px"></img>
     </a>
   </td>
