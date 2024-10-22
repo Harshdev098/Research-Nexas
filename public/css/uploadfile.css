@@ -54,7 +54,7 @@ section h2 {
     transition: all 600ms ease-in-out;
 }
 .form-group button:hover{
-    background-color: rgb(181, 181, 239);
+    background-color: rgb(13, 13, 214);
     color: black;
 }
 
