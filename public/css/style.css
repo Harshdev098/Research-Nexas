@@ -110,7 +110,7 @@ nav ul li a {
     color: inherit; /* Inherit color from parent */
 }
 
-nav ul li:first-child {
+/* nav ul li:first-child {
   margin: 10px 28px 10px 10px;
   border: 2px solid white;
   padding: 6px 22px;
@@ -129,7 +129,7 @@ nav ul li:first-child:hover {
     #fef850 100%
   );
   border-image-slice: 1;
-}
+} */
 
 /* header styling */
 header {
