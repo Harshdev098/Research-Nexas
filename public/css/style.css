@@ -114,16 +114,16 @@ header h1 {
   text-align: center;
   background-image: linear-gradient(
     -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
+    #100143 0%,
+    #9046df 29%,
+    #a20439c4 67%,
     #fff800 100%
   );
   /* background-clip: border-box; */
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  text-fill-color: transparent;
+  text-decoration-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 4s linear infinite;
@@ -1419,7 +1419,7 @@ color:#ed8309;
 .footer p {
   margin-top: 30px;
   font-size: 14px;
-  color: #bbbbbb;
+  color: #e47e7e;
   text-align: center;
 }
 

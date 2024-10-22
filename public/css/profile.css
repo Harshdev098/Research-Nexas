@@ -92,13 +92,13 @@ section{
 .main button a{
     text-decoration: none;
     font-size: 16px;
-    background-color: rgb(212, 42, 42);
+    background-color: rgb(255, 0, 0);
     color: var(--secondary-color);
 }
 .main button{
     padding: 10px;
     margin: 0px 20px;
-    background-color: rgb(212, 42, 42);
+    background-color: rgba(171, 46, 46, 0.699);
     border: none;
     border-radius: 8px;
 }

@@ -220,7 +220,7 @@ nav {
 }
 
 .temp_sec {
-    border-top: 3px solid red;
+    border-top: 3px solid rgb(175, 33, 33);
     border-right: 7px solid red;
     border-bottom: none;
     border-radius: 0% 60% 0% 0%;
@@ -530,7 +530,7 @@ ul {
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.21);
     margin: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
