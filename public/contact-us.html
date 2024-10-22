@@ -7,13 +7,24 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="./css/contact-us.css">
     <style>
-        /* Style for the message area */
         #messageArea {
-            color: red; /* You can change the color based on your preference */
+            color: red; 
             text-align: center;
-            margin: 10px 0;
+            margin:  0;
+        }
+    
+        textarea {
+            display: fixed;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+    
+        textarea::placeholder {
+            text-align: center;
         }
     </style>
+    
 </head>
 
 <body>
@@ -37,13 +48,13 @@
                 <br>
                 <div>
                     <label for="">Message :</label>
-                    <textarea required name="message" id="message" rows="4" cols="57"
-                        placeholder="Enter Your Message Given to Organization......"></textarea>
+                         <textarea type="email" required name="message" id="message"  style="width: 400px; height: 100px;"
+                          placeholder="Enter Your Message"></textarea>
                 </div>
                 <div style="text-align: center;">
                     <button type="submit" class="button" id="button">Submit</button>
                 </div>
-                <div id="messageArea"></div> <!-- Area for displaying messages -->
+                <div id="messageArea"></div> 
             </form>
         </div>
     </div>
