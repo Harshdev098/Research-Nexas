@@ -2,9 +2,9 @@ var icon = document.getElementById("icon");
 icon.onclick = function () {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
-    icon.src = "images/sun.png";
+    icon.src = "images/sun.webp";
   } else {
-    icon.src = "images/moon.png";
+    icon.src = "images/dark_mode.webp";
   }
 };
 document.addEventListener("DOMContentLoaded", function () {
@@ -149,3 +149,25 @@ const set = async () => {
     }, 3000);
   }
 };
+
+let scrollToTopButton = document.getElementById("scrollToTop");
+
+// Show the button when the user scrolls down 100px from the top
+window.onscroll = function () {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    scrollToTopButton.style.display = "block";
+  } else {
+    scrollToTopButton.style.display = "none";
+  }
+};
+
+// Scroll to the top when the button is clicked
+scrollToTopButton.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

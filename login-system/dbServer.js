@@ -1,30 +1,19 @@
 const express = require("express");
 const path = require("path");
-const { upload, save, disp } = require(path.resolve(
-  __dirname,
-  "../file_upload/upload.js"
-));
+const { upload, save, disp } = require(path.resolve(__dirname,"../file_upload/upload.js"));
+const  db  = require('../config/mysql_connection')
+
 const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
 const rateLimiter = require("express-rate-limit");
-const {
-  approve,
-  uploadedpapers,
-  displaydetail,
-} = require("../stakeholder/stk_approval");
-const { display } = require("../backend/profile");
+const { approve, uploadedpapers, displaydetail } = require("../stakeholder/stk_approval");
+const { display,updateProfile } = require("../backend/profile");
 const { stk_display } = require("../backend/stk_profile");
 const { logout } = require("./logout");
 const { setcriteria, evaluate } = require("../stakeholder/evaluation");
 const { allot, DisplayPapers } = require("../stakeholder/allotment");
-const {
-  Dis_fac_papers,
-  fac_signup,
-  fac_login,
-  dis_mail,
-  giverating,
-} = require("../stakeholder/faculty");
+const { Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating } = require("../stakeholder/faculty");
 const app = express();
 
 const globalLimit = rateLimiter({
@@ -81,6 +70,28 @@ app.get("/fac_signup", (req, res) => {
   dis_mail(req, res); //displaying the email of the faculty on signup page
 });
 
+//fetch colleges
+app.get('/search_colleges', (req, res) => {
+  const query = req.query.q.toLowerCase();
+
+  // Query to search for colleges in the `col_name` column
+  const sql = `SELECT DISTINCT col_name AS name FROM info_table WHERE LOWER(col_name) LIKE ?`;
+  
+  // Use '%' to match any substring
+  const searchTerm = `%${query}%`;
+
+  db.query(sql, [searchTerm], (err, results) => {
+      if (err) {
+          console.error('Error fetching colleges:', err);
+          return res.status(500).json({ error: 'Database query error' });
+      }
+
+      // Send the results as a JSON response
+      res.json(results);
+  });
+});
+
+
 // uploading files
 app.post("/upload", upload.single("file"), async (req, res) => {
   if (!req.file) {
@@ -99,6 +110,9 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 
 // uploading user information to database
 app.post("/info", info);
+
+// Updating profile in student dashboard
+app.put("/updateProfile", updateProfile);
 
 // serving uploaded research papers to the student
 app.get("/uploaded_files", disp);

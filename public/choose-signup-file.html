@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Signup Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+    #icon{
+  width: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px; 
+  right: 30px;
+}
+
+:root{
+  --primary-color: #fff;
+  --secondary-color: #0e0e0e;
+}
+
+.dark-theme{
+  --primary-color: #0e0e0e;
+  --secondary-color: #fff;
+}
+
+    .container {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: var(--secondary-color);
+    }
+
+    .radio label {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .radio label:hover {
+      background-color: #f0f0f0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .radio input {
+      margin-right: 15px;
+      transform: scale(1.2);
+    }
+
+    p {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .gtranslate_wrapper{
+    background-color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    height: 47px;
+    /* width: 40px;; */
+    margin: auto;
+    padding: 10px;;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+       window.gtranslateSettings = {
+         default_language: "en",
+         detect_browser_language: true,
+         wrapper_selector: ".gtranslate_wrapper",
+         font_size: 100,
+       };
+     </script>
+     <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer ></script>
+     
+  <img src="images/moon.webp" id="icon">
+
+  <div class="container">
+    <h2>Select Who You Are</h2>
+    <div class="radio">
+      <label>
+        <input type="radio" name="pageoption" value="Student" onchange="redirect()">Student
+      </label>
+      <label>
+        <input type="radio" name="pageoption" value="Stakeholder" onchange="redirect()">Stakeholder
+      </label>
+    </div>
+  </div>
+
+  <script>
+    var icon =document.getElementById("icon");
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src="images/sun.png";
+            }
+            else{
+                icon.src="images/moon.png";
+            }
+        }
+    function redirect() {
+      var radioButtons = document.getElementsByName("pageoption");
+      for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+          var selectedValue = radioButtons[i].value;
+          if (selectedValue == "Student") {
+            window.location.replace("./signup.html")
+          } else if (selectedValue == "Stakeholder") {
+            window.location.replace("./stk_signup.html")
+          }
+          break;
+        }
+      }
+    }
+  </script>
+  <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "iSwsMwg5TfWCzADbpz05-",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="iSwsMwg5TfWCzADbpz05-"
+    domain="www.chatbase.co"
+    defer>
+    </script>
+</body>
+
+</html>

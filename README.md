@@ -1,9 +1,61 @@
-# Research-Nexas
-A web application that seamlessly connects students and researchers with stakeholders in a collaborative research ecosystem. Students can login and enter their details, upload their research paper and view thier uploads.They can see thier result in profile and can view their details and Evaluation Criteria set by the stakeholder. The stakeholder can approve the Research paper submitted by their students and can allot the papers to the faculty he wants, Stakeholder set evaluation criteria and can see the saved criteria on their profile. Faculty can view the alloted papers and csn evaluate the papers and give rating, the result is evaluated on the basis of the evaluation criteria 
+# <p>**Research-Nexas 🌟🔬📚**
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Research-Nexas"/>
+</p>
+
+**Research-Nexas** is a cutting-edge web application designed to create a seamless connection between **students**, **researchers**, and **stakeholders** within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 They can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder.
+
+Stakeholders act as research supervisors who can **approve** student submissions and assign papers to the appropriate **faculty members** for evaluation. 👩‍🏫📑 Stakeholders also set evaluation criteria, which they can view on their profile. Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate results based on predefined criteria.
+
+This application creates a **dynamic, feedback-driven environment** where students can improve their research based on faculty evaluations, and stakeholders can ensure quality through customizable criteria. 🌱✨
+
+With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
+
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+      <tr>
+          <td><img alt="Stars" src="https://img.shields.io/github/stars/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Forks" src="https://img.shields.io/github/forks/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Issues" src="https://img.shields.io/github/issues/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Harshdev098/Research-Nexas?style=flat&color=critical&logo=github"/></td>
+      </tr>
+    </tbody>
+</table>
+<hr/>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
+</p>
+
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
+<br>
+
+<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 
 ## 📚 Table of Contents
 
-- [Technical Stack](#technical-stack)
+- [Technical Stack](#teachnicalStack)
 - [Working](#working)
   - [Student](#student)
   - [Stakeholder](#stakeholder)
@@ -11,13 +63,17 @@ A web application that seamlessly connects students and researchers with stakeho
   - [Result](#result)
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
-- [Future Enhancements / Roadmap](#future-enhancements--roadmap)
-- [API Documentation](#api-documentation)
-- [License](#license)
+- [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
+- [API Documentation](#ApiDocumentation)
+- [License](#licenseR)
 - [Contribution](#contribution)
+- [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
+- 📞 [Contact Information](#contact-information)
 
+<a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
+
 
 | **Technology**      | **Description**                                           |
 |---------------------|-----------------------------------------------------------|
@@ -31,18 +87,22 @@ A web application that seamlessly connects students and researchers with stakeho
 
 
 ## Working
+<a name="student"></a>
 - Student
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
 
+<a name="stakeholder"></a>
 - Stakeholder
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
 
+<a name="faculty"></a>
 - Faculty
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
   
+<a name="result"></a>
 - Result
 
   https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
@@ -186,6 +246,7 @@ Follow these steps to run the Research Nexas
     http://localhost:3000
     ``` 
 
+<a name="featureEnhancementsRoadMap"></a>
 ## 🛣️ Future Enhancements / Roadmap
 
 | **🗓️ Timeline** | **✨ Milestone**                             | **📝 Description**                                                                                                   |
@@ -198,6 +259,7 @@ Follow these steps to run the Research Nexas
 
 🚀 **Stay tuned for more updates and exciting features!**
 
+<a name="ApiDocumentation"></a>
 ## API Documentation 📚
 
 The Research Nexas application communicates with a backend API to manage various functionalities. Here’s a brief overview of the available API endpoints:
@@ -214,24 +276,62 @@ The Research Nexas application communicates with a backend API to manage various
 | GET         | `/api/results/:userId`      | 📈 Fetches evaluation results for a specific user.        |
 
 
+<a name="licenseR"></a>
 ## License 📝
 This project is licensed under the **[MIT License](LICENSE)**. 
 
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
+## Contributors
+
+We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
+
+<div align="center">
+
+| Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      |
+|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/Harshdev098.png" alt="Harshdev098" width="80"/> <br> <p align="center">[Harshdev098](https://github.com/Harshdev098) 👨‍💻</p> | <img src="https://github.com/ygowthamr.png" alt="Ygowthamr" width="80"/> <br> <p align="center">[Ygowthamr](https://github.com/ygowthamr) 👨‍💻</p> | <img src="https://github.com/Ankitha2130.png" alt="Ankitha2130" width="80"/> <br> <p align="center">[Ankitha2130](https://github.com/Ankitha2130) 👩‍💻</p> | <img src="https://github.com/alo7lika.png" alt="Alolika" width="80"/> <br> <p align="center">[Alolika](https://github.com/alo7lika) 👩‍💻</p> |
+| <img src="https://github.com/T-Rahul-prabhu-38.png" alt="T Rahul Prabhu" width="80"/> <br> <p align="center">[T Rahul Prabhu](https://github.com/T-Rahul-prabhu-38) 👨‍💻</p> | <img src="https://github.com/trinetra110.png" alt="Trinetra" width="80"/> <br> <p align="center">[Trinetra](https://github.com/trinetra110) 👩‍💻</p> | <img src="https://github.com/RishiVT2004.png" alt="Rishi" width="80"/> <br> <p align="center">[Rishi](https://github.com/RishiVT2004) 👨‍💻</p> | <img src="https://github.com/smog-root.png" alt="Smog Root" width="80"/> <br> <p align="center">[Smog Root](https://github.com/smog-root) 👨‍💻</p> |
+| <img src="https://github.com/harish08102004.png" alt="Harish" width="80"/> <br> <p align="center">[Harish](https://github.com/harish08102004) 👨‍💻</p> | <img src="https://github.com/ragini-gp.png" alt="Ragini" width="80"/> <br> <p align="center">[Ragini](https://github.com/ragini-gp) 👩‍💻</p> | <img src="https://github.com/KapuluruBhuvaneswariVspdbct.png" alt="Bhuvaneswari" width="80"/> <br> <p align="center">[Bhuvaneswari](https://github.com/KapuluruBhuvaneswariVspdbct) 👩‍💻</p> | <img src="https://github.com/Shweta-1902.png" alt="Shweta" width="80"/> <br> <p align="center">[Shweta](https://github.com/Shweta-1902) 👩‍💻</p> |
+| <img src="https://github.com/SoumyaU25.png" alt="Soumya" width="80"/> <br> <p align="center">[Soumya](https://github.com/SoumyaU25) 👩‍💻</p> | <img src="https://github.com/shubhagarwal1.png" alt="Shubham Agarwal" width="80"/> <br> <p align="center">[Shubham Agarwal](https://github.com/shubhagarwal1) 👨‍💻</p> | <img src="https://github.com/MrunalKashid02.png" alt="Mrunal Kashid" width="80"/> <br> <p align="center">[Mrunal Kashid](https://github.com/MrunalKashid02) 👩‍💻</p> | <img src="https://github.com/siri-chandana-macha.png" alt="Siri Chandana" width="80"/> <br> <p align="center">[Siri Chandana](https://github.com/siri-chandana-macha) 👩‍💻</p> |
+| <img src="https://github.com/MitulSonagara.png" alt="Mitul Sonagara" width="80"/> <br> <p align="center">[Mitul Sonagara](https://github.com/MitulSonagara) 👨‍💻</p> | <img src="https://github.com/Dipanita45.png" alt="Dipanita" width="80"/> <br> <p align="center">[Dipanita](https://github.com/Dipanita45) 👩‍💻</p> | <img src="https://github.com/Gauravtb2253.png" alt="Gaurav" width="80"/> <br> <p align="center">[Gaurav](https://github.com/Gauravtb2253) 👨‍💻</p> | <img src="https://github.com/Anu27n.png" alt="Anu" width="80"/> <br> <p align="center">[Anu](https://github.com/Anu27n) 👩‍💻</p> |
+| <img src="https://github.com/ishita-1305.png" alt="Ishita" width="80"/> <br> <p align="center">[Ishita](https://github.com/ishita-1305) 👩‍💻</p> | <img src="https://github.com/Sudhanshu248.png" alt="Sudhanshu" width="80"/> <br> <p align="center">[Sudhanshu](https://github.com/Sudhanshu248) 👨‍💻</p> | <img src="https://github.com/Hamza1821.png" alt="Hamza" width="80"/> <br> <p align="center">[Hamza](https://github.com/Hamza1821) 👨‍💻</p> | <img src="https://github.com/Ajay-singh1.png" alt="Ajay Singh" width="80"/> <br> <p align="center">[Ajay Singh](https://github.com/Ajay-singh1) 👨‍💻</p> |
+| <img src="https://github.com/archanasingh11.png" alt="Archana Singh" width="80"/> <br> <p align="center">[Archana Singh](https://github.com/archanasingh11) 👩‍💻</p> | <img src="https://github.com/tanya-soni-git.png" alt="Tanya Soni" width="80"/> <br> <p align="center">[Tanya Soni](https://github.com/tanya-soni-git) 👩‍💻</p> | <img src="https://github.com/jvkousthub.png" alt="Kousthub" width="80"/> <br> <p align="center">[Kousthub](https://github.com/jvkousthub) 👨‍💻</p> | <img src="https://github.com/Dinkar850.png" alt="Dinkar" width="80"/> <br> <p align="center">[Dinkar](https://github.com/Dinkar850) 👨‍💻</p> |
+| <img src="https://github.com/Sarthak1970.png" alt="Sarthak" width="80"/> <br> <p align="center">[Sarthak](https://github.com/Sarthak1970) 👨‍💻</p> | <img src="https://github.com/Pks0110.png" alt="Pks" width="80"/> <br> <p align="center">[Pks](https://github.com/Pks0110) 👨‍💻</p> | <img src="https://github.com/ADeshmukh80.png" alt="ADeshmukh" width="80"/> <br> <p align="center">[ADeshmukh](https://github.com/ADeshmukh80) 👨‍💻</p> | <img src="https://github.com/ash-k121.png" alt="Ash" width="80"/> <br> <p align="center">[Ash](https://github.com/ash-k121) 👨‍💻</p> |
+
+</div>
+
 ## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
-
-
-
-
 Star ⭐ the project if you like it,working and contributing with us ❤️.
 
+## 📞 **Contact Information**
+
+### Project Admin⚡
+
+<table>
+<tr>
+  <td align="center">
+    <a href="https://github.com/Harshdev098/">
+      <img src="https://avatars.githubusercontent.com/u/118347330?v=4" width="150px" height="150px" />
+    </a>
+    <br />
+    <h4 style="color:red;">HARSH DEV PATHAK</h4>
+    <a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/">
+      <img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img>
+    </a>
+    <a href="https://x.com/Harsh_dev098">
+      <img src="https://img.icons8.com/fluency/2x/twitter.png" width="32px" height="32px"></img>
+    </a>
+  </td>
+</tr>
+</table>
+
+
+#### Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Harsh Dev**, at:  
+📧 **harshoxfordgkp@gmail.com**
+
+---
 
 # Big thanks to all the contributors!
-
-<a href="https://github.com/Harshdev098/Research-Nexas/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Harshdev098/Research-Nexas" />
-</a>
-

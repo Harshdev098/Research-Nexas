@@ -11,31 +11,51 @@
       color: red;
       display: none;
     }
+
     .valid {
       border-color: green;
     }
+
     .invalid {
       border-color: red;
     }
+
     .criteria {
       list-style: none;
       padding-left: 0;
-      display: none; /* Initially hidden */
+      display: none;
+      /* Initially hidden */
     }
+
     .criteria li {
       color: red;
     }
+
     .criteria li.valid {
       color: green;
     }
+
   </style>
 </head>
 
 <body>
-  <img src="images/moon.png" id="icon">
+  
+
+
+  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+       window.gtranslateSettings = {
+         default_language: "en",
+         detect_browser_language: true,
+         wrapper_selector: ".gtranslate_wrapper",
+         font_size: 100,
+       };
+     </script>
+     <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer ></script>
+  <img src="images/moon.webp" id="icon">
   <div class="container">
     <div class="image">
-      <img src="images/logo.png" alt="">
+      <img src="images/logo.webp" alt="">
     </div>
     <div id="box2">
       <p>Please Try Again!! Account Already Exists</p>
@@ -52,7 +72,8 @@
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter the email" required>
-        <span id="error-message" class="error">Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail, Icloud, or Tutanota.</span>
+        <span id="error-message" class="error">Invalid email domain. Please use Gmail, Outlook, Yahoo, Protonmail,
+          Icloud, or Tutanota.</span>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter the Password" required>
@@ -64,6 +85,9 @@
           <li id="special">At least 1 special character (e.g., !@#$%^&*())</li>
         </ul>
         <button type="submit">Register</button>
+        <div class="register">
+          <p style="display: inline;">Already have an account?&nbsp;</p><a href="login.html">Login Now</a>
+        </div>
       </form>
     </div>
     <div id="box1">
@@ -87,7 +111,7 @@
       const errorMessage = document.getElementById('error-message');
       const passwordInput = document.getElementById('password');
       const passwordCriteria = document.getElementById('password-criteria');
-      
+
       const lengthCriteria = document.getElementById("length");
       const uppercaseCriteria = document.getElementById("uppercase");
       const lowercaseCriteria = document.getElementById("lowercase");
@@ -238,6 +262,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>
