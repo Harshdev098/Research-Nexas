@@ -117,12 +117,17 @@ section{
     margin: 8px;
     padding: 8px;
 }
-#detail ul li p{
+#detail ul li p,
+#detail ul li input{
     background-color: var(--forth-color);
     color: var(--secondary-color);
     margin: 5px 0px;
     padding: 10px;
     border-radius: 10px;
+}
+
+#detail ul li input {
+    width: 80vw;
 }
 
 #result{

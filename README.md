@@ -1,4 +1,6 @@
-# Research-Nexas 🌟🔬📚
+# <p>**Research-Nexas 🌟🔬📚**
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Research-Nexas"/>
+</p>
 
 **Research-Nexas** is a cutting-edge web application designed to create a seamless connection between **students**, **researchers**, and **stakeholders** within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 They can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder.
 
@@ -8,6 +10,28 @@ This application creates a **dynamic, feedback-driven environment** where studen
 
 With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
 
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+      <tr>
+          <td><img alt="Stars" src="https://img.shields.io/github/stars/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Forks" src="https://img.shields.io/github/forks/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Issues" src="https://img.shields.io/github/issues/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+          <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Harshdev098/Research-Nexas?style=flat&color=critical&logo=github"/></td>
+      </tr>
+    </tbody>
+</table>
+<hr/>
+<br/>
 <p align="center">
   <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
 </p>
@@ -43,7 +67,9 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 - [API Documentation](#ApiDocumentation)
 - [License](#licenseR)
 - [Contribution](#contribution)
+- [Contributors](#contributors)
 - [Code of Conduct](#code-of-conduct)
+- 📞 [Contact Information](#contact-information)
 
 <a name="teachnicalStack"></a>
 ## 🛠️ Technical Stack
@@ -257,7 +283,7 @@ This project is licensed under the **[MIT License](LICENSE)**.
 ## Contribution
 Welcome to Research Nexas build for researchers, before contributing to the project please go through our contribution guidelines [Contributing.md](Contributing.md#Opening-a-pull-request). If you have any doubts about guidelines, please open an issue regarding that , we will help for it. **Your PR should follow [Contributing.md](Contributing.md#Opening-a-pull-request) guidelines**.
 
-## Contributors 🌟
+## Contributors
 
 We are grateful to all the contributors who have collaborated on this project. Their efforts, dedication, and creativity have significantly enhanced our work. Below is the list of contributors along with their GitHub profiles:
 
@@ -276,9 +302,36 @@ We are grateful to all the contributors who have collaborated on this project. T
 
 </div>
 
-
 ## Code of Conduct
 This project follows [Code of Conduct](Code_of_Conduct.md)
 Star ⭐ the project if you like it,working and contributing with us ❤️.
-# Big thanks to all the contributors!
 
+## 📞 **Contact Information**
+
+### Project Admin⚡
+
+<table>
+<tr>
+  <td align="center">
+    <a href="https://github.com/Harshdev098/">
+      <img src="https://avatars.githubusercontent.com/u/118347330?v=4" width="150px" height="150px" />
+    </a>
+    <br />
+    <h4 style="color:red;">HARSH DEV PATHAK</h4>
+    <a href="https://www.linkedin.com/in/harsh-dev-pathak-60a426257/">
+      <img src="https://img.icons8.com/fluency/2x/linkedin.png" width="32px" height="32px"></img>
+    </a>
+    <a href="https://x.com/Harsh_dev098">
+      <img src="https://img.icons8.com/fluency/2x/twitter.png" width="32px" height="32px"></img>
+    </a>
+  </td>
+</tr>
+</table>
+
+
+#### Got questions? Want to suggest improvements? Open an issue on GitHub or contact the project admin, **Harsh Dev**, at:  
+📧 **harshoxfordgkp@gmail.com**
+
+---
+
+# Big thanks to all the contributors!

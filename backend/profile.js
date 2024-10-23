@@ -1,48 +1,67 @@
-const { decodeAccessToken } = require('../login-system/token');
-const db = require('../config/mysql_connection');
-const mysql = require('mysql');
+const {decodeAccessToken}=require('../login-system/token')
+const  db  = require('../config/mysql_connection')
+const mysql=require('mysql')
 
-const display = async (req, res) => {
-    try {
-        // Decode the access token
-        const decodedtoken = decodeAccessToken(req.headers.authorization);
-        if (!decodedtoken || !decodedtoken.user) {
-            console.error('Invalid or missing user information in the token');
-            return res.status(401).send('Unauthorized');
+const display=async(req,res)=>{
+    const decodedtoken = decodeAccessToken(req.headers.authorization);
+    if (!decodedtoken || !decodedtoken.user) {
+        console.error('Invalid or missing user information in the token');
+        return res.status(401).send('Unauthorized');
+    }
+    const userid=decodedtoken.user;
+    await db.getConnection(async(err,connection)=>{
+        if(err) throw err;
+        const sqlquery="SELECT user.*,info.* FROM user_table as user inner join info_table as info where id=?"
+        const query=mysql.format(sqlquery,[userid])
+        await connection.query(query,(err,result)=>{
+            if(err) throw err;
+            const username=result[0].username
+            const name=result[0].name;
+            const email=result[0].email;
+            const col_name=result[0].col_name;
+            const state=result[0].state;
+            const year=result[0].year;
+            const course=result[0].course;
+            res.status(200).json({username,name,email,col_name,state,year,course});
+            connection.release();
+        })
+    })
+}
+
+const updateProfile = async (req, res) => {
+    const decodedtoken = decodeAccessToken(req.headers.authorization);
+    if (!decodedtoken || !decodedtoken.user) {
+        console.error('Invalid or missing user information in the token');
+        return res.status(401).send('Unauthorized');
+    }
+    const userid=decodedtoken.user;
+
+    const { name,email,col_name, state, year, course } = req.body;
+
+    if (!userid) {
+        return res.status(400).json({ error: 'User ID is required.' });
+    }
+
+    // Query to update the 'info_table'
+    const infoQuery = `
+      UPDATE info_table 
+      SET name = ?,email = ?,col_name = ?, state = ?, year = ?, course = ? 
+      WHERE id = ?
+    `;
+    const infoValues = [name,email,col_name, state, year, course, userid];
+
+    db.query(infoQuery, infoValues, (err, infoResult) => {
+        if (err) {
+            console.error('Error updating info table:', err);
+            return res.status(500).json({ error: 'Database error in info table update.' });
+        }
+
+        if (infoResult.affectedRows === 0) {
+            return res.status(404).json({ error: 'User not found in info table.' });
         }
         
-        const userid = decodedtoken.user;
+        res.status(200).json({ message: 'User info updated successfully!' });
+    });
+  };
 
-        // Get database connection using a promise
-        const connection = await db.getConnection();
-        try {
-            // Single line SQL query
-            const sqlquery = "SELECT user.*, info.* FROM user_table AS user INNER JOIN info_table AS info ON user.id = info.user_id WHERE user.id = ?";
-            const query = mysql.format(sqlquery, [userid]);
-
-            // Execute the query using a promise-based query method
-            const [results] = await connection.query(query);
-
-            if (results.length === 0) {
-                return res.status(404).json({ error: 'User not found in the database' });
-            }
-
-            // Extract user details from the query results
-            const { username, name, email, col_name, state, year, course } = results[0];
-
-            // Return the response with user data
-            res.status(200).json({ username, name, email, col_name, state, year, course });
-
-        } catch (err) {
-            console.error('Database query error:', err);
-            return res.status(500).json({ error: 'Query server error' });
-        } finally {
-            connection.release(); // Always release the connection
-        }
-    } catch (err) {
-        console.error('Error processing request:', err);
-        return res.status(500).json({ error: 'Internal server error' });
-    }
-};
-
-module.exports = { display };
+module.exports={display,updateProfile}
