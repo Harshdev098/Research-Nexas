@@ -32,18 +32,15 @@
                 <li>
                     <div class="gtranslate_wrapper"></div>
                     <script>
-                      window.gtranslateSettings = {
-                        default_language: "en",
-                        detect_browser_language: true,
-                        wrapper_selector: ".gtranslate_wrapper",
-                        font_size: 100,
-                      };
+                        window.gtranslateSettings = {
+                            default_language: "en",
+                            detect_browser_language: true,
+                            wrapper_selector: ".gtranslate_wrapper",
+                            font_size: 100,
+                        };
                     </script>
-                    <script
-                    src="https://cdn.gtranslate.net/widgets/latest/popup.js"
-                    defer
-                  ></script>
-                  </li>
+                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+                </li>
             </ul>
         </div>
         <div class="largesection">
@@ -56,13 +53,13 @@
                 </div>
                 <div>
                     <button onclick="openEditModal()" style="cursor: pointer;"><i class="fa-regular fa-pen-to-square"
-                                style="padding: 0px 12px 0px 8px;"></i>Edit Profile</button>
+                            style="padding: 0px 12px 0px 8px;"></i>Edit Profile</button>
                 </div>
             </div>
             <div id="editProfileModal" style="display:none;">
                 <h3 style="margin-left:3vw;font-size: 22px;">Edit Profile</h3>
                 <form id="editForm">
-                <div id="detail">
+                    <div id="detail">
                         <ul>
                             <li>
                                 <div>Name: </div><input type="text" id="editName" required>
@@ -83,9 +80,9 @@
                                 <div> Course: </div> <span><input type="text" id="editCourse" required></span>
                             </li>
                         </ul>
-                </div>
-                <div class="dualBtns">
-                    <button type="submit" style="  background-color: #04AA6D; /* Green */
+                    </div>
+                    <div class="dualBtns">
+                        <button type="submit" style="  background-color: #04AA6D; /* Green */
                     border: none;
                     color: white;
                     padding: 15px 32px;
@@ -96,7 +93,7 @@
                     border-radius: 10px;
                     cursor: pointer;
                     margin-right: 20px;" id="editForm">Save</button>
-                    <button type="button" style="  background-color: #F95454;
+                        <button type="button" style="  background-color: #F95454;
                     border: none;
                     color: white;
                     padding: 15px 32px;
@@ -106,10 +103,10 @@
                     font-size: 16px;
                     border-radius: 10px;
                     cursor: pointer;
-                    margin-right: 20px;"  onclick="closeEditModal()">Cancel</button>
-                </div>
+                    margin-right: 20px;" onclick="closeEditModal()">Cancel</button>
+                    </div>
                 </form>
-            </div>          
+            </div>
             <div id="profileContainer">
                 <div id="detail">
                     <ul>
@@ -163,7 +160,7 @@
 
         document.getElementById('editForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-        
+
             const updatedData = {
                 name: document.getElementById('editName').value,
                 email: document.getElementById('editEmail').value,
@@ -172,9 +169,9 @@
                 year: document.getElementById('editYear').value,
                 course: document.getElementById('editCourse').value
             };
-        
+
             const token = localStorage.getItem('accessToken');
-        
+
             try {
                 const response = await fetch('/updateProfile', {
                     method: 'PUT',
@@ -184,7 +181,7 @@
                     },
                     body: JSON.stringify(updatedData)
                 });
-            
+
                 if (response.ok) {
                     const data = await response.json();
                     // Update the DOM with new values
@@ -195,7 +192,7 @@
                     document.getElementById('year').textContent = data.year;
                     document.getElementById('course').textContent = data.course;
                     alert("Profile Updated Successfully")
-                
+
                     closeEditModal();
                     fetchdata();
                 } else {
@@ -317,17 +314,13 @@
         }
     </script>
 
-<script>
-    window.embeddedChatbotConfig = {
-    chatbotId: "iSwsMwg5TfWCzADbpz05-",
-    domain: "www.chatbase.co"
-    }
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "iSwsMwg5TfWCzADbpz05-",
+            domain: "www.chatbase.co"
+        }
     </script>
-    <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="iSwsMwg5TfWCzADbpz05-"
-    domain="www.chatbase.co"
-    defer>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
     </script>
 </body>
 
