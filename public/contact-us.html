@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="./css/contact-us.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         /* Style for the message area */
         #messageArea {
@@ -31,6 +33,37 @@
        };
      </script>
      <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer ></script>
+     <div class="navbar">
+        <div class="logo"></div>
+        <div class="main">
+            <nav>
+                <ul id="navbar">
+                    <li title="Login"><a href="choose-file.html"><i class='bx bxs-user-circle' ></i>Login</a></li>
+                    <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="choose-signup-file.html"><i class='bx bx-log-in-circle' ></i>Register</a></li>
+                    <li title="Contact Us"><a href="./contact-us.html"><i class='bx bxs-contact' ></i>Contact Us</a></li>
+                    <li title="Our Services"><a href="./index.html"><i class='bx bx-bar-chart-square'></i>Services</a></li>
+                    <li title="About Us"><a href="./index.html"><i class='bx bx-vertical-bottom'></i>About</a></li>
+                    <li title="Main Page"><a href="./index.html"><i class='bx bx-home' ></i>Home</a></li>
+
+                   
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <script>
+        // Adding background color to the header on scroll
+        window.onscroll = function () {
+            var navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = "rgba(0, 0, 0, 0.8)"; // Dark background on scroll
+                navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Change link color
+            } else {
+                navbar.style.backgroundColor = "transparent"; // Revert back to transparent background
+                navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Revert link color
+            }
+        };
+    </script>
     <img src="images/moon.webp" id="icon">
     <div class="maindiv">
         <div class="imgdiv">
