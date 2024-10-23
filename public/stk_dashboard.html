@@ -104,45 +104,45 @@
         .card-body h4 {
             padding: 8px 0px;
         }
-        
         body.dark-mode {
-        background-color: #121212; 
-        color: #ffffff; 
-    }
+            background-color: #121212;
+            color: #ffffff;
+        }
 
         header.dark-mode {
-        background-color: #1f1f1f; 
+            background-color: #1f1f1f;
         }
 
         section.dark-mode {
-        background-color: #2c2c2c; 
+            background-color: #2c2c2c;
         }
 
         .card.dark-mode {
-        background-color: #3a3a3a; 
-        color: #ffffff; 
+            background-color: #3a3a3a;
+            color: #ffffff;
         }
 
         .card.dark-mode .btn-link {
-        color: #ffffff; 
+            color: #ffffff;
         }
 
         .card-body.dark-mode strong {
-        color: rgb(193, 15, 15); 
-        }
-        body {
-            position: relative; 
+            color: rgb(193, 15, 15);
         }
 
+        body {
+            position: relative;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="dark-mode-toggle" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
-            <i id="darkModeIcon" class="fa-solid fa-moon" style="color: white; font-size: 26px;margin:3px;padding:6px;"></i>
+        <div class="dark-mode-toggle" style="cursor: pointer; position: absolute; bottom: 10px; right: 10px;">
+            <i id="darkModeIcon" class="fa-solid fa-moon"
+                style="color: white; font-size: 26px;margin:3px;padding:6px;"></i>
         </div>
-        
+
         <div class="image">
             <i class="fa-solid fa-user"
                 style="width: 100%;color: white;display: block;font-size: 14vw;padding: 20px;"></i>
@@ -227,7 +227,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
-                        <button onclick="handleLogout()">Log Out<i class="fa-solid fa-right-from-bracket"
+                        <button onclick="handleLogout()">Log Out<i class="fa-regular fa-right-from-bracket"
                                 style="padding: 5px 8px 5px 10px;"></i></button>
                     </div>
                 </div>
@@ -235,8 +235,21 @@
         </div>
        
     </section>
-    
-    
+
+    <div style="position: absolute; top: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+       window.gtranslateSettings = {
+         default_language: "en",
+         detect_browser_language: true,
+         wrapper_selector: ".gtranslate_wrapper",
+         font_size: 100,
+       };
+     </script>
+     <script
+     src="https://cdn.gtranslate.net/widgets/latest/popup.js"
+     defer
+   ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -245,27 +258,27 @@
         crossorigin="anonymous"></script>
     <script>
         document.getElementById('darkModeIcon').onclick = function () {
-        document.body.classList.toggle('dark-mode');
-        const header = document.querySelector('header');
-        const section = document.querySelector('section');
-        const cards = document.querySelectorAll('.card');
-    
-        header.classList.toggle('dark-mode');
-        section.classList.toggle('dark-mode');
-        
-        cards.forEach(card => {
-            card.classList.toggle('dark-mode');
-        });
-    
-        // Change the icon based on the mode
-        if (document.body.classList.contains('dark-mode')) {
-            this.classList.remove('fa-moon');
-            this.classList.add('fa-sun');
-        } else {
-            this.classList.remove('fa-sun');
-            this.classList.add('fa-moon');
-        }
-    };
+            document.body.classList.toggle('dark-mode');
+            const header = document.querySelector('header');
+            const section = document.querySelector('section');
+            const cards = document.querySelectorAll('.card');
+
+            header.classList.toggle('dark-mode');
+            section.classList.toggle('dark-mode');
+
+            cards.forEach(card => {
+                card.classList.toggle('dark-mode');
+            });
+
+            // Change the icon based on the mode
+            if (document.body.classList.contains('dark-mode')) {
+                this.classList.remove('fa-moon');
+                this.classList.add('fa-sun');
+            } else {
+                this.classList.remove('fa-sun');
+                this.classList.add('fa-moon');
+            }
+        };
         const fetchDetail = async () => {
             const credit1 = document.getElementById('credit1')
             const credit2 = document.getElementById('credit2')
@@ -313,7 +326,7 @@
         //     const token = localStorage.getItem('accessToken');
         //     const headers = new Headers();
         //     headers.append('Authorization', `Bearer ${token}`);
-        //     const response=await fetch('http://localhost:3000/dis_criteria',{
+        //     const response=await fetch('/dis_criteria',{
         //         method:'POST',
         //         headers:headers,
         //     })
