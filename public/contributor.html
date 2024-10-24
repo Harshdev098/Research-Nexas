@@ -6,6 +6,8 @@
     <title>Research Nexas</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="./css/contributor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         .homeBtn {
             position: fixed;
@@ -23,6 +25,36 @@
 <body>
 
   <a href="./index.html" class="homeBtn">Home</a>
+
+  <div class="navbar">
+    <div class="logo"></div>
+    <div class="main">
+        <nav>
+            <ul id="navbar">
+                <li title="Login"><a href="choose-file.html"><i class='bx bxs-user-circle' ></i>Login</a></li>
+                <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="choose-signup-file.html"><i class='bx bx-log-in-circle' ></i>Register</a></li>
+                <li title="Contact Us"><a href="./contact-us.html"><i class='bx bxs-contact' ></i>Contact Us</a></li>
+                <li title="Our Services"><a href="#services"><i class='bx bx-bar-chart-square'></i>Services</a></li>
+                <li title="About Us"><a href="#about_show"><i class='bx bx-vertical-bottom'></i>About</a></li>
+                <li title="Main Page"><a href="#"><i class='bx bx-home' ></i>Home</a></li>
+
+                <li id="language">
+                    <div class="gtranslate_wrapper"></div>
+                    <script>
+                        window.gtranslateSettings = {
+                            default_language: "en",
+                            detect_browser_language: true,
+                            wrapper_selector: ".gtranslate_wrapper",
+                            font_size: 100,
+                        };
+                    </script>
+                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
 
   <div class="contributor-container">
     <!-- Hero Section -->
