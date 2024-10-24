@@ -28,7 +28,7 @@
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
                 <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li id="logoutBtn"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+                <li onclick="handleLogout()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
                 <li>
                     <div class="gtranslate_wrapper"></div>
                     <script>
@@ -137,6 +137,9 @@
                 </div>
             </div>
         </div>
+        <div id="box1">
+            <p>Logout Successfully...</p>
+        </div>
     </section>
     <style>
         .dualBtns {
@@ -235,27 +238,16 @@
             }
         }
         fetchdata()
-        const handleLogout = async () => {
-            try {
-                const token = localStorage.getItem('token'); // Retrieve the token from storage
-                const response = await fetch('/logout', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`, // Send the token if needed
-                    },
-                });
-
-                if (response.ok) {
-                    localStorage.removeItem('token'); // Remove the token from storage
-                    window.location.href = '/';
-                } else {
-                    console.error("Logout failed:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Logout error:", error);
-            }
+        const handleLogout =  () => {
+            const result1 = document.getElementById('box1');
+            result1.style.display = 'block';
+            localStorage.clear();
+            console.log("logout");
+            setTimeout(() => {
+                        window.location.href = 'index.html';
+            }, 2000)
         };
-        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+        
         function hide() {
             document.body.classList.toggle("dark-theme");
             const regularicon = document.getElementById('regular')

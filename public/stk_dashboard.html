@@ -41,7 +41,24 @@
             width: 20vw;
             display: block;
         }
-
+        #box1 {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            position: absolute;
+            top: -5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #box1 {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
         section {
             margin: 0vh 10vw;
             background-color: white;
@@ -210,6 +227,9 @@
                 </div>
             </div>
         </div>
+        <div id="box1">
+            <p>Logout Successfully...</p>
+        </div>
     </section>
 
     <div style="position: absolute; top: 30px; left: 30px;" class="gtranslate_wrapper"></div>
@@ -233,25 +253,15 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script>
-        const handleLogout = async () => {
-            try {
-                const token = localStorage.getItem('token'); // Retrieve the token from storage
-                const response = await fetch('/logout', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`, // Send the token if needed
-                    },
-                });
+        const handleLogout = () => {
+            const result1 = document.getElementById('box1');
+            result1.style.display = 'block';
+            localStorage.clear();
+            console.log("logout");
+            setTimeout(() => {
+                        window.location.href = 'index.html';
+            }, 2000)
 
-                if (response.ok) {
-                    localStorage.removeItem('token'); // Remove the token from storage
-                    window.location.href = '/';
-                } else {
-                    console.error("Logout failed:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Logout error:", error);
-            }
         };
         document.getElementById('logoutBtn').addEventListener('click', handleLogout);
         document.getElementById('darkModeIcon').onclick = function () {
