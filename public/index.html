@@ -9,35 +9,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Research Nexas</title>
+    <style>
+        .circle {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(71, 108, 255, 0.3), rgba(0, 119, 255, 0.3));
+      transition: transform 0.1s, left 0.1s, top 0.1s;
+    }
+    .circle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    </style>
 </head>
 
 <body>
 
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+  
     <script>
         // Store the mouse coordinates
 const coords = { x: 0, y: 0 };
@@ -45,8 +74,7 @@ const coords = { x: 0, y: 0 };
 // Select all circles (you can add more circles to HTML as needed)
 const circles = document.querySelectorAll(".circle");
 
-// Customize the colors for the circles (optional)
-const colors = ["#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060", "#680060", "#60005f", "#48005f", "#3d005e"];
+
 
 // Initialize circle positions
 circles.forEach((circle, index) => {
@@ -791,6 +819,47 @@ animateCircles();
     </script>
     <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
     </script>
+    
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const coords = { x: 0, y: 0 };
+          const circles = document.querySelectorAll(".circle");
+  
+          circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+          });
+  
+          window.addEventListener("mousemove", function (e) {
+            coords.x = e.pageX;
+            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+          });
+  
+          function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+  
+            circles.forEach(function (circle, index) {
+              circle.style.left = `${x - 12}px`;
+              circle.style.top = `${y - 12}px`;
+              circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+  
+              const nextCircle = circles[index + 1] || circles[0];
+              circle.x = x;
+              circle.y = y;
+  
+              x += (nextCircle.x - x) * 0.3;
+              y += (nextCircle.y - y) * 0.3;
+            });
+  
+            requestAnimationFrame(animateCircles);
+          }
+  
+          animateCircles();
+        });
+  
+      </script>
+
 </body>
 
 </html>
