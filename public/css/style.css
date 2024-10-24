@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -46,27 +46,26 @@ body {
   /* background-color: #66B2FF; */
 }
 
-.navbar:hover{
+.navbar:hover {
   display: inline-block;
   box-shadow: 0px 0px 5px black;
 }
 
-#language{
+#language {
   position: fixed;
   bottom: 4vh;
   background-color: rgba(0, 0, 255, 0.718);
-  
 
   height: 50px;
   padding: 10px;
   left: 1vw;
 }
 
-.gtranslate_wrapper{
+.gtranslate_wrapper {
   font-size: 20px;
   font-weight: 500;
 }
- 
+
 nav ul {
   overflow: auto;
 }
@@ -80,7 +79,7 @@ nav ul li {
   /* color: white; */
   cursor: pointer;
   color: rgb(247, 246, 240); /* Black text color */
-  transition: color 0.3s, background-color 0.3s; 
+  transition: color 0.3s, background-color 0.3s;
 }
 
 /* nav ul li a {
@@ -88,26 +87,25 @@ nav ul li {
   text-decoration: none;
 } */
 
-
-#navbar li a{
-  display:flex;
+#navbar li a {
+  display: flex;
   align-items: center;
-  justify-content:center;
-  gap:7px;
+  justify-content: center;
+  gap: 7px;
   font-family: "Space Grotesk", sans-serif;
 }
 
-#navbar li:hover{
+#navbar li:hover {
   color: #ff5100;
   text-shadow: 2px 2px 2px black;
 }
 nav ul li:hover {
-  border-bottom: 1.7px solid  white;
+  border-bottom: 1.7px solid white;
 }
 
 nav ul li a {
-    text-decoration: none; /* No underline */
-    color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* No underline */
+  color: inherit; /* Inherit color from parent */
 }
 
 nav ul li:first-child {
@@ -197,19 +195,18 @@ header h1 {
 .para {
   display: flex;
   align-items: center;
-  gap:5px;
+  gap: 5px;
   flex-direction: column;
   position: relative;
   top: 10%;
 }
 
-
-.para .sub{
+.para .sub {
   text-align: center;
   width: 70vw;
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
-  font-weight:500;
+  font-weight: 500;
   font-style: normal;
   text-shadow: 1px 2px 1px #000000;
 }
@@ -394,12 +391,12 @@ header h1 {
   }
 }
 
-.join_box p{
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.join_box p {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.premium p{
-  font-family: "Space Grotesk", sans-serif;;
+.premium p {
+  font-family: "Space Grotesk", sans-serif;
   font-size: small;
   font-weight: 500;
 }
@@ -511,7 +508,7 @@ body {
   color: #2c2a2a;
 }
 
-.about h2:hover{
+.about h2:hover {
   text-decoration: 1px underline rgb(17, 17, 116);
 }
 
@@ -523,13 +520,14 @@ body {
   font-size: 20px;
   line-height: 1.6;
   color: #161515;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.about_para p span{
+.about_para p span {
   font-size: 2rem;
   font-weight: 700;
-  color: #007BFF;
+  color: #007bff;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -537,7 +535,7 @@ body {
 .slider {
   width: 100%;
   max-width: 100vw;
-  height:535px;
+  height: 535px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -717,7 +715,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
   transition: all 0.3s ease; /* Smooth transition */
   display: inline-block; /* Allow padding and margin to work properly */
-  border:none;
+  border: none;
 }
 
 /* Hover effect */
@@ -919,11 +917,10 @@ main {
 }
 
 .box {
-  
-  width: 22vw;
-    height: 41vh;
-    background: white;
-    color: black;
+  width: 18em;
+  height: 20em;
+  background: white;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -938,8 +935,7 @@ main {
 }
 
 .box:hover {
-  
-  background-color: rgb(252, 210, 210)   ;
+  background-color: rgb(252, 210, 210);
 }
 
 h3 {
@@ -958,7 +954,7 @@ h3 {
 .box p {
   font-size: 20px;
   line-height: 1.5;
-  width: 440px;
+  width: 300px;
 }
 
 /* second main styling */
@@ -969,10 +965,10 @@ h3 {
   color: white;
   margin: 0px;
   padding: 60px 0px;
- font-family:"Space Grotesk", sans-serif; 
+  font-family: "Space Grotesk", sans-serif;
 }
 
-.join h2:hover{
+.join h2:hover {
   text-shadow: 2px 2px 2px rgb(255, 0, 0);
   text-decoration: underline;
 }
@@ -994,10 +990,10 @@ h3 {
   overflow: hidden;
 }
 
-.join_boxes:hover{
-  border:2px solid black;
+.join_boxes:hover {
+  border: 2px solid black;
   box-shadow: 2px 2px 2px rgb(200, 255, 0);
-  scale:1.09;
+  scale: 1.09;
   border-radius: 18px;
 }
 
@@ -1155,26 +1151,26 @@ h3 {
 }
 
 /* Student Section Styling */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap");
 .section4 {
   background-color: #f5f5f5;
   padding: 100px 0;
 }
 
 .section4 h2 {
-  font-family: 'Londrina Sketch', cursive;
-  text-shadow: 3px 3px 3px #0A66C2;
+  font-family: "Londrina Sketch", cursive;
+  text-shadow: 3px 3px 3px #0a66c2;
   position: relative;
   display: inline-block;
 }
 
 .section4 h2::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 3px;
-  background-color: #0A66C2;
+  background-color: #0a66c2;
   bottom: 0;
   left: 0;
   transition: width 0.4s ease; /* Smooth transition */
@@ -1186,7 +1182,7 @@ h3 {
 
 .section-title {
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 42px;
   font-weight: 700;
   color: #333;
@@ -1196,7 +1192,7 @@ h3 {
 .img_container {
   display: flex;
   justify-content: space-around;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .image_boxes {
@@ -1208,8 +1204,6 @@ h3 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
 }
-
-
 
 .image_boxes img {
   width: 100%;
@@ -1231,14 +1225,10 @@ h3 {
   transition: opacity 0.3s ease-in-out;
 }
 
-
-
-
-
 .overlay .text {
   color: #dfd9d9;
   text-shadow: 3px 3px 3px #000000;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 500;
   text-align: center;
@@ -1252,15 +1242,14 @@ h3 {
 }
 
 .details h3 {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: #333;
   margin-bottom: 10px;
   border-bottom: 2px soild green;
 }
-
-
 
 .stu_section {
   text-align: center;
@@ -1281,7 +1270,7 @@ h3 {
   background-color: #008080;
   color: #fff;
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
@@ -1296,12 +1285,8 @@ h3 {
   margin-left: 10px;
 }
 
-
-
-
 /* Professional Stakeholder Section Styles */
 .stakeholder-section {
-  
   background-color: #f9f9f9;
   text-align: center;
 }
@@ -1311,7 +1296,7 @@ h3 {
   margin: 0 auto;
 }
 
-.paper-info{
+.paper-info {
   width: 20vw;
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
@@ -1348,29 +1333,29 @@ h3 {
 
 .block {
   background-color: white;
-    max-width: 100vw;
-    margin: auto;
-    height: 55vh;
-    padding: 15px;
-    box-shadow: 2px 2px 12px #eae6df;
-    margin-bottom: 30px;
+  max-width: 100vw;
+  margin: auto;
+  height: 55vh;
+  padding: 15px;
+  box-shadow: 2px 2px 12px #eae6df;
+  margin-bottom: 30px;
 }
 
-.research-paper-card:hover{
+.research-paper-card:hover {
   /* background-color: rgb(223,204,204); */
-  box-shadow: 15px 15px  2px 1px rgb(187, 186, 186);
+  box-shadow: 15px 15px 2px 1px rgb(187, 186, 186);
   border-radius: 15px;
 }
 
-.paper-info{
+.paper-info {
   width: 20vw;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    /* padding: 30px; */
-    /* background-color: rgba(229, 229, 229, 0.5); */
-    border-radius: 15px ;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  /* padding: 30px; */
+  /* background-color: rgba(229, 229, 229, 0.5); */
+  border-radius: 15px;
 }
 
-.paper-info h3{
+.paper-info h3 {
   background-color: #e0f7fa;
   height: 92px;
   padding: 10px;
@@ -1381,26 +1366,25 @@ h3 {
   /* text-align: start; */
   border-radius: 15px 15px 0 0;
   border-bottom: #008080;
-
 }
 
-.paper-info h6{
+.paper-info h6 {
   text-align: start;
   padding: 20px;
   font-size: 20px;
   font-weight: 800;
 }
 
-.paper-info p{
+.paper-info p {
   color: rgb(106, 105, 105);
   font-size: 1rem;
   font-weight: 500;
   padding: 2px 20px 20px;
 }
 
-.research-paper-card:hover{
+.research-paper-card:hover {
   /* background-color: rgb(223,204,204); */
-  box-shadow: 15px 15px  2px 1px rgb(187, 186, 186);
+  box-shadow: 15px 15px 2px 1px rgb(187, 186, 186);
   border-radius: 15px;
 }
 
@@ -1414,11 +1398,6 @@ h3 {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
-
-
 .read-more {
   background-color: #3498db;
   color: white;
@@ -1426,21 +1405,12 @@ h3 {
   padding: 10px 20px;
   border-radius: 25px;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  padding: 15px ;
+  padding: 15px;
   margin: 15px;
   transition: background-color 0.3s ease;
 }
-
-
-
-
-
-
-
-
-
 
 /* footer styling */
 
@@ -1485,8 +1455,8 @@ ul {
   font-weight: 500;
   position: relative;
 }
-.footer-col h4:hover{
-color:#ed8309;
+.footer-col h4:hover {
+  color: #ed8309;
 }
 
 .footer-col h4::before {
@@ -1625,7 +1595,6 @@ color:#ed8309;
   gap: 30px;
 }
 
-
 .custom-social-links a {
   font-size: 30px;
   color: white; /* Initially white */
@@ -1634,19 +1603,19 @@ color:#ed8309;
 
 /* Hover Effects for Original Colors */
 #custom-facebook-icon:hover i {
-  color: #1877F2; /* Facebook blue on hover */
+  color: #1877f2; /* Facebook blue on hover */
 }
 
 #custom-twitter-icon:hover i {
-  color: #1DA1F2; /* Twitter blue on hover */
+  color: #1da1f2; /* Twitter blue on hover */
 }
 
 #custom-instagram-icon:hover i {
-  color: #E1306C; /* Instagram pink on hover */
+  color: #e1306c; /* Instagram pink on hover */
 }
 
 #custom-linkedin-icon:hover i {
-  color: #0A66C2; /* LinkedIn blue on hover */
+  color: #0a66c2; /* LinkedIn blue on hover */
 }
 
 /* Click Effects to Maintain Color */
@@ -1661,15 +1630,13 @@ color:#ed8309;
   text-align: center;
 }
 
-
-
 .section-title {
-  font-family: 'Londrina Sketch', cursive;
-    text-shadow: 3px 3px 3px #0A66C2;
-    position: relative;
-    display: inline-block;
-    font-size: 45px;
-    font-weight: 700;
+  font-family: "Londrina Sketch", cursive;
+  text-shadow: 3px 3px 3px #0a66c2;
+  position: relative;
+  display: inline-block;
+  font-size: 45px;
+  font-weight: 700;
 }
 
 .img_container {
@@ -1695,8 +1662,6 @@ color:#ed8309;
   transition: transform 0.3s ease; /* Transition for image scaling */
 }
 
-
-
 .overlay {
   position: absolute;
   top: 0;
@@ -1713,8 +1678,6 @@ color:#ed8309;
   border-radius: 15px; /* Match overlay with image corners */
 }
 
-
-
 .stu_section {
   margin-top: 40px;
 }
@@ -1727,7 +1690,7 @@ color:#ed8309;
 }
 
 .explore-btn {
-  background-color: #007BFF; /* Bootstrap primary color */
+  background-color: #007bff; /* Bootstrap primary color */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -1764,8 +1727,6 @@ color:#ed8309;
   transition: transform 0.3s ease; /* Transition for image scaling */
 }
 
-
-
 .img_container {
   display: flex;
   flex-wrap: wrap;
@@ -1780,22 +1741,15 @@ color:#ed8309;
   background-color: #f0f4f8; /* Light background color */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  
 }
-
-
 
 .details {
   padding: 15px; /* More padding for comfort */
   background-color: #e0f7fa; /* Light cyan background */
-  
+
   color: #333; /* Dark text for contrast */
   text-align: left; /* Left align text */
 }
-
-
-
-
 
 /* Styles for the overlay (optional) */
 .overlay {
@@ -1809,10 +1763,7 @@ color:#ed8309;
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
-
-
 
 .img_container {
   display: flex;
@@ -1828,7 +1779,6 @@ color:#ed8309;
   background-color: #e0f7fa; /* Light cyan background to fill entire box */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  
 }
 
 .image_boxes img {
@@ -1853,8 +1803,6 @@ color:#ed8309;
   font-size: 30px;
 }
 
-
-
 /* Overlay styles */
 .overlay {
   position: absolute;
@@ -1866,35 +1814,35 @@ color:#ed8309;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
   color: white; /* White text for contrast */
   display: flex;
-  
+
   justify-content: space-around;
   align-items: center;
-  
+
   z-index: 1; /* Ensure overlay is on top */
 }
 
-.para1{
+.para1 {
   font-size: 15px;
   padding: 13px;
   font-weight: 500;
   text-align: start;
 }
 
-.para2{
+.para2 {
   padding: 15px;
   font-size: 18px;
   font-weight: 500;
 }
 
-.image_boxes:hover{
+.image_boxes:hover {
   box-shadow: 5px 5px 12px rgb(44, 102, 93);
   color: white;
-  background-color: rgb(95,212,196);
+  background-color: rgb(95, 212, 196);
   transform: scale(1);
 }
 
 .image_boxes:hover .details {
   /* box-shadow: 3px 3px 12px rgb(223, 207, 207); */
-      background-color: rgb(95,212,196);
-      color: white;
-
+  background-color: rgb(95, 212, 196);
+  color: white;
+}
