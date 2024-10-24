@@ -42,10 +42,10 @@ def update_structure_file(structure):
 # Function to update the README.md with the new structure
 def update_README(structure):
     try:
-        with open('README.md', 'r') as f:
+        with open('PROJECT_STRUCTURE.md', 'r') as f:
             content = f.read()
     except FileNotFoundError:
-        print("README.md not found.")
+        print("PROJECT_STRUCTURE.md not found.")
         return
 
     start_marker = '<!-- START_STRUCTURE -->'
@@ -61,13 +61,13 @@ def update_README(structure):
             content[end_index:]
         )
         try:
-            with open('README.md', 'w') as f:
+            with open('PROJECT_STRUCTURE.md', 'w') as f:
                 f.write(new_content)
-            print("README.md updated with new structure.")
+            print("PROJECT_STRUCTURE.md updated with new structure.")
         except IOError as e:
-            print(f"Error writing to README.md: {e}")
+            print(f"Error writing to PROJECT_STRUCTURE.md: {e}")
     else:
-        print("Markers not found in README.md. Structure not updated.")
+        print("Markers not found in PROJECT_STRUCTURE.md. Structure not updated.")
 
 # Main function to compare and update repository structure
 def main():
