@@ -6,6 +6,7 @@
 │   ├── Images
 │   └── hacktober.png
 ├── LICENSE
+├── PROJECT_STRUCTURE.md
 ├── README.md
 ├── Research-Nexas - Application Architecture.png
 ├── backend/
