@@ -1843,6 +1843,34 @@ ul {
 
 .image_boxes:hover .details {
   /* box-shadow: 3px 3px 12px rgb(223, 207, 207); */
-  background-color: rgb(95, 212, 196);
-  color: white;
+   background-color: rgb(95,212,196);
+   color: white;
+
+}
+
+/* Circle styles */
+.circle {
+
+  position: absolute; /* Position circles absolutely within the container */
+  width: 25px; /* Width of each circle */
+  height: 25px; /* Height of each circle */
+  border-radius: 50%; /* Make the circles round */
+  pointer-events: none; /* Ignore mouse events for circles */
+  background: radial-gradient(circle, rgba(71, 108, 255, 0.3), rgba(0, 119, 255, 0.3)); /* Gradient background for circles */
+  transition: transform 0.1s, left 0.1s, top 0.1s; /* Smooth transitions for position and scale */
+  
+}
+
+/* Container for circles */
+.circle-container {
+
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  pointer-events: none; /* Ignore mouse events for the container */
+  z-index: 9999; /* High z-index to stay on top of other elements */
+
+
 }
