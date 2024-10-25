@@ -917,8 +917,8 @@ main {
 }
 
 .box {
-  width: 22vw;
-  height: 41vh;
+  width: 18em;
+  height: 20em;
   background: white;
   color: black;
   display: flex;
@@ -954,7 +954,7 @@ h3 {
 .box p {
   font-size: 20px;
   line-height: 1.5;
-  width: 440px;
+  width: 300px;
 }
 
 /* second main styling */
@@ -1846,6 +1846,7 @@ ul {
    background-color: rgb(95,212,196);
    color: white;
 
+
 }
 
 /* Circle styles */
@@ -1872,5 +1873,5 @@ ul {
   pointer-events: none; /* Ignore mouse events for the container */
   z-index: 9999; /* High z-index to stay on top of other elements */
 
-
 }
+
