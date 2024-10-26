@@ -47,51 +47,53 @@
 
     <script>
         // Store the mouse coordinates
-const coords = { x: 0, y: 0 };
+        const coords = { x: 0, y: 0 };
 
-// Select all circles (you can add more circles to HTML as needed)
-const circles = document.querySelectorAll(".circle");
-
-// Customize the colors for the circles (optional)
+        // Select all circles (you can add more circles to HTML as needed)
+        const circles = document.querySelectorAll(".circle");
 
 
-// Initialize circle positions
-circles.forEach((circle, index) => {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];  // Assign colors
-});
+        // Customize the colors for the circles (optional)
+        const colors = ["#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060", "#680060", "#60005f", "#48005f", "#3d005e"];
 
-// Update mouse coordinates on move
-window.addEventListener("mousemove", (e) => {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-});
 
-// Animation loop for circles
-function animateCircles() {
-    let x = coords.x;
-    let y = coords.y;
+        // Initialize circle positions
+        circles.forEach((circle, index) => {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];  // Assign colors
+        });
 
-    circles.forEach((circle, index) => {
-        circle.style.left = `${x - 12}px`;   // Offset for center alignment
-        circle.style.top = `${y - 12}px`;
+        // Update mouse coordinates on move
+        window.addEventListener("mousemove", (e) => {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
 
-        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;  // Shrink effect
+        // Animation loop for circles
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
 
-        circle.x = x;
-        circle.y = y;
+            circles.forEach((circle, index) => {
+                circle.style.left = `${x - 12}px`;   // Offset for center alignment
+                circle.style.top = `${y - 12}px`;
 
-        const nextCircle = circles[index + 1] || circles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
-    });
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;  // Shrink effect
 
-    requestAnimationFrame(animateCircles);
-}
+                circle.x = x;
+                circle.y = y;
 
-// Start animation
-animateCircles();
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
+        // Start animation
+        animateCircles();
 
     </script>
 
@@ -102,12 +104,15 @@ animateCircles();
             <div class="main">
                 <nav>
                     <ul id="navbar">
-                        <li title="Login"><a href="choose-file.html"><i class='bx bxs-user-circle' ></i>Login</a></li>
-                        <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a href="choose-signup-file.html"><i class='bx bx-log-in-circle' ></i>Register</a></li>
-                        <li title="Contact Us"><a href="./contact-us.html"><i class='bx bxs-contact' ></i>Contact Us</a></li>
-                        <li title="Our Services"><a href="#services"><i class='bx bx-bar-chart-square'></i>Services</a></li>
+                        <li title="Login"><a href="/choose-file.html"><i class='bx bxs-user-circle'></i>Login</a></li>
+                        <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a
+                                href="/choose-signup-file.html"><i class='bx bx-log-in-circle'></i>Register</a></li>
+                        <li title="Contact Us"><a href="/contact-us.html"><i class='bx bxs-contact'></i>Contact Us</a>
+                        </li>
+                        <li title="Our Services"><a href="#services"><i class='bx bx-bar-chart-square'></i>Services</a>
+                        </li>
                         <li title="About Us"><a href="#about_show"><i class='bx bx-vertical-bottom'></i>About</a></li>
-                        <li title="Main Page"><a href="#"><i class='bx bx-home' ></i>Home</a></li>
+                        <li title="Main Page"><a href="#"><i class='bx bx-home'></i>Home</a></li>
 
                         <li id="language">
                             <div class="gtranslate_wrapper"></div>
@@ -201,7 +206,8 @@ animateCircles();
                 </div>
             </div>
             <div class="buttons">
-                <button id="prev"><</button>
+                <button id="prev">
+                    <</button>
                         <button id="next">></button>
             </div>
             <ul class="dots">
@@ -230,7 +236,7 @@ animateCircles();
                         to generate personalized research topic recommendations based on your academic interests,
                         department, and preferred difficulty level. This ensures that every step of your research
                         journey is curated to meet your specific needs and goals.</p>
-                    <a href="./signup.html">Register<i class="fa-solid fa-right-to-bracket"
+                    <a href="/signup.html">Register<i class="fa-solid fa-right-to-bracket"
                             style="padding: 0px 0px 0px 12px;font-size:20px"></i></a>
                 </div>
                 <div class="stu_reg">
@@ -244,7 +250,7 @@ animateCircles();
                         as a stakeholder and become an integral part of the academic ecosystem. Register now to
                         contribute to the development of future researchers, uphold academic standards, and promote
                         collaboration within our dynamic community</p>
-                    <a href="./stk_signup.html">Register<i class="fa-solid fa-right-to-bracket"
+                    <a href="/stk_signup.html">Register<i class="fa-solid fa-right-to-bracket"
                             style="padding: 0px 0px 0px 12px;font-size:20px"></i></a>
                 </div>
             </div>
@@ -314,7 +320,7 @@ animateCircles();
                     <h3>Plagiarism Checker</h3>
                     <img src="images/plagiarism.webp" alt="Plagiarism Checker Icon"
                         style="width:150; height: 150px; border-radius: 15px; border: 2px solid #ccc;">
-                    <p> 
+                    <p>
                         Ensure your content is original with our advanced plagiarism detection tool, and receive
                         detailed reports to uphold integrity in your writing.
                     </p>
@@ -427,121 +433,136 @@ animateCircles();
     <!-- Researchers Section -->
     <section class="section4">
         <h2 class="section-title">OUR TOP RESEARCHERS</h2>
-        <p style="font-family: cursive; font-weight: 400; font-size: 18px; margin-bottom: 40px;">Discover the cutting-edge research and innovations led by our top researchers. Their work is shaping
+        <p style="font-family: cursive; font-weight: 400; font-size: 18px; margin-bottom: 40px;">Discover the
+            cutting-edge research and innovations led by our top researchers. Their work is shaping
             the
             future across a diverse range of fields.</p>
         <div class="img_container">
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Exploring the future of artificial intelligence."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Shenzi Shuok</h3>
-                    
 
-                    <p class="para1">Dr. Shuok leads groundbreaking research in artificial intelligence and machine learning. Their
+
+                    <p class="para1">Dr. Shuok leads groundbreaking research in artificial intelligence and machine
+                        learning. Their
                         work
                         has significantly contributed to the development of autonomous systems.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> AI, Machine Learning, and Robotics.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> AI, Machine
+                        Learning, and Robotics.</p>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Art is not just a subject, it’s a form of expression."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Julet Dauk</h3>
-                    
-                    <p class="para1">An expert in digital humanities, Dr. Dauk explores the intersection of technology and visual
+
+                    <p class="para1">An expert in digital humanities, Dr. Dauk explores the intersection of technology
+                        and visual
                         arts.
                         Their research focuses on how digital tools are reshaping artistic expression.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Digital Art, Media Studies, and Visual Design.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Digital Art, Media
+                        Studies, and Visual Design.</p>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Empowering communities through innovation."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Andrew Wadsun</h3>
-                    
-                    <p class="para1">Dr. Wadsun's research focuses on sustainable technologies that benefit underserved communities.
+
+                    <p class="para1">Dr. Wadsun's research focuses on sustainable technologies that benefit underserved
+                        communities.
                         Their
                         initiatives aim to create impactful solutions for social justice and environmental preservation.
                     </p>
-                    
-                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Social Innovation, Sustainability, and Environmental Science.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Social Innovation,
+                        Sustainability, and Environmental Science.</p>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Conserving nature through science."</div>
                 </div>
                 <div class="hover">
-                <div class="details">
-                    <h3>Dr. Melin Parkins</h3>
-                    
-                    <p class="para1">Dr. Parkins is dedicated to environmental conservation, specializing in ecosystem restoration and
-                        biodiversity protection. Their research focuses on solutions for climate change.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Ecology, Conservation Science, and Climate Change.</p>
-                </div>
+                    <div class="details">
+                        <h3>Dr. Melin Parkins</h3>
+
+                        <p class="para1">Dr. Parkins is dedicated to environmental conservation, specializing in
+                            ecosystem restoration and
+                            biodiversity protection. Their research focuses on solutions for climate change.</p>
+
+                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Ecology,
+                            Conservation Science, and Climate Change.</p>
+                    </div>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Innovation in sports science."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Elon Burg</h3>
-                    
-                    <p class="para1">Dr. Burg is a leading researcher in sports science, specializing in performance optimization and
+
+                    <p class="para1">Dr. Burg is a leading researcher in sports science, specializing in performance
+                        optimization and
                         injury prevention. Their work combines physiology and biomechanics for athletic excellence.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Sports Science, Physiology, and Biomechanics.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Sports Science,
+                        Physiology, and Biomechanics.</p>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Music and neuroscience in harmony."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Sarah Lee</h3>
-                    
-                    <p class="para1">A renowned expert in music therapy, Dr. Lee researches how music impacts brain development and
+
+                    <p class="para1">A renowned expert in music therapy, Dr. Lee researches how music impacts brain
+                        development and
                         emotional well-being. Their work bridges the gap between art and neuroscience.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Music Therapy, Neuroscience, and Cognitive Science.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Music Therapy,
+                        Neuroscience, and Cognitive Science.</p>
                 </div>
             </div>
             <div class="image_boxes">
-                
+
                 <div class="overlay">
                     <div class="text">"Pioneering tech innovations."</div>
                 </div>
                 <div class="details">
                     <h3>Dr. Michael Adams</h3>
-                    
-                    <p class="para1">A leading figure in technology, Dr. Adams is known for his research in robotics and AI. His
+
+                    <p class="para1">A leading figure in technology, Dr. Adams is known for his research in robotics and
+                        AI. His
                         contributions have pushed the boundaries of what machines can achieve.</p>
-                    
-                        <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Robotics, AI Development, and Tech Innovation.</p>
+
+                    <p class="para2"><span style="font-size: 20px; font-weight: 900;">Fields:</span> Robotics, AI
+                        Development, and Tech Innovation.</p>
                 </div>
             </div>
         </div>
         <div class="research_section">
             <div class="research_para">
-                
-                
-                
+
+
+
             </div>
             <button class="explore-btn">Explore More</button>
         </div>
@@ -552,20 +573,20 @@ animateCircles();
     <!-- Professional Stakeholder Section Starts Here -->
     <section class="stakeholder-section">
         <div class="block">
-        
-            
+
+
             <h2 class="section-title">OUR RESEARCH PAPERS</h2>
             <p class="section-description">Our stakeholders are the driving force behind our success. Their dedication,
                 expertise, and vision have helped shape our journey.</p>
-                <div class="stakeholder-grid">
+            <div class="stakeholder-grid">
 
 
                 <div class="research-paper-card">
-                        
+
                     <div class="paper-info">
-                    
+
                         <h3>Advancements in Artificial Intelligence</h3>
-                        
+
                         <h6>By Dr. James Lee</h6>
                         <p>This paper explores the latest breakthroughs in AI, with a focus on machine learning
                             algorithms that improve efficiency in autonomous systems.</p>
@@ -574,31 +595,31 @@ animateCircles();
                 </div>
 
 
-                    <!-- Research Paper 1 -->
-                    <div class="research-paper-card">
-                        
-                        <div class="paper-info">
-                            <h3>Advancements in Artificial Intelligence</h3>
-                            
-                                <h6>By Dr. James Lee</h6>
-                            <p>This paper explores the latest breakthroughs in AI, with a focus on machine learning
-                                algorithms that improve efficiency in autonomous systems.</p>
-                            <button class="read-more">Read Abstract</button>
-                        </div>
-                    </div>
+                <!-- Research Paper 1 -->
+                <div class="research-paper-card">
 
-                     <!-- Research Paper 1 -->
-                     <div class="research-paper-card">
-                        
-                        <div class="paper-info">
-                            <h3>Advancements in Artificial Intelligence</h3>
-                            
-                            <h6>By Dr. James Lee</h6>
-                            <p>This paper explores the latest breakthroughs in AI, with a focus on machine learning
-                                algorithms that improve efficiency in autonomous systems.</p>
-                            <button class="read-more">Read Abstract</button>
-                        </div>
+                    <div class="paper-info">
+                        <h3>Advancements in Artificial Intelligence</h3>
+
+                        <h6>By Dr. James Lee</h6>
+                        <p>This paper explores the latest breakthroughs in AI, with a focus on machine learning
+                            algorithms that improve efficiency in autonomous systems.</p>
+                        <button class="read-more">Read Abstract</button>
                     </div>
+                </div>
+
+                <!-- Research Paper 1 -->
+                <div class="research-paper-card">
+
+                    <div class="paper-info">
+                        <h3>Advancements in Artificial Intelligence</h3>
+
+                        <h6>By Dr. James Lee</h6>
+                        <p>This paper explores the latest breakthroughs in AI, with a focus on machine learning
+                            algorithms that improve efficiency in autonomous systems.</p>
+                        <button class="read-more">Read Abstract</button>
+                    </div>
+                </div>
             </div>
         </div>
         <section id="faq_sec">
@@ -687,10 +708,10 @@ animateCircles();
                     <h4>company</h4>
                     <ul>
                         <li><a href="#about_show">about us</a></li>
-                        <li><a href="./contributor.html">our contributors</a></li>
+                        <li><a href="/contributor.html">our contributors</a></li>
                         <li><a href="#services">our services</a></li>
-                        <li><a href="privacy_policy.html">privacy policy</a></li>
-                        <li><a href="affiliate_program.html">affiliate program</a></li>
+                        <li><a href="/privacy_policy.html">privacy policy</a></li>
+                        <li><a href="/affiliate_program.html">affiliate program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -717,12 +738,14 @@ animateCircles();
 
                     <div class="custom-social-links1">
                         <div class="custom-social-links">
-                            <a href="#" id="custom-facebook-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" id="custom-twitter-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="https://facebook.com" id="custom-facebook-icon"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com" id="custom-twitter-icon"><i class="fab fa-twitter"></i></a>
                         </div>
-                        <div class="custom-social-links"><a href="#" id="custom-instagram-icon"><i
+                        <div class="custom-social-links"><a href="https://instagram.com" id="custom-instagram-icon"><i
                                     class="fab fa-instagram"></i></a>
-                            <a href="#" id="custom-linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://linkedin.com" id="custom-linkedin-icon"><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
