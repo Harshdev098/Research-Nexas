@@ -1,22 +1,32 @@
-# <p>**Research-Nexas 🌟🔬📚**
-<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Research-Nexas"/>
+<p><strong>Research-Nexas 🌟🔬📚</strong></p>
+<p>
+    <img src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Research-Nexas"/>
 </p>
 
-**Research-Nexas** is a cutting-edge web application designed to create a seamless connection between **students**, **researchers**, and **stakeholders** within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 They can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder.
+<strong>Research-Nexas</strong> is a cutting-edge web application designed to create a seamless connection between <strong>students</strong>, <strong>researchers</strong>, and <strong>stakeholders</strong> within a collaborative research ecosystem. The platform empowers students to log in, upload their research papers, view their uploads, and track their evaluations. 🎓📝 
 
-Stakeholders act as research supervisors who can **approve** student submissions and assign papers to the appropriate **faculty members** for evaluation. 👩‍🏫📑 Stakeholders also set evaluation criteria, which they can view on their profile. Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate results based on predefined criteria.
+Research-Nexas bridges the gap between academia and industry by fostering a feedback-driven environment that promotes innovation and growth. Through mentorship, stakeholders act as research supervisors, supporting students with feedback and guidance to enhance their work. This process provides students with real-world experience and recognition from seasoned researchers, strengthening their research profiles and positively impacting their future careers. 🌱✨
 
-This application creates a **dynamic, feedback-driven environment** where students can improve their research based on faculty evaluations, and stakeholders can ensure quality through customizable criteria. 🌱✨
-
-With **Research-Nexas**, the future of research collaboration is smarter, faster, and more impactful. 💡📈
+With **Research-Nexas**, students can also access their profile to see their research details and the **evaluation criteria** set by the stakeholder, while stakeholders ensure quality through customizable criteria. The future of research collaboration is smarter, faster, and more impactful. 💡📈
 
 <table align="center">
-    <thead align="center">
-        <tr border: 2px;>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
+    <thead>
+        <tr>
+            <th>Stars</th>
+            <th>Forks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Harshdev098/Research-Nexas?style=flat&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&copy; 2024 GitHub, Inc.</p>
+<p>Footer navigation: <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Security</a> | <a href="#">Status</a> | <a href="#">Docs</a> | <a href="#">Contact</a> | <a href="#">Manage cookies</a></p>
+
             <td><b>🔕 Close PRs</b></td>
         </tr>
      </thead>
