@@ -34,12 +34,14 @@
 ├── package-lock.json
 ├── package.json
 ├── public/
+│   ├── affiliate_program.html
 │   ├── allotment.html
 │   ├── choose-file.html
 │   ├── choose-signup-file.html
 │   ├── contact-us.html
 │   ├── contributor.html
 │   ├── css/
+│   │   ├── affiliate_style.css
 │   │   ├── choosefile.css
 │   │   ├── contact-us.css
 │   │   ├── contributor.css
@@ -71,6 +73,13 @@
 │   │   ├── connectpeers.webp
 │   │   ├── dark_mode.webp
 │   │   ├── explorepapers.webp
+│   │   ├── face1.jpg
+│   │   ├── face2.jpg
+│   │   ├── face3.jpg
+│   │   ├── face4.jpg
+│   │   ├── face5.jpg
+│   │   ├── face6.jpg
+│   │   ├── face8.png
 │   │   ├── follow.webp
 │   │   ├── logo.webp
 │   │   ├── moon.webp
