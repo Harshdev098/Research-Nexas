@@ -14,6 +14,29 @@ const { allot, DisplayPapers } = require("../stakeholder/allotment");
 const { Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating } = require("../stakeholder/faculty");
 const app = express();
 
+const mysql = require('mysql2');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+});
+
+db.connect((err) => {
+  if (err) throw err;
+  console.log('MySQL connected...');
+});
+
+// Importing and setting up the badgesRouter to handle all badge-related routes
+// This allows endpoints like '/badges/create' or '/badges/view' to be managed
+// within the badgesRouter module, keeping route organization modular and clean
+const badgesRouter = require('./routes/badges');
+app.use('/badges', badgesRouter);
+
+
 const globalLimit = rateLimiter({
   windowMs: 30 * 60 * 1000,
   max: 100,
