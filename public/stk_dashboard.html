@@ -214,6 +214,10 @@
 
     <div style="position: absolute; top: 30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            window.location.href = '/';
+        }
        window.gtranslateSettings = {
          default_language: "en",
          detect_browser_language: true,
@@ -244,7 +248,7 @@
                 });
 
                 if (response.ok) {
-                    localStorage.removeItem('token'); // Remove the token from storage
+                    localStorage.removeItem('accessToken'); // Remove the token from storage
                     window.location.href = '/';
                 } else {
                     console.error("Logout failed:", response.statusText);

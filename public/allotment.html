@@ -214,6 +214,10 @@
       </div>
    </div>
    <script>
+      const token = localStorage.getItem('accessToken');
+      if (!token) {
+          window.location.href = '/';
+      }
       window.embeddedChatbotConfig = {
       chatbotId: "iSwsMwg5TfWCzADbpz05-",
       domain: "www.chatbase.co"
