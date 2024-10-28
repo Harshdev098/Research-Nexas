@@ -142,6 +142,10 @@
         }
     </style>
     <script>
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            window.location.href = '/';
+        }
         function openEditModal() {
             document.getElementById('profileContainer').style.display = 'none';
             document.getElementById('editProfileModal').style.display = 'block';
