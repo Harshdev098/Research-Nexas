@@ -57,6 +57,10 @@
   </div>
 
   <script>
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+        window.location.href = '/';
+    }
     async function uploadFile() {
       const form = document.getElementById('uploadForm');
       const status = document.getElementById('status');

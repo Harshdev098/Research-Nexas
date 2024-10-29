@@ -142,6 +142,10 @@
         }
     </style>
     <script>
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            window.location.href = '/';
+        }
         function openEditModal() {
             document.getElementById('profileContainer').style.display = 'none';
             document.getElementById('editProfileModal').style.display = 'block';
@@ -243,7 +247,7 @@
                 });
 
                 if (response.ok) {
-                    localStorage.removeItem('token'); // Remove the token from storage
+                    localStorage.removeItem('accessToken'); // Remove the token from storage
                     window.location.href = '/';
                 } else {
                     console.error("Logout failed:", response.statusText);

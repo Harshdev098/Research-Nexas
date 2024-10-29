@@ -1,17 +1,19 @@
 name: Update Repository structure
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Run every hour
-  workflow_dispatch:  # Allow manual triggering
   push:
     branches:
       - main
-      - master
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed 
 
 jobs:
   detect-and-update-structure:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
