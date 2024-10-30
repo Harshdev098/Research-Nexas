@@ -28,7 +28,7 @@
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
                 <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
                 <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li onclick="handleLogout()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Log Out</li>
+                <li onclick="handleLogout()" style="font-size:20px;" ><i class="fa-solid fa-code" style="padding: 0px 14px;font-size:19px;"></i>Log Out</li>
                 <li>
                     <div class="gtranslate_wrapper"></div>
                     <script>
@@ -241,7 +241,7 @@
         const handleLogout =  () => {
             const result1 = document.getElementById('box1');
             result1.style.display = 'block';
-            localStorage.clear();
+            localStorage.removeItem("accessToken");
             console.log("logout");
             setTimeout(() => {
                         window.location.href = 'index.html';
