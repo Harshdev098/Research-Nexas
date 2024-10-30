@@ -256,7 +256,7 @@
         const handleLogout = () => {
             const result1 = document.getElementById('box1');
             result1.style.display = 'block';
-            localStorage.clear();
+            localStorage.removeItem("accessToken");
             console.log("logout");
             setTimeout(() => {
                         window.location.href = 'index.html';
