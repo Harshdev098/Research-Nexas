@@ -153,8 +153,11 @@ body {
 
 .contributor-contributor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
+  
+
+  background-color: aqua;
+  box-shadow: 0.5px 0.5px 5px 3px blue;
+} 
 
 .contributor-contributor-card img {
   width: 100px;
@@ -256,6 +259,16 @@ body {
   border-radius: 5px;
   width: 300px;
 }
+
+.contributor-contributor-card:hover {
+  transform: translateY(-5px);
+  
+
+  background-color: aqua;
+  box-shadow: 0.5px 0.5px 5px 3px blue;
+} 
+
+
 
 .contributor-notification {
   background-color: #4CAF50;

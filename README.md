@@ -52,6 +52,9 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 
 <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+## Project Structure ✨
+
+Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 
 ## 📚 Table of Contents
 
@@ -335,3 +338,9 @@ Star ⭐ the project if you like it,working and contributing with us ❤️.
 ---
 
 # Big thanks to all the contributors!
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>

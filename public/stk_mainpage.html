@@ -22,6 +22,10 @@
 <body>
     <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            window.location.href = '/';
+        }
         window.gtranslateSettings = {
             default_language: "en",
             detect_browser_language: true,
@@ -31,10 +35,10 @@
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
     <div class="head">
-        <div><img src="images/logo.webp" alt="" width="160px"> </div>
+        <div><img src="images/logo.webp" alt="Logo of Research-Nexas" width="160px"> </div>
         <div class="logo">
             <img src="images/dark_mode.webp" id="icon" width="40px">
-            <a href="stk_dashboard.html" title="View Profile">
+            <a href="/stk_dashboard.html" title="View Profile">
                 <i class="fa-solid fa-user"></i>
             </a>
         </div>
@@ -56,13 +60,13 @@
             <div>
                 <h2 style="margin: 4px;padding: 8px;">Allot Papers</h2>
                 <p>Allot Papers to the faculties</p>
-                <a href="allotment.html">Go ahead <i class="fa-solid fa-arrow-right"
+                <a href="/allotment.html">Go ahead <i class="fa-solid fa-arrow-right"
                         style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
             </div>
             <div>
                 <h2 style="margin: 4px;padding: 8px;">Approve Topics</h2>
                 <p>Approve topics choosen by the students</p>
-                <a href="">Go ahead <i class="fa-solid fa-arrow-right"
+                <a href="#">Go ahead <i class="fa-solid fa-arrow-right"
                         style="font-size: 18px;padding: 0px 4px 0px 10px;"></i></a>
             </div>
         </div>
@@ -232,16 +236,17 @@
                 <div class="footer-col">
                     <h4>company</h4>
                     <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">our services</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
+                        <li><a href="/#about_show">about us</a></li>
+                        <li><a href="/contributor.html">our contributors</a></li>
+                        <li><a href="/#services">our services</a></li>
+                        <li><a href="/privacy_policy.html">privacy policy</a></li>
+                        <li><a href="/affiliate_program.html">affiliate program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>get help</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="/#faq_sec">FAQ</a></li>
                         <li><a href="#">shipping</a></li>
                         <li><a href="#">returns</a></li>
                         <li><a href="#">order status</a></li>
@@ -260,10 +265,10 @@
                 <div class="footer-col">
                     <h4>follow us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
