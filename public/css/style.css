@@ -1561,6 +1561,7 @@ ul {
   width: 22%;
   padding: 0 15px;
   margin-bottom: 40px;
+  margin-right: -50px;
 }
 
 /* Footer headers */
@@ -2241,3 +2242,174 @@ body {
   color: rgb(255, 255, 255); /* Set text color to white */
 
 }
+
+
+.footer-section {
+
+  padding: 20px;
+  max-width: 300px;
+  margin-top: -22px;
+
+}
+
+.contact-form h2 {
+
+  margin-bottom: 15px;
+  font-size: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+
+}
+
+.contact-form h2:hover {
+
+  color: #ed8309;
+
+}
+
+.contact-form h2::before {
+
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 3px;
+  width: 60px;
+  background: #e91e63;
+  border-radius: 10px;
+
+}
+
+.text-input {
+
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.contact-btn {
+
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 183px;
+  margin-top: -33px; /* Add space above the button */
+  display: block; /* Ensure it takes the full width */
+
+}
+
+.contact-btn:hover {
+
+  background-color: #0056b3;
+
+}
+
+
+.star-rating {
+
+  display: flex;
+  justify-content: left; 
+  flex-direction: row-reverse;
+  width: 160px;
+
+}
+
+.star-rating input {
+
+  display: none; 
+
+}
+
+.star-rating label {
+
+  font-size: 26px; 
+  color: #ffffff; 
+  cursor: pointer; 
+  transition: color 0.2s;
+  margin: 0 5px; /* Add margin for gaps between stars */
+
+}
+
+.star-rating input:checked ~ label {
+
+  color: #fa2b4d; 
+
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+
+  color: #fa2b4d; 
+
+}
+
+.popupp {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+.popupp-content {
+
+  background: linear-gradient(135deg, #0e1722, #ebf3ff, #0e1722);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; /* For positioning close button */
+
+}
+
+.popupp-content h2 {
+  color: #333; /* Change this to your desired color for the title */
+}
+
+.popupp-content p {
+  color: #000000;
+    font-size: 15px;
+}
+
+
+.close {
+
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+
+}
+
+.ok-button {
+
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff; /* Change to desired color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.ok-button:hover {
+
+  background-color: #0056b3; /* Darker shade for hover */
+
+}
+

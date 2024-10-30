@@ -812,6 +812,47 @@
                     </div>
                 </div>
 
+                <div class="footer-section contact-form">
+                    <h2>Feedback Form</h2>
+                    <form id="feedback-form" action="#" method="post" onsubmit="handleSubmit(event)">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="text-input contact-input" placeholder="Your email address..." required>
+                        
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" class="text-input contact-input" placeholder="Your message..." required></textarea>
+                        
+                        
+                        <!-- Star Rating Section -->
+                        <div class="star-rating" aria-label="Rating" role="radiogroup">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" title="5 stars">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star">★</label>
+                        </div>
+                
+                        <button type="submit" class="btn btn-big contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Popup -->
+                <div id="thank-you-popup" class="popupp" style="display:none;">
+                    <div class="popupp-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                            <h2>🎉 Thank You! 👏</h2> <!-- Added emoji here -->
+                            <p>Your feedback has been submitted successfully.</p>
+                        <button class="ok-button" onclick="closePopup()">OK</button>
+                    </div>
+                </div>
+
                 <script>// Facebook click event
                     document.getElementById("custom-facebook-icon").addEventListener("click", function () {
                         this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
