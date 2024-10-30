@@ -1335,7 +1335,6 @@ h3 {
   background-color: white;
   max-width: 100vw;
   margin: auto;
-  height: 55vh;
   padding: 15px;
   box-shadow: 2px 2px 12px #eae6df;
   margin-bottom: 30px;
@@ -1361,7 +1360,7 @@ h3 {
   padding: 10px;
   color: rgb(4, 33, 95);
   text-shadow: white;
-  font-size: 30px;
+  font-size: 22px;
   gap: 0.6;
   /* text-align: start; */
   border-radius: 15px 15px 0 0;
