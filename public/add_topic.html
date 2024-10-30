@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Research Topic</title>
+    <link rel="stylesheet" href="css/add_topic.css">
+</head>
+
+<body>
+    <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            default_language: "en",
+            detect_browser_language: true,
+            wrapper_selector: ".gtranslate_wrapper",
+            font_size: 100,
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
+    <div id="notification" class="notification hidden">New topic submitted successfully!</div>
+
+    <div class="form-container">
+        <h2>Submit Research Topic</h2>
+        <form id="researchForm">
+            <label for="studentName">Student Name <span class="required">*</span></label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="topic">Topic <span class="required">*</span></label>
+            <input type="text" id="topic" name="topic" required>
+
+            <label for="discussion">Discussion <span class="required">*</span></label>
+            <textarea id="discussion" name="discussion" rows="4" required></textarea>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script/add_topic.js"></script>
+</body>
+
+</html>
