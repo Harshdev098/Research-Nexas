@@ -7,22 +7,20 @@ function hide() {
   document.getElementById("secondicon").style.display = "none";
 }
 
-let scrollToTopButton = document.getElementById("scrollToTop");
+const scrollTopBtn = document.getElementById("scrollToTop");
+scrollTopBtn.style.setProperty('visibility', 'hidden', 'important');
 
-// Show the button when the user scrolls down 100px from the top
-window.onscroll = function () {
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    scrollToTopButton.style.display = "block";
-  } else {
-    scrollToTopButton.style.display = "none";
-  }
-};
+window.addEventListener('scroll', function() {
+
+    if (window.scrollY > 100) {
+        scrollTopBtn.style.setProperty('visibility', 'visible', 'important');
+    } else {
+        scrollTopBtn.style.setProperty('visibility', 'hidden', 'important');
+    }
+});
 
 // Scroll to the top when the button is clicked
-scrollToTopButton.addEventListener("click", function () {
+scrollTopBtn.addEventListener("click", function () {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
