@@ -260,35 +260,68 @@ learnMoreButtons.forEach(button => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if the user has already subscribed
-  if (!localStorage.getItem('subscribed')) {
-    document.getElementById('popup-nl').style.display = 'flex'; // Show the popup immediately
-  }
+    // Check if the user has already subscribed
+    if (!localStorage.getItem('subscribed')) {
+        document.getElementById('popup-nl').style.display = 'flex'; // Show the popup immediately
+    }
 
-  // Close the pop-up when the user clicks the close button
-  document.querySelector('.close-nl').addEventListener('click', function() {
-      document.getElementById('popup-nl').style.display = 'none';
-  });
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-nl').addEventListener('click', function() {
+        document.getElementById('popup-nl').style.display = 'none';
+    });
 
-  // Handle form submission
-  document.getElementById('emailForm-nl').addEventListener('submit', function(event) {
-      event.preventDefault();
+    // Handle form submission
+    document.getElementById('emailForm-nl').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-      const email = document.getElementById('email-nl').value;
-      if (email) {
-          alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
-          document.getElementById('popup-nl').style.display = 'none'; // Hide the popup
-          
-          // Set the subscribed flag in localStorage
-          localStorage.setItem('subscribed', 'true');
-      }
-  });
+        const email = document.getElementById('email-nl').value;
+        if (email) {
+            alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
+            document.getElementById('popup-nl').style.display = 'none'; // Hide the popup
+            
+            // Set the subscribed flag in localStorage
+            localStorage.setItem('subscribed', 'true');
+        }
+    });
 
-  // Handle "No thanks" link
-  document.querySelector('.no-thanks-nl').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('popup-nl').style.display = 'none';
-  });
+    // Handle "No thanks" link
+    document.querySelector('.no-thanks-nl').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup-nl').style.display = 'none';
+    });
+
+    // Check if the user has already voted in this session
+    const hasVoted = sessionStorage.getItem('hasVoted');
+
+    // Show the poll popup 10 seconds after the page loads, if not already voted
+    setTimeout(function() {
+        if (!hasVoted) {
+            document.getElementById('pollPopup').style.display = 'flex';
+        }
+    }, 10000); // 10000 milliseconds = 10 seconds
+
+    // Poll functionality
+    const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+    let selectedValue = '';
+
+    pollButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            pollButtons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedValue = button.getAttribute('data-value');
+        });
+    });
+
+    document.getElementById('voteButton').addEventListener('click', function() {
+        if (selectedValue) {
+            document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`;
+            // Save voting status in session storage
+            sessionStorage.setItem('hasVoted', 'true');
+            setTimeout(() => {
+                document.getElementById('pollPopup').style.display = 'none';
+            }, 2000);
+        } else {
+            alert("Please select an option!");
+        }
+    });
 });
-
-
