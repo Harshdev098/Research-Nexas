@@ -1411,6 +1411,51 @@ h3 {
   transition: background-color 0.3s ease;
 }
 
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#faqSearch {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* FAQ styles */
+.faq {
+  margin-bottom: 10px;
+}
+
+.accordion {
+  background-color: #f7f7f7;
+  cursor: pointer;
+  padding: 15px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+  white-space: normal; /* Ensure content stays together */
+}
+
+.pannel {
+  padding: 0 15px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Highlighted text */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent breaking text when highlighted */
+}
+
+
 /* footer styling */
 
 /* Container styling */

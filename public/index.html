@@ -624,69 +624,127 @@
         </div>
         <section id="faq_sec">
             <div class="wrapper">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-
-                <div class="faq">
-                    <button class="accordion">
-                        What is Research-Nexas?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="pannel">
-                        <p>
-                            Research-Nexas is a cutting-edge web application designed to create a seamless connection
-                            between students, researchers, and stakeholders within a collaborative research ecosystem.
-                        </p>
-                    </div>
+              <h2 class="section-title">Frequently Asked Questions</h2>
+          
+              <!-- Search Bar -->
+              <div class="search-container">
+                <input type="text" id="faqSearch" placeholder="Search FAQs..." oninput="filterFAQs()">
+              </div>
+          
+              <div class="faq">
+                <button class="accordion">
+                  What is Research-Nexas?
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="pannel">
+                  <p>
+                    Research-Nexas is a cutting-edge web application designed to create a seamless connection
+                    between students, researchers, and stakeholders within a collaborative research ecosystem.
+                  </p>
                 </div>
-
-                <div class="faq">
-                    <button class="accordion">
-                        How does it work?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="pannel">
-                        <p>
-                            The platform empowers students to log in, upload their research papers, view their uploads,
-                            and
-                            track their evaluations.
-                            Stakeholders act as research supervisors who can approve student submissions and assign
-                            papers
-                            to the appropriate faculty members for evaluation.
-                            Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate
-                            results
-                            based on predefined criteria.
-                        </p>
-                    </div>
+              </div>
+          
+              <div class="faq">
+                <button class="accordion">
+                  How does it work?
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="pannel">
+                  <p>
+                    The platform empowers students to log in, upload their research papers, view their uploads,
+                    and track their evaluations. Stakeholders act as research supervisors who can approve student
+                    submissions and assign papers to the appropriate faculty members for evaluation. Faculty members,
+                    in turn, can review the assigned papers, provide ratings, and evaluate results based on predefined criteria.
+                  </p>
                 </div>
-
-                <div class="faq">
-                    <button class="accordion">
-                        Want to know more about the project?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="pannel">
-                        <p>
-                            Click on this link: <a href="https://github.com/Harshdev098/Research-Nexas" rel="noopener"
-                                alt="Github" target="_blank">Research-Nexas</a>
-                        </p>
-                    </div>
+              </div>
+          
+              <div class="faq">
+                <button class="accordion">
+                  Want to know more about the project?
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="pannel">
+                  <p>
+                    Click on this link: <a href="https://github.com/Harshdev098/Research-Nexas" rel="noopener"
+                      alt="Github" target="_blank">Research-Nexas</a>
+                  </p>
                 </div>
-
-                <div class="faq">
-                    <button class="accordion">
-                        Want to contribute to the project?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="pannel">
-                        <p>
-                            Read our guidelines for contribution: <a
-                                href="https://github.com/Harshdev098/Research-Nexas/blob/main/Contributing.md"
-                                rel="noopener" alt="Github" target="_blank">Contributing Guidelines</a>.
-                        </p>
-                    </div>
+              </div>
+          
+              <div class="faq">
+                <button class="accordion">
+                  Want to contribute to the project?
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="pannel">
+                  <p>
+                    Read our guidelines for contribution: <a
+                      href="https://github.com/Harshdev098/Research-Nexas/blob/main/Contributing.md"
+                      rel="noopener" alt="Github" target="_blank">Contributing Guidelines</a>.
+                  </p>
                 </div>
+              </div>
             </div>
-        </section>
+          </section>
+          
+          <script>
+            function filterFAQs() {
+              const searchInput = document.getElementById('faqSearch').value.toLowerCase();
+              const faqs = document.querySelectorAll('.faq');
+              
+              faqs.forEach(faq => {
+                const accordionText = faq.querySelector('.accordion').innerText.toLowerCase();
+                const pannelText = faq.querySelector('.pannel p').innerText.toLowerCase();
+                const contentMatch = accordionText.includes(searchInput) || pannelText.includes(searchInput);
+                
+                faq.style.display = contentMatch ? 'block' : 'none';
+          
+                if (contentMatch && searchInput) {
+        
+                  const pannel = faq.querySelector('.pannel');
+                  pannel.style.display = 'block';
+                  highlightKeywords(faq, searchInput);
+                } else {
+                  const pannel = faq.querySelector('.pannel');
+                  pannel.style.display = 'none'; // Hide pannel if there's no match
+                  removeHighlights(faq);
+                }
+              });
+            }
+          
+            function highlightKeywords(faq, keyword) {
+              const regex = new RegExp(`(${keyword})`, 'gi');
+          
+              const accordion = faq.querySelector('.accordion');
+              accordion.innerHTML = accordion.textContent.replace(regex, '<span class="highlight">$1</span>');
+          
+              const pannel = faq.querySelector('.pannel p');
+              pannel.innerHTML = pannel.textContent.replace(regex, '<span class="highlight">$1</span>');
+            }
+          
+            function removeHighlights(faq) {
+              const accordion = faq.querySelector('.accordion');
+              accordion.innerHTML = accordion.textContent;
+          
+              const pannel = faq.querySelector('.pannel p');
+              pannel.innerHTML = pannel.textContent;
+            }
+          
+            // Accordion toggle functionality
+            document.querySelectorAll('.accordion').forEach(accordion => {
+              accordion.addEventListener('click', function () {
+                this.classList.toggle("active");
+                const pannel = this.nextElementSibling;
+          
+                if (pannel.style.display === "block") {
+                  pannel.style.display = "none";
+                } else {
+                  pannel.style.display = "block";
+                }
+              });
+            });
+          </script>
     </section>
 
 
@@ -793,25 +851,6 @@
                 navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Revert link color
             }
         };
-    </script>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                this.parentElement.classList.toggle("active");
-
-                var pannel = this.nextElementSibling;
-
-                if (pannel.style.display === "block") {
-                    pannel.style.display = "none";
-                } else {
-                    pannel.style.display = "block";
-                }
-            });
-        }
     </script>
     <script>
         window.embeddedChatbotConfig = {
