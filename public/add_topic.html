@@ -25,8 +25,22 @@
     <div class="form-container">
         <h2>Submit Research Topic</h2>
         <form id="researchForm">
-            <label for="studentName">Student Name <span class="required">*</span></label>
-            <input type="text" id="studentName" name="studentName" required>
+            <label for="department">Department <span class="required">*</span></label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine
+                    Learning</option>
+                <option value="Quantum Computing">Quantum Computing</option>
+                <option value="Blockchain Technology">Blockchain Technology</option>
+                <option value="Cybersecurity and Privacy">Cybersecurity and Privacy</option>
+                <option value="Renewable Energy Systems">Renewable Energy Systems</option>
+                <option value="Bioinformatics and Computational Biology">Bioinformatics and Computational Biology
+                </option>
+                <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
+                <option value="5G and Wireless Technologies">5G and Wireless Technologies</option>
+                <option value="Human-Computer Interaction">Human-Computer Interaction</option>
+                <option value="Data Science and Big Data Analytics">Data Science and Big Data Analytics</option>
+            </select>
 
             <label for="topic">Topic <span class="required">*</span></label>
             <input type="text" id="topic" name="topic" required>
