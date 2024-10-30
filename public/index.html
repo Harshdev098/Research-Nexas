@@ -697,14 +697,18 @@
                 const accordionText = faq.querySelector('.accordion').innerText.toLowerCase();
                 const pannelText = faq.querySelector('.pannel p').innerText.toLowerCase();
                 const contentMatch = accordionText.includes(searchInput) || pannelText.includes(searchInput);
-          
+                
                 faq.style.display = contentMatch ? 'block' : 'none';
           
-                // Highlight only if there is a search term and FAQ is visible
                 if (contentMatch && searchInput) {
+        
+                  const pannel = faq.querySelector('.pannel');
+                  pannel.style.display = 'block';
                   highlightKeywords(faq, searchInput);
                 } else {
-                  removeHighlights(faq); // Clear highlights if not matched
+                  const pannel = faq.querySelector('.pannel');
+                  pannel.style.display = 'none'; // Hide pannel if there's no match
+                  removeHighlights(faq);
                 }
               });
             }
@@ -712,22 +716,34 @@
             function highlightKeywords(faq, keyword) {
               const regex = new RegExp(`(${keyword})`, 'gi');
           
-              // Highlight keywords in accordion
               const accordion = faq.querySelector('.accordion');
               accordion.innerHTML = accordion.textContent.replace(regex, '<span class="highlight">$1</span>');
           
-              // Highlight keywords in pannel content
               const pannel = faq.querySelector('.pannel p');
               pannel.innerHTML = pannel.textContent.replace(regex, '<span class="highlight">$1</span>');
             }
           
             function removeHighlights(faq) {
               const accordion = faq.querySelector('.accordion');
-              accordion.innerHTML = accordion.textContent; // Reset to original text
+              accordion.innerHTML = accordion.textContent;
           
               const pannel = faq.querySelector('.pannel p');
-              pannel.innerHTML = pannel.textContent; // Reset to original text
+              pannel.innerHTML = pannel.textContent;
             }
+          
+            // Accordion toggle functionality
+            document.querySelectorAll('.accordion').forEach(accordion => {
+              accordion.addEventListener('click', function () {
+                this.classList.toggle("active");
+                const pannel = this.nextElementSibling;
+          
+                if (pannel.style.display === "block") {
+                  pannel.style.display = "none";
+                } else {
+                  pannel.style.display = "block";
+                }
+              });
+            });
           </script>
     </section>
 
@@ -835,25 +851,6 @@
                 navbar.querySelectorAll("a").forEach(a => a.style.color = "white"); // Revert link color
             }
         };
-    </script>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                this.parentElement.classList.toggle("active");
-
-                var pannel = this.nextElementSibling;
-
-                if (pannel.style.display === "block") {
-                    pannel.style.display = "none";
-                } else {
-                    pannel.style.display = "block";
-                }
-            });
-        }
     </script>
     <script>
         window.embeddedChatbotConfig = {
