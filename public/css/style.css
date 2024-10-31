@@ -1579,10 +1579,9 @@ ul {
 .footer-col h4::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -10px;
-  height: 3px;
-  width: 60px;
+  bottom: -5px;
+  height: 1px;
+  width: 80px;
   background: #e91e63;
   border-radius: 10px;
 }

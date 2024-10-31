@@ -767,75 +767,106 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col">
-                    <h4>company</h4>
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="#about_show">about us</a></li>
-                        <li><a href="/contributor.html">our contributors</a></li>
-                        <li><a href="#services">our services</a></li>
-                        <li><a href="/privacy_policy.html">privacy policy</a></li>
-                        <li><a href="/affiliate_program.html">affiliate program</a></li>
+                        <li><a href="#about_show">About Us</a></li>
+                        <li><a href="/contributor.html">Our Contributors</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="/privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="/affiliate_program.html">Affiliate Program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>get help</h4>
+                    <h4>Get Help</h4>
                     <ul>
                         <li><a href="#faq_sec">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>online shop</h4>
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
+                        <li><a href="#journals">Journals</a></li>
+                        <li><a href="#research_guides">Research Guides</a></li>
+                        <li><a href="#citation_tools">Citation Tools</a></li>
+                        <li><a href="#databases">Academic Databases</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 id="custom-follow-heading">Follow Us</h4>
-
-                    <div class="custom-social-links1">
-                        <div class="custom-social-links">
-                            <a href="https://facebook.com" id="custom-facebook-icon"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com" id="custom-twitter-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <div class="custom-social-links"><a href="https://instagram.com" id="custom-instagram-icon"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://linkedin.com" id="custom-linkedin-icon"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
-                <script>// Facebook click event
-                    document.getElementById("custom-facebook-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
-                    });
-
-                    // Twitter click event
-                    document.getElementById("custom-twitter-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#1DA1F2"; // Twitter blue after click
-                    });
-
-                    // Instagram click event
-                    document.getElementById("custom-instagram-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#E1306C"; // Instagram brand color after click
-                    });
-
-                    // LinkedIn click event
-                    document.getElementById("custom-linkedin-icon").addEventListener("click", function () {
-                        this.querySelector("i").style.color = "#0A66C2"; // LinkedIn blue after click
-                    });
-
-                </script>
+            </div>
+            <div class="footer-rights">
+                <p>© 2024 Research Paper Hub. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+    
+    <style>
+        .footer {
+            background-color: #333;
+            padding: 40px 0;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #f4f4f4;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #d1d1d1;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover {
+            color: #f4f4f4;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-icon {
+            color: #d1d1d1;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .social-icon:hover {
+            color: #f4f4f4;
+        }
+        .footer-rights {
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #d1d1d1;
+        }
+        .facebook:hover { color: #1877F2; }
+        .twitter:hover { color: #1DA1F2; }
+        .instagram:hover { color: #E1306C; }
+        .linkedin:hover { color: #0A66C2; }
+    </style>
+    
     <button id="scrollToTop" title="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
