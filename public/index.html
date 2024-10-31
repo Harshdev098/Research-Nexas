@@ -43,7 +43,7 @@
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-      </div>
+    </div>
 
     <script>
         // Store the mouse coordinates
@@ -106,10 +106,13 @@
                     <div class="HamBurger" onclick="toggleMenu()">&#9776;</div>
                     <ul id="navbar">
                         <li title="Login"><a href="/choose-file.html"><i class='bx bxs-user-circle'></i> Login</a></li>
-                        <li title="Register"><a href="/choose-signup-file.html"><i class='bx bx-log-in-circle'></i> Register</a></li>
-                        <li title="Contact Us"><a href="/contact-us.html"><i class='bx bxs-contact'></i> Contact Us</a></li>
+                        <li title="Register"><a href="/choose-signup-file.html"><i class='bx bx-log-in-circle'></i>
+                                Register</a></li>
+                        <li title="Contact Us"><a href="/contact-us.html"><i class='bx bxs-contact'></i> Contact Us</a>
+                        </li>
                         <li title="About"><a href="#about_show"><i class='bx bx-vertical-bottom'></i> About</a></li>
-                        <li title="Services"><a href="#services"><i class='bx bx-bar-chart-square'></i> Services</a></li>
+                        <li title="Services"><a href="#services"><i class='bx bx-bar-chart-square'></i> Services</a>
+                        </li>
                         <li title="Main Page"><a href="#"><i class='bx bx-home'></i>Home</a></li>
                     </ul>
                 </nav>
@@ -127,7 +130,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script>
             function toggleMenu() {
                 const navbar = document.querySelector('#navbar');
@@ -211,7 +214,7 @@
             </div>
             <div class="buttons">
                 <button id="prev">
-                    <</button>
+                    << /button>
                         <button id="next">></button>
             </div>
             <ul class="dots">
@@ -369,7 +372,7 @@
     <main>
         <!-- join us section  -->
         <section class="join">
-            <h2>Why Join Us</h2>
+            <h2>Why Join Us?</h2>
             <div class="join_box">
                 <div class="join_boxes animated-box1 join_animation1">
                     <img src="https://img.freepik.com/free-vector/flat-design-join-us-message_23-2148954904.jpg" alt="">
@@ -398,6 +401,96 @@
                         you. Together, let’s innovate and build a better tomorrow.</p>
                 </div>
             </div>
+            <style>
+               /* General Styles */
+body {
+    font-family: 'Nunito Sans', sans-serif; 
+    /* Clean and modern font */
+    background-color: #f8f9fb; /* Light gray background */
+    color: #333; /* Dark gray for main text */
+}
+
+.join {
+    text-align: center;
+    /* padding: 2em 1em; */
+}
+
+.join h2 {
+    font-size: 2.8em;
+    color: #83a3d1; /* Dark blue shade for headings */
+    font-weight: 700;
+}
+
+.join_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styles */
+.join_boxes {
+    background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%); /* Soft blue gradient */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 1em;
+    width: 100%;
+    max-width: 800px; /* Restrict card width for three inline display */
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Hover Effect */
+.join_boxes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.join_boxes img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+/* Content Styles */
+.join_boxes p {
+    font-size: 0.65em; /* Slightly smaller text */
+    line-height: 1.5;
+    text-align: left;
+    margin-top: 0.5em;
+}
+
+/* Button Style */
+.join_boxes .action-button {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.6em 1.2em;
+    background-color: #1d3557; /* Dark blue button */
+    border-radius: 6px;
+    color: #f1faee;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.join_boxes .action-button:hover {
+    background-color: #14213d; /* Darker shade on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .join_box {
+        flex-direction: column; /* Stacks cards on smaller screens */
+        gap: 1em;
+    }
+}
+
+            </style>
         </section>
         <!-- premium section  -->
         <section class="premium">
@@ -628,127 +721,130 @@
         </div>
         <section id="faq_sec">
             <div class="wrapper">
-              <h2 class="section-title">Frequently Asked Questions</h2>
-          
-              <!-- Search Bar -->
-              <div class="search-container">
-                <input type="text" id="faqSearch" placeholder="Search FAQs..." oninput="filterFAQs()">
-              </div>
-          
-              <div class="faq">
-                <button class="accordion">
-                  What is Research-Nexas?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="pannel">
-                  <p>
-                    Research-Nexas is a cutting-edge web application designed to create a seamless connection
-                    between students, researchers, and stakeholders within a collaborative research ecosystem.
-                  </p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" id="faqSearch" placeholder="Search FAQs..." oninput="filterFAQs()">
                 </div>
-              </div>
-          
-              <div class="faq">
-                <button class="accordion">
-                  How does it work?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="pannel">
-                  <p>
-                    The platform empowers students to log in, upload their research papers, view their uploads,
-                    and track their evaluations. Stakeholders act as research supervisors who can approve student
-                    submissions and assign papers to the appropriate faculty members for evaluation. Faculty members,
-                    in turn, can review the assigned papers, provide ratings, and evaluate results based on predefined criteria.
-                  </p>
+
+                <div class="faq">
+                    <button class="accordion">
+                        What is Research-Nexas?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Research-Nexas is a cutting-edge web application designed to create a seamless connection
+                            between students, researchers, and stakeholders within a collaborative research ecosystem.
+                        </p>
+                    </div>
                 </div>
-              </div>
-          
-              <div class="faq">
-                <button class="accordion">
-                  Want to know more about the project?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="pannel">
-                  <p>
-                    Click on this link: <a href="https://github.com/Harshdev098/Research-Nexas" rel="noopener"
-                      alt="Github" target="_blank">Research-Nexas</a>
-                  </p>
+
+                <div class="faq">
+                    <button class="accordion">
+                        How does it work?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            The platform empowers students to log in, upload their research papers, view their uploads,
+                            and track their evaluations. Stakeholders act as research supervisors who can approve
+                            student
+                            submissions and assign papers to the appropriate faculty members for evaluation. Faculty
+                            members,
+                            in turn, can review the assigned papers, provide ratings, and evaluate results based on
+                            predefined criteria.
+                        </p>
+                    </div>
                 </div>
-              </div>
-          
-              <div class="faq">
-                <button class="accordion">
-                  Want to contribute to the project?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="pannel">
-                  <p>
-                    Read our guidelines for contribution: <a
-                      href="https://github.com/Harshdev098/Research-Nexas/blob/main/Contributing.md"
-                      rel="noopener" alt="Github" target="_blank">Contributing Guidelines</a>.
-                  </p>
+
+                <div class="faq">
+                    <button class="accordion">
+                        Want to know more about the project?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Click on this link: <a href="https://github.com/Harshdev098/Research-Nexas" rel="noopener"
+                                alt="Github" target="_blank">Research-Nexas</a>
+                        </p>
+                    </div>
                 </div>
-              </div>
+
+                <div class="faq">
+                    <button class="accordion">
+                        Want to contribute to the project?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pannel">
+                        <p>
+                            Read our guidelines for contribution: <a
+                                href="https://github.com/Harshdev098/Research-Nexas/blob/main/Contributing.md"
+                                rel="noopener" alt="Github" target="_blank">Contributing Guidelines</a>.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </section>
-          
-          <script>
+        </section>
+
+        <script>
             function filterFAQs() {
-              const searchInput = document.getElementById('faqSearch').value.toLowerCase();
-              const faqs = document.querySelectorAll('.faq');
-              
-              faqs.forEach(faq => {
-                const accordionText = faq.querySelector('.accordion').innerText.toLowerCase();
-                const pannelText = faq.querySelector('.pannel p').innerText.toLowerCase();
-                const contentMatch = accordionText.includes(searchInput) || pannelText.includes(searchInput);
-                
-                faq.style.display = contentMatch ? 'block' : 'none';
-          
-                if (contentMatch && searchInput) {
-        
-                  const pannel = faq.querySelector('.pannel');
-                  pannel.style.display = 'block';
-                  highlightKeywords(faq, searchInput);
-                } else {
-                  const pannel = faq.querySelector('.pannel');
-                  pannel.style.display = 'none'; // Hide pannel if there's no match
-                  removeHighlights(faq);
-                }
-              });
+                const searchInput = document.getElementById('faqSearch').value.toLowerCase();
+                const faqs = document.querySelectorAll('.faq');
+
+                faqs.forEach(faq => {
+                    const accordionText = faq.querySelector('.accordion').innerText.toLowerCase();
+                    const pannelText = faq.querySelector('.pannel p').innerText.toLowerCase();
+                    const contentMatch = accordionText.includes(searchInput) || pannelText.includes(searchInput);
+
+                    faq.style.display = contentMatch ? 'block' : 'none';
+
+                    if (contentMatch && searchInput) {
+
+                        const pannel = faq.querySelector('.pannel');
+                        pannel.style.display = 'block';
+                        highlightKeywords(faq, searchInput);
+                    } else {
+                        const pannel = faq.querySelector('.pannel');
+                        pannel.style.display = 'none'; // Hide pannel if there's no match
+                        removeHighlights(faq);
+                    }
+                });
             }
-          
+
             function highlightKeywords(faq, keyword) {
-              const regex = new RegExp(`(${keyword})`, 'gi');
-          
-              const accordion = faq.querySelector('.accordion');
-              accordion.innerHTML = accordion.textContent.replace(regex, '<span class="highlight">$1</span>');
-          
-              const pannel = faq.querySelector('.pannel p');
-              pannel.innerHTML = pannel.textContent.replace(regex, '<span class="highlight">$1</span>');
+                const regex = new RegExp(`(${keyword})`, 'gi');
+
+                const accordion = faq.querySelector('.accordion');
+                accordion.innerHTML = accordion.textContent.replace(regex, '<span class="highlight">$1</span>');
+
+                const pannel = faq.querySelector('.pannel p');
+                pannel.innerHTML = pannel.textContent.replace(regex, '<span class="highlight">$1</span>');
             }
-          
+
             function removeHighlights(faq) {
-              const accordion = faq.querySelector('.accordion');
-              accordion.innerHTML = accordion.textContent;
-          
-              const pannel = faq.querySelector('.pannel p');
-              pannel.innerHTML = pannel.textContent;
+                const accordion = faq.querySelector('.accordion');
+                accordion.innerHTML = accordion.textContent;
+
+                const pannel = faq.querySelector('.pannel p');
+                pannel.innerHTML = pannel.textContent;
             }
-          
+
             // Accordion toggle functionality
             document.querySelectorAll('.accordion').forEach(accordion => {
-              accordion.addEventListener('click', function () {
-                this.classList.toggle("active");
-                const pannel = this.nextElementSibling;
-          
-                if (pannel.style.display === "block") {
-                  pannel.style.display = "none";
-                } else {
-                  pannel.style.display = "block";
-                }
-              });
+                accordion.addEventListener('click', function () {
+                    this.classList.toggle("active");
+                    const pannel = this.nextElementSibling;
+
+                    if (pannel.style.display === "block") {
+                        pannel.style.display = "none";
+                    } else {
+                        pannel.style.display = "block";
+                    }
+                });
             });
-          </script>
+        </script>
     </section>
 
 
@@ -798,10 +894,13 @@
                 <div class="footer-col">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://facebook.com" class="social-icon facebook"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com" class="social-icon instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" class="social-icon linkedin"><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -810,7 +909,7 @@
             </div>
         </div>
     </footer>
-    
+
     <style>
         .footer {
             background-color: #333;
@@ -819,41 +918,50 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
         .footer-col h4 {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 15px;
             color: #f4f4f4;
         }
+
         .footer-col ul {
             list-style: none;
             padding: 0;
         }
+
         .footer-col ul li {
             margin-bottom: 10px;
         }
+
         .footer-col ul li a {
             color: #d1d1d1;
             text-decoration: none;
             font-size: 15px;
             transition: color 0.3s;
         }
+
         .footer-col ul li a:hover {
             color: #f4f4f4;
         }
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
         }
+
         .social-icon {
             color: #d1d1d1;
             font-size: 20px;
             transition: color 0.3s;
         }
+
         .social-icon:hover {
             color: #f4f4f4;
         }
+
         .footer-rights {
             border-top: 1px solid #444;
             padding-top: 15px;
@@ -861,12 +969,24 @@
             font-size: 14px;
             color: #d1d1d1;
         }
-        .facebook:hover { color: #1877F2; }
-        .twitter:hover { color: #1DA1F2; }
-        .instagram:hover { color: #E1306C; }
-        .linkedin:hover { color: #0A66C2; }
+
+        .facebook:hover {
+            color: #1877F2;
+        }
+
+        .twitter:hover {
+            color: #1DA1F2;
+        }
+
+        .instagram:hover {
+            color: #E1306C;
+        }
+
+        .linkedin:hover {
+            color: #0A66C2;
+        }
     </style>
-    
+
     <button id="scrollToTop" title="Back to top" style="bottom: 75px;">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
@@ -895,85 +1015,91 @@
     </script>
     <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
     </script>
-    
-     <script>
+
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const coords = { x: 0, y: 0 };
-          const circles = document.querySelectorAll(".circle");
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
-          circles.forEach(function (circle) {
-            circle.x = 0;
-            circle.y = 0;
-          });
-
-          window.addEventListener("mousemove", function (e) {
-            coords.x = e.pageX;
-            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-          });
-
-          function animateCircles() {
-            let x = coords.x;
-            let y = coords.y;
-
-            circles.forEach(function (circle, index) {
-              circle.style.left = `${x - 12}px`;
-              circle.style.top = `${y - 12}px`;
-              circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-              const nextCircle = circles[index + 1] || circles[0];
-              circle.x = x;
-              circle.y = y;
-
-              x += (nextCircle.x - x) * 0.3;
-              y += (nextCircle.y - y) * 0.3;
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
             });
 
-            requestAnimationFrame(animateCircles);
-          }
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.pageX;
+                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+            });
 
-          animateCircles();
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    circle.style.left = `${x - 12}px`;
+                    circle.style.top = `${y - 12}px`;
+                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                    const nextCircle = circles[index + 1] || circles[0];
+                    circle.x = x;
+                    circle.y = y;
+
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                requestAnimationFrame(animateCircles);
+            }
+
+            animateCircles();
         });
 
-      </script>
+    </script>
 
 
-<div id="popup-nl" class="popup-nl">
-    <div class="popup-content-nl">
-        <div class="popup-left-nl">
-            <img src="images/popup.jpg" alt="finance">
-        </div>
+    <div id="popup-nl" class="popup-nl">
+        <div class="popup-content-nl">
+            <div class="popup-left-nl">
+                <img src="images/popup.jpg" alt="finance">
+            </div>
 
-        <div class="popup-right-nl">
-            <a href="# " class="close1-btn-nl close-nl">X</a>
-            <h1>Subscribe to Newsletter</h1>
-            <h2 class="h2-nl">Join Our Community of Researchers!</h2>
-            <p class="pop_up-nl">Subscribe to receive a curated selection of the regular updates, latest papers, articles, and insights directly to your inbox</p>
-            <form id="emailForm-nl">
-                <input type="email" id="email-nl" placeholder="Enter your email" required>
-                <button type="submit" class="signup-btn1-nl">Subscribe</button>
-            </form>
-            <a href="#" class="no-thanks-nl close-nl">No thanks</a>
-            <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
+            <div class="popup-right-nl">
+                <a href="# " class="close1-btn-nl close-nl">X</a>
+                <h1>Subscribe to Newsletter</h1>
+                <h2 class="h2-nl">Join Our Community of Researchers!</h2>
+                <p class="pop_up-nl">Subscribe to receive a curated selection of the regular updates, latest papers,
+                    articles, and insights directly to your inbox</p>
+                <form id="emailForm-nl">
+                    <input type="email" id="email-nl" placeholder="Enter your email" required>
+                    <button type="submit" class="signup-btn1-nl">Subscribe</button>
+                </form>
+                <a href="#" class="no-thanks-nl close-nl">No thanks</a>
+                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a
+                        href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
+                </p>
+            </div>
         </div>
     </div>
-  </div>
-  <script src="script/popup.js"></script>
+    <script src="script/popup.js"></script>
 
-  <div class="popup" id="pollPopup">
-    <div class="popup-content">
-        <h2>What feature of Research-Nexas do you find most valuable?</h2>
-        <div id="pollOptions">
-            <button class="poll-button" data-value="Easy Paper Upload and Tracking">Easy Paper Upload and Tracking</button>
-            <button class="poll-button" data-value="Supervisor Approval Process">Supervisor Approval Process</button>
-            <button class="poll-button" data-value="Faculty Evaluation and Feedback">Faculty Evaluation and Feedback</button>
+    <div class="popup" id="pollPopup">
+        <div class="popup-content">
+            <h2>What feature of Research-Nexas do you find most valuable?</h2>
+            <div id="pollOptions">
+                <button class="poll-button" data-value="Easy Paper Upload and Tracking">Easy Paper Upload and
+                    Tracking</button>
+                <button class="poll-button" data-value="Supervisor Approval Process">Supervisor Approval
+                    Process</button>
+                <button class="poll-button" data-value="Faculty Evaluation and Feedback">Faculty Evaluation and
+                    Feedback</button>
+            </div>
+            <button id="voteButton" class="vote-button" style="margin-top: 10px;">Vote</button>
+            <p id="result"></p>
         </div>
-        <button id="voteButton" class="vote-button" style="margin-top: 10px;">Vote</button>
-        <p id="result"></p>
     </div>
-</div>
 
-  <script src="script/popup.js"></script>
-  
+    <script src="script/popup.js"></script>
+
 </body>
 
 </html>
