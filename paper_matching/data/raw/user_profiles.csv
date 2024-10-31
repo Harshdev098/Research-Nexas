@@ -1,0 +1,6 @@
+user_id,name,email,interests,skills,academic_background,research_experience
+1,"Alex Thompson","alex.t@email.com","AI, Machine Learning, Healthcare","Python, TensorFlow, Data Analysis","PhD in Computer Science","5 years in AI research"
+2,"Maria Garcia","m.garcia@email.com","Climate Science, Environmental Studies","R, GIS, Statistical Analysis","MSc in Environmental Science","3 years in climate research"
+3,"James Wilson","j.wilson@email.com","Quantum Physics, Computing","Quantum Algorithms, Mathematics, C++","PhD in Physics","7 years in quantum computing"
+4,"Sophie Chen","s.chen@email.com","Finance, Machine Learning","Python, Financial Modeling, Deep Learning","MBA, MSc in Data Science","4 years in fintech"
+5,"Ryan Peters","r.peters@email.com","Renewable Energy, Sustainability","Engineering Design, Solar Systems","MEng in Energy Systems","6 years in energy sector"
