@@ -378,130 +378,30 @@
                     <img src="https://img.freepik.com/free-vector/flat-design-join-us-message_23-2148954904.jpg" alt="">
                     <p>"At Research Nexas", we believe in the power of collaboration to drive innovation. We're
                         looking for bold thinkers and creators to join us in transforming ideas into real-world
-                        solutions. When you join us, you become part of a dynamic community that fosters creativity,
-                        growth, and
+                        solutions.
+                        When you join us, you become part of a dynamic community that fosters creativity, growth, and
                         impact. Together, we’ll push boundaries, explore new possibilities, and shape the future. Ready
                         to make a difference? Let's innovate together.</p>
                 </div>
-                <div class="join_boxes">
+                <div class="join_boxes" style="z-index: 1;">
                     <img src="https://t3.ftcdn.net/jpg/04/87/16/34/360_F_487163480_u4q13pQTIIbcVbolPiHKZFFlkfVrnVP3.jpg"
                         alt="">
-                    <p>We bring together innovators, creators, and visionaries to turn bold ideas into real-world
-                        solutions. By joining us, you’ll be part of a collaborative environment where your ideas can
+                    <p> we bring together innovators, creators, and visionaries to turn bold ideas into real-world
+                        solutions.By joining us, you’ll be part of a collaborative environment where your ideas can
                         flourish and make a tangible impact. We offer the resources, network, and support to help you
                         push boundaries and achieve your full potential. Together, we’ll drive innovation and shape the
                         future of progress.</p>
                 </div>
                 <div class="join_boxes animated-box2 join_animation2">
                     <img src="https://img.freepik.com/free-vector/flat-design-join-us-message_23-2148954904.jpg" alt="">
-                    <p>Join and become part of a dynamic community that believes in the power of collaboration to foster
-                        innovation. Here, your creativity and ideas are valued, and you’ll work alongside talented
-                        professionals to transform concepts into impactful solutions. If you're ready to explore new
-                        possibilities, grow your skills, and make a difference, this is the place for you. Together,
-                        let’s innovate and build a better tomorrow.</p>
+                    <p>Join and become part of a dynamic community that believes in the power of
+                        collaboration to foster innovation. Here, your creativity and ideas are valued, and you’ll work
+                        alongside talented professionals to transform concepts into impactful solutions. If you're ready
+                        to explore new possibilities, grow your skills, and make a difference, this is the place for
+                        you. Together, let’s innovate and build a better tomorrow.</p>
                 </div>
             </div>
         </section>
-        <style>
-            /* General Styles */
-            body {
-                font-family: 'Nunito Sans', sans-serif;
-                /* Clean and modern font */
-                background-color: #f8f9fb;
-                /* Light gray background */
-                color: #333;
-                /* Dark gray for main text */
-            }
-
-            .join {
-                text-align: center;
-                /* padding: 2em 1em; */
-            }
-
-            .join h2 {
-                font-size: 2.8em;
-                color: #83a3d1;
-                /* Dark blue shade for headings */
-                font-weight: 700;
-            }
-
-            .join_box {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: flex-start;
-                gap: 1em;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            /* Card Styles */
-            .join_boxes {
-                background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
-                /* Soft blue gradient */
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                /* Subtle shadow */
-                padding: 1em;
-                width: 100%;
-                max-width: 800px;
-                /* Restrict card width for three inline display */
-                color: #fff;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            /* Card Hover Effect */
-            .join_boxes:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            }
-
-            .join_boxes img {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-                margin-bottom: 1em;
-            }
-
-            /* Content Styles */
-            .join_boxes p {
-                font-size: 0.65em;
-                /* Slightly smaller text */
-                line-height: 1.5;
-                text-align: left;
-                margin-top: 0.5em;
-            }
-
-            /* Button Style */
-            .join_boxes .action-button {
-                display: inline-block;
-                margin-top: 1em;
-                padding: 0.6em 1.2em;
-                background-color: #1d3557;
-                /* Dark blue button */
-                border-radius: 6px;
-                color: #f1faee;
-                font-size: 0.85em;
-                font-weight: 600;
-                text-decoration: none;
-                transition: background-color 0.3s ease;
-            }
-
-            .join_boxes .action-button:hover {
-                background-color: #14213d;
-                /* Darker shade on hover */
-            }
-
-            /* Responsive Adjustments */
-            @media (max-width: 768px) {
-                .join_box {
-                    flex-direction: column;
-                    /* Stacks cards on smaller screens */
-                    gap: 1em;
-                }
-            }
-        </style>
-        </style>
         <!-- premium section  -->
         <section class="premium">
             <h2>Premiums</h2>
@@ -942,9 +842,153 @@
             </div>
         </div>
     </footer>
-    <button id="scrollToTop" title="Back to top">
-        <i class="fa-solid fa-arrow-up"></i>
+    <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top" style="bottom: 72px;">
+        <div class="scroll-top-icon">
+            <i class="fa-solid fa-arrow-up"></i>
+        </div>
+        <svg class="progress-ring" width="60" height="60">
+            <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+                cy="30"></circle>
+        </svg>
     </button>
+    <style>
+        .scroll-top {
+            position: fixed;
+            right: 1.6%;
+            background: linear-gradient(100deg, #ff393d, #ff3c76, #fffb05);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            overflow: visible;
+            z-index: 10;
+            /* Ensure button is on top */
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+            /* Subtle scaling instead of expanding */
+            box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+            /* Slightly larger shadow */
+        }
+
+        .scroll-top:active {
+            transform: scale(1.05);
+            /* Minor scale reduction on click */
+        }
+
+        .scroll-top-icon {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-top:hover .scroll-top-icon {
+            transform: translateY(-3px);
+        }
+
+        /* Progress Ring Styling */
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+            /* To start from the top */
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform-origin: 50% 50%;
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            }
+        }
+
+        .scroll-top:hover {
+            animation: pulse 1.5s infinite;
+        }
+
+        .scroll-top.show {
+            animation: none;
+            /* No animation when showing the button */
+        }
+
+        .scroll-top.show:hover {
+            animation: pulse 1.5s infinite;
+            /* Pulse on hover */
+        }
+    </style>
+    <script>
+        // Get the button
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const progressCircle = document.querySelector(".progress-ring__circle");
+        const radius = progressCircle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
+        // Set the circle progress properties
+        progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressCircle.style.strokeDashoffset = circumference;
+
+        // Function to show or hide the button based on scroll position
+        function toggleScrollButton() {
+            if (window.scrollY > 100) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        }
+
+        // Function to set the scroll progress on the button ring
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+
+        // Listen for scroll events to update button visibility and progress
+        window.addEventListener("scroll", () => {
+            toggleScrollButton();
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            setProgress(scrollPercent);
+        });
+
+        // Smooth scroll to top when the button is clicked
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+    </script>
 
     <script src="script/script.js"></script>
     <script src="script/slider.js"></script>
