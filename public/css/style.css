@@ -1875,6 +1875,11 @@ ul {
 
 }
 
+@media (max-width: 768px) {
+  .circle-container {
+      display: none;
+  }
+}
 
 /* Newsletter pop-up */
 
