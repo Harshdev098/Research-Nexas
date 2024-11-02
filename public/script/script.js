@@ -325,4 +325,23 @@ document.addEventListener('DOMContentLoaded', function() {
       event.preventDefault();
       document.getElementById('popup-nl').style.display = 'none';
   });
+feedback
 });
+
+ 
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Show the thank-you popup
+  document.getElementById('thank-you-popup').style.display = 'flex';
+
+  // Optionally, reset the form
+  document.getElementById('feedback-form').reset();
+}
+
+function closePopup() {
+  document.getElementById('thank-you-popup').style.display = 'none';
+}
+
+
+ main
