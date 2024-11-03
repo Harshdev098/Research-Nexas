@@ -5,169 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-
-<body>
-    <section>
-        <div class="container">
-            <div class="darkmode" onclick="hide()">
-                <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
-                <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
-                <b>
-                    <p id="mode" style="display: inline;font-size: 20px;">Light Mode</p>
-                </b>
-            </div>
-            <div class="profile">
-                <img src="" alt="profile">
-            </div>
-            <ul>
-                <li onclick="view_profile()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Profile</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
-                <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li onclick="handleLogout()" style="font-size:20px;" ><i class="fa-solid fa-code" style="padding: 0px 14px;font-size:19px;"></i>Log Out</li>
-                <li>
-                    <div class="gtranslate_wrapper"></div>
-                    <script>
-                        window.gtranslateSettings = {
-                            default_language: "en",
-                            detect_browser_language: true,
-                            wrapper_selector: ".gtranslate_wrapper",
-                            font_size: 100,
-                        };
-                    </script>
-                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
-                </li>
-            </ul>
-        </div>
-        <div class="largesection">
-            <div class="main">
-                <div>
-                    <img src="" alt="profile">
-                    <strong>
-                        <p id="username">sdisoilfds</p>
-                    </strong>
-                </div>
-                <div>
-                    <button onclick="openEditModal()" style="cursor: pointer;"><i class="fa-regular fa-pen-to-square"
-                            style="padding: 0px 12px 0px 8px;"></i>Edit Profile</button>
-                </div>
-            </div>
-            <div id="editProfileModal" style="display:none;">
-                <h3 style="margin-left:3vw;font-size: 22px;">Edit Profile</h3>
-                <form id="editForm">
-                    <div id="detail">
-                        <ul>
-                            <li>
-                                <div>Name: </div><input type="text" id="editName" required>
-                            </li>
-                            <li>
-                                <div>Email: </div><input type="email" id="editEmail" required>
-                            </li>
-                            <li>
-                                <div>College Name: </div> <input type="text" id="editCollege" required>
-                            </li>
-                            <li>
-                                <div>State: </div> <input type="text" id="editState" required>
-                            </li>
-                            <li>
-                                <div>Year: </div> <input type="number" id="editYear" required>
-                            </li>
-                            <li>
-                                <div> Course: </div> <span><input type="text" id="editCourse" required></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dualBtns">
-                        <button type="submit" style="  background-color: #04AA6D; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" id="editForm">Save</button>
-                        <button type="button" style="  background-color: #F95454;
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" onclick="closeEditModal()">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <div id="profileContainer">
-                <div id="detail">
-                    <ul>
-                        <li>Name: <p id="name"></p>
-                        </li>
-                        <li>Email: <p id="email"></p>
-                        </li>
-                        <li>College Name: <p id="col_name"></p>
-                        </li>
-                        <li>State: <p id="state"></p>
-                        </li>
-                        <li>Year: <p id="year"></p>
-                        </li>
-                        <li>Course: <p id="course"></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="result">
-                <strong>Result Status: <p id="status"></p>
-                    <p id="marks"></p>
-                </strong>
-                <div class="data">
-                    <p>the rating given to your Research paper by the faculties are:-</p>
-                </div>
-            </div>
-        </div>
-        <div id="box1">
-            <p>Logout Successfully...</p>
-        </div>
-    </section>
     <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .dark-theme {
+            background-color: #343a40;
+            color: white;
+        }
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .sidebar {
+            background: #fff;
+            border-right: 1px solid #dee2e6;
+            height: 100vh;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            padding: 15px;
+            cursor: pointer;
+        }
+        .sidebar li:hover {
+            background-color: #e9ecef;
+        }
+        .modal-header, .modal-footer {
+            border: none;
+        }
         .dualBtns {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
         }
     </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <div class="sidebar p-3">
+            <div class="darkmode mb-4" onclick="hide()">
+                <i class="fa-solid fa-sun" style="font-size: 30px; display: none;" id="solid"></i>
+                <i class="fa-regular fa-sun" style="font-size: 30px; display: inline;" id="regular"></i>
+                <b><p id="mode" style="display: inline; font-size: 20px;">Light Mode</p></b>
+            </div>
+            <div class="text-center mb-4">
+                <img src="./images/profile.jpg" alt="profile" class="profile-img img-fluid" style="max-width: 100px; height: auto;">
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" onclick="view_profile()"><i class="fa-solid fa-user" style="padding-right: 10px;"></i>Profile</li>
+                <li class="list-group-item">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none text-black">
+                        <i class="fa-solid fa-home" style="padding-right: 10px; color: black;"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="list-group-item"><i class="fa-solid fa-info-circle" style="padding-right: 10px;"></i>About Us</li>
+                <li class="list-group-item" onclick="view_result()"><i class="fa-solid fa-file-alt" style="padding-right: 10px;"></i>View Result</li>
+                <li class="list-group-item" onclick="handleLogout()" style="font-size:16px;"><i class="fa-solid fa-sign-out-alt" style="padding-right: 10px;"></i>Log Out</li>
+            </ul>
+        </div>
+
+        <div class="container my-5">
+            <div class="main text-center mb-4">
+                <strong>
+                    <!-- <p id="username" class="h4">User Name</p> -->
+                </strong>
+                <button class="btn btn-primary" onclick="openEditModal()"><i class="fa-regular fa-pen-to-square"></i> Edit Profile</button>
+            </div>
+
+            <div id="editProfileModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editForm">
+                                <div class="mb-3">
+                                    <label for="editName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="editName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCollege" class="form-label">College Name</label>
+                                    <input type="text" class="form-control" id="editCollege" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editState" class="form-label">State</label>
+                                    <input type="text" class="form-control" id="editState" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editYear" class="form-label">Year</label>
+                                    <input type="number" class="form-control" id="editYear" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCourse" class="form-label">Course</label>
+                                    <input type="text" class="form-control" id="editCourse" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                            <button type="submit" class="btn btn-success" form="editForm">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="profileContainer">
+                <div id="detail">
+                    <ul class="list-group">
+                        <li class="list-group-item">Name: <p id="name" class="d-inline"></p></li>
+                        <li class="list-group-item">Email: <p id="email" class="d-inline"></p></li>
+                        <li class="list-group-item">College Name: <p id="col_name" class="d-inline"></p></li>
+                        <li class="list-group-item">State: <p id="state" class="d-inline"></p></li>
+                        <li class="list-group-item">Year: <p id="year" class="d-inline"></p></li>
+                        <li class="list-group-item">Course: <p id="course" class="d-inline"></p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="result" class="mt-4">
+                <strong>Result Status: <p id="status" class="d-inline"></p></strong>
+                <p id="marks" class="mt-2"></p>
+                <div class="data">
+                    <p>The rating given to your research paper by the faculties is:</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="box1" class="alert alert-info mt-4" style="display:none;">
+        <p>Logout Successfully...</p>
+    </div>
+
     <script>
         const token = localStorage.getItem('accessToken');
         if (!token) {
             window.location.href = '/';
         }
+
         function openEditModal() {
-            document.getElementById('profileContainer').style.display = 'none';
-            document.getElementById('editProfileModal').style.display = 'block';
             document.getElementById('editName').value = document.getElementById('name').textContent;
             document.getElementById('editEmail').value = document.getElementById('email').textContent;
             document.getElementById('editCollege').value = document.getElementById('col_name').textContent;
             document.getElementById('editState').value = document.getElementById('state').textContent;
             document.getElementById('editYear').value = document.getElementById('year').textContent;
             document.getElementById('editCourse').value = document.getElementById('course').textContent;
+            new bootstrap.Modal(document.getElementById('editProfileModal')).show();
         }
 
         function closeEditModal() {
-            document.getElementById('editProfileModal').style.display = 'none';
-            document.getElementById('profileContainer').style.display = 'block';
+            new bootstrap.Modal(document.getElementById('editProfileModal')).hide();
         }
 
         document.getElementById('editForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-
             const updatedData = {
                 name: document.getElementById('editName').value,
                 email: document.getElementById('editEmail').value,
@@ -191,37 +196,25 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    // Update the DOM with new values
                     document.getElementById('name').textContent = data.name;
                     document.getElementById('email').textContent = data.email;
                     document.getElementById('col_name').textContent = data.col_name;
                     document.getElementById('state').textContent = data.state;
                     document.getElementById('year').textContent = data.year;
                     document.getElementById('course').textContent = data.course;
-                    alert("Profile Updated Successfully")
-
+                    alert("Profile Updated Successfully");
                     closeEditModal();
-                    fetchdata();
                 } else {
-                    alert("Failed to update profile")
-                    closeEditModal();
+                    alert("Failed to update profile");
                     console.error('Failed to update profile:', response.statusText);
                 }
             } catch (error) {
                 console.error('Error updating profile:', error);
             }
         });
+
         async function fetchdata() {
             const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const username = document.getElementById('username');
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const col_name = document.getElementById('col_name');
-            const state = document.getElementById('state');
-            const year = document.getElementById('year');
-            const course = document.getElementById('course');
             const response = await fetch('/dashboard', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -229,95 +222,69 @@
             });
             if (response.status == 200) {
                 const data = await response.json();
-                username.textContent = data.username;
-                name.textContent = data.name;
-                email.textContent = data.email;
-                col_name.textContent = data.col_name;
-                state.textContent = data.state;
-                year.textContent = data.year;
-                course.textContent = data.course;
+                //document.getElementById('username').textContent = data.username;
+                document.getElementById('name').textContent = data.name;
+                document.getElementById('email').textContent = data.email;
+                document.getElementById('col_name').textContent = data.col_name;
+                document.getElementById('state').textContent = data.state;
+                document.getElementById('year').textContent = data.year;
+                document.getElementById('course').textContent = data.course;
             }
         }
-        fetchdata()
-        const handleLogout =  () => {
+        fetchdata();
+
+        const handleLogout = () => {
             const result1 = document.getElementById('box1');
             result1.style.display = 'block';
             localStorage.removeItem("accessToken");
-            console.log("logout");
             setTimeout(() => {
-                        window.location.href = 'index.html';
-            }, 2000)
+                window.location.href = 'index.html';
+            }, 2000);
         };
-        
+
         function hide() {
             document.body.classList.toggle("dark-theme");
-            const regularicon = document.getElementById('regular')
-            const solidicon = document.getElementById('solid')
-            const mode = document.getElementById('mode')
-            if (regularicon.style.display == 'inline') {
+            const regularicon = document.getElementById('regular');
+            const solidicon = document.getElementById('solid');
+            const mode = document.getElementById('mode');
+            if (regularicon.style.display === 'inline') {
                 solidicon.style.display = 'inline';
                 regularicon.style.display = 'none';
-                mode.textContent = "Dark Mode"
-            }
-            else {
+                mode.textContent = "Dark Mode";
+            } else {
                 solidicon.style.display = 'none';
                 regularicon.style.display = 'inline';
-                mode.textContent = "Light Mode"
+                mode.textContent = "Light Mode";
             }
         }
-
 
         const view_profile = () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'block'
-            result.style.display = 'none'
+            document.getElementById('detail').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
         }
-
 
         const view_result = async () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'none'
-            result.style.display = 'block'
+            document.getElementById('detail').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
             const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
             const response = await fetch('/result', {
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 }
-            })
+            });
             if (response.status == 201) {
-                const data = await response.json()
-                const status = document.getElementById('status')
-                const marks = document.getElementById('marks')
-                status.textContent = data.status
-                marks.textContent = data.percent
-            }
-            else if (response.status == 404) {
-                console.log('Result not declared')
-                const result = document.getElementById('result')
-                result.innerHTML = "Result not declared yet!"
-                result.style.color = "red"
-                result.style.padding = "16px"
-                result.style.fontSize = "18px"
-            }
-            else {
-                console.log("an error occured")
+                const data = await response.json();
+                document.getElementById('status').textContent = data.status;
+                document.getElementById('marks').textContent = data.percent;
+            } else if (response.status == 404) {
+                document.getElementById('result').innerHTML = "Result not declared yet!";
+                document.getElementById('result').style.color = "red";
+            } else {
+                console.log("An error occurred");
             }
         }
     </script>
-
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "iSwsMwg5TfWCzADbpz05-",
-            domain: "www.chatbase.co"
-        }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
