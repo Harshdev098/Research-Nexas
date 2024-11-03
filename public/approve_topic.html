@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Research Topic Approval</title>
+    <link rel="stylesheet" href="css/approve_topic.css">
+</head>
+
+<body>
+    <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            default_language: "en",
+            detect_browser_language: true,
+            wrapper_selector: ".gtranslate_wrapper",
+            font_size: 100,
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
+    <h2 class="section-title">New Topics</h2>
+    <div id="newTopics" class="topic-section">
+        <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <h2 class="section-title">Approved Topics</h2>
+    <div id="approvedTopics" class="topic-section">
+        <!-- Approved topic cards will appear here -->
+    </div>
+
+    <!-- Modal for viewing topic details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h3>Topic Details</h3>
+            <p><strong>Student Name:</strong> <span id="studentName"></span></p>
+            <p><strong>Topic:</strong> <span id="topicTitle"></span></p>
+            <p><strong>Description:</strong> <span id="topicDescription"></span></p>
+            <button id="approveBtn" class="action-btn">Approve</button>
+            <button id="cancelBtn" class="action-btn cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script/approve_topic.js"></script>
+</body>
+
+</html>

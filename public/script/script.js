@@ -267,14 +267,47 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.close-nl').addEventListener('click', function() {
       document.getElementById('popup-nl').style.display = 'none';
   });
+  
+    const trustedDomains = [
+      'gmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'protonmail.com',
+      'icloud.com',
+      'tutanota.com',
+      'hotmail.com',
+      'live.com',
+      'mail.com',
+      'zoho.com',
+      'gmx.com',
+      'aol.com',
+      'fastmail.com',
+      'yandex.com',
+      '*.edu',          // Educational institutions
+      '*.ac.uk'         // UK universities
+  ];
+
+  function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+      const domain = email.split('@')[1];
+
+      return (
+          emailPattern.test(email) && 
+          trustedDomains.some((trusted) => 
+              trusted.includes('*') ? domain.endsWith(trusted.slice(1)) : domain === trusted
+          )
+      );
+  }
 
   // Handle form submission
-  document.getElementById('emailForm-nl').addEventListener('submit', async function(event) {
+document.getElementById('emailForm-nl').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const email = document.getElementById('email-nl').value;
-    console.log("Email ID",email);
-    if (email) {
+    console.log("Email ID:", email);
+
+    // Validate the email before proceeding
+    if (validateEmail(email)) {
         try {
             const response = await fetch('/api/newsLetter/save', {
                 method: 'POST',
@@ -296,6 +329,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             alert('An error occurred. Please try again.');
         }
+    } else {
+        alert('Please enter a valid email address from a trusted domain.');
     }
 });
 
@@ -306,4 +341,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+ 
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent the default form submission
 
+  // Show the thank-you popup
+  document.getElementById('thank-you-popup').style.display = 'flex';
+
+  // Optionally, reset the form
+  document.getElementById('feedback-form').reset();
+}
+
+function closePopup() {
+  document.getElementById('thank-you-popup').style.display = 'none';
+}

@@ -128,6 +128,173 @@ nav ul li:first-child:hover {
   );
   border-image-slice: 1;
 }
+.scroll-top {
+  position: fixed;
+  right: 1.6%;
+  background: linear-gradient(100deg, #4453b8, #328aa5, #0b97d3);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+  overflow: visible;
+  z-index: 10;
+  /* Ensure button is on top */
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+  /* Subtle scaling instead of expanding */
+  box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+  /* Slightly larger shadow */
+}
+
+.scroll-top:active {
+  transform: scale(1.05);
+  /* Minor scale reduction on click */
+}
+
+.scroll-top-icon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.scroll-top:hover .scroll-top-icon {
+  transform: translateY(-3px);
+}
+
+/* Progress Ring Styling */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  /* To start from the top */
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform-origin: 50% 50%;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+  }
+
+  50% {
+      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
+  }
+
+  100% {
+      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+  }
+}
+
+.scroll-top:hover {
+  animation: pulse 1.5s infinite;
+}
+
+.scroll-top.show {
+  animation: none;
+  /* No animation when showing the button */
+}
+
+.scroll-top.show:hover {
+  animation: pulse 1.5s infinite;
+  /* Pulse on hover */
+}
+
+.HamBurger {
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  display: none;
+  margin-right: 20px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .HamBurger {
+      display: block;
+      left: 10px;
+  }
+
+  .navbar {
+      display: block;
+      padding: 10px;
+  }
+
+  #navbar {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #4285f4;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding: 0;
+      z-index: 1000;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #navbar.active {
+      display: flex;
+      flex-direction: column-reverse;
+      animation: slideIn 0.3s ease;
+  }
+
+  #navbar li {
+      text-align: center;
+      margin: 10px 0;
+      list-style: none;
+  }
+
+  #navbar li a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s;
+  }
+
+  #navbar li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+  }
+
+  #navbar li a i {
+      margin-right: 5px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
 
 /* header styling */
 header {
@@ -1335,7 +1502,6 @@ h3 {
   background-color: white;
   max-width: 100vw;
   margin: auto;
-  height: 55vh;
   padding: 15px;
   box-shadow: 2px 2px 12px #eae6df;
   margin-bottom: 30px;
@@ -1361,7 +1527,7 @@ h3 {
   padding: 10px;
   color: rgb(4, 33, 95);
   text-shadow: white;
-  font-size: 30px;
+  font-size: 22px;
   gap: 0.6;
   /* text-align: start; */
   border-radius: 15px 15px 0 0;
@@ -1412,6 +1578,51 @@ h3 {
   transition: background-color 0.3s ease;
 }
 
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#faqSearch {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* FAQ styles */
+.faq {
+  margin-bottom: 10px;
+}
+
+.accordion {
+  background-color: #f7f7f7;
+  cursor: pointer;
+  padding: 15px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+  white-space: normal; /* Ensure content stays together */
+}
+
+.pannel {
+  padding: 0 15px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Highlighted text */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent breaking text when highlighted */
+}
+
+
 /* footer styling */
 
 /* Container styling */
@@ -1444,6 +1655,7 @@ ul {
   width: 22%;
   padding: 0 15px;
   margin-bottom: 40px;
+  margin-right: -50px;
 }
 
 /* Footer headers */
@@ -1462,10 +1674,9 @@ ul {
 .footer-col h4::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -10px;
-  height: 3px;
-  width: 60px;
+  bottom: -5px;
+  height: 1px;
+  width: 80px;
   background: #e91e63;
   border-radius: 10px;
 }
@@ -2027,3 +2238,285 @@ input[type="email"] {
   font-size: 10px;
 }
 
+body {
+
+  font-family: Arial, sans-serif;
+
+}
+
+/* Popup Styles */
+.popup {
+
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  justify-content: center; /* Center the popup */
+  align-items: center; /* Center the popup */
+  z-index: 1000; /* Sit on top */
+
+}
+
+.popup-content {
+
+  background: linear-gradient(#9fc6ff, rgb(30 88 174)), url(your-image-url.jpg);
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  max-height: 500px;
+  min-height: 320px;
+  text-align: center;
+
+}
+
+/* Set poll options to stack vertically */
+#pollOptions {
+
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center the buttons */
+
+}
+
+.poll-button {
+
+  display: block; /* Change to block for full-width */
+  margin: 5px 0; /* Add vertical margin */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(58 30 86 / 40%);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* Full width */
+
+}
+
+.poll-button:hover {
+
+  background-color:#0046ae; /* Darker green */
+
+}
+
+.poll-button.selected {
+
+  background-color: #0046ae; /* Blue for selected */
+
+}
+
+/* New Vote Button Styles */
+.vote-button {
+
+  display: block; /* Change to block for full-width */
+  margin: 5px 0; /* Add vertical margin */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336; /* Red */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* Full width */
+
+}
+
+.vote-button:hover {
+
+  background-color: #d32f2f; /* Darker red */
+
+}
+
+/* Result Text Styles */
+#result {
+
+  margin-top: 10px; /* Add space above result text */
+  word-wrap: break-word; /* Allow long text to wrap within the box */
+  overflow: hidden; /* Prevent overflow */
+  max-height: 50px; /* Limit height to prevent overflow */
+  color: rgb(255, 255, 255); /* Set text color to white */
+
+}
+
+
+
+.footer-section {
+
+  padding: 20px;
+  max-width: 300px;
+  margin-top: -22px;
+
+}
+
+.contact-form h2 {
+
+  margin-bottom: 15px;
+  font-size: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+
+}
+
+.contact-form h2:hover {
+
+  color: #ed8309;
+
+}
+
+.contact-form h2::before {
+
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 3px;
+  width: 60px;
+  background: #e91e63;
+  border-radius: 10px;
+
+}
+
+.text-input {
+
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.contact-btn {
+
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px; /* Padding for the button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 180px;
+  margin-top: -33px; /* Consider adjusting this */
+  display: flex; /* Flex display */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+
+}
+
+/* Add styles for the <i> tag inside the button */
+.contact-btn i {
+
+  padding: 0 3px; /* Horizontal padding for the icon */
+  
+}
+
+.contact-btn:hover {
+
+  background-color: #0056b3;
+
+}
+
+
+.star-rating {
+
+  display: flex;
+  justify-content: left; 
+  flex-direction: row-reverse;
+  width: 160px;
+
+}
+
+.star-rating input {
+
+  display: none; 
+
+}
+
+.star-rating label {
+
+  font-size: 26px; 
+  color: #ffffff; 
+  cursor: pointer; 
+  transition: color 0.2s;
+  margin: 0 5px; /* Add margin for gaps between stars */
+
+}
+
+.star-rating input:checked ~ label {
+
+  color: #fa2b4d; 
+
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+
+  color: #fa2b4d; 
+
+}
+
+.popupp {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+.popupp-content {
+
+  background: linear-gradient(135deg, #0e1722, #ebf3ff, #0e1722);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; /* For positioning close button */
+
+}
+
+.popupp-content h2 {
+  color: #333; /* Change this to your desired color for the title */
+}
+
+.popupp-content p {
+  color: #000000;
+    font-size: 15px;
+}
+
+
+.close {
+
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+
+}
+
+.ok-button {
+
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff; /* Change to desired color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.ok-button:hover {
+
+  background-color: #0056b3; /* Darker shade for hover */
+
+}

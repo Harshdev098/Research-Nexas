@@ -43,7 +43,7 @@
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-      </div>
+    </div>
 
     <script>
         // Store the mouse coordinates
@@ -103,33 +103,40 @@
             <div class="logo"></div>
             <div class="main">
                 <nav>
+                    <div class="HamBurger" onclick="toggleMenu()">&#9776;</div>
                     <ul id="navbar">
-                        <li title="Login"><a href="/choose-file.html"><i class='bx bxs-user-circle'></i>Login</a></li>
-                        <li title="Register" style="border-bottom: 2px solid white;border-radius: 9px;"><a
-                                href="/choose-signup-file.html"><i class='bx bx-log-in-circle'></i>Register</a></li>
-                        <li title="Contact Us"><a href="/contact-us.html"><i class='bx bxs-contact'></i>Contact Us</a>
+                        <li title="Login"><a href="/choose-file.html"><i class='bx bxs-user-circle'></i> Login</a></li>
+                        <li title="Register"><a href="/choose-signup-file.html"><i class='bx bx-log-in-circle'></i>
+                                Register</a></li>
+                        <li title="Contact Us"><a href="/contact-us.html"><i class='bx bxs-contact'></i> Contact Us</a>
                         </li>
-                        <li title="Our Services"><a href="#services"><i class='bx bx-bar-chart-square'></i>Services</a>
+                        <li title="About"><a href="#about_show"><i class='bx bx-vertical-bottom'></i> About</a></li>
+                        <li title="Services"><a href="#services"><i class='bx bx-bar-chart-square'></i> Services</a>
                         </li>
-                        <li title="About Us"><a href="#about_show"><i class='bx bx-vertical-bottom'></i>About</a></li>
                         <li title="Main Page"><a href="#"><i class='bx bx-home'></i>Home</a></li>
-
-                        <li id="language">
-                            <div class="gtranslate_wrapper"></div>
-                            <script>
-                                window.gtranslateSettings = {
-                                    default_language: "en",
-                                    detect_browser_language: true,
-                                    wrapper_selector: ".gtranslate_wrapper",
-                                    font_size: 100,
-                                };
-                            </script>
-                            <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
-                        </li>
                     </ul>
                 </nav>
+                <div id="language" style="color:white">
+                    <div class="gtranslate_wrapper"></div>
+                    <script>
+                        window.gtranslateSettings = {
+                            default_language: "en",
+                            detect_browser_language: true,
+                            wrapper_selector: ".gtranslate_wrapper",
+                            font_size: 100,
+                        };
+                    </script>
+                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+                </div>
             </div>
         </div>
+
+        <script>
+            function toggleMenu() {
+                const navbar = document.querySelector('#navbar');
+                navbar.classList.toggle('active');
+            }
+        </script>
         <ul class="circles">
             <li></li>
             <li></li>
@@ -207,7 +214,7 @@
             </div>
             <div class="buttons">
                 <button id="prev">
-                    <</button>
+                    </button>
                         <button id="next">></button>
             </div>
             <ul class="dots">
@@ -422,6 +429,55 @@
                 </div>
             </div>
         </section>
+        <style>
+            /* General styling */
+
+            section.premium {
+                padding: 50px 20px;
+                background: linear-gradient(135deg, #ffe6f7, #e1e6ff);
+                border-radius: 10px;
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+                text-align: center;
+            }
+
+            .premium h2 {
+                text-decoration: dashed;
+                font-size: 4rem;
+                color: #5a4279;
+            }
+
+            .premium_head_box {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .premium-boxes {
+                height: 400px;
+                padding: 20px;
+                background: linear-gradient(135deg, #d4e0ff, #ffdbf5);
+                border-radius: 10px;
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+                color: #444;
+                font-size: 0.5rem;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            /* Hover effects for cards */
+            .premium-boxes:hover {
+                transform: translateY(-10px);
+                box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Responsive styling */
+            @media (min-width: 768px) {
+                .premium_head_box {
+                    flex-direction: row;
+                    gap: 30px;
+                }
+            }
+        </style>
+
     </main>
 
 
@@ -626,6 +682,11 @@
             <div class="wrapper">
                 <h2 class="section-title">Frequently Asked Questions</h2>
 
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" id="faqSearch" placeholder="Search FAQs..." oninput="filterFAQs()">
+                </div>
+
                 <div class="faq">
                     <button class="accordion">
                         What is Research-Nexas?
@@ -647,14 +708,12 @@
                     <div class="pannel">
                         <p>
                             The platform empowers students to log in, upload their research papers, view their uploads,
-                            and
-                            track their evaluations.
-                            Stakeholders act as research supervisors who can approve student submissions and assign
-                            papers
-                            to the appropriate faculty members for evaluation.
-                            Faculty members, in turn, can review the assigned papers, provide ratings, and evaluate
-                            results
-                            based on predefined criteria.
+                            and track their evaluations. Stakeholders act as research supervisors who can approve
+                            student
+                            submissions and assign papers to the appropriate faculty members for evaluation. Faculty
+                            members,
+                            in turn, can review the assigned papers, provide ratings, and evaluate results based on
+                            predefined criteria.
                         </p>
                     </div>
                 </div>
@@ -687,6 +746,64 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            function filterFAQs() {
+                const searchInput = document.getElementById('faqSearch').value.toLowerCase();
+                const faqs = document.querySelectorAll('.faq');
+
+                faqs.forEach(faq => {
+                    const accordionText = faq.querySelector('.accordion').innerText.toLowerCase();
+                    const pannelText = faq.querySelector('.pannel p').innerText.toLowerCase();
+                    const contentMatch = accordionText.includes(searchInput) || pannelText.includes(searchInput);
+
+                    faq.style.display = contentMatch ? 'block' : 'none';
+
+                    if (contentMatch && searchInput) {
+
+                        const pannel = faq.querySelector('.pannel');
+                        pannel.style.display = 'block';
+                        highlightKeywords(faq, searchInput);
+                    } else {
+                        const pannel = faq.querySelector('.pannel');
+                        pannel.style.display = 'none'; // Hide pannel if there's no match
+                        removeHighlights(faq);
+                    }
+                });
+            }
+
+            function highlightKeywords(faq, keyword) {
+                const regex = new RegExp(`(${keyword})`, 'gi');
+
+                const accordion = faq.querySelector('.accordion');
+                accordion.innerHTML = accordion.textContent.replace(regex, '<span class="highlight">$1</span>');
+
+                const pannel = faq.querySelector('.pannel p');
+                pannel.innerHTML = pannel.textContent.replace(regex, '<span class="highlight">$1</span>');
+            }
+
+            function removeHighlights(faq) {
+                const accordion = faq.querySelector('.accordion');
+                accordion.innerHTML = accordion.textContent;
+
+                const pannel = faq.querySelector('.pannel p');
+                pannel.innerHTML = pannel.textContent;
+            }
+
+            // Accordion toggle functionality
+            document.querySelectorAll('.accordion').forEach(accordion => {
+                accordion.addEventListener('click', function () {
+                    this.classList.toggle("active");
+                    const pannel = this.nextElementSibling;
+
+                    if (pannel.style.display === "block") {
+                        pannel.style.display = "none";
+                    } else {
+                        pannel.style.display = "block";
+                    }
+                });
+            });
+        </script>
     </section>
 
 
@@ -750,6 +867,51 @@
                     </div>
                 </div>
 
+
+                <div class="footer-section contact-form">
+                    <h2>Feedback Form</h2>
+                    <form id="feedback-form" action="#" method="post" onsubmit="handleSubmit(event)">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="text-input contact-input"
+                            placeholder="Your email address..." required>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" class="text-input contact-input"
+                            placeholder="Your message..." required></textarea>
+
+
+                        <!-- Star Rating Section -->
+                        <div class="star-rating" aria-label="Rating" role="radiogroup">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" title="5 stars">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star">★</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-big contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Popup -->
+                <div id="thank-you-popup" class="popupp" style="display:none;">
+                    <div class="popupp-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <h2>🎉 Thank You! 👏</h2> <!-- Added emoji here -->
+                        <p>Your feedback has been submitted successfully.</p>
+                        <button class="ok-button" onclick="closePopup()">OK</button>
+                    </div>
+                </div>
+
+
                 <script>// Facebook click event
                     document.getElementById("custom-facebook-icon").addEventListener("click", function () {
                         this.querySelector("i").style.color = "#1877F2"; // Facebook blue after click
@@ -774,9 +936,57 @@
             </div>
         </div>
     </footer>
-    <button id="scrollToTop" title="Back to top">
-        <i class="fa-solid fa-arrow-up"></i>
+    <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top" style="bottom: 72px;">
+        <div class="scroll-top-icon">
+            <i class="fa-solid fa-arrow-up"></i>
+        </div>
+        <svg class="progress-ring" width="60" height="60">
+            <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+                cy="30"></circle>
+        </svg>
     </button>
+    <script>
+        // Get the button
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const progressCircle = document.querySelector(".progress-ring__circle");
+        const radius = progressCircle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
+        // Set the circle progress properties
+        progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressCircle.style.strokeDashoffset = circumference;
+
+        // Function to show or hide the button based on scroll position
+        function toggleScrollButton() {
+            if (window.scrollY > 100) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        }
+
+        // Function to set the scroll progress on the button ring
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+
+        // Listen for scroll events to update button visibility and progress
+        window.addEventListener("scroll", () => {
+            toggleScrollButton();
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            setProgress(scrollPercent);
+        });
+
+        // Smooth scroll to top when the button is clicked
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+    </script>
 
     <script src="script/script.js"></script>
     <script src="script/slider.js"></script>
@@ -795,25 +1005,6 @@
         };
     </script>
     <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                this.parentElement.classList.toggle("active");
-
-                var pannel = this.nextElementSibling;
-
-                if (pannel.style.display === "block") {
-                    pannel.style.display = "none";
-                } else {
-                    pannel.style.display = "block";
-                }
-            });
-        }
-    </script>
-    <script>
         window.embeddedChatbotConfig = {
             chatbotId: "iSwsMwg5TfWCzADbpz05-",
             domain: "www.chatbase.co"
@@ -821,70 +1012,91 @@
     </script>
     <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
     </script>
-    
-     <script>
+
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const coords = { x: 0, y: 0 };
-          const circles = document.querySelectorAll(".circle");
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
-          circles.forEach(function (circle) {
-            circle.x = 0;
-            circle.y = 0;
-          });
-
-          window.addEventListener("mousemove", function (e) {
-            coords.x = e.pageX;
-            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-          });
-
-          function animateCircles() {
-            let x = coords.x;
-            let y = coords.y;
-
-            circles.forEach(function (circle, index) {
-              circle.style.left = `${x - 12}px`;
-              circle.style.top = `${y - 12}px`;
-              circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-              const nextCircle = circles[index + 1] || circles[0];
-              circle.x = x;
-              circle.y = y;
-
-              x += (nextCircle.x - x) * 0.3;
-              y += (nextCircle.y - y) * 0.3;
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
             });
 
-            requestAnimationFrame(animateCircles);
-          }
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.pageX;
+                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+            });
 
-          animateCircles();
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    circle.style.left = `${x - 12}px`;
+                    circle.style.top = `${y - 12}px`;
+                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                    const nextCircle = circles[index + 1] || circles[0];
+                    circle.x = x;
+                    circle.y = y;
+
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                requestAnimationFrame(animateCircles);
+            }
+
+            animateCircles();
         });
 
-      </script>
+    </script>
 
 
-<div id="popup-nl" class="popup-nl">
-    <div class="popup-content-nl">
-        <div class="popup-left-nl">
-            <img src="images/popup.jpg" alt="finance">
-        </div>
+    <div id="popup-nl" class="popup-nl">
+        <div class="popup-content-nl">
+            <div class="popup-left-nl">
+                <img src="images/popup.jpg" alt="finance">
+            </div>
 
-        <div class="popup-right-nl">
-            <a href="# " class="close1-btn-nl close-nl">X</a>
-            <h1>Subscribe to Newsletter</h1>
-            <h2 class="h2-nl">Join Our Community of Researchers!</h2>
-            <p class="pop_up-nl">Subscribe to receive a curated selection of the regular updates, latest papers, articles, and insights directly to your inbox</p>
-            <form id="emailForm-nl">
-                <input type="email" id="email-nl" placeholder="Enter your email" required>
-                <button type="submit" class="signup-btn1-nl">Subscribe</button>
-            </form>
-            <a href="#" class="no-thanks-nl close-nl">No thanks</a>
-            <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
+            <div class="popup-right-nl">
+                <a href="# " class="close1-btn-nl close-nl">X</a>
+                <h1>Subscribe to Newsletter</h1>
+                <h2 class="h2-nl">Join Our Community of Researchers!</h2>
+                <p class="pop_up-nl">Subscribe to receive a curated selection of the regular updates, latest papers,
+                    articles, and insights directly to your inbox</p>
+                <form id="emailForm-nl">
+                    <input type="email" id="email-nl" placeholder="Enter your email" required>
+                    <button type="submit" class="signup-btn1-nl">Subscribe</button>
+                </form>
+                <a href="#" class="no-thanks-nl close-nl">No thanks</a>
+                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a
+                        href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
+                </p>
+            </div>
         </div>
     </div>
-  </div>
-  <script src="script/popup.js"></script>
-  
+    <script src="script/popup.js"></script>
+
+    <div class="popup" id="pollPopup">
+        <div class="popup-content">
+            <h2>What feature of Research-Nexas do you find most valuable?</h2>
+            <div id="pollOptions">
+                <button class="poll-button" data-value="Easy Paper Upload and Tracking">Easy Paper Upload and
+                    Tracking</button>
+                <button class="poll-button" data-value="Supervisor Approval Process">Supervisor Approval
+                    Process</button>
+                <button class="poll-button" data-value="Faculty Evaluation and Feedback">Faculty Evaluation and
+                    Feedback</button>
+            </div>
+            <button id="voteButton" class="vote-button" style="margin-top: 10px;">Vote</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script/popup.js"></script>
+
 </body>
 
 </html>
