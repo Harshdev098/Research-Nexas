@@ -7,26 +7,26 @@ require("dotenv").config()
 const  db  = require('../config/mysql_connection')
 
 
-// connecting database to the server 
+// connecting database to the server
 db.getConnection((err, connection) => {
     if (err) throw err;
     console.log("Database Connected Successfully")
 })
 
 const validatePassword = (password) => {
-    const RegexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/;
+    const RegexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#(){}[\]:;<>,.?~`+=-])[A-Za-z\d@$!%*?&^#(){}[\]:;<>,.?~`+=-]{7,}$/;
     return RegexPassword.test(password)
 }
 
 const signupRateLimiter = rateLimit({
     windowMs : 60*60*1000, // 1 hr
-    max : 10,  // max 10 attempts 
+    max : 10,  // max 10 attempts
     message : "Too many signup attempts , please try again after an hour."
 })
 
 const signinRateLimiter = rateLimit({
     windowMs : 60*60*1000,
-    max : 15, // max 15 attempts 
+    max : 15, // max 15 attempts
     message : "Too many login attempts, please try again after an hour."
 })
 
@@ -47,7 +47,7 @@ const signup=async (req, res) => {
         if (err) throw (err)
             const sqlSearch = "SELECT * FROM user_table WHERE email=? OR username=?";
         const search_query = mysql.format(sqlSearch, [email,username])
-        
+
         const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?)"
         const insert_query = mysql.format(sqlinsert, [username, email, hashpassword])
         await connection.query(search_query, async (err, result) => {
@@ -83,7 +83,7 @@ const signup=async (req, res) => {
     })
 }
 
-// login backend 
+// login backend
 const signin=(req, res) => {
     const email = req.body.email.trim()
     const password = req.body.password.trim();
@@ -118,7 +118,7 @@ const signin=(req, res) => {
 }
 
 // exporting signup,signin funtion
-module.exports={ 
-    signup : [signupRateLimiter,signup], 
+module.exports={
+    signup : [signupRateLimiter,signup],
     signin : [signinRateLimiter,signin]
 }
