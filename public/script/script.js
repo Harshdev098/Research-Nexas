@@ -298,12 +298,79 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+    const trustedDomains = [
+      'gmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'protonmail.com',
+      'icloud.com',
+      'tutanota.com',
+      'hotmail.com',
+      'live.com',
+      'mail.com',
+      'zoho.com',
+      'gmx.com',
+      'aol.com',
+      'fastmail.com',
+      'yandex.com',
+      '*.edu',          // Educational institutions
+      '*.ac.uk'         // UK universities
+  ];
+
+  function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+      const domain = email.split('@')[1];
+
+      return (
+          emailPattern.test(email) && 
+          trustedDomains.some((trusted) => 
+              trusted.includes('*') ? domain.endsWith(trusted.slice(1)) : domain === trusted
+          )
+      );
+  }
+
+  document.getElementById('emailForm-nl').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email-nl').value.trim();
+
+      // Trusted email validation
+      if (!validateEmail(email)) {
+          alert('Please enter a valid email address from a trusted provider.');
+          return;
+      }
+
+      if (email) {
+          alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
+          document.getElementById('popup-nl').style.display = 'none'; // Hide the popup
+
+          // Set the subscribed flag in localStorage
+          localStorage.setItem('subscribed', 'true');
+      }
+  });
 
   // Handle "No thanks" link
   document.querySelector('.no-thanks-nl').addEventListener('click', function(event) {
       event.preventDefault();
       document.getElementById('popup-nl').style.display = 'none';
   });
+feedback
 });
 
+ 
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent the default form submission
 
+  // Show the thank-you popup
+  document.getElementById('thank-you-popup').style.display = 'flex';
+
+  // Optionally, reset the form
+  document.getElementById('feedback-form').reset();
+}
+
+function closePopup() {
+  document.getElementById('thank-you-popup').style.display = 'none';
+}
+
+
+ main
