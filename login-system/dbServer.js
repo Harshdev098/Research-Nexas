@@ -8,6 +8,7 @@ const { info, check } = require("../file_upload/form_db");
 const { signup, signin } = require("./login");
 const rateLimiter = require("express-rate-limit");
 const { approve, uploadedpapers, displaydetail } = require("../stakeholder/stk_approval");
+const { saveNewsLetterData } = require("../backend/newsLetter");
 const { display,updateProfile } = require("../backend/profile");
 const { stk_display } = require("../backend/stk_profile");
 const { logout } = require("./logout");
@@ -63,6 +64,7 @@ app.set("view engine", "ejs");
 app.get("/stk_papers", async (req, res) => {
   res.render("stk_papers");
 });
+app.post("/api/newsLetter/save", saveNewsLetterData);
 app.get("/api/stk_papers", uploadedpapers); //displaying uploaded papers to the stakeholder during approval
 app.get("/api/papers_detail", displaydetail); //displaying uploaded papers details to the stakeholder during approval
 app.get("/allotment", DisplayPapers); //displaying papers
