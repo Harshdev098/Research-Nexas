@@ -203,6 +203,13 @@ Follow these steps to run the Research Nexas
      token varchar(130) not null unique
      );
      ```
+    ```
+    CREATE TABLE news_letter_tbl (
+    sno INT(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email_id VARCHAR(100) NOT NULL,
+    time_stamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
+    )
+    ```
 - Now open code editor(eg. VS Code)
 - Now run the following commands in your terminal
   ```
