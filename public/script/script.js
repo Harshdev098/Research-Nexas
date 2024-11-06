@@ -334,10 +334,15 @@ document.getElementById('emailForm-nl').addEventListener('submit', async functio
     }
 });
 
+  if (localStorage.getItem("noThanksClicked") === "true") {
+    document.getElementById('popup-nl').style.visibility = 'hidden';
+  }
+
   // Handle "No thanks" link
   document.querySelector('.no-thanks-nl').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('popup-nl').style.display = 'none';
+    event.preventDefault();
+    document.getElementById('popup-nl').style.display = 'none';
+    localStorage.setItem("noThanksClicked", "true");
   });
 });
 
