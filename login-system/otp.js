@@ -39,32 +39,9 @@ const sendOtp = (req, res)=>{
                     if(err) throw (err)
                 })
 
-                const transporter = nodemailer.createTransport({
-                    service: "gmail",
-                    auth: {
-                      user: process.env.EMAIL,
-                      pass: process.env.MYPASS,
-                    },
-                });
-              
-                const mailOptions = {
-                    from: process.env.EMAIL_USER,
-                    to: email,
-                    subject: "Email Verification",
-                    text: `This is otp to verify your email: ${verifyCode}`,
-                };
-              
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                      console.error("Error sending email:", error);
-                      return res.status(500).json({
-                        success: false,
-                        message: `Error sending verification email: ${error.message}`,
-                      });
-                    }
-
-                    return res.sendStatus(200).send({message: "otp sent successfully"})
-                });
+                notify(req, res, email, "Email Verification", `This is otp to verify your email: ${verifyCode}`);
+                
+                return res.send({message: "otp sent successfully"})
             }
             connection.release()
         })
