@@ -251,7 +251,7 @@
                         distinctio natus accusamus quibusdam cum perspiciatis in aspernatur!</li>
                 </ul>
             </div>
-            <h2 style="color: black;">Top Research Papers in Insti</h2>
+            <h2 style="color: black;">Top Research Papers in Institute</h2>
             <div class="insti_papers">
                 <ul class="insti_papers_ul">
                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut totam accusamus beatae blanditiis
@@ -323,9 +323,57 @@
             </div>
         </footer>
 
-        <button id="scrollToTop" title="Back to top">
-            <i class="fa-solid fa-arrow-up"></i>
+        <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top" style="bottom: 72px;">
+            <div class="scroll-top-icon">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+            <svg class="progress-ring" width="60" height="60">
+                <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+                    cy="30"></circle>
+            </svg>
         </button>
+        <script>
+            // Get the button
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            const progressCircle = document.querySelector(".progress-ring__circle");
+            const radius = progressCircle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+    
+            // Set the circle progress properties
+            progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+            progressCircle.style.strokeDashoffset = circumference;
+    
+            // Function to show or hide the button based on scroll position
+            function toggleScrollButton() {
+                if (window.scrollY > 100) {
+                    scrollToTopBtn.classList.add("show");
+                } else {
+                    scrollToTopBtn.classList.remove("show");
+                }
+            }
+    
+            // Function to set the scroll progress on the button ring
+            function setProgress(percent) {
+                const offset = circumference - (percent / 100) * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+            }
+    
+            // Listen for scroll events to update button visibility and progress
+            window.addEventListener("scroll", () => {
+                toggleScrollButton();
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                setProgress(scrollPercent);
+            });
+    
+            // Smooth scroll to top when the button is clicked
+            scrollToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+    
+        </script>
 
         <script>
             window.embeddedChatbotConfig = {
