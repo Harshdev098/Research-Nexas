@@ -1064,6 +1064,10 @@ main {
     top: 6%;
     right: 1%;
   }
+  .HamBurger {
+    display: block;
+    left: 10px;
+}
 }
 
 /* boxes styling */
@@ -1754,6 +1758,9 @@ ul {
     display: flex;
     justify-content: center;
     flex-direction: row !important;
+  }
+  .box {
+    width: auto;
   }
 }
 
