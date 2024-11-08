@@ -102,7 +102,8 @@ Follow these steps to run the Research Nexas
      userid INT auto_increment unique primary key,
      username varchar(60) not null,
      email varchar(80) not null unique,
-     password varchar(140) not null unique
+     password varchar(140) not null unique,
+     otp varchar(15)
      );
      ```
      ```

@@ -5,7 +5,7 @@ const  db  = require('../config/mysql_connection')
 
 const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
-const { signup, signin } = require("./login");
+const { signup, signin, reset } = require("./login");
 const rateLimiter = require("express-rate-limit");
 const { approve, uploadedpapers, displaydetail } = require("../stakeholder/stk_approval");
 const { saveNewsLetterData } = require("../backend/newsLetter");
@@ -15,6 +15,7 @@ const { logout } = require("./logout");
 const { setcriteria, evaluate } = require("../stakeholder/evaluation");
 const { allot, DisplayPapers } = require("../stakeholder/allotment");
 const { Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating } = require("../stakeholder/faculty");
+const { sendOtp } = require("./otp");
 const app = express();
 
 const globalLimit = rateLimiter({
@@ -128,6 +129,8 @@ app.post("/fac_signup", fac_signup); // registration of faculty
 app.post("/login", signin);
 app.post("/stk_holder_signin", stk_signin);
 app.post("/fac_login", fac_login); //login for faculty
+app.post("/sendotp", sendOtp)
+app.post("/resetpassword", reset);
 
 // approval by stakeholder
 app.get("/approval", approve);
