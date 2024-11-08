@@ -32,11 +32,7 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 </table>
 <hr/>
 <br/>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Research-Nexas%20-%20Application%20Architecture.png" alt="Research-Nexas Application Architecture" width="500"/>
-</p>
 
-<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ### This project is now OFFICIALLY accepted for
 
@@ -59,11 +55,6 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 ## 📚 Table of Contents
 
 - [Technical Stack](#teachnicalStack)
-- [Working](#working)
-  - [Student](#student)
-  - [Stakeholder](#stakeholder)
-  - [Faculty](#faculty)
-  - [Result](#result)
 - [Prerequisite](#prerequisite)
 - [Running the Application](#running-the-application)
 - [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
@@ -87,28 +78,6 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 | **📦 Package Manager** | npm                                                 |
 | **💻 Environment**  | Development with VS Code                                |
 
-
-
-## Working
-<a name="student"></a>
-- Student
-
-  https://github.com/Harshdev098/Research-Nexas/assets/118347330/a26c3b7c-684a-4830-8f11-daf4dac5e8a2
-
-<a name="stakeholder"></a>
-- Stakeholder
-
-  https://github.com/Harshdev098/Research-Nexas/assets/118347330/c6aa876b-095a-4c07-8eea-f402a63bb7bd
-
-<a name="faculty"></a>
-- Faculty
-
-  https://github.com/Harshdev098/Research-Nexas/assets/118347330/4106eb28-7931-4adb-9732-a6285ef944c8
-  
-<a name="result"></a>
-- Result
-
-  https://github.com/Harshdev098/Research-Nexas/assets/118347330/5b581f5c-5887-4f06-be86-f5fb5cfb68af
 
 
 ## Prerequisite
