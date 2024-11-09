@@ -1178,6 +1178,19 @@ h3 {
   .join_boxes {
     width: 30vw;
   }
+  .stakeholder-grid {
+    display: block !important;
+  }
+  .paper-info {
+    width: 96vw !important;
+    margin-bottom:2vw;
+  }
+  .HamBurger {
+    display: block;
+  }
+  .footer-col {
+    width: auto !important;
+  }
 }
 @media (max-width: 800px) {
   .join_boxes {
