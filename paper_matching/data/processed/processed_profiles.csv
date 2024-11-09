@@ -1,0 +1,4 @@
+user_id,name,email,interests,skills,academic_background,research_experience,processed_interests,processed_skills,embeddings
+1,"Alex Thompson",...,"ai machine learning healthcare","python tensorflow data analysis",...,[0.111, 0.222, ...]
+2,"Maria Garcia",...,"climate science environmental studies","r gis statistical analysis",...,[0.333, 0.444, ...]
+...

@@ -1,0 +1,4 @@
+paper_id,title,abstract,authors,keywords,publication_date,field_of_study,processed_text,processed_title,embeddings
+1,"Deep Learning Approaches in Healthcare","This paper reviews...",..."deep learning healthcare ai"..."deep learning approaches healthcare",[0.123, 0.456, ...]
+2,"Climate Change Impact Analysis","A comprehensive study...",..."climate change environment analysis"..."climate change impact analysis",[0.234, 0.567, ...]
+...
