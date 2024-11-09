@@ -54,6 +54,9 @@ app.get("/form_filling", async (req, res) => {
 app.get("/dashboard", async (req, res) => {
   await display(req, res);
 });
+app.get("/*", async (req, res)=>{
+  res.sendFile(path.join(__dirname, "../public/notfound.html"));
+})
 
 app.use(express.json());
 app.use(express.static("../file_upload/uploads"));
