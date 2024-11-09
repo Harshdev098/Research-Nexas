@@ -21,7 +21,6 @@ function initializeConnection() {
     db.getConnection((err, connection) => {
         if (err) {
             console.error("Error connecting to the database:", err.message);
-            // Add any error tracking system call here (e.g., Sentry, Logstash)
         } else {
             console.log("Successfully connected to the database with ID:", connection.threadId);
             connection.release(); // Release connection after success

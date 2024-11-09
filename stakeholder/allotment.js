@@ -52,7 +52,7 @@ const allot = async (req, res) => {
   });
 };
 
-// displaying the papers to the stkeholder
+// displaying the papers to the stakeholder
 const DisplayPapers = async (req, res) => {
   const decodedToken = decodeAccessToken(req.headers.authorization);
   if (!decodedToken || !decodedToken.user) {

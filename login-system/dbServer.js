@@ -13,6 +13,7 @@ const { stk_display } = require("../backend/stk_profile");
 const { logout } = require("./logout");
 const { setcriteria, evaluate } = require("../stakeholder/evaluation");
 const { allot, DisplayPapers } = require("../stakeholder/allotment");
+const paperMatchingApi = require('../paper_matching/api');
 const { Dis_fac_papers, fac_signup, fac_login, dis_mail, giverating } = require("../stakeholder/faculty");
 const app = express();
 
@@ -153,6 +154,7 @@ app.get("/stk_profile_detail", stk_display);
 
 // starting the app on port
 const port = process.env.PORT || 3000;
+app.use('/api/paper_matching', paperMatchingApi);
 app.listen(port, () =>
   console.log(`Server Started on port http://localhost:${port}`)
 );

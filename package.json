@@ -19,8 +19,10 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.2",
     "mailgun-js": "^0.22.0",
+    "ml": "^8.0.0",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
+    "natural": "^8.0.1",
     "nodemailer": "^6.9.8",
     "sih_project_2": "file:"
   },

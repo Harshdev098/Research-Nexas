@@ -21,6 +21,7 @@ const info = (req, res) => {
   const course = req.body.course.trim();
   const year = req.body.year;
   const dept = req.body.dept.trim();
+  const interests = req.body.interests ? req.body.interests.trim() : null; // Extract interests
 
   db.getConnection(async (err, connection) => {
     if (err) throw err;
@@ -43,8 +44,8 @@ const info = (req, res) => {
       }
 
       // Proceed to insert the data if the email does not exist
-      const sql = "INSERT INTO info_table VALUES (?,?,?,?,?,?,?)";
-      const sqlInsert = mysql.format(sql, [userid,name,email,col_name,state,year,course]);
+      const sql = "INSERT INTO info_table VALUES (?,?,?,?,?,?,?,?)"; // Add interests to the insert statement
+      const sqlInsert = mysql.format(sql, [userid, name, email, col_name, state, year, course, interests]); // Include interests
 
       await connection.query(sqlInsert, async (err, result) => {
         if (err) {
@@ -69,16 +70,26 @@ const check = (req, res) => {
   const userid = decodedtoken.user;
   db.getConnection(async (err, connection) => {
     if (err) throw err;
-    const search = "SELECT * FROM info_table where id=?";
+    const search = "SELECT * FROM info_table WHERE id=?";
     const searchquery = mysql.format(search, [userid]);
     await connection.query(searchquery, async (err, result) => {
       if (err) throw err;
       if (result.length != 0) {
         console.log("info checked");
-        res.sendStatus(201);
+        // Optionally, you can return the interests here as well
+        res.status(200).json({
+          name: result[0].name,
+          email: result[0].email,
+          col_name: result[0].col_name,
+          state: result[0].state,
+          year: result[0].year,
+          course: result[0].course,
+          interests: result[0].interests // Include interests in the response
+        });
         connection.release();
       } else {
         connection.release();
+        res.sendStatus(404); // Respond with 404 if no user info found
       }
     });
   });
