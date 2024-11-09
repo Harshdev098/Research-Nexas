@@ -6,22 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp (stakeholder)</title>
     <link rel="stylesheet" href="css/login_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
     <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
-       window.gtranslateSettings = {
-         default_language: "en",
-         detect_browser_language: true,
-         wrapper_selector: ".gtranslate_wrapper",
-         font_size: 100,
-       };
-     </script>
-     <script
-     src="https://cdn.gtranslate.net/widgets/latest/popup.js"
-     defer
-   ></script>
+        window.gtranslateSettings = {
+            default_language: "en",
+            detect_browser_language: true,
+            wrapper_selector: ".gtranslate_wrapper",
+            font_size: 100,
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
     <img src="images/moon.webp" id="icon">
     <div id="box2">
         <p>Please Try Again! Account Already Exists</p>
@@ -43,7 +41,10 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <i id="togglePassword" class="fa-solid fa-eye-slash"></i>
+                </div>
 
                 <button type="button" onclick="register()">Sign Up</button>
                 <div class="register">
@@ -55,6 +56,23 @@
             <p>Successfully Registered... Redirecting Please Wait...</p>
         </div>
     </div>
+
+    <!-- Password toggle button-->
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Toggle the icon
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
     <script>
         var icon = document.getElementById("icon");
         icon.onclick = function () {

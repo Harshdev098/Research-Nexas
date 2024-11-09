@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -10,11 +10,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right,#4e54c8, #8f94fb);
+  background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
   color: #333;
 }
 
-.gtranslate_wrapper{
+.gtranslate_wrapper {
   background-color: white;
   position: absolute;
   bottom: 30px;
@@ -22,28 +22,26 @@ body {
   height: 47px;
   /* width: 40px;; */
   margin: auto;
-  padding: 10px;;
+  padding: 10px;
 }
 
-
-
-#icon{
+#icon {
   width: 30px;
   cursor: pointer;
   position: absolute;
-  top: 30px; 
+  top: 30px;
   right: 30px;
 }
-#icon:hover{
+#icon:hover {
   font-weight: 800;
 }
 
-:root{
+:root {
   --primary-color: #fff;
   --secondary-color: #0e0e0e;
 }
 
-.dark-theme{
+.dark-theme {
   --primary-color: #0e0e0e;
   --secondary-color: #fff;
 }
@@ -121,6 +119,24 @@ form input:focus {
   box-shadow: 0 0 8px rgba(142, 160, 240, 0.5);
 }
 
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  padding-right: 30px; /* Add some padding to avoid text overlap with the icon */
+}
+
+.password-container #togglePassword {
+  position: absolute;
+  right: 10px; /* Adjust as needed for spacing */
+  cursor: pointer;
+  top: 40%; /* Center vertically */
+  transform: translateY(-60%); /* Move it slightly up */
+}
+
 a {
   display: block;
   text-align: right;
@@ -144,7 +160,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition:  0.4s ease-in;
+  transition: 0.4s ease-in;
 }
 
 button:hover {
@@ -157,7 +173,7 @@ button:hover {
   font-size: 15px;
 }
 
-.register p{
+.register p {
   color: var(--secondary-color);
 }
 
@@ -169,10 +185,13 @@ button:hover {
 
 .register a:hover {
   text-decoration: underline;
-  color:blue;
+  color: blue;
 }
 
-#box1, #box2, #box3, #box4 {
+#box1,
+#box2,
+#box3,
+#box4 {
   width: 100%;
   max-width: 500px;
   padding: 12px;
@@ -192,7 +211,9 @@ button:hover {
   display: none;
 }
 
-#box2, #box3, #box4 {
+#box2,
+#box3,
+#box4 {
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
