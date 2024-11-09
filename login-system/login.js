@@ -48,7 +48,7 @@ const signup=async (req, res) => {
             const sqlSearch = "SELECT * FROM user_table WHERE email=? OR username=?";
         const search_query = mysql.format(sqlSearch, [email,username])
 
-        const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?)"
+        const sqlinsert = "INSERT INTO user_table VALUES (0,?,?,?,'')"
         const insert_query = mysql.format(sqlinsert, [username, email, hashpassword])
         await connection.query(search_query, async (err, result) => {
             if (err) throw (err)
@@ -117,8 +117,47 @@ const signin=(req, res) => {
     })
 }
 
+const reset=(req, res)=>{
+    const email = req.body.email.trim()
+    const password = req.body.password.trim();
+    const otp = req.body.otp.trim();
+    db.getConnection(async (err, connection) => {
+        if (err) throw (err)
+        const sqlSearch = "Select * from user_table where email=?"
+        const search_query = mysql.format(sqlSearch, [email])
+        await connection.query(search_query, async (err, result) => {
+            if (err) throw (err)
+            if (result.length == 0) {
+                console.log("User does not exist")
+                res.sendStatus(404)
+            }
+            else {
+                // console.log(result);
+                const userOtp = result[0].otp
+
+                if(otp !== userOtp || userOtp.length === 0){
+                    return res.status(400).json({success: false, message: "Invalid otp"})
+                }
+                
+                const hashpassword = await bcrypt.hash(password, 10);
+                
+                const reset_query = `Update user_table set otp=?, password=? where email=?`
+                const query = mysql.format(reset_query, ["", hashpassword, email])
+
+                await connection.query(query, async (err, result) => {
+                    if(err) throw (err)
+                })
+
+                res.json({ success: true, message: "password reset successfully" })
+            }
+            connection.release()
+        })
+    })
+}
+
 // exporting signup,signin funtion
 module.exports={
     signup : [signupRateLimiter,signup],
-    signin : [signinRateLimiter,signin]
+    signin : [signinRateLimiter,signin],
+    reset
 }

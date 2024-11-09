@@ -27,4 +27,4 @@ const notify=(req,res,email,sub,content)=>{
     });
 }
 
-module.exports=notify;
+module.exports = notify;
