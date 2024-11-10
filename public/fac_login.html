@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn (stakeholder)</title>
     <link rel="stylesheet" href="css/login_style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/Research_Nexas_favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Research_Nexas_favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Research_Nexas_favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/Research_Nexas_favicon_io/site.webmanifest">
+    
 </head>
 
 <body>  <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
     <script>
         const token = localStorage.getItem('accessToken');
-        if (token) {
+        if (!token) {
             window.location.href = '/';
         }
        window.gtranslateSettings = {
@@ -28,7 +34,7 @@
     <img src="images/moon.webp" id="icon">
     <div class="container">
         <div class="image">
-            <img src="images/logo.webp" alt="">
+            <img src="images/logo1.png" alt="">
         </div>
         <div id="box2">
             <p>Sorry! User not found</p>
