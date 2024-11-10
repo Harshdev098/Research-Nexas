@@ -1064,6 +1064,10 @@ main {
     top: 6%;
     right: 1%;
   }
+  .HamBurger {
+    display: block;
+    left: 10px;
+}
 }
 
 /* boxes styling */
@@ -1174,6 +1178,22 @@ h3 {
   .join_boxes {
     width: 30vw;
   }
+  .stakeholder-grid {
+    display: block !important;
+  }
+  .paper-info {
+    width: 96vw !important;
+    margin-bottom:2vw;
+  }
+  .HamBurger {
+    display: block;
+  }
+  .footer-col {
+    width: auto !important;
+  }
+  nav {
+    display: flex;
+  }
 }
 @media (max-width: 800px) {
   .join_boxes {
@@ -1264,7 +1284,7 @@ h3 {
 
 @media (max-width: 740px) {
   .premium-boxes {
-    width: 40vw;
+    width: 85vw;
   }
 }
 
@@ -1729,6 +1749,34 @@ ul {
   .footer-col {
     width: 48%;
     margin-bottom: 40px;
+  }
+  .stakeholder-grid {
+    display: block;
+  }
+  .paper-info {
+    width: 93vw;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+  }
+  .premium-boxes:nth-child(2) {
+    position: relative;
+    /* top: 50%; */
+    z-index: 1;
+    overflow: hidden;
+  }
+  .premium_animation1 {
+    left: 0%;
+  }
+  .premium_animation2 {
+    left: 0%;
+  }
+  .custom-social-links1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row !important;
+  }
+  .box {
+    width: auto;
   }
 }
 
