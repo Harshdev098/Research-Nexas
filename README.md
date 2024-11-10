@@ -174,26 +174,12 @@ Follow these steps to run the Research Nexas
      token varchar(130) not null unique
      );
 
-     -- Create the database
-CREATE DATABASE research_nexas;
-
--- Select the database to use
-USE research_nexas;
-
--- Create the 'student' table
-CREATE TABLE student (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  badge_count INT DEFAULT 0
-);
-
--- Create the 'badges' table
-CREATE TABLE badges (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description TEXT NOT NULL,
-  criteria VARCHAR(255)
+     Create the 'badges' table
+    CREATE TABLE badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    criteria VARCHAR(255)
 );
 
 -- Create the 'student_badges' table (stores which student earned which badge)
