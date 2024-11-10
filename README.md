@@ -173,6 +173,51 @@ Follow these steps to run the Research Nexas
      password varchar(120) unique,
      token varchar(130) not null unique
      );
+
+     -- Create the database
+CREATE DATABASE research_nexas;
+
+-- Select the database to use
+USE research_nexas;
+
+-- Create the 'student' table
+CREATE TABLE student (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  badge_count INT DEFAULT 0
+);
+
+-- Create the 'badges' table
+CREATE TABLE badges (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  criteria VARCHAR(255)
+);
+
+-- Create the 'student_badges' table (stores which student earned which badge)
+CREATE TABLE student_badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    badge_id INT NOT NULL,
+    awarded_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
+    FOREIGN KEY (badge_id) REFERENCES badges(id) ON DELETE CASCADE
+);
+
+
+-- Insert some example data into 'student' table
+INSERT INTO student (name, email) VALUES ('Alice', 'alice@example.com');
+
+-- Insert example badges into 'badges' table
+INSERT INTO badges (name, description, criteria) VALUES
+('Research Contributor', 'Awarded for submitting 5 research papers', 'Submit 5 papers'),
+('Peer Reviewer', 'Awarded for completing 10 peer reviews', 'Complete 10 reviews');
+
+-- Award badges to student (student_badges table)
+INSERT INTO student_badges (user_id, badge_id) VALUES (1, 1), (1, 2);
+
      ```
 - Now open code editor(eg. VS Code)
 - Now run the following commands in your terminal
