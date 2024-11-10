@@ -1191,6 +1191,9 @@ h3 {
   .footer-col {
     width: auto !important;
   }
+  nav {
+    display: flex;
+  }
 }
 @media (max-width: 800px) {
   .join_boxes {
