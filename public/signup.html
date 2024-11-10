@@ -76,7 +76,12 @@
           Icloud, or Tutanota.</span>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter the Password" required>
+        <div class="password-container">
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <span id="toggle-password">
+              <img src="images/eye-closed.png" id="eye-icon" alt="Show/Hide Password" style="cursor: pointer;">
+          </span>
+      </div>
         <ul id="password-criteria" class="criteria">
           <li id="length">At least 8 characters long</li>
           <li id="uppercase">At least 1 uppercase letter (A-Z)</li>
@@ -198,6 +203,20 @@
         }
       });
     });
+
+    const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eye-icon');
+
+        togglePassword.onclick = function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.src = 'images/eye-open.png';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.src = 'images/eye-closed.png'; 
+            }
+        }
 
     document.getElementById('registrationForm').addEventListener('submit', async function (event) {
       event.preventDefault();
