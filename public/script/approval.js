@@ -9,6 +9,7 @@ const fetchuploadfiles = async () => {
   });
 
   const results = await response.json();
+  console.log("results are:",results,response)
   const ul = document.getElementById("ul1");
   if (Array.isArray(results)) {
     results.forEach((result) => {

@@ -1,88 +1,97 @@
 const express = require("express");
-const mysql = require("mysql");
+const mysql = require("mysql2/promise"); // Use mysql2 promise API
 const db = require("../config/mysql_connection");
 const { decodeAccessToken } = require("../login-system/token");
+
 const app = express();
 app.use(express.json());
 
-const info = (req, res) => {
-  const decodedtoken = decodeAccessToken(req.headers.authorization);
-  if (!decodedtoken || !decodedtoken.user) {
+// Helper function to get the database connection
+const getConnection = async () => {
+  try {
+    const connection = await db.getConnection();
+    return connection;
+  } catch (err) {
+    console.error("Error connecting to the database:", err);
+    throw err;
+  }
+};
+
+// Info endpoint to save user data
+const info = async (req, res) => {
+  const decodedToken = decodeAccessToken(req.headers.authorization);
+  if (!decodedToken || !decodedToken.user) {
     console.error("Invalid or missing user information in the token");
     return res.status(401).send("Unauthorized");
   }
 
-  const userid = decodedtoken.user;
+  const userid = decodedToken.user;
+  const { name, email, col_name, state, course, year, dept } = req.body;
 
-  const name = req.body.name.trim();
-  const email = req.body.email.trim();
-  const col_name = req.body.col_name.trim();
-  const state = req.body.state;
-  const course = req.body.course.trim();
-  const year = req.body.year;
-  const dept = req.body.dept.trim();
-
-  db.getConnection(async (err, connection) => {
-    if (err) throw err;
+  try {
+    const connection = await getConnection();
 
     // Check if the email already exists in the info_table
     const emailCheckQuery =
       "SELECT COUNT(*) AS count FROM info_table WHERE email = ?";
-    const emailCheckSql = mysql.format(emailCheckQuery, [email]);
+    const [emailCheckResult] = await connection.query(emailCheckQuery, [email]);
 
-    await connection.query(emailCheckSql, async (err, results) => {
-      if (err) {
-        connection.release();
-        throw err;
-      }
+    // If email exists, return a 400 error
+    if (emailCheckResult[0].count > 0) {
+      return res.sendStatus(400);
+    }
 
-      // Check if the email already exists
-      if (results[0].count > 0) {
-        connection.release();
-        return res.sendStatus(400);
-      }
+    // Insert new user information into the table
+    const sql =
+      "INSERT INTO info_table (id, name, email, col_name, state, year, course) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    await connection.query(sql, [
+      userid,
+      name.trim(),
+      email.trim(),
+      col_name.trim(),
+      state,
+      year,
+      course.trim(),
+      dept.trim(),
+    ]);
 
-      // Proceed to insert the data if the email does not exist
-      const sql = "INSERT INTO info_table VALUES (?,?,?,?,?,?,?)";
-      const sqlInsert = mysql.format(sql, [userid,name,email,col_name,state,year,course]);
+    console.log("Data Saved");
+    res.sendStatus(200); // Success
 
-      await connection.query(sqlInsert, async (err, result) => {
-        if (err) {
-          connection.release();
-          throw err;
-        }
-
-        connection.release();
-        console.log("Data Saved");
-        res.sendStatus(200);
-      });
-    });
-  });
+  } catch (err) {
+    console.error("Error during info insertion:", err);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
-const check = (req, res) => {
-  const decodedtoken = decodeAccessToken(req.headers.authorization);
-  if (!decodedtoken || !decodedtoken.user) {
+// Check if the user info exists
+const check = async (req, res) => {
+  const decodedToken = decodeAccessToken(req.headers.authorization);
+  if (!decodedToken || !decodedToken.user) {
     console.error("Invalid or missing user information in the token");
     return res.status(401).send("Unauthorized");
   }
-  const userid = decodedtoken.user;
-  db.getConnection(async (err, connection) => {
-    if (err) throw err;
-    const search = "SELECT * FROM info_table where id=?";
-    const searchquery = mysql.format(search, [userid]);
-    await connection.query(searchquery, async (err, result) => {
-      if (err) throw err;
-      if (result.length != 0) {
-        console.log("info checked");
-        res.sendStatus(201);
-        connection.release();
-      } else {
-        connection.release();
-      }
-    });
-  });
+
+  const userid = decodedToken.user;
+
+  try {
+    const connection = await getConnection();
+
+    const searchQuery = "SELECT * FROM info_table WHERE id = ?";
+    const [result] = await connection.query(searchQuery, [userid]);
+
+    if (result.length !== 0) {
+      console.log("Info checked");
+      return res.sendStatus(201); // User info exists
+    }
+
+    res.sendStatus(404); // User info not found
+
+  } catch (err) {
+    console.error("Error during info check:", err);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
-// exporting info
+// Exporting the functions
 module.exports = { info, check };

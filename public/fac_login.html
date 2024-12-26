@@ -125,7 +125,7 @@
                     result4.style.display = 'none';
                 }, 2000)
             }
-            else if (response.status == 409) {
+            else if (response.status == 404) {
                 result2.style.display = 'block';
                 console.log('User not found');
                 document.getElementById('email').value = ''

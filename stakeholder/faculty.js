@@ -1,126 +1,145 @@
-const mysql = require('mysql')
-const bcrypt = require('bcrypt')
-const notify = require('../login-system/notification')
-const { generateAccessToken,decodeAccessToken } = require('../login-system/token')
+const mysql = require('mysql2/promise'); // Use mysql2 with promises
+const bcrypt = require('bcrypt');
+const { generateAccessToken, decodeAccessToken } = require('../login-system/token');
+require("dotenv").config();
+const db = require('../config/mysql_connection');
 
-require("dotenv").config()
-const  db  = require('../config/mysql_connection')
-
-
-
-// displaying emial on signup page 
-const dis_mail = (req, res) => {
+// Display email on signup page
+const dis_mail = async (req, res) => {
     const registrationToken = req.query.token;
     if (!registrationToken) {
         return res.status(400).json({ error: 'Registration token is missing.' });
     }
-    db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const search = mysql.format('select * from faculty where token=?', [registrationToken])
-        await connection.query(search, (err, result) => {
-            if (err) throw err;
-            const email = result[0].email
-            res.render('fac_signup', { data: email })
-        })
-    })
-}
 
-// faculty registration 
+    try {
+        const connection = await db.getConnection();
+        const [result] = await connection.execute('SELECT * FROM faculty WHERE token = ?', [registrationToken]);
+        connection.release();
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Invalid registration token.' });
+        }
+
+        const email = result[0].email;
+        res.render('fac_signup', { data: email });
+
+    } catch (err) {
+        console.error('Error during dis_mail:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Faculty registration
 const fac_signup = async (req, res) => {
-    const email = req.body.email
-    const hashpassword = await bcrypt.hash(req.body.password, 10);
-    const name = req.body.name
-    await db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const insertquery = mysql.format('update faculty set name=?, password=? where email=?', [name, hashpassword, email]);
-        await connection.query(insertquery, (err, result) => {
-            if (err) throw err;
-            console.log('faculty registered')
-            res.sendStatus(201)
-        })
-    })
-}
+    const { email, password, name } = req.body;
+    const hashpassword = await bcrypt.hash(password, 10);
 
-// faculty login 
+    try {
+        const connection = await db.getConnection();
+        const result = await connection.execute('UPDATE faculty SET name = ?, password = ? WHERE email = ?', [name, hashpassword, email]);
+        connection.release();
+
+        if (result.affectedRows === 0) {
+            return res.status(404).send('Faculty not found');
+        }
+
+        console.log('Faculty registered');
+        res.sendStatus(201);
+
+    } catch (err) {
+        console.error('Error during faculty signup:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Faculty login
 const fac_login = async (req, res) => {
-    const email = req.body.email.trim().toLowerCase()
-    const password = req.body.password
-    await db.getConnection((err, connection) => {
-        if (err) throw err;
-        const search = mysql.format('select * from faculty where email=?', [email])
-        connection.query(search, async (err, result) => {
-            if (err) throw err;
-            // console.log(result)
-            if (result.length != 0) {
-                const hashpassword = result[0].password
-                // console.log(hashpassword)
-                if (await bcrypt.compare(password,hashpassword)) {
-                    const token =await generateAccessToken({ user: result[0].email });
-                    console.log(token)
-                    console.log("login successfully")
-                    res.json({ accessToken: token })
-                }
-                else {
-                    res.status(401).send('Unauthorized')
-                }
-            }
-            else {
-                res.sendStatus(404);
-            }
-        })
-    })
-}
+    const { email, password } = req.body;
 
-// displaying papers to the faculty 
+    try {
+        const connection = await db.getConnection();
+        const [result] = await connection.execute('SELECT * FROM faculty WHERE email = ?', [email.trim().toLowerCase()]);
+        connection.release();
+
+        if (result.length === 0) {
+            return res.status(404).send('Faculty not found');
+        }
+
+        const hashpassword = result[0].password;
+        const isPasswordValid = await bcrypt.compare(password, hashpassword);
+
+        if (isPasswordValid) {
+            const token = await generateAccessToken({ user: result[0].email });
+            console.log('Login successful');
+            return res.json({ accessToken: token });
+        } else {
+            return res.status(401).send('Unauthorized');
+        }
+
+    } catch (err) {
+        console.error('Error during faculty login:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Display papers to the faculty
 const Dis_fac_papers = async (req, res) => {
     const decodedToken = await decodeAccessToken(req.headers.authorization);
     if (!decodedToken || !decodedToken.user) {
-        console.error('Invalid or missing user information in the token');
         return res.status(401).send('Unauthorized');
     }
+
     const email = decodedToken.user;
-    db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const searchquery = mysql.format('select * from upload_file_db where fac_mail=?', [email])
-        await connection.query(searchquery, (err, result) => {
-            if (err) throw err;
-            // console.log(result)
-            const files = result.map(file => ({
-                filename: file.filename,
-                filepath: file.filepath,
-                id: file.sno
-            }))
-            // console.log(files)
-            res.status(200).json({ files })
-        })
-    })
-}
 
-const giverating=(req,res)=>{
-    const rating1=req.body.rating1
-    const rating2=req.body.rating2
-    const rating3=req.body.rating3
-    const rating4=req.body.rating4
-    // const rating5=req.body.rating5
-    const paperid=req.query.id;
-    db.getConnection((err,connection)=>{
-        if(err) throw err;
-        const searchuser=mysql.format('select * from upload_file_db where sno=?',[paperid])
-        connection.query(searchuser,(err,result)=>{
-            if(err) throw err;
-            if(result.length!=0){
-                const userid=result[0].userid;
-                const insertrating="insert into result(userid,topic1,topic2,topic3,topic4) values(?,?,?,?,?)"
-                const insert=mysql.format(insertrating,[userid,rating1,rating2,rating3,rating4])
-                connection.query(insert,(err,result)=>{
-                    if(err) throw err;
-                    console.log('rating saved')
-                    res.sendStatus(200)
-                    connection.release()
-                })
-            }
-        })
-    })
-}
+    try {
+        const connection = await db.getConnection();
+        const [result] = await connection.execute('SELECT * FROM upload_file_db WHERE fac_mail = ?', [email]);
+        connection.release();
 
-module.exports = { Dis_fac_papers, fac_login, fac_signup, dis_mail, giverating }
+        const files = result.map(file => ({
+            filename: file.filename,
+            filepath: file.filepath,
+            id: file.sno
+        }));
+
+        res.status(200).json({ files });
+
+    } catch (err) {
+        console.error('Error displaying faculty papers:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Giverating for paper
+const giverating = async (req, res) => {
+    const { rating1, rating2, rating3, rating4 } = req.body;
+    const paperid = req.query.id;
+
+    try {
+        const connection = await db.getConnection();
+
+        // Find the user associated with the paper
+        const [paperResult] = await connection.execute('SELECT * FROM upload_file_db WHERE sno = ?', [paperid]);
+        if (paperResult.length === 0) {
+            connection.release();
+            return res.status(404).send('Paper not found');
+        }
+
+        const userid = paperResult[0].userid;
+
+        // Insert the ratings into the result table
+        const insertRatingQuery = 'INSERT INTO result (userid, topic1, topic2, topic3, topic4) VALUES (?, ?, ?, ?, ?)';
+        await connection.execute(insertRatingQuery, [userid, rating1, rating2, rating3, rating4]);
+
+        connection.release();
+
+        console.log('Rating saved');
+        res.sendStatus(200);
+
+    } catch (err) {
+        console.error('Error saving rating:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+module.exports = { Dis_fac_papers, fac_login, fac_signup, dis_mail, giverating };

@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const { upload, save, disp } = require(path.resolve(__dirname,"../file_upload/upload.js"));
 const  db  = require('../config/mysql_connection')
-
 const { stk_signup, stk_signin } = require("../stakeholder/login");
 const { info, check } = require("../file_upload/form_db");
 const { signup, signin, reset } = require("./login");
@@ -24,7 +23,7 @@ const globalLimit = rateLimiter({
   message: "Too amny request from same IP",
 });
 
-app.use(globalLimit);
+// app.use(globalLimit);
 
 app.post("/logout", logout);
 
@@ -55,9 +54,7 @@ app.get("/form_filling", async (req, res) => {
 app.get("/dashboard", async (req, res) => {
   await display(req, res);
 });
-app.get("/*", async (req, res)=>{
-  res.sendFile(path.join(__dirname, "../public/notfound.html"));
-})
+
 
 app.use(express.json());
 app.use(express.static("../file_upload/uploads"));
@@ -107,7 +104,6 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   try {
     console.log("File uploaded successfully:", req.file.filename);
     await save(req, res);
-    res.sendStatus(200);
   } catch (error) {
     console.error("Error during upload:", error);
     return res.status(500).send("Internal Server Error");
@@ -121,7 +117,7 @@ app.post("/info", info);
 app.put("/updateProfile", updateProfile);
 
 // serving uploaded research papers to the student
-app.get("/uploaded_files", disp);
+app.get("/viewFile", disp);
 
 // creating users
 app.post("/create_user", signup);
@@ -158,6 +154,11 @@ app.get("/result", evaluate);
 // displaying stk profile details
 app.get("/stk_profile_detail", stk_display);
 // app.get('/dis_criteria',dis_evaluation_criteria)
+
+// if endpoint not found 
+app.get("*", async (req, res)=>{
+  res.sendFile(path.join(__dirname, "../public/notfound.html"));
+})
 
 // starting the app on port
 const port = process.env.PORT || 3000;

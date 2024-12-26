@@ -1,134 +1,106 @@
-const mysql = require('mysql')
-const { decodeAccessToken } = require('../login-system/token')
+const mysql = require('mysql2/promise'); // Use promise-based MySQL
+const { decodeAccessToken } = require('../login-system/token');
+require("dotenv").config();
+const db = require('../config/mysql_connection'); // Ensure it's using a promise-based connection pool
 
-require("dotenv").config()
-const  db  = require('../config/mysql_connection')
-
+// Set criteria for evaluation
 const setcriteria = async (req, res) => {
-    const level1 = req.body.value1
-    const level2 = req.body.value2
-    const level3 = req.body.value3
-    const level4 = req.body.value4
-    const level5 = req.body.value5
-    const topic = req.body.topic
-    const decodedToken = await decodeAccessToken(req.headers.authorization);
-    if (!decodedToken || !decodedToken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
-    }
-    const id = decodedToken.user;
-    db.getConnection(async (err, connection) => {
-        if (err) throw err
-        const searchcol_name = mysql.format('select * from stk_holder where id=?', [id])
-        await connection.query(searchcol_name, async (err, result) => {
-            if (err) { console.log('internal server error'); res.sendStatus(501) }
-            const col_name = result[0].col_name;
-            console.log(col_name)
-            const insert = mysql.format('select * from criteria where college=?', [col_name])
-            await connection.query(insert, async (err, result) => {
-                if (err) { console.log('internal server error'); res.sendStatus(501) }
-                if (result.length != 0) {
-                    console.log('criteria already present')
-                    res.sendStatus(401)
-                    connection.release()
-                }
-                else {
-                    const insertquery = 'insert into criteria values(?,?,?,?,?,?,?,?)'
-                    const query2 = mysql.format(insertquery, [id, col_name, level1, level2, level3, level4, topic, level5])
-                    await connection.query(query2, (err, result) => {
-                        if (err) { console.log('internal server error'); res.sendStatus(501) }
-                        console.log('Evaluation criteria set')
-                        res.sendStatus(200)
-                        connection.release()
-                    })
-                }
-            })
-        })
-    })
-}
+    const { value1, value2, value3, value4, topicval, value5 } = req.body;
+    const topicValue = topicval && topicval.trim() !== '' ? topicval : null;
+    const safeValue5 = value5 ?? null;
 
-
-// evaluating the result 
-const evaluate = async (req, res) => {
-    const decodedToken = decodeAccessToken(req.headers.authorization);
-    if (!decodedToken || !decodedToken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
-    }
-    const userid = decodedToken.user;
-    await db.getConnection((err, connection) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send('Internal Server Error');
+    try {
+        const decodedToken = await decodeAccessToken(req.headers.authorization);
+        if (!decodedToken || !decodedToken.user) {
+            console.error('Invalid or missing user information in the token');
+            return res.status(401).send('Unauthorized');
         }
-        const stu_college = mysql.format('select * from info_table where id=?', [userid]);
-        connection.query(stu_college, async (err, result) => {
-            if (err) {
-                console.error(err);
-                connection.release();
-                return res.status(500).send('Internal Server Error');
-            }
-            const stu_col_name = result[0].col_name;
-            const credit = mysql.format('select * from criteria where college=?', [stu_col_name]);
-            await connection.query(credit, async (err, result) => {
-                if (err) {
-                    console.error(err);
-                    connection.release();
-                    return res.status(500).send('Internal Server Error');
-                }
-                if (result.length !== 0) {
-                    const credit1 = result[0].level1;
-                    const credit2 = result[0].level2;
-                    const credit3 = result[0].level3;
-                    const credit4 = result[0].level4;
-                    console.log(credit1, credit2, credit3, credit4);
-                    const total_credit = parseInt(credit1, 10) + parseInt(credit2, 10) + parseInt(credit3, 10) + parseInt(credit4, 10);
 
-                    const rating = mysql.format('select * from result where userid=?', [userid]);
-                    await connection.query(rating, (err, result) => {
-                        if (err) {
-                            console.error(err);
-                            connection.release();
-                            return res.status(500).send('Internal Server Error');
-                        }
-                        if (result.length !== 0) {
-                            const rating1 = result[0].topic1;
-                            const rating2 = result[0].topic2;
-                            const rating3 = result[0].topic3;
-                            const rating4 = result[0].topic4;
-                            const stu_result = ((rating1 * credit1) + (rating2 * credit2) + (rating3 * credit3) + (rating4 * credit4)) / total_credit;
-                            console.log(stu_result);
-                            const percent = stu_result * 100;
-                            console.log(percent);
-                            let status = "Pass";
-                            const update = mysql.format('update result set result=? where userid=?', [percent, userid]);
-                            connection.query(update, (err, result) => {
-                                if (err) {
-                                    console.error(err);
-                                    connection.release();
-                                    return res.status(500).send('Internal Server Error');
-                                }
-                                if (percent >= 30) {
-                                    res.status(201).json({ percent, status });
-                                } else {
-                                    status = "Fail";
-                                    res.status(201).json({ percent, status });
-                                }
-                                connection.release();
-                            });
-                        } else {
-                            res.sendStatus(404);
-                            connection.release();
-                        }
-                    });
-                } else {
-                    res.sendStatus(404);
-                    connection.release();
-                }
-            });
-        });
-    });
+        const id = decodedToken.user;
+        const connection = await db.getConnection();
+        // Check if the stakeholder exists
+        const [result] = await connection.execute('SELECT * FROM stk_holder WHERE id = ?', [id]);
+        const col_name = result[0]?.col_name;
+        if (!col_name) {
+            connection.release();
+            return res.status(404).send('User not found');
+        }
+        const [existingCriteria] = await connection.execute('SELECT * FROM criteria WHERE college = ?', [col_name]);
+        if (existingCriteria.length > 0) {
+            connection.release();
+            console.log('Criteria already present');
+            return res.status(401).send('Criteria already set');
+        }
+        const insertQuery = 'INSERT INTO criteria VALUES(?,?,?,?,?,?,?,?)';
+        await connection.execute(insertQuery, [id, col_name, value1, value2, value3, value4, topicValue, safeValue5]);
+
+        console.log('Evaluation criteria set');
+        res.status(200).send('Criteria successfully set');
+        connection.release();
+    } catch (err) {
+        console.error('Error during setcriteria:', err);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
 
-module.exports = { setcriteria, evaluate }
+// Evaluate the result of the student
+const evaluate = async (req, res) => {
+    try {
+        console.log("evaluation started")
+        const decodedToken = await decodeAccessToken(req.headers.authorization);
+        if (!decodedToken || !decodedToken.user) {
+            console.error('Invalid or missing user information in the token');
+            return res.status(401).send('Unauthorized');
+        }
+
+        const userid = decodedToken.user;
+        const connection = await db.getConnection();
+
+        // Fetch college name for the student
+        const [result] = await connection.execute('SELECT * FROM info_table WHERE id = ?', [userid]);
+        const stu_col_name = result[0]?.col_name;
+        if (!stu_col_name) {
+            connection.release();
+            console.log("student not found")
+            return res.status(404).send('Student not found');
+        }
+
+        // Fetch criteria for the student's college
+        const [criteria] = await connection.execute('SELECT * FROM criteria WHERE college = ?', [stu_col_name]);
+        if (criteria.length === 0) {
+            connection.release();
+            console.log("criteria not found")
+            return res.status(404).send('Criteria not found for the college');
+        }
+
+        // Fetch student's ratings
+        const [ratings] = await connection.execute('SELECT * FROM result WHERE userid = ?', [userid]);
+        if (ratings.length === 0) {
+            connection.release();
+            console.log("result not found")
+            return res.status(404).send('Student result not found');
+        }
+
+        const { topic1, topic2, topic3, topic4 } = ratings[0];
+        const { level1, level2, level3, level4 } = criteria[0];
+
+        const total_credit = parseInt(level1, 10) + parseInt(level2, 10) + parseInt(level3, 10) + parseInt(level4, 10);
+        const student_result = ((topic1 * level1) + (topic2 * level2) + (topic3 * level3) + (topic4 * level4)) / total_credit;
+
+        const percent = student_result * 100;
+        let status = percent >= 30 ? 'Pass' : 'Fail';
+        console.log("percent,status",percent,status)
+
+        // Update the result for the student
+        await connection.execute('UPDATE result SET result = ? WHERE userid = ?', [percent, userid]);
+        res.status(201).json({ percent, status });
+
+        connection.release();
+    } catch (err) {
+        console.error('Error during evaluation:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+module.exports = { setcriteria, evaluate };

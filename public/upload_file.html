@@ -12,24 +12,21 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/Research_Nexas_favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/Research_Nexas_favicon_io/favicon-16x16.png">
   <link rel="manifest" href="images/Research_Nexas_favicon_io/site.webmanifest">
-  
+
   <title>Paper Upload</title>
 </head>
 
 <body>
   <div style="position: absolute; bottom: 30px; left: 30px;" class="gtranslate_wrapper"></div>
   <script>
-     window.gtranslateSettings = {
-       default_language: "en",
-       detect_browser_language: true,
-       wrapper_selector: ".gtranslate_wrapper",
-       font_size: 100,
-     };
-   </script>
-   <script
-   src="https://cdn.gtranslate.net/widgets/latest/popup.js"
-   defer
- ></script>
+    window.gtranslateSettings = {
+      default_language: "en",
+      detect_browser_language: true,
+      wrapper_selector: ".gtranslate_wrapper",
+      font_size: 100,
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
   <section>
     <h2>Upload Research files</h2>
     <div class="first-div">
@@ -65,7 +62,7 @@
   <script>
     const token = localStorage.getItem('accessToken');
     if (!token) {
-        window.location.href = '/';
+      window.location.href = '/';
     }
     async function uploadFile() {
       const form = document.getElementById('uploadForm');
@@ -102,26 +99,25 @@
 
     async function fetchUploadedFiles() {
       const token = localStorage.getItem('accessToken');
-      const headers = new Headers();
+      const headers = new Headers(); // Reinitialize the headers object
       headers.append('Authorization', `Bearer ${token}`);
       try {
-        const response = await fetch('/uploaded_files', {
+        const response = await fetch('http://localhost:3000/viewFile', {
           headers: {
             'Authorization': `Bearer ${token}`,
-          },
+            'Content-Type': 'application/json' // Fix typo in 'Content-Type'
+          }
         });
+        console.log("response: ", response); // Fixed variable name
         if (response.ok) {
           const result = await response.json();
+          console.log("response files:", result);
           const uploadedFilesList = document.getElementById('uploadedFilesList');
           const ul = document.createElement('ul');
-
-          // Clear previous list items
-          ul.innerHTML = ''; // Clear previous list items
+          ul.innerHTML = '';
 
           const files = result.filenames;
           const filepaths = result.filepaths;
-
-          // Loop through the files and create list items
           files.forEach((file, index) => {
             const li = document.createElement('li');
             const link = document.createElement('a');

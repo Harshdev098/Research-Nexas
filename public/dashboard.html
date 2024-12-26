@@ -295,6 +295,7 @@
                     'Authorization': `Bearer ${token}`,
                 }
             })
+            console.log("resoponse",response)
             if (response.status == 201) {
                 const data = await response.json()
                 const status = document.getElementById('status')

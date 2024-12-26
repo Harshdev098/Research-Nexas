@@ -1,70 +1,60 @@
-const { name } = require('ejs')
-const { decodeAccessToken } = require('../login-system/token')
-const  db  = require('../config/mysql_connection')
-const mysql = require('mysql')
+const { decodeAccessToken } = require('../login-system/token');
+const db = require('../config/mysql_connection');
+const mysql = require('mysql2/promise');
 
+// Helper function to get the database connection
+const getConnection = async () => {
+  try {
+    return await db.getConnection();
+  } catch (err) {
+    console.error("Error connecting to the database:", err);
+    throw err;
+  }
+};
 
+// Display evaluation criteria for the stock holder
 const stk_display = async (req, res) => {
-    const decodedtoken = decodeAccessToken(req.headers.authorization);
-    if (!decodedtoken || !decodedtoken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
+  try {
+    // Decode the access token to get the user ID
+    const decodedToken = await decodeAccessToken(req.headers.authorization);
+    if (!decodedToken || !decodedToken.user) {
+      console.error('Invalid or missing user information in the token');
+      return res.status(401).send('Unauthorized');
     }
-    const userid = decodedtoken.user;
-    await db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const sqlquery = "select * from stk_holder where id=?"
-        const query = mysql.format(sqlquery, [userid])
-        await connection.query(query, async(err, result) => {
-            if (err) throw err;
-            // console.log("result", result)
-            const col_name = result[0].col_name
-            const email = result[0].email;
-            // console.log(col_name, email)
-            const search = mysql.format('select * from criteria where college=?', [col_name])
-            await connection.query(search, (err, result) => {
-                if (err) throw err;
-                const credit1 = result[0].level1
-                const credit2 = result[0].level2
-                const credit3 = result[0].level3
-                const credit4 = result[0].level4
-                // const topic5 = result[0].topic
-                // const credit5 = result[0].level5
-                // console.log(credit1, credit2, credit3, credit4)
-                res.json({ credit1, credit2, credit3, credit4,col_name,email })
-            })
-        })
-    })
-}
 
-// const dis_evaluation_criteria=(req,res)=>{
-//     const decodedtoken = decodeAccessToken(req.headers.authorization);
-//     if (!decodedtoken || !decodedtoken.user) {
-//         console.error('Invalid or missing user information in the token');
-//         return res.status(401).send('Unauthorized');
-//     }
-//     const userid=decodedtoken.user;
-//     db.getConnection((err,connection)=>{
-//         if(err) throw err;
-//         const query=mysql.format('select * from stk_holder where id=?',[userid])
-//         connection.query(query,(err,result)=>{
-//             if(err) throw err;
-//             const college=result[0].col_name
-//             console.log(college)
-//             const search=mysql.format('select * from criteria where college=?',[college])
-//             connection.query(search,(err,result)=>{
-//                 if(err) throw err;
-//                 const credit1=result[0].level1
-//                 const credit2=result[0].level2
-//                 const credit3=result[0].level3
-//                 const credit4=result[0].level4
-//                 const topic5=result[0].topic
-//                 const credit5=result[0].level5
-//                 console.log(credit1,credit2,credit3,credit4,topic5,credit5)
-//                 res.send(200).json({credit1,credit2,credit3,credit4,topic5,credit5})
-//             })
-//         })
-//     })
-// }
+    const userid = decodedToken.user;
+    const connection = await getConnection();
 
-module.exports = { stk_display }
+    // Query to get the stock holder's information
+    const sqlQuery = "SELECT * FROM stk_holder WHERE id = ?";
+    const [stkHolderResult] = await connection.query(sqlQuery, [userid]);
+    
+    if (stkHolderResult.length === 0) {
+      connection.release();
+      return res.status(404).json({ error: 'Stock holder not found' });
+    }
+
+    const { col_name, email } = stkHolderResult[0];
+
+    // Query to get the evaluation criteria based on the college
+    const criteriaQuery = "SELECT * FROM criteria WHERE college = ?";
+    const [criteriaResult] = await connection.query(criteriaQuery, [col_name]);
+
+    if (criteriaResult.length === 0) {
+      connection.release();
+      return res.status(404).json({ error: 'Criteria not found for the college' });
+    }
+
+    const { level1, level2, level3, level4 } = criteriaResult[0];
+    connection.release();
+
+    // Return the evaluation criteria along with the college and email
+    res.json({ credit1: level1, credit2: level2, credit3: level3, credit4: level4, col_name, email });
+
+  } catch (err) {
+    console.error('Error fetching stock holder details:', err);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+module.exports = { stk_display };

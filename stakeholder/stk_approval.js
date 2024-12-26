@@ -1,111 +1,148 @@
-const mysql = require('mysql')
-const path = require('path')
-const ejs = require('ejs')
-const { decodeAccessToken } = require('../login-system/token')
-const notify = require('../login-system/notification')
+const mysql = require('mysql2/promise');
+const path = require('path');
+const ejs = require('ejs');
+const { decodeAccessToken } = require('../login-system/token');
+const notify = require('../login-system/notification');
+require("dotenv").config();
+const db = require('../config/mysql_connection'); // Ensure this returns a `mysql2/promise` pool instance
 
-require("dotenv").config()
-const  db  = require('../config/mysql_connection')
-
-// sending the uloaded files of student to the stakeholders 
+// Sending the uploaded files of students to stakeholders
 const uploadedpapers = async (req, res) => {
-    const decodedToken = decodeAccessToken(req.headers.authorization);
-    if (!decodedToken || !decodedToken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
-    }
-    const userid = decodedToken.user;
-    await db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const query = mysql.format("select * from stk_holder where id=?", [userid]);
-        await connection.query(query, async (err, result) => {
-            if (err) throw err;
-            if (result.length != 0) {
-                const col_name = result[0].col_name;
-                const display = "select up.status,up.sno,info.name,info.email,up.filename,up.filepath,info.col_name from upload_file_db as up inner join info_table as info on up.userid=info.id";
-                await connection.query(display, (err, files) => {
-                    if (err) throw err;
-                    const matchingFiles = files.filter(file => file.col_name === col_name);
-                    const fileData = matchingFiles.map(file => ({
-                        filename: file.filename,
-                        name: file.name,
-                        collegename: file.col_name,
-                        status: file.status,
-                        id: file.sno
-                    }));
-                    res.status(200).send(fileData);
-                });
+    try {
+        console.log("uploaded papers displaying to stk")
+        const decodedToken = decodeAccessToken(req.headers.authorization);
+        if (!decodedToken || !decodedToken.user) {
+            console.error('Invalid or missing user information in the token');
+            return res.status(401).send('Unauthorized');
+        }
+
+        const userid = decodedToken.user;
+        const connection = await db.getConnection();
+
+        try {
+            const [result] = await connection.query(
+                "SELECT * FROM stk_holder WHERE id = ?", 
+                [userid]
+            );
+
+            if (result.length === 0) {
+                return res.status(404).send('Stakeholder not found');
             }
-        });
-    });
+
+            const col_name = result[0].col_name;
+
+            const [files] = await connection.query(
+                "SELECT up.status, up.sno, info.name, info.email, up.filename, up.filepath, info.col_name " +
+                "FROM upload_file_db AS up " +
+                "INNER JOIN info_table AS info ON up.userid = info.id"
+            );
+            console.log(files)
+            const matchingFiles = files.filter(file => file.col_name === col_name);
+
+            const fileData = matchingFiles.map(file => ({
+                filename: file.filename,
+                name: file.name,
+                collegename: file.col_name,
+                status: file.status,
+                id: file.sno,
+            }));
+
+            res.status(200).send(fileData);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        console.error('Error fetching uploaded papers:', error);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-// displaying details during approval to the stakeholder 
+// Displaying details during approval to the stakeholder
 const displaydetail = async (req, res) => {
-    const decodedToken = decodeAccessToken(req.headers.authorization);
-    if (!decodedToken || !decodedToken.user) {
-        console.error('Invalid or missing user information in the token');
-        return res.status(401).send('Unauthorized');
-    }
-    const userid = decodedToken.user;
-    const paperid = req.query.id;
-    console.log(paperid)
-    await db.getConnection(async (err, connection) => {
-        if (err) throw err;
-        const query = mysql.format("select * from stk_holder where id=?", [userid]);
-        await connection.query(query, async (err, result) => {
-            if (err) throw err;
-            if (result.length != 0) {
-                const col_name = result[0].col_name;
-                const display = "select up.status,up.sno,info.name,info.email,up.filename,up.filepath,info.col_name from upload_file_db as up inner join info_table as info on up.userid=info.id";
-                await connection.query(display, async (err, files) => {
-                    if (err) throw err;
-                    const matchingFiles = files.filter(file => file.col_name === col_name);
-                    const query = "select info.*,u.* from info_table as info inner join upload_file_db as u on info.id=userid where u.sno=?";
-                    const searchquery = mysql.format(query, [paperid])
-                    await connection.query(searchquery, (err, result) => {
-                        if (err) {
-                            console.log('internal server error' + err)
-                        }
-                        if (result != 0) {
-                            const filepath = result[0].filepath
-                            const filename = result[0].filename
-                            const name = result[0].name
-                            const email = result[0].email
-                            const col_name = result[0].col_name
-                            const sno = result[0].sno;
-                            res.json({ filepath, filename, name, email, col_name, sno })
-                        }
-                    })
-                });
+    try {
+        const decodedToken = decodeAccessToken(req.headers.authorization);
+        if (!decodedToken || !decodedToken.user) {
+            console.error('Invalid or missing user information in the token');
+            return res.status(401).send('Unauthorized');
+        }
+
+        const userid = decodedToken.user;
+        const paperid = req.query.id;
+
+        console.log(paperid);
+
+        const connection = await db.getConnection();
+
+        try {
+            const [result] = await connection.query(
+                "SELECT * FROM stk_holder WHERE id = ?", 
+                [userid]
+            );
+
+            if (result.length === 0) {
+                return res.status(404).send('Stakeholder not found');
             }
-        });
-    });
+
+            const col_name = result[0].col_name;
+
+            const [files] = await connection.query(
+                "SELECT up.status, up.sno, info.name, info.email, up.filename, up.filepath, info.col_name " +
+                "FROM upload_file_db AS up " +
+                "INNER JOIN info_table AS info ON up.userid = info.id"
+            );
+
+            const query = 
+                "SELECT info.*, u.* " +
+                "FROM info_table AS info " +
+                "INNER JOIN upload_file_db AS u ON info.id = u.userid " +
+                "WHERE u.sno = ?";
+            
+            const [fileDetails] = await connection.query(query, [paperid]);
+
+            if (fileDetails.length > 0) {
+                const { filepath, filename, name, email, col_name, sno } = fileDetails[0];
+                res.json({ filepath, filename, name, email, col_name, sno });
+            } else {
+                res.status(404).send('File not found');
+            }
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        console.error('Error displaying details:', error);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-// approval for the research papers 
+// Approval for the research papers
 const approve = async (req, res) => {
-    const paperid = req.query.id;
-    console.log("paperid ", paperid)
-    db.getConnection(async (err, connection) => {
-        const approval = "update upload_file_db set status=true where sno=?;"
-        const app_query = mysql.format(approval, [paperid]);
-        await connection.query(app_query, (err, result) => {
-            if (err) {
-                console.log("interanl server error" + err)
-            }
-            if (result) {
+    try {
+        const paperid = req.query.id;
+        console.log("paperid ", paperid);
+
+        const connection = await db.getConnection();
+
+        try {
+            const approvalQuery = "UPDATE upload_file_db SET status = true WHERE sno = ?";
+            const [result] = await connection.query(approvalQuery, [paperid]);
+
+            if (result.affectedRows > 0) {
                 res.sendStatus(201);
-                console.log("approved");
-                const sub = 'Research Nexas-Approval'
-                // const content=`Your Research Paper has been reviewed and approved by the stakeholder on dtd.You can view the status for approval of the paper on uploads page`
-                // notify(req,res,email,sub,content);
+                console.log("Approved");
+
+                const sub = 'Research Nexas-Approval';
+                // const content = `Your Research Paper has been reviewed and approved by the stakeholder on dtd.You can view the status for approval of the paper on uploads page`;
+                // notify(req, res, email, sub, content);
+            } else {
+                res.status(400).send('Error during approval');
             }
-            else {
-                res.send('error during approving')
-            }
-        })
-    })
-}
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        console.error('Error approving paper:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
 
 module.exports = { approve, uploadedpapers, displaydetail };

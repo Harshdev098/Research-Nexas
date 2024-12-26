@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql
+    container_name: mysqlcontainer
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    env_file:
+      - ./login-system/.env
+    volumes:
+      - ./config/dbQuery.sql:/docker-entrypoint-initdb.d/Query.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 5s
+    networks:
+      - internalnet
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: appcontainer
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./login-system/.env
+    ports:
+      - "3000:3000"
+    networks:
+      - internalnet
+networks:
+  internalnet:
+    driver: bridge

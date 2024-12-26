@@ -1,72 +1,63 @@
-const mysql=require('mysql')
-const bcrypt=require('bcrypt')
-const {generateAccessToken}=require('../login-system/token');
+const mysql = require('mysql2/promise');
+const bcrypt = require('bcrypt');
+const { generateAccessToken } = require('../login-system/token');
+require("dotenv").config();
+const db = require('../config/mysql_connection');  // Assuming mysql_connection is set up for promise pool
 
-require("dotenv").config()
-const  db  = require('../config/mysql_connection')
+// Sign Up Endpoint
+const stk_signup = async (req, res) => {
+    const colname = req.body.colname.trim();
+    const email = req.body.email.trim().toLowerCase();
+    const password = req.body.password.trim();
 
-const stk_signup=async(req,res)=>{
-    const colname=req.body.colname.trim();
-    const email=req.body.email.trim().toLowerCase();
-    const password=req.body.password.trim();
-    const hashpassword=await bcrypt.hash(password,10)
-    db.getConnection(async(err,connection)=>{
-        if(err) throw err;
-        const userSearch="SELECT * FROM stk_holder where email=?";
-        const searchquery=mysql.format(userSearch,[email]);
-        const userinsert="INSERT INTO stk_holder VALUES (0,?,?,?)";
-        const insertquery=mysql.format(userinsert,[colname,email,hashpassword]);
-        await connection.query(searchquery,async(err,result)=>{
-            if(err) throw err;
-            if(result.length!=0){
-                console.log("user already exist")
-                res.sendStatus(409);
-                connection.release();
-            }
-            else{
-                await connection.query(insertquery,async(err,result)=>{
-                    if(err) throw err;
-                    res.sendStatus(201);
-                    console.log("user created");
-                    connection.release();
-                })
-            }
-        })
-    })
-}
+    try {
+        const hashpassword = await bcrypt.hash(password, 10);
+        const connection = await db.getConnection();
+        const [result] = await connection.execute("SELECT * FROM stk_holder WHERE email = ?", [email]);
 
-const stk_signin=((req,res)=>{
-    const email=req.body.email.trim();
-    const password=req.body.password.trim();
-    db.getConnection(async(err,connection)=>{
-        if(err){
-            console.log("internal server error"+err);
+        if (result.length !== 0) {
+            console.log("User already exists");
+            res.sendStatus(409);
+        } else {
+            // Insert new user
+            await connection.execute("INSERT INTO stk_holder (col_name, email, password) VALUES (?, ?, ?)", [colname, email, hashpassword]);
+            console.log("User created");
+            res.sendStatus(201);
         }
-        const searchquery="SELECT * FROM stk_holder where email=?"
-        const query=mysql.format(searchquery,[email])
-        await connection.query(query,async(err,result)=>{
-            if(err){
-                console.log("internal server error"+err);
-            }
-            if(result.length==0){
-                console.log("User does not exist")
-                res.sendStatus(409)
-            }
-            else{
-                const hashedpassword=result[0].password;
-                if(await bcrypt.compare(password,hashedpassword)){
-                    console.log("Logined Successfully")
-                    connection.release()
-                    const token = generateAccessToken({ user: result[0].id });
-                    res.json({ accessToken: token })
-                }
-                else{
-                    console.log("Incorrect password")
-                    res.sendStatus(401)
-                }
-            }
-        })
-    })
-})
 
-module.exports={stk_signup,stk_signin}
+        connection.release(); 
+    } catch (err) {
+        console.log("Error during signup:", err);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+// Sign In Endpoint
+const stk_signin = async (req, res) => {
+    const email = req.body.email.trim();
+    const password = req.body.password.trim();
+    try {
+        const connection = await db.getConnection();
+        const [result] = await connection.execute("SELECT * FROM stk_holder WHERE email = ?", [email]);
+        if (result.length === 0) {
+            console.log("User does not exist");
+            res.sendStatus(409);
+        } else {
+            const hashedpassword = result[0].password;
+            if (await bcrypt.compare(password, hashedpassword)) {
+                console.log("Login Successful");
+                const token = generateAccessToken({ user: result[0].id });
+                res.json({ accessToken: token });
+            } else {
+                console.log("Incorrect password");
+                res.sendStatus(401);
+            }
+        }
+        connection.release(); 
+    } catch (err) {
+        console.log("Error during signin:", err);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+module.exports = { stk_signup, stk_signin };
