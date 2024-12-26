@@ -33,21 +33,6 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 <hr/>
 <br/>
 
-
-### This project is now OFFICIALLY accepted for
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
-</div>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
-</div>
-
-<br>
-
-<img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
 ## Project Structure ✨
 
 Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
@@ -56,7 +41,7 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 
 - [Technical Stack](#teachnicalStack)
 - [Prerequisite](#prerequisite)
-- [Running the Application](#running-the-application)
+- [Running Application with Docker](#runningApplication-with-Docker)
 - [Future Enhancements / Roadmap](#featureEnhancementsRoadMap)
 - [API Documentation](#ApiDocumentation)
 - [License](#licenseR)
@@ -76,155 +61,49 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 | **💾 Database**     | MySQL                                                    |
 | **🧪 Version Control** | Git                                                  |
 | **📦 Package Manager** | npm                                                 |
-| **💻 Environment**  | Development with VS Code                                |
+| **💻 Environment**  | Docker                                                  |
 
 
 
 ## Prerequisite
 - MySQL
 - NPM & Nodejs
+- Docker
 
+### Run Application with Docker
 
-### Running the Application
-
-Follow these steps to run the Research Nexas
-
-- Clone this repository in your computer
-- Establishing the database in MySQL Workbench
-  - Open MySQL workbench and run these queries
-    
-     ```
-     CREATE SCHEMA user_db;
-     use user_db;
-     ```
-     ```
-     create table user_table(
-     userid INT auto_increment unique primary key,
-     username varchar(60) not null,
-     email varchar(80) not null unique,
-     password varchar(140) not null unique,
-     otp varchar(15)
-     );
-     ```
-     ```
-     create table upload_file_db(
-     sno int auto_increment unique primary key,
-     userid int not null,
-     filename varchar(160) not null unique,
-     filepath varchar(220) not null unique,
-     status boolean default false,
-     fac_mail varchar(80) default null,
-     foreign key(fac_mail) references faculty(email) on delete cascade,
-     foreign key(userid) references info_table(id) on delete cascade
-     );
-     ```
-     ```
-     create table info_table(
-     id int unique not null primary key,
-     name varchar(70) not null,
-     email varchar(80) not null unique,
-     col_name varchar(180) not null,
-     state varchar(80) not null,
-     year int not null,
-     course varchar(100) not null,
-     foreign key(id) references user_table(userid) on delete cascade
-     );
-     ```
-     ```
-     create table stk_holder(
-     id int not null auto_increment primary key,
-     col_name varchar(180) not null,
-     email varchar(80) not null unique,
-     password varchar(80) not null unique
-     );
-
-     ```
-     ```
-     create table criteria(
-     stk_id int not null unique,
-     college varchar(100) not null,
-     level1 int not null,
-     level2 int not null,
-     level3 int not null,
-     level4 int not null,
-     topic varchar(200) default null,
-     level5 int default null,
-     foreign key(stk_id) references stk_holder(id) on delete cascade  
-     );
-     ```
-     ```
-     create table result(
-     resultid int not null auto_increment primary key,
-     result float default null,
-     userid int not null,
-     topic1 int not null,
-     topic2 int not null,
-     topic3 int not null,
-     topic4 int not null,
-     topic5 int default null,
-     foreign key (userid) references user_table(userid) on delete cascade
-     );
-     ```
-     ```
-     create table faculty(
-     email varchar(80) not null unique primary key,
-     name varchar(60),
-     password varchar(120) unique,
-     token varchar(130) not null unique
-     );
-     ```
-    ```
-    CREATE TABLE news_letter_tbl (
-    sno INT(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email_id VARCHAR(100) NOT NULL,
-    time_stamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
-    )
-    ```
-- Now open code editor(eg. VS Code)
-- Now run the following commands in your terminal
+- Make a .env file under `login-system` directory and copy these key-values:
   ```
-  npm install
-  ```
-  ```
-  cd login-system
-  ```
-- make a `.env` file in `login-system` folder and add the following data to this file
-  ```
-  DB_HOST=127.0.0.1 //your default host
-  DB_USER=root // your user name(by default root)
-  DB_PASSWORD=mypassword // your password 
-  DB_DATABASE=user_db
-  DB_PORT=3306 // databse port
-  ACCESS_TOKEN_SECRET = 3a9af42de397cfc9387a06972c28c23a1ac7e9a60fb6dc1f05295bc6057baf500672d4a13db5d04ea84bbc4c5679164a7723f3d49f516bb73dc3df6e3b768c8e
-  EMAIL='harsh@gmail.com'   // your email
-  MYPASS='yourmailpassword' 
+    MYSQL_HOST=mysqlcontainer
+    MYSQL_USER=user
+    MYSQL_ROOT_PASSWORD=password
+    MYSQL_PASSWORD=password
+    MYSQL_DATABASE=user_DB
+    DB_PORT=3306
+    PORT=3000
+    ACCESS_TOKEN_SECRET=3a9af42de397cfc9387a06972c28c23a1ac7e9a60fb6dc1f05295bc6057baf500672d4a13db5d04ea84bbc4c5679164a7723f3d49f516bb73dc3df6e3b768c8e
+    EMAIL=harsh@gmail.com   #youremailid
+    MYPASS=yourmailpassword   #your developer mail password
   ```
 - You can find `yourmailpassword` for low protected app(developer use) here- https://youtu.be/nuD6qNAurVM
-- Run the following command
-  ```
-  nodemon dbServer.js
-  ```
+- Within root project directory run-
+  - Linux:
+    ```
+    sudo docker compose up --build
+    ```
+  - Windows:
+    ```
+    docker compose up --build
+    ```
 - Click the link shown in terminal or open your browser and search for-
   ```
   http://localhost:3000
-  ``` 
-- If you encounter an error `Client does not support authentication protocol requested by server; consider upgrading MySQL client`, then open MySQL workbench and run these queries for resetting your mysql root password
-  
   ```
-  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+- You can prevent data loss of mysql by mounting you adding your localhost path onto docker container path `/var/lib/mysql` in the docker compose file under `db` service. It will prevent any data loss if the container is recreated. Reference: [here](https://docs.docker.com/engine/storage/volumes/)
   ```
+  volumes:
+     - $LOCALPATH:/var/lib/mysql
   ```
-  flush privileges;
-  ```
-  - To know more about this error check stackoverflow here- https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
-  - Re-run the following command
-    ```
-    nodemon dbServer.js
-    ```
-  - Click the link shown in terminal or open your browser and search for-
-    ```
-    http://localhost:3000
-    ``` 
 
 <a name="featureEnhancementsRoadMap"></a>
 ## 🛣️ Future Enhancements / Roadmap
