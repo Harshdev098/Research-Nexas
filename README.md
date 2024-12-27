@@ -66,7 +66,7 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
 
 
 ## Prerequisite
-- MySQL
+
 - NPM & Nodejs
 - Docker
 
@@ -99,7 +99,7 @@ Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
   ```
   http://localhost:3000
   ```
-- You can prevent data loss of mysql by mounting you adding your localhost path onto docker container path `/var/lib/mysql` in the docker compose file under `db` service. It will prevent any data loss if the container is recreated. Reference: [here](https://docs.docker.com/engine/storage/volumes/)
+- You can prevent data loss of mysql by mounting your localhost path onto docker container path `/var/lib/mysql` in the docker compose file under `db` service. It will prevent any data loss if the container is recreated. Reference: [here](https://docs.docker.com/engine/storage/volumes/)
   ```
   volumes:
      - $LOCALPATH:/var/lib/mysql
