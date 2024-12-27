@@ -33,10 +33,6 @@ With **Research-Nexas**, the future of research collaboration is smarter, faster
 <hr/>
 <br/>
 
-## Project Structure ✨
-
-Check the project structure here [Project Structure](PROJECT_STRUCTURE.md)
-
 ## 📚 Table of Contents
 
 - [Technical Stack](#teachnicalStack)
