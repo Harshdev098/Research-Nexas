@@ -44,8 +44,9 @@ body:
 
         - label: 'I have read the [Contributing Guidelines](https://github.com/alo7lika/Research-Nexas/blob/DEV/Contributing.md)'
           required: true
-        - label: "I'm a GSSoC'24-Extd contributor"
-        - label: "I'm a Hacktoberfest'24 contributor"
+        - label: "I'm a GSSoC contributor"
+        - label: "I'm a SSoC Contributor"
+        - label: "I'm a Hacktoberfest contributor"
 
         - label: 'I am willing to work on this issue (optional)'
           required: false
