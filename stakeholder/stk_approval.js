@@ -131,8 +131,8 @@ const approve = async (req, res) => {
                 console.log("Approved");
 
                 const sub = 'Research Nexas-Approval';
-                // const content = `Your Research Paper has been reviewed and approved by the stakeholder on dtd.You can view the status for approval of the paper on uploads page`;
-                // notify(req, res, email, sub, content);
+                const content = `Your Research Paper has been reviewed and approved by the stakeholder on dtd.You can view the status for approval of the paper on uploads page`;
+                await notify(req, res, email, sub, content);
             } else {
                 res.status(400).send('Error during approval');
             }

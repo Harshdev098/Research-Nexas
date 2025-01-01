@@ -49,9 +49,9 @@ const save = async (req, res) => {
     await connection.query(query);
     connection.release();
     console.log("Data Saved");
-    // const sub = 'Research Paper Uploaded';
-    // const content = `Your Research Paper ${filename} has been uploaded.`;
-    // notify(req, res, userEmail, sub, content);
+    const sub = 'Research Paper Uploaded';
+    const content = `Your Research Paper ${filename} has been uploaded.`;
+    await notify(req, res, userEmail, sub, content);
 
     return res.sendStatus(200); // Success
   } catch (err) {
