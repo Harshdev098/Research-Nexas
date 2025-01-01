@@ -14,7 +14,8 @@ CREATE TABLE user_table (
     userid INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
-    password VARCHAR(140) NOT NULL UNIQUE
+    password VARCHAR(140) NOT NULL UNIQUE,
+    otp VARCHAR(6) -- Add the otp column to store OTP values
 );
 
 -- Create the info_table
