@@ -28,6 +28,7 @@ const sendOtp = async (req, res) => {
     let connection;
     try {
         connection = await connectToDB();
+        console.log("Connected to the database");
 
         // Search for the user in the database
         const sqlSearch = "SELECT * FROM user_table WHERE email = ?";
@@ -54,7 +55,7 @@ const sendOtp = async (req, res) => {
         await connection.query(otpQuery, [verifyCode,expirationTime, email]);
 
         // Send OTP via notification (could be an email or any other method)
-        // notify(req, res, email, "Email Verification", `This is your OTP to verify your email: ${verifyCode}`);
+        notify(req, res, email, "Email Verification", `This is your OTP to verify your email: ${verifyCode}`);
 
         return res.send({ message: "OTP sent successfully" });
 

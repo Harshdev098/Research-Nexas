@@ -50,11 +50,11 @@ const signup = async (req, res) => {
                     return res.status(409).send('Username Already in Use');
                 }
             } else {
-                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?)';
+                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?, null)';
                 await connection.query(sqlInsert, [username, email, hashpassword]);
                 console.log('Created a new User');
                 const sub = 'Signup-Research Nexas';
-                // notify(req, res, email, sub, `Account created successfully with username ${username}`);
+                notify(req, res, email, sub, `Account created successfully with username ${username}`);
                 return res.sendStatus(201);
             }
         } finally {
@@ -88,7 +88,7 @@ const signin = async (req, res) => {
                 console.log(token);
                 const sub = 'Log in-Research Nexas';
                 const content = `Login successfully to the account with username ${result[0].username}`;
-                // notify(req, res, result[0].email, sub, content);
+                await notify(req, res, result[0].email, sub, content);
                 return res.json({ accessToken: token });
             } else {
                 return res.status(401).send('Password incorrect');
