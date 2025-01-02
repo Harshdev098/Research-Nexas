@@ -35,7 +35,8 @@ CREATE TABLE stk_holder (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     col_name VARCHAR(180) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
-    password VARCHAR(80) NOT NULL UNIQUE
+    password VARCHAR(80) NOT NULL UNIQUE,
+    otp_expiry BIGINT NULL         -- Column for storing OTP expiration (Unix timestamp)
 );
 
 -- Create the criteria table
