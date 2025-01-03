@@ -15,7 +15,8 @@ CREATE TABLE user_table (
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(140) NOT NULL UNIQUE,
-    otp VARCHAR(6) DEFAULT NULL-- Add the otp column to store OTP values
+    otp VARCHAR(6) DEFAULT NULL,-- Add the otp column to store OTP values
+    otp_expiry BIGINT DEFAULT NULL      -- Column for storing OTP expiration (Unix timestamp)
 );
 
 -- Create the info_table
