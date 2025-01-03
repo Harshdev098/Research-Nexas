@@ -50,7 +50,7 @@ const signup = async (req, res) => {
                     return res.status(409).send('Username Already in Use');
                 }
             } else {
-                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?)';
+                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?, null)';
                 await connection.query(sqlInsert, [username, email, hashpassword]);
                 console.log('Created a new User');
                 const sub = 'Signup-Research Nexas';
