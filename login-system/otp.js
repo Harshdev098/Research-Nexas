@@ -49,7 +49,7 @@ const sendOtp = async (req, res) => {
           });;
         console.log(verifyCode);
         
-        const otpQuery = "UPDATE user_table SET otp = ? WHERE email = ?";
+        const otpQuery = "UPDATE user_table SET otp = ?, otp_created_at = CURRENT_TIMESTAMP WHERE email = ?";
         await connection.query(otpQuery, [verifyCode, email]);
         
         // Send OTP via notification (could be an email or any other method)

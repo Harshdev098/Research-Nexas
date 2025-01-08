@@ -77,18 +77,19 @@ CREATE TABLE upload_file_db (
     FOREIGN KEY (userid) REFERENCES info_table(id) ON DELETE CASCADE
 );
 
--- Create a MySQL Event to handle OTP expiration
+
 DELIMITER $$
 
 CREATE EVENT IF NOT EXISTS otp_expiry_event
-ON SCHEDULE EVERY 1 MINUTE -- Runs every minute
+ON SCHEDULE EVERY 1 MINUTE
 DO
 BEGIN
-    -- Delete expired OTPs (older than 5 minutes) from user_table
-    DELETE FROM user_table 
-    WHERE otp IS NOT NULL 
-      AND otp_created_at IS NOT NULL
-      AND TIMESTAMPDIFF(MINUTE, otp_created_at, CURRENT_TIMESTAMP) > 2;
+    -- Set OTP to NULL if it is older than 2 minutes
+    UPDATE user_table
+    SET otp = NULL,
+        otp_created_at = NULL
+    WHERE otp IS NOT NULL
+    AND TIMESTAMPDIFF(MINUTE, otp_created_at, CURRENT_TIMESTAMP) > 2;
 END$$
 
 DELIMITER ;
