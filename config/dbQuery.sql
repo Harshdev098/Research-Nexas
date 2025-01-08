@@ -16,7 +16,7 @@ CREATE TABLE user_table (
     email VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(140) NOT NULL UNIQUE,
     otp VARCHAR(6) DEFAULT NULL,-- Add the otp column to store OTP values
-    otp_expiry BIGINT DEFAULT NULL      -- Column for storing OTP expiration (Unix timestamp)
+    otp_created_at TIMESTAMP DEFAULT NULL  -- Add timestamp to track OTP creation
 );
 
 -- Create the info_table
@@ -76,3 +76,19 @@ CREATE TABLE upload_file_db (
     FOREIGN KEY (fac_mail) REFERENCES faculty(email) ON DELETE CASCADE,
     FOREIGN KEY (userid) REFERENCES info_table(id) ON DELETE CASCADE
 );
+
+-- Create a MySQL Event to handle OTP expiration
+DELIMITER $$
+
+CREATE EVENT IF NOT EXISTS otp_expiry_event
+ON SCHEDULE EVERY 1 MINUTE -- Runs every minute
+DO
+BEGIN
+    -- Delete expired OTPs (older than 5 minutes) from user_table
+    DELETE FROM user_table 
+    WHERE otp IS NOT NULL 
+      AND otp_created_at IS NOT NULL
+      AND TIMESTAMPDIFF(MINUTE, otp_created_at, CURRENT_TIMESTAMP) > 2;
+END$$
+
+DELIMITER ;
