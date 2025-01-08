@@ -119,7 +119,7 @@ const reset = async (req, res) => {
             }
 
             const userOtp = result[0].otp;
-            const otpExpiry = result[0].otp_created_at;
+            // const otpExpiry = result[0].otp_created_at;
 
             if (otp !== userOtp || !userOtp) {
                 return res.status(400).json({ success: false, message: 'Invalid OTP' });
