@@ -119,20 +119,14 @@ const reset = async (req, res) => {
             }
 
             const userOtp = result[0].otp;
-            const otpExpiry = result[0].otp_expiry;
+            const otpExpiry = result[0].otp_created_at;
 
             if (otp !== userOtp || !userOtp) {
                 return res.status(400).json({ success: false, message: 'Invalid OTP' });
             }
 
-             // Check OTP expiry
-             if (Date.now() > otpExpiry) {
-                // Expired: Clear OTP and expiry in the database
-                const clearOtpQuery = 'UPDATE user_table SET otp = NULL, otp_expiry = NULL WHERE email = ?';
-                await connection.query(clearOtpQuery, [email]);
-
-                return res.status(400).json({ success: false, message: 'OTP has expired' });
-            }
+            // At this point, the OTP is valid, and the SQL event will handle expiration.
+            // Proceed with resetting the password and clearing the OTP.
 
             const hashpassword = await bcrypt.hash(password, 10);
             const resetQuery = 'UPDATE user_table SET otp = NULL, otp_expiry = NULL, password = ? WHERE email = ?';
