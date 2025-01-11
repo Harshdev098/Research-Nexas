@@ -12,51 +12,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/Research_Nexas_favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/Research_Nexas_favicon_io/favicon-16x16.png">
     <link rel="manifest" href="images/Research_Nexas_favicon_io/site.webmanifest">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css ">
 </head>
-
 <body>
     <section>
-        <nav class="nav nav-pills nav-fill" style="margin: 10px; color:black">
+        <nav class="nav nav-pills nav-fill" style="margin: 10px; color:rgb(255, 255, 255)">
             <a class="nav-link active" aria-current="page" href="#">Your Profile</a>
-            <a class="nav-link" href="./index.html">Home</a>
-            <a class="nav-link" href="#">About Us</a>
-            <a class="nav-link" href="#">View Result</a>
+            <a class="nav-link" href="./main_page.html">Home</a>
+            <a class="nav-link" href="./#about_show">About Us</a>
+            <a class="nav-link" href="./login.html">Logout</a>
         </nav>
-        <div id="editProfileModal" class="modal" role="dialog">
-            <h3>Edit Profile</h3>
-            <form id="editForm" aria-labelledby="editProfileModal">
-                <div class="form-group">
-                    <label for="editName">Name:</label>
-                    <input type="text" id="editName" required>
-                </div>
-                <div class="form-group">
-                    <label for="editEmail">Email:</label>
-                    <input type="email" id="editEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="editCollege">College Name:</label>
-                    <input type="text" id="editCollege" required>
-                </div>
-                <div class="form-group">
-                    <label for="editState">State:</label>
-                    <input type="text" id="editState" required>
-                </div>
-                <div class="form-group">
-                    <label for="editYear">Year:</label>
-                    <input type="number" id="editYear" required min="1">
-                </div>
-                <div class="form-group">
-                    <label for="editCourse">Course:</label>
-                    <input type="text" id="editCourse" required>
-                </div>
-        
-                <div class="dualBtns">
-                    <button type="submit" class="btn-save">Save</button>
-                    <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
-                </div>
-            </form>
-        </div>
+
         <div id="profileContainer">
             <div id="detail">
                 <ul>
@@ -72,111 +38,59 @@
                 <button onclick="openEditModal()">Edit Profile</button>
             </div>
         </div>
-        
-        <style>
-            body {
-    margin: 20px;
-}
-
-            /* Add spacing around the form */
-            #editProfileModal {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
-                width: 80%;  /* Adjust width of the modal to prevent it from taking up too much space */
-                max-width: 600px;  /* Add a max width to avoid the form being too wide */
-            }
-
-            /* Add padding to form fields */
-            .form-group input {
-                width: 100%;
-                padding: 12px;  /* Increased padding */
-                margin-top: 10px;  /* More space between input fields */
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-
-            /* Add padding and margin to the buttons */
-            .dualBtns {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                margin-top: 20px; /* Add space between form and buttons */
-            }
-
-            .btn-save, .btn-cancel {
-                padding: 15px 32px;
-                font-size: 16px;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-            .modal {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-                z-index: 1000;
-            }
-        
-            .form-group {
-                margin-bottom: 15px;
-            }
-        
-            .form-group label {
-                display: block;
-                font-size: 16px;
-            }
-        
-            .form-group input {
-                width: 100%;
-                padding: 8px;
-                margin-top: 5px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-        
-            .dualBtns {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
-        
-            .btn-save {
-                background-color: #04AA6D;
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                font-size: 16px;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-        
-            .btn-cancel {
-                background-color: #F95454;
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                font-size: 16px;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-        </style>
-        
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <h3>Edit Profile</h3>
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="editName">Name:</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCollege">College Name:</label>
+                        <input type="text" id="editCollege" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editState">State:</label>
+                        <input type="text" id="editState" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editYear">Year:</label>
+                        <input type="number" id="editYear" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCourse">Course:</label>
+                        <input type="text" id="editCourse" required>
+                    </div>
+                    <div class="dualBtns">
+                        <button type="submit" class="btn-save">Save</button>
+                        <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="gtranslate_wrapper"></div>
+    </section>
+    <script>
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            window.location.href = '/';
+        }
+        window.gtranslateSettings = {
+            default_language: "en",
+            detect_browser_language: true,
+            wrapper_selector: ".gtranslate_wrapper",
+            font_size: 100,
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
         <script>
-            const token = localStorage.getItem('accessToken');
-            if (!token) {
+            const Token = localStorage.getItem('accessToken');
+            if (!Token) {
                 window.location.href = '/';
             }
         
@@ -184,21 +98,11 @@
             // Hide profile container and show modal
             document.getElementById('profileContainer').style.display = 'none';
             const modal = document.getElementById('editProfileModal');
-            modal.style.display = 'block';
-
-            // Populate the form with the current profile data
-            document.getElementById('editName').value = document.getElementById('name').textContent;
-            document.getElementById('editEmail').value = document.getElementById('email').textContent;
-            document.getElementById('editCollege').value = document.getElementById('col_name').textContent;
-            document.getElementById('editState').value = document.getElementById('state').textContent;
-            document.getElementById('editYear').value = document.getElementById('year').textContent;
-            document.getElementById('editCourse').value = document.getElementById('course').textContent;
+            modal.style.display = 'flex';
         }
         
         function closeEditModal() {
-            // Hide the modal and show the profile container
-            const modal = document.getElementById('editProfileModal');
-            modal.style.display = 'none';
+            document.getElementById('editProfileModal').style.display = 'none';
             document.getElementById('profileContainer').style.display = 'block';
         }
         
@@ -233,7 +137,6 @@
                         document.getElementById('year').textContent = data.year;
                         document.getElementById('course').textContent = data.course;
                         alert("Profile Updated Successfully");
-        
                         closeEditModal();
                         fetchData();
                     } else {
