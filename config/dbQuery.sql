@@ -15,8 +15,7 @@ CREATE TABLE user_table (
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(140) NOT NULL UNIQUE,
-    otp VARCHAR(6) DEFAULT NULL,-- Add the otp column to store OTP values
-    otp_created_at TIMESTAMP DEFAULT NULL  -- Add timestamp to track OTP creation
+    otp VARCHAR(6) DEFAULT NULL
 );
 
 -- Create the info_table
@@ -36,8 +35,7 @@ CREATE TABLE stk_holder (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     col_name VARCHAR(180) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
-    password VARCHAR(80) NOT NULL UNIQUE,
-    otp_expiry BIGINT NULL         -- Column for storing OTP expiration (Unix timestamp)
+    password VARCHAR(80) NOT NULL UNIQUE
 );
 
 -- Create the criteria table
@@ -78,18 +76,13 @@ CREATE TABLE upload_file_db (
 );
 
 
-DELIMITER $$
-
-CREATE EVENT IF NOT EXISTS otp_expiry_event
-ON SCHEDULE EVERY 1 MINUTE
-DO
-BEGIN
-    -- Set OTP to NULL if it is older than 2 minutes
-    UPDATE user_table
-    SET otp = NULL,
-        otp_created_at = NULL
+DELIMITER //	
+create event if not exists deleteOTP on schedule every 2 minute
+do 
+begin
+     DELETE FROM user_table
     WHERE otp IS NOT NULL
-    AND TIMESTAMPDIFF(MINUTE, otp_created_at, CURRENT_TIMESTAMP) > 2;
-END$$
-
+    AND TIMESTAMPDIFF(MINUTE, otp_generated_time, NOW()) >= 2;
+END //
 DELIMITER ;
+set global event_scheduler=on;
