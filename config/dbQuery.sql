@@ -16,7 +16,7 @@ CREATE TABLE user_table (
     email VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(140) NOT NULL UNIQUE,
     otp VARCHAR(6) DEFAULT NULL,
-    otp_created_at DATETIME
+    otp_created_at DATETIME DEFAULT NULL
 );
 
 -- Create the info_table
