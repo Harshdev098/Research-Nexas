@@ -15,7 +15,8 @@ CREATE TABLE user_table (
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(140) NOT NULL UNIQUE,
-    otp VARCHAR(6) DEFAULT NULL
+    otp VARCHAR(6) DEFAULT NULL,
+    otp_created_at DATETIME
 );
 
 -- Create the info_table
@@ -82,7 +83,7 @@ do
 begin
      DELETE FROM user_table
     WHERE otp IS NOT NULL
-    AND TIMESTAMPDIFF(MINUTE, otp_generated_time, NOW()) >= 2;
+    AND TIMESTAMPDIFF(MINUTE, otp_created_at, NOW()) >= 2;
 END //
 DELIMITER ;
 set global event_scheduler=on;
