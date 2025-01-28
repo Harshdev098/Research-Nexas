@@ -14,7 +14,9 @@ CREATE TABLE user_table (
     userid INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL UNIQUE,
-    password VARCHAR(140) NOT NULL UNIQUE
+    password VARCHAR(140) NOT NULL UNIQUE,
+    otp VARCHAR(6) DEFAULT NULL,
+    otp_created_at DATETIME DEFAULT NULL
 );
 
 -- Create the info_table
@@ -73,3 +75,15 @@ CREATE TABLE upload_file_db (
     FOREIGN KEY (fac_mail) REFERENCES faculty(email) ON DELETE CASCADE,
     FOREIGN KEY (userid) REFERENCES info_table(id) ON DELETE CASCADE
 );
+
+
+DELIMITER //	
+create event if not exists deleteOTP on schedule every 2 minute
+do 
+begin
+     DELETE FROM user_table
+    WHERE otp IS NOT NULL
+    AND TIMESTAMPDIFF(MINUTE, otp_created_at, NOW()) >= 2;
+END //
+DELIMITER ;
+set global event_scheduler=on;

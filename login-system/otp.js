@@ -5,6 +5,8 @@ const rateLimit = require('express-rate-limit');
 require("dotenv").config();
 const db = require('../config/mysql_connection');
 const nodemailer = require("nodemailer");
+const otpGenerator = require('otp-generator'); // Import otp-generator
+
 
 // Connecting to the database using async/await for connection management
 const connectToDB = async () => {
@@ -26,6 +28,7 @@ const sendOtp = async (req, res) => {
     let connection;
     try {
         connection = await connectToDB();
+        console.log("Connected to the database");
 
         // Search for the user in the database
         const sqlSearch = "SELECT * FROM user_table WHERE email = ?";
@@ -38,12 +41,19 @@ const sendOtp = async (req, res) => {
         }
 
         // Generate OTP and save it to the database
-        const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
-        const otpQuery = "UPDATE user_table SET otp = ? WHERE email = ?";
+        const verifyCode = otpGenerator.generate(6, {
+            upperCaseAlphabets: true,   // Include uppercase letters
+            lowerCaseAlphabets: true,   // Include lowercase letters
+            specialChars: true,         // Include special characters
+            digits: true                // Include digits
+          });;
+        console.log(verifyCode);
+        
+        const otpQuery = "UPDATE user_table SET otp = ?, otp_created_at = CURRENT_TIMESTAMP WHERE email = ?";
         await connection.query(otpQuery, [verifyCode, email]);
-
+        
         // Send OTP via notification (could be an email or any other method)
-        // notify(req, res, email, "Email Verification", `This is your OTP to verify your email: ${verifyCode}`);
+        notify(req, res, email, "Email Verification", `This is your OTP to verify your email: ${verifyCode}`);
 
         return res.send({ message: "OTP sent successfully" });
 

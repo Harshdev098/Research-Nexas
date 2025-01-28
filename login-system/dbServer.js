@@ -129,7 +129,7 @@ app.post("/login", signin);
 app.post("/stk_holder_signin", stk_signin);
 app.post("/fac_login", fac_login); //login for faculty
 app.post("/sendotp", sendOtp)
-app.post("/resetpassword", reset);
+app.post("/reset", reset);
 
 // approval by stakeholder
 app.get("/approval", approve);

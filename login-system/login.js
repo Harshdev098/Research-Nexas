@@ -50,7 +50,7 @@ const signup = async (req, res) => {
                     return res.status(409).send('Username Already in Use');
                 }
             } else {
-                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?)';
+                const sqlInsert = 'INSERT INTO user_table VALUES (0, ?, ?, ?, null, null)';
                 await connection.query(sqlInsert, [username, email, hashpassword]);
                 console.log('Created a new User');
                 const sub = 'Signup-Research Nexas';
@@ -119,13 +119,19 @@ const reset = async (req, res) => {
             }
 
             const userOtp = result[0].otp;
+            // const otpExpiry = result[0].otp_created_at;
+
             if (otp !== userOtp || !userOtp) {
                 return res.status(400).json({ success: false, message: 'Invalid OTP' });
             }
 
+            // At this point, the OTP is valid, and the SQL event will handle expiration.
+            // Proceed with resetting the password and clearing the OTP.
+
             const hashpassword = await bcrypt.hash(password, 10);
-            const resetQuery = 'UPDATE user_table SET otp = ?, password = ? WHERE email = ?';
-            await connection.query(resetQuery, ['', hashpassword, email]);
+            const resetQuery = 'UPDATE user_table SET otp = NULL, otp_expiry = NULL, password = ? WHERE email = ?';
+            await connection.query(resetQuery, [hashpassword, email]);
+            console.log('Password reset successfully');
             return res.json({ success: true, message: 'Password reset successfully' });
         } finally {
             connection.release();
