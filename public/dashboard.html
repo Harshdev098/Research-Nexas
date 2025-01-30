@@ -12,310 +12,201 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/Research_Nexas_favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/Research_Nexas_favicon_io/favicon-16x16.png">
     <link rel="manifest" href="images/Research_Nexas_favicon_io/site.webmanifest">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css ">
 </head>
-
-
 <body>
     <section>
-        <div class="container">
-            <div class="darkmode" onclick="hide()">
-                <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
-                <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
-                <b>
-                    <p id="mode" style="display: inline;font-size: 20px;">Light Mode</p>
-                </b>
+        <nav class="nav nav-pills nav-fill" style="margin: 10px; color:rgb(255, 255, 255)">
+            <a class="nav-link active" aria-current="page" href="#">Your Profile</a>
+            <a class="nav-link" href="./main_page.html">Home</a>
+            <a class="nav-link" href="./#about_show">About Us</a>
+            <a class="nav-link" href="./login.html">Logout</a>
+        </nav>
+
+        <div id="profileContainer">
+            <div id="detail">
+                <ul>
+                    <li>Name: <p id="name">John Doe</p></li>
+                    <li>Email: <p id="email">john.doe@example.com</p></li>
+                    <li>College Name: <p id="col_name">XYZ College</p></li>
+                    <li>State: <p id="state">California</p></li>
+                    <li>Year: <p id="year">4th Year</p></li>
+                    <li>Course: <p id="course">Computer Science</p></li>
+                </ul>
             </div>
-            <div class="profile">
-                <img src="" alt="profile">
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="openEditModal()">Edit Profile</button>
             </div>
-            <ul>
-                <li onclick="view_profile()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Profile</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
-                <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li onclick="handleLogout()" style="font-size:20px;" ><i class="fa-solid fa-code" style="padding: 0px 14px;font-size:19px;"></i>Log Out</li>
-                <li>
-                    <div class="gtranslate_wrapper"></div>
-                    <script>
-                        window.gtranslateSettings = {
-                            default_language: "en",
-                            detect_browser_language: true,
-                            wrapper_selector: ".gtranslate_wrapper",
-                            font_size: 100,
-                        };
-                    </script>
-                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
-                </li>
-            </ul>
         </div>
-        <div class="largesection">
-            <div class="main">
-                <div>
-                    <img src="" alt="profile">
-                    <strong>
-                        <p id="username">sdisoilfds</p>
-                    </strong>
-                </div>
-                <div>
-                    <button onclick="openEditModal()" style="cursor: pointer;"><i class="fa-regular fa-pen-to-square"
-                            style="padding: 0px 12px 0px 8px;"></i>Edit Profile</button>
-                </div>
-            </div>
-            <div id="editProfileModal" style="display:none;">
-                <h3 style="margin-left:3vw;font-size: 22px;">Edit Profile</h3>
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <h3>Edit Profile</h3>
                 <form id="editForm">
-                    <div id="detail">
-                        <ul>
-                            <li>
-                                <div>Name: </div><input type="text" id="editName" required>
-                            </li>
-                            <li>
-                                <div>Email: </div><input type="email" id="editEmail" required>
-                            </li>
-                            <li>
-                                <div>College Name: </div> <input type="text" id="editCollege" required>
-                            </li>
-                            <li>
-                                <div>State: </div> <input type="text" id="editState" required>
-                            </li>
-                            <li>
-                                <div>Year: </div> <input type="number" id="editYear" required>
-                            </li>
-                            <li>
-                                <div> Course: </div> <span><input type="text" id="editCourse" required></span>
-                            </li>
-                        </ul>
+                    <div class="form-group">
+                        <label for="editName">Name:</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCollege">College Name:</label>
+                        <input type="text" id="editCollege" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editState">State:</label>
+                        <input type="text" id="editState" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editYear">Year:</label>
+                        <input type="number" id="editYear" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCourse">Course:</label>
+                        <input type="text" id="editCourse" required>
                     </div>
                     <div class="dualBtns">
-                        <button type="submit" style="  background-color: #04AA6D; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" id="editForm">Save</button>
-                        <button type="button" style="  background-color: #F95454;
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" onclick="closeEditModal()">Cancel</button>
+                        <button type="submit" class="btn-save">Save</button>
+                        <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
                     </div>
                 </form>
             </div>
-            <div id="profileContainer">
-                <div id="detail">
-                    <ul>
-                        <li>Name: <p id="name"></p>
-                        </li>
-                        <li>Email: <p id="email"></p>
-                        </li>
-                        <li>College Name: <p id="col_name"></p>
-                        </li>
-                        <li>State: <p id="state"></p>
-                        </li>
-                        <li>Year: <p id="year"></p>
-                        </li>
-                        <li>Course: <p id="course"></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="result">
-                <strong>Result Status: <p id="status"></p>
-                    <p id="marks"></p>
-                </strong>
-                <div class="data">
-                    <p>the rating given to your Research paper by the faculties are:-</p>
-                </div>
-            </div>
         </div>
-        <div id="box1">
-            <p>Logout Successfully...</p>
-        </div>
+        <div class="gtranslate_wrapper"></div>
     </section>
-    <style>
-        .dualBtns {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
     <script>
         const token = localStorage.getItem('accessToken');
         if (!token) {
             window.location.href = '/';
         }
-        function openEditModal() {
+        window.gtranslateSettings = {
+            default_language: "en",
+            detect_browser_language: true,
+            wrapper_selector: ".gtranslate_wrapper",
+            font_size: 100,
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+        <script>
+            const Token = localStorage.getItem('accessToken');
+            if (!Token) {
+                window.location.href = '/';
+            }
+        
+            function openEditModal() {
+            // Hide profile container and show modal
             document.getElementById('profileContainer').style.display = 'none';
-            document.getElementById('editProfileModal').style.display = 'block';
-            document.getElementById('editName').value = document.getElementById('name').textContent;
-            document.getElementById('editEmail').value = document.getElementById('email').textContent;
-            document.getElementById('editCollege').value = document.getElementById('col_name').textContent;
-            document.getElementById('editState').value = document.getElementById('state').textContent;
-            document.getElementById('editYear').value = document.getElementById('year').textContent;
-            document.getElementById('editCourse').value = document.getElementById('course').textContent;
+            const modal = document.getElementById('editProfileModal');
+            modal.style.display = 'flex';
         }
-
+        
         function closeEditModal() {
             document.getElementById('editProfileModal').style.display = 'none';
             document.getElementById('profileContainer').style.display = 'block';
         }
-
-        document.getElementById('editForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const updatedData = {
-                name: document.getElementById('editName').value,
-                email: document.getElementById('editEmail').value,
-                col_name: document.getElementById('editCollege').value,
-                state: document.getElementById('editState').value,
-                year: document.getElementById('editYear').value,
-                course: document.getElementById('editCourse').value
-            };
-
-            const token = localStorage.getItem('accessToken');
-
-            try {
-                const response = await fetch('/updateProfile', {
-                    method: 'PUT',
+        
+            document.getElementById('editForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+        
+                const updatedData = {
+                    name: document.getElementById('editName').value,
+                    email: document.getElementById('editEmail').value,
+                    col_name: document.getElementById('editCollege').value,
+                    state: document.getElementById('editState').value,
+                    year: document.getElementById('editYear').value,
+                    course: document.getElementById('editCourse').value
+                };
+        
+                try {
+                    const response = await fetch('/updateProfile', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(updatedData)
+                    });
+        
+                    if (response.ok) {
+                        const data = await response.json();
+                        document.getElementById('name').textContent = data.name;
+                        document.getElementById('email').textContent = data.email;
+                        document.getElementById('col_name').textContent = data.col_name;
+                        document.getElementById('state').textContent = data.state;
+                        document.getElementById('year').textContent = data.year;
+                        document.getElementById('course').textContent = data.course;
+                        alert("Profile Updated Successfully");
+                        closeEditModal();
+                        fetchData();
+                    } else {
+                        alert("Failed to update profile");
+                        closeEditModal();
+                    }
+                } catch (error) {
+                    console.error('Error updating profile:', error);
+                    alert('An error occurred while updating the profile.');
+                }
+            });
+        
+            async function fetchData() {
+                const token = localStorage.getItem('accessToken');
+                const response = await fetch('/dashboard', {
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${token}`,
                     },
-                    body: JSON.stringify(updatedData)
                 });
-
-                if (response.ok) {
+                
+                if (response.status === 200) {
                     const data = await response.json();
-                    // Update the DOM with new values
                     document.getElementById('name').textContent = data.name;
                     document.getElementById('email').textContent = data.email;
                     document.getElementById('col_name').textContent = data.col_name;
                     document.getElementById('state').textContent = data.state;
                     document.getElementById('year').textContent = data.year;
                     document.getElementById('course').textContent = data.course;
-                    alert("Profile Updated Successfully")
-
-                    closeEditModal();
-                    fetchdata();
-                } else {
-                    alert("Failed to update profile")
-                    closeEditModal();
-                    console.error('Failed to update profile:', response.statusText);
                 }
-            } catch (error) {
-                console.error('Error updating profile:', error);
             }
-        });
-        async function fetchdata() {
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const username = document.getElementById('username');
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const col_name = document.getElementById('col_name');
-            const state = document.getElementById('state');
-            const year = document.getElementById('year');
-            const course = document.getElementById('course');
-            const response = await fetch('/dashboard', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
-            if (response.status == 200) {
-                const data = await response.json();
-                username.textContent = data.username;
-                name.textContent = data.name;
-                email.textContent = data.email;
-                col_name.textContent = data.col_name;
-                state.textContent = data.state;
-                year.textContent = data.year;
-                course.textContent = data.course;
-            }
-        }
-        fetchdata()
-        const handleLogout =  () => {
-            const result1 = document.getElementById('box1');
-            result1.style.display = 'block';
-            localStorage.removeItem("accessToken");
-            console.log("logout");
-            setTimeout(() => {
-                        window.location.href = 'index.html';
-            }, 2000)
-        };
         
-        function hide() {
-            document.body.classList.toggle("dark-theme");
-            const regularicon = document.getElementById('regular')
-            const solidicon = document.getElementById('solid')
-            const mode = document.getElementById('mode')
-            if (regularicon.style.display == 'inline') {
-                solidicon.style.display = 'inline';
-                regularicon.style.display = 'none';
-                mode.textContent = "Dark Mode"
-            }
-            else {
-                solidicon.style.display = 'none';
-                regularicon.style.display = 'inline';
-                mode.textContent = "Light Mode"
-            }
-        }
-
-
-        const view_profile = () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'block'
-            result.style.display = 'none'
-        }
-
-
-        const view_result = async () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'none'
-            result.style.display = 'block'
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('/result', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
+            fetchData();
+            
+            const handleLogout = () => {
+                const result1 = document.getElementById('box1');
+                result1.style.display = 'block';
+                localStorage.removeItem("accessToken");
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            };
+        
+            const hide = () => {
+                document.body.classList.toggle("dark-theme");
+            };
+        
+            const viewProfile = () => {
+                document.getElementById('detail').style.display = 'block';
+                document.getElementById('result').style.display = 'none';
+            };
+        
+            const viewResult = async () => {
+                document.getElementById('detail').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+                
+                const response = await fetch('/result', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    }
+                });
+        
+                if (response.status === 201) {
+                    const data = await response.json();
+                    document.getElementById('status').textContent = data.status;
+                    document.getElementById('marks').textContent = data.percent;
+                } else {
+                    document.getElementById('result').innerHTML = "Result not declared yet!";
                 }
-            })
-            console.log("resoponse",response)
-            if (response.status == 201) {
-                const data = await response.json()
-                const status = document.getElementById('status')
-                const marks = document.getElementById('marks')
-                status.textContent = data.status
-                marks.textContent = data.percent
-            }
-            else if (response.status == 404) {
-                console.log('Result not declared')
-                const result = document.getElementById('result')
-                result.innerHTML = "Result not declared yet!"
-                result.style.color = "red"
-                result.style.padding = "16px"
-                result.style.fontSize = "18px"
-            }
-            else {
-                console.log("an error occured")
-            }
-        }
-    </script>
+            };
+        </script>        
 
     <script>
         window.embeddedChatbotConfig = {
