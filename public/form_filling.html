@@ -57,21 +57,21 @@
                 User Form</h2>
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
                 <p id="emailError" style="font-size: 18px; color: red; font-weight: bold; display: none;"></p>
             </div>
             <div class="form-group">
                 <label for="college">College Name</label>
-                <input type="text" name="col_name" id="col_name" class="form-control" placeholder="Start typing your college name...">
+                <input type="text" name="col_name" id="col_name" class="form-control" placeholder="Start typing your college name..." required>
                 <ul id="collegeList" style="list-style-type: none; padding: 0;"></ul>
             </div>
             <div class="form-group">
                 <label>State</label>
-                <select name="state" id="state">
+                <select name="state" id="state" required>
                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -111,7 +111,7 @@
             </div>
             <div class="form-group">
                 <label>Department</label>
-                <select name="dept" id="dept">
+                <select name="dept" id="dept" required>
                     <option value="Computer Science">Computer Science</option>
                     <option value="Electronics">Electronics</option>
                     <option value="Science">Science</option>
@@ -122,11 +122,11 @@
             </div>
             <div class="form-group">
                 <label>Course</label>
-                <input type="text" id="course" name="course">
+                <input type="text" id="course" name="course" required>
             </div>
             <div class="form-group">
                 <label>Year</label>
-                <select name="year" id="year"></select>
+                <select name="year" id="year" required></select>
             </div>
             <p id="result" style="display: none; font-size: 20px;color: green;font-weight: bold;">Form submitted
                 Successfully... Redirecting...
@@ -232,70 +232,82 @@
                 }
             });
 
-            document.getElementById('form').addEventListener('submit', async function (event) {
-                event.preventDefault();
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const col_name = document.getElementById('col_name').value;
-                const state = document.getElementById('state').value;
-                const dept = document.getElementById('dept').value;
-                const course = document.getElementById('course').value.toUpperCase();
-                const year = document.getElementById('year').value;
+            document.getElementById('form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
 
-                const result = document.getElementById('result');
-                const result2 = document.getElementById('result2');
-                const result3 = document.getElementById('result3');
+    // Get all the input fields
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const col_name = document.getElementById('col_name').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const dept = document.getElementById('dept').value.trim();
+    const course = document.getElementById('course').value.trim();
+    const year = document.getElementById('year').value.trim();
 
-                // Validate email domain again before submission
-                const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
-                const emailDomain = email.split('@')[1]; // Get the domain part of the email
-                if (!allowedDomains.includes(emailDomain)) {
-                    result2.innerText = "Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)";
-                    result2.style.display = "block";
-                    setTimeout(() => {
-                        result2.style.display = "none";
-                    }, 3000);
-                    return; // Stop form submission
-                }
+    // Array of field values for easier validation
+    const fields = [
+        { value: name, label: 'Name' },
+        { value: email, label: 'Email' },
+        { value: col_name, label: 'College Name' },
+        { value: state, label: 'State' },
+        { value: dept, label: 'Department' },
+        { value: course, label: 'Course' },
+        { value: year, label: 'Year' }
+    ];
 
-                const data = { name, email, col_name, state, course, year, dept };
-                const token = localStorage.getItem('accessToken');
-                const headers = new Headers();
-                headers.append('Authorization', `Bearer ${token}`);
+    // Check for empty fields
+    const emptyFields = fields.filter(field => !field.value);
+    if (emptyFields.length > 0) {
+        const fieldNames = emptyFields.map(field => field.label).join(', ');
+        alert(`Please fill the following fields: ${fieldNames}`);
+        return; // Stop form submission
+    }
 
-                try {
-                    const response = await fetch('/info', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`,
-                        },
-                        body: JSON.stringify(data),
-                    });
-                  
-                    console.log(response.status);
+    // Validate email domain
+    const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'hotmail.com'];
+    const emailDomain = email.split('@')[1]; 
+    if (!allowedDomains.includes(emailDomain)) {
+        alert("Please use an email from trusted providers (Gmail, Yahoo, Outlook, etc.)");
+        return;
+    }
 
-                    if (response.status == 200) {
-                        console.log("Information saved");
-                        result.style.display = "inline-block";
-                        setTimeout(() => {
-                            window.location.replace("main_page.html")
-                        }, 2000);
-                    }
-                    else if (response.status == 400) {
-                        result3.style.display = "inline-block";
-                    }
-                    else {
-                        console.log("Submission failed");
-                        result2.style.display = "block";
-                        setTimeout(() => {
-                            result2.style.display = "none";
-                        }, 2000);
-                    }
-                } catch (error) {
-                    console.error("Error occurred", error);
-                }
-            });
+    // If all fields are filled, proceed with form submission
+    const data = { name, email, col_name, state, course, year, dept };
+    const token = localStorage.getItem('accessToken');
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
+
+    fetch('/info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (response.status == 200) {
+            console.log("Information saved");
+            document.getElementById('result').style.display = "inline-block";
+            setTimeout(() => {
+                window.location.replace("main_page.html");
+            }, 2000);
+        }
+        else if (response.status == 400) {
+            document.getElementById('result3').style.display = "inline-block";
+        }
+        else {
+            console.log("Submission failed");
+            document.getElementById('result2').style.display = "block";
+            setTimeout(() => {
+                document.getElementById('result2').style.display = "none";
+            }, 2000);
+        }
+    })
+    .catch(error => {
+        console.error("Error occurred", error);
+    });
+});
 
             async function usercheck() {
                 const token = localStorage.getItem('accessToken');
