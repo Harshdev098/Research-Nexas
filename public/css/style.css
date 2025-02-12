@@ -232,7 +232,7 @@ nav ul li:first-child:hover {
   position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .HamBurger {
       display: block;
       left: 10px;
