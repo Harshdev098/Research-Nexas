@@ -1,145 +1,139 @@
-*{
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-section{
+
+/* SIDE NAVBAR */
+.container {
     display: flex;
 }
-#box1 {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 22px;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-#box1 {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    display: none;
-}
-:root{
-    --primary-color: #fff;
-    --secondary-color: #0e0e0e;
-    --ternary-color: #f0f8ff;
-    --forth-color: #f0f8ff;
 
-  }
+.side-nav {
+    padding: 10px;
+    width: 25%;
+    min-height: 100vh;
+    background-color: rgb(42, 40, 40);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
 
-  
-  .dark-theme{
-    --primary-color: #0e0e0e;
-    --secondary-color: #fff;
-    --ternary-color: #0e0e0e;
-    --forth-color: green;
-  }
+.heading {
+    color: darkgoldenrod;
+}
 
-/* container styling */
-.container{
-    background-color: var(--ternary-color);
-    height: 100vh;
-    color: var(--secondary-color);
-}
-.container ul{
-    border-top: 2px solid var(--secondary-color);
-    padding: 0;
-    margin: 0;
-}
-.container ul li{
-    list-style: none;
-    margin: 7px 26px 7px 16px;
-    padding: 8px 44px 8px 26px;
-    font-size: 20px;
-}
-.container ul li:hover{
-    background-color: var(--primary-color);
-    border-radius: 12px;
-    cursor: pointer;
-    color: beige;
-}
-.darkmode{
-    border-bottom: 2px solid var(--secondary-color);
-    cursor: pointer;
-    padding: 12px;
-    margin: 4px;
-    font-size: 30px;
-}
-.profile img{
-    margin: 12px;
-    display: block;
-    margin: auto;
-    border-radius: 50%;
-}
-.profile{
+.logo {
     display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    padding: 12px;
-    margin: 12px;
-}
-.profile strong{
-    padding: 14px;
+    align-items: center;
 }
 
-/* main styling */
-.main{
+.outer-profile {
+    width: 130px;
+    height: 40px;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(160, 160, 160, 0.5);
+    border-radius: 10px;
+}
+
+.profile-icon {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(252, 251, 246);
+    border-radius: 50px;
+}
+
+#username {
+    color: white;
+}
+
+.profile-section {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.main img{
-    margin: 26px;
-    border-radius: 75%;
-}
-.main p{
-    font-size: 42px;
-    padding: 26px 26px;
-    margin: 0;
-}
-.main button a{
-    text-decoration: none;
-    font-size: 16px;
-    background-color: rgb(212, 42, 42);
-    color: var(--secondary-color);
-}
-.main button{
-    padding: 10px;
-    margin: 0px 20px;
-    background-color: rgb(212, 42, 42);
-    border: none;
-    border-radius: 8px;
-}
-.largesection{
-    flex: 1;
+
+.count {
+    position: relative;
+    right: 40px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: darkgoldenrod;
 }
 
-/* detail styling  */
-#detail ul{
+.box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.text {
+    color: rgb(132, 123, 123);
+}
+.text:hover{
+    color:darkgoldenrod;
+}
+
+/* MAIN */
+main {
+    background-color: rgb(252, 251, 246);
+}
+
+.main-top {
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(217, 214, 199);
+    border-radius: 50px;
+}
+
+.profile-pic-add {
+    margin: 3rem;
+    width: 90%;
+    min-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.4);
+}
+.profile-details{
+    margin: 0px 3rem;
+    margin-bottom: 70px;
+    width:90%;
+    min-height: 33rem;
+    background-color:white ;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.4);
+  
+}
+
+#detail ul {
     margin: 8px;
 }
-#detail ul li{
+
+#detail ul li {
     list-style: none;
     font-size: 20px;
     margin: 8px;
     padding: 8px;
 }
+
 #detail ul li p,
-#detail ul li input{
-    background-color: var(--forth-color);
-    color: var(--secondary-color);
+#detail ul li input {
+    border:1px solid black;
     margin: 5px 0px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
 }
 
@@ -147,22 +141,87 @@ section{
     width: 80vw;
 }
 
-#result{
+.detail-text{
+    color:darkgoldenrod;
+}
+.add-pic{
+    width:200px;
+    height:200px;
+    background-color: rgb(231, 212, 187);
+    border-radius:100px;
+}
+.user-text{
+    margin-left:2rem;
+     color:grey
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: hwb(45 84% 0%); /* Dark body background */
+    color: black; /* Text color in dark mode */
+}
+main.dark-mode{
+    background-color: hwb(45 84% 0%);; 
+    color: black; /* Text color in dark mode */
+}
+
+.side-nav.dark-mode {
+    background-color: #333333; /* Darker navbar background in dark mode */
+    color: #e0e0e0; /* Text color in dark mode */
+}
+
+.user-text.dark-mode{
+    color:black;
+}
+
+.dualBtns {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    
+}
+
+.dualBtns button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.dualBtns button:first-child {
+    background-color: #04AA6D; /* Green */
+    color: white;
+}
+
+.dualBtns button:last-child {
+    background-color: #F95454; /* Red */
+    color: white;
+}
+
+/* Result Section */
+#result {
     display: none;
 }
-#result strong{
+
+#result strong {
     margin: 10px;
     padding: 16px;
     font-size: 24px;
     display: inline;
 }
-#result p{
+
+#result p {
     padding: 10px;
     font-size: 21px;
     display: inline-block;
     color: rgb(6, 241, 6);
 }
-.data p{
+
+.data p {
     margin: 16px;
     padding: 20px 0px;
 }
+
+
