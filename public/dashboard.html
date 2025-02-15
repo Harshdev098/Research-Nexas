@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="css/profile.css">
     <style>
         .dualBtns {
@@ -91,7 +91,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-house" viewBox="0 0 16 16">
                 <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
               </svg>
-              <p class="text" onclick="handleLogout()"> Home</p>
+              <p class="text" onclick="navigate()"> Home</p>
           </div>
           <br>
           <div class="box">
@@ -180,15 +180,16 @@
                 </div>
             </div>
             </div>
-        </div>
-        
-        <div id="result">
-            <strong>Result Status: <p id="status"></p><p id="marks"></p></strong>
-            <div class="data">
-                <p>The rating given to your Research paper by the faculties is:</p>
+            <div id="result">
+                <strong>Result Status: <p id="status"></p><p id="marks"></p></strong>
+                <div class="data">
+                    <p>The rating given to your Research paper by the faculties is:</p>
+                </div>
             </div>
         </div>
-    </div>
+        </div>
+        
+        
 
         </main>
     </container>
@@ -236,8 +237,15 @@
                 window.location.href = 'index.html';
             }, 2000);
         };
+        const navigate=()=>{
+            setTimeout(() => {
+                window.location.href = 'main_page.html';
+            }, 2000);
+        }
+
 
         const viewResult = async () => {
+        console.log("hello")
             const token = localStorage.getItem('accessToken');
             const response = await fetch('/result', {
                 headers: {
@@ -271,44 +279,44 @@
             document.getElementById('profileContainer').style.display = 'block';
         }
 
-       const submit= async()=> {
-            const updatedData = {
-                name: document.getElementById('editName').value,
-                email: document.getElementById('editEmail').value,
-                col_name: document.getElementById('editCollege').value,
-                state: document.getElementById('editState').value,
-                year: document.getElementById('editYear').value,
-                course: document.getElementById('editCourse').value
-            };
+        const submit = async () => {
+    const updatedData = {
+        name: document.getElementById('editName').value,
+        email: document.getElementById('editEmail').value,
+        col_name: document.getElementById('editCollege').value,
+        state: document.getElementById('editState').value,
+        year: document.getElementById('editYear').value,
+        course: document.getElementById('editCourse').value
+    };
 
-            try {
-                const response = await fetch('/updateProfile', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(updatedData)
-                });
+    try {
+        const response = await fetch('/updateProfile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(updatedData)
+        });
 
-                if (response.ok) {
-                    const data = await response.json();
-                    document.getElementById('name').textContent = data.name;
-                    document.getElementById('email').textContent = data.email;
-                    document.getElementById('col_name').textContent = data.col_name;
-                    document.getElementById('state').textContent = data.state;
-                    document.getElementById('year').textContent = data.year;
-                    document.getElementById('course').textContent = data.course;
-                    alert("Profile Updated Successfully");
-                    window.location.href = 'main_page.html'
-                    closeEditModal();
-                } else {
-                    alert("Failed to update profile");
-                }
-            } catch (error) {
-                console.error('Error updating profile:', error);
-            }
-        };
+        if (response.ok) {
+            
+            const data = await response.json();
+
+            console.log("Updated Profile Data:", data);
+
+            
+            alert("Profile Updated Successfully");
+
+         
+            window.location.reload();
+        } else {
+            alert("Failed to update profile");
+        }
+    } catch (error) {
+        console.error('Error updating profile:', error);
+    }
+};
 
 
         
