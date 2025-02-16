@@ -6,155 +6,263 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="css/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="images/Research_Nexas_favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/Research_Nexas_favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/Research_Nexas_favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="images/Research_Nexas_favicon_io/site.webmanifest">
-    
-</head>
-
-
-<body>
-    <section>
-        <div class="container">
-            <div class="darkmode" onclick="hide()">
-                <i class="fa-solid fa-sun" style="font-size: 30px;margin: 20px;display: none;" id="solid"></i>
-                <i class="fa-regular fa-sun" style="font-size: 30px;margin: 20px;display: inline;" id="regular"></i>
-                <b>
-                    <p id="mode" style="display: inline;font-size: 20px;">Light Mode</p>
-                </b>
-            </div>
-            <div class="profile">
-                <img src="" alt="profile">
-            </div>
-            <ul>
-                <li onclick="view_profile()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Profile</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>Home</li>
-                <li><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>About Us</li>
-                <li onclick="view_result()"><i class="fa-solid fa-code" style="padding: 0px 14px;"></i>View Result</li>
-                <li onclick="handleLogout()" style="font-size:20px;" ><i class="fa-solid fa-code" style="padding: 0px 14px;font-size:19px;"></i>Log Out</li>
-                <li>
-                    <div class="gtranslate_wrapper"></div>
-                    <script>
-                        window.gtranslateSettings = {
-                            default_language: "en",
-                            detect_browser_language: true,
-                            wrapper_selector: ".gtranslate_wrapper",
-                            font_size: 100,
-                        };
-                    </script>
-                    <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
-                </li>
-            </ul>
-        </div>
-        <div class="largesection">
-            <div class="main">
-                <div>
-                    <img src="" alt="profile">
-                    <strong>
-                        <p id="username">sdisoilfds</p>
-                    </strong>
-                </div>
-                <div>
-                    <button onclick="openEditModal()" style="cursor: pointer;"><i class="fa-regular fa-pen-to-square"
-                            style="padding: 0px 12px 0px 8px;"></i>Edit Profile</button>
-                </div>
-            </div>
-            <div id="editProfileModal" style="display:none;">
-                <h3 style="margin-left:3vw;font-size: 22px;">Edit Profile</h3>
-                <form id="editForm">
-                    <div id="detail">
-                        <ul>
-                            <li>
-                                <div>Name: </div><input type="text" id="editName" required>
-                            </li>
-                            <li>
-                                <div>Email: </div><input type="email" id="editEmail" required>
-                            </li>
-                            <li>
-                                <div>College Name: </div> <input type="text" id="editCollege" required>
-                            </li>
-                            <li>
-                                <div>State: </div> <input type="text" id="editState" required>
-                            </li>
-                            <li>
-                                <div>Year: </div> <input type="number" id="editYear" required>
-                            </li>
-                            <li>
-                                <div> Course: </div> <span><input type="text" id="editCourse" required></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dualBtns">
-                        <button type="submit" style="  background-color: #04AA6D; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" id="editForm">Save</button>
-                        <button type="button" style="  background-color: #F95454;
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-right: 20px;" onclick="closeEditModal()">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <div id="profileContainer">
-                <div id="detail">
-                    <ul>
-                        <li>Name: <p id="name"></p>
-                        </li>
-                        <li>Email: <p id="email"></p>
-                        </li>
-                        <li>College Name: <p id="col_name"></p>
-                        </li>
-                        <li>State: <p id="state"></p>
-                        </li>
-                        <li>Year: <p id="year"></p>
-                        </li>
-                        <li>Course: <p id="course"></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="result">
-                <strong>Result Status: <p id="status"></p>
-                    <p id="marks"></p>
-                </strong>
-                <div class="data">
-                    <p>the rating given to your Research paper by the faculties are:-</p>
-                </div>
-            </div>
-        </div>
-        <div id="box1">
-            <p>Logout Successfully...</p>
-        </div>
-    </section>
     <style>
         .dualBtns {
             display: flex;
             justify-content: center;
         }
+
+        .btn-save {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .btn-cancel {
+            background-color: #F95454;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        /* Additional styling can go here */
     </style>
+
+</head>
+
+<body>
+    <container class="container">
+        <nav class="side-nav">
+          <div class="logo">
+            <img src="images/Research_Nexas_favicon_io/apple-touch-icon.png" width="60px" height="60px">
+            <h2 class="heading">Unify</h2>
+          </div>
+          <br>
+          <div class="profile-section">
+            <div class="outer-profile">
+                <span class="profile-icon">
+                    <img src="" style="width:30px; height:30px; border-radius: 50px;"></img>
+                </span>
+                <h5 id="username">User</h5>
+            </div>
+            
+            <notification>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="grey" class="bi bi-bell-fill" viewBox="0 0 16 16" >
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                  </svg>
+                  
+            </notification>
+            <count class="count">5</count>
+          </div>
+          <br>
+          <br>
+          <p style="color:bisque">GENERAL</p>
+          <br>
+          <div class="box" onclick="toggleDarkMode()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+              </svg>
+              <p class="text">Change Mode</p>
+          </div>
+          <br>
+          <div class="box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+              </svg>
+              <p class="text">Profile</p>
+          </div>
+          <br>
+          <div class="box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+              </svg>
+              <p class="text" onclick="navigate()"> Home</p>
+          </div>
+          <br>
+          <div class="box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-journals" viewBox="0 0 16 16">
+                <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/>
+                <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/>
+              </svg>
+              <p class="text" onclick="viewResult()"><i class=""></i>View Result</p>
+          </div>
+          <br>
+          <br>
+          <br>
+          <div class="box" id="log">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+              </svg>
+              <h3 style="color:darkgoldenrod" onclick="handleLogout()" >Log Out</h3>
+          </div>
+          <br>
+          <br>
+          <p style="color:bisque" onclick="openEditModal()">EDIT PROFILE</p>
+        </nav>
+        <main style="width:100%">
+            
+        <top class="main-top">
+            <p>
+                <div class="gtranslate_wrapper"></div>
+                <script>
+                    window.gtranslateSettings = {
+                        default_language: "en",
+                        detect_browser_language: true,
+                        wrapper_selector: ".gtranslate_wrapper",
+                        font_size: 100,
+                    };
+                </script>
+                <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+            </p>
+            <div class="profile-pic">
+                <img src="" style="width:50px; height:50px; border-radius: 50px;"></img>
+            </div>
+        </top>
+        <h1  class="user-text">PROFILE</h1>
+        <div style="display:flex;flex-direction:column;">
+            <div class="profile-pic-add">
+                <div>
+                <div class="add-pic">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16" style="position:relative; left:4.6rem; top:5rem">
+                        <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                        <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"/>
+                      </svg>
+                </div>
+                <br>
+                <p style="color:red">Allowed *JPEG, *JPG, *PNG</p>
+            </div>
+            </div>
+            <div class="profile-details">
+            <div id="profileContainer">
+                <div id="detail">
+                    <ul>
+                        <li><span class="detail-text">Name:</span> <p id="name"></p></li>
+                        <li><span class="detail-text">Email: </span><p id="email"></p></li>
+                        <li><span class="detail-text">College Name:</span> <p id="col_name"></p></li>
+                        <li><span class="detail-text">State: </span><p id="state"></p></li>
+                        <li><span class="detail-text">Year:</span> <p id="year"></p></li>
+                        <li><span class="detail-text">Course:</span> <p id="course"></p></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="editProfileModal" style="display: none;">
+                <div id="editForm">
+                    <div id="detail">
+                        <ul>
+                            <li><div class="detail-text">Name: </div><input type="text" id="editName" required style="width:100%; font-size: 18px;"></input></li>
+                            <li><div class="detail-text">Email: </div><input type="email" id="editEmail" required style="width:100%;font-size: 18px;"></input></li>
+                            <li><div class="detail-text">College Name: </div><input type="text" id="editCollege" required style="width:100%;font-size: 18px;"></input></li>
+                            <li><div class="detail-text">State: </div><input type="text" id="editState" required style="width:100%;font-size: 18px;"> </input></li>
+                            <li><div class="detail-text">Year: </div><input type="number" id="editYear" required style="width:100%;font-size: 18px;"></input></li>
+                            <li><div class="detail-text">Course: </div><input type="text" id="editCourse" required style="width:100%;font-size: 18px;"></input></li>
+                        </ul>
+                    </div>
+                    <div class="dualBtns">
+                        <button type="submit" class="btn-save" onclick="submit()">Save</button>
+                        <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="result">
+                <strong>Result Status: <p id="status"></p><p id="marks"></p></strong>
+                <div class="data">
+                    <p>The rating given to your Research paper by the faculties is:</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        
+
+        </main>
+    </container>
     <script>
         const token = localStorage.getItem('accessToken');
         if (!token) {
             window.location.href = '/';
         }
+
+        
+        async function fetchdata() {
+            const token = localStorage.getItem('accessToken');
+            const response = await fetch('/dashboard', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.status == 200) {
+                const data = await response.json();
+                document.getElementById('username').textContent = data.username;
+                document.getElementById('name').textContent = data.name;
+                document.getElementById('email').textContent = data.email;
+                document.getElementById('col_name').textContent = data.col_name;
+                document.getElementById('state').textContent = data.state;
+                document.getElementById('year').textContent = data.year;
+                document.getElementById('course').textContent = data.course;
+            }
+        }
+        fetchdata();
+
+        const toggleDarkMode = () => {
+    const bodyElement = document.querySelector('body');
+    const navElement = document.querySelector('.side-nav');
+    const mainElement=document.querySelector('main')
+    const text=document.querySelector('.user-text')
+    text.classList.toggle('dark-mode')
+    mainElement.classList.toggle('dark-mode');
+    bodyElement.classList.toggle('dark-mode');
+    navElement.classList.toggle('dark-mode');
+};
+
+        const handleLogout = () => {
+            localStorage.removeItem("accessToken");
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        };
+        const navigate=()=>{
+            setTimeout(() => {
+                window.location.href = 'main_page.html';
+            }, 2000);
+        }
+
+
+        const viewResult = async () => {
+        console.log("hello")
+            const token = localStorage.getItem('accessToken');
+            const response = await fetch('/result', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            if (response.status == 201) {
+                const data = await response.json();
+                document.getElementById('status').textContent = data.status;
+                document.getElementById('marks').textContent = data.percent;
+            } else {
+                document.getElementById('result').textContent = "Result not declared yet!";
+                document.getElementById('result').style.color = "red";
+                document.getElementById('result').style.padding = "16px";
+            }
+        };
+
         function openEditModal() {
             document.getElementById('profileContainer').style.display = 'none';
             document.getElementById('editProfileModal').style.display = 'block';
@@ -171,160 +279,49 @@
             document.getElementById('profileContainer').style.display = 'block';
         }
 
-        document.getElementById('editForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+        const submit = async () => {
+    const updatedData = {
+        name: document.getElementById('editName').value,
+        email: document.getElementById('editEmail').value,
+        col_name: document.getElementById('editCollege').value,
+        state: document.getElementById('editState').value,
+        year: document.getElementById('editYear').value,
+        course: document.getElementById('editCourse').value
+    };
 
-            const updatedData = {
-                name: document.getElementById('editName').value,
-                email: document.getElementById('editEmail').value,
-                col_name: document.getElementById('editCollege').value,
-                state: document.getElementById('editState').value,
-                year: document.getElementById('editYear').value,
-                course: document.getElementById('editCourse').value
-            };
-
-            const token = localStorage.getItem('accessToken');
-
-            try {
-                const response = await fetch('/updateProfile', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(updatedData)
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    // Update the DOM with new values
-                    document.getElementById('name').textContent = data.name;
-                    document.getElementById('email').textContent = data.email;
-                    document.getElementById('col_name').textContent = data.col_name;
-                    document.getElementById('state').textContent = data.state;
-                    document.getElementById('year').textContent = data.year;
-                    document.getElementById('course').textContent = data.course;
-                    alert("Profile Updated Successfully")
-
-                    closeEditModal();
-                    fetchdata();
-                } else {
-                    alert("Failed to update profile")
-                    closeEditModal();
-                    console.error('Failed to update profile:', response.statusText);
-                }
-            } catch (error) {
-                console.error('Error updating profile:', error);
-            }
+    try {
+        const response = await fetch('/updateProfile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(updatedData)
         });
-        async function fetchdata() {
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const username = document.getElementById('username');
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const col_name = document.getElementById('col_name');
-            const state = document.getElementById('state');
-            const year = document.getElementById('year');
-            const course = document.getElementById('course');
-            const response = await fetch('/dashboard', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
-            if (response.status == 200) {
-                const data = await response.json();
-                username.textContent = data.username;
-                name.textContent = data.name;
-                email.textContent = data.email;
-                col_name.textContent = data.col_name;
-                state.textContent = data.state;
-                year.textContent = data.year;
-                course.textContent = data.course;
-            }
+
+        if (response.ok) {
+            
+            const data = await response.json();
+
+            console.log("Updated Profile Data:", data);
+
+            
+            alert("Profile Updated Successfully");
+
+         
+            window.location.reload();
+        } else {
+            alert("Failed to update profile");
         }
-        fetchdata()
-        const handleLogout =  () => {
-            const result1 = document.getElementById('box1');
-            result1.style.display = 'block';
-            localStorage.removeItem("accessToken");
-            console.log("logout");
-            setTimeout(() => {
-                        window.location.href = 'index.html';
-            }, 2000)
-        };
+    } catch (error) {
+        console.error('Error updating profile:', error);
+    }
+};
+
+
         
-        function hide() {
-            document.body.classList.toggle("dark-theme");
-            const regularicon = document.getElementById('regular')
-            const solidicon = document.getElementById('solid')
-            const mode = document.getElementById('mode')
-            if (regularicon.style.display == 'inline') {
-                solidicon.style.display = 'inline';
-                regularicon.style.display = 'none';
-                mode.textContent = "Dark Mode"
-            }
-            else {
-                solidicon.style.display = 'none';
-                regularicon.style.display = 'inline';
-                mode.textContent = "Light Mode"
-            }
-        }
-
-
-        const view_profile = () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'block'
-            result.style.display = 'none'
-        }
-
-
-        const view_result = async () => {
-            const detail = document.getElementById('detail')
-            const result = document.getElementById('result')
-            detail.style.display = 'none'
-            result.style.display = 'block'
-            const token = localStorage.getItem('accessToken');
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${token}`);
-            const response = await fetch('/result', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                }
-            })
-            console.log("resoponse",response)
-            if (response.status == 201) {
-                const data = await response.json()
-                const status = document.getElementById('status')
-                const marks = document.getElementById('marks')
-                status.textContent = data.status
-                marks.textContent = data.percent
-            }
-            else if (response.status == 404) {
-                console.log('Result not declared')
-                const result = document.getElementById('result')
-                result.innerHTML = "Result not declared yet!"
-                result.style.color = "red"
-                result.style.padding = "16px"
-                result.style.fontSize = "18px"
-            }
-            else {
-                console.log("an error occured")
-            }
-        }
-    </script>
-
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "iSwsMwg5TfWCzADbpz05-",
-            domain: "www.chatbase.co"
-        }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="iSwsMwg5TfWCzADbpz05-" domain="www.chatbase.co" defer>
     </script>
 </body>
 
 </html>
+
